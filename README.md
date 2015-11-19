@@ -11,7 +11,7 @@ Major libraries, such as SD, SPI, Wire are modified to work with this core
 * ATmega16*
 * ATmega8535*
 
-(* means all varints, such as P, PA, PV and so on)
+(* means all variants, such as P, PA, PV and so on)
 
 
 ##Supported clock frequencies
