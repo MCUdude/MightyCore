@@ -1,5 +1,5 @@
 # MightyCore
-An Arduino core for large, breadboard friendly AVRs, all running Optiboot 6.1
+An Arduino core for large, breadboard friendly AVRs, all running Optiboot 6.1 </br>
 Major libraries, such as SD, SPI, Wire are modified to work with this core
 
 ##Supported microcontrollers
