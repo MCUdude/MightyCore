@@ -1,0 +1,16 @@
+
+
+stk500.name=STK500 as ISP
+stk500.communication=serial
+stk500.protocol=stk500
+stk500.program.protocol=stk500
+stk500.program.tool=avrdude
+stk500.program.extra_params= -P {serial.port} 
+
+stk500hvpp.name=STK500 as HVPP
+stk500hvpp.communication=serial
+stk500hvpp.protocol=stk500pp
+stk500hvpp.program.protocol=stk500pp
+stk500hvpp.program.tool=avrdude
+stk500hvpp.program.extra_params= -P {serial.port}
+
