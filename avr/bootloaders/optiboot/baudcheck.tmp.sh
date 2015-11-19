@@ -1,5 +1,5 @@
 # 1 "baudcheck.c"
-# 1 "/Users/hansi/Documents/Arduino/hardware/DIP-40/avr/bootloaders/optiboot//"
+# 1 "/Users/hansi/Documents/Arduino/hardware/MightyCore/avr/bootloaders/optiboot//"
 # 1 "<command-line>"
 # 1 "baudcheck.c"
 # 24 "baudcheck.c"

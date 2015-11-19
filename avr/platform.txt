@@ -5,7 +5,7 @@
 # For more info:
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5---3rd-party-Hardware-specification
 
-name=Arduino DIP-40
+name=MightyCore
 version=1.6.5
 
 # AVR compile variables

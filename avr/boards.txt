@@ -16,7 +16,7 @@ menu.clock=Clock
 1284.build.board=AVR_ATmega1284
 1284.build.variant=standard1284
 
-#make atmega1284 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega1284 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 1284.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
 1284.menu.clock.16MHz_external.upload.speed=115200
 1284.menu.clock.16MHz_external.bootloader.low_fuses=0xff
@@ -25,7 +25,7 @@ menu.clock=Clock
 1284.menu.clock.16MHz_external.bootloader.file=optiboot/atmega1284/optiboot_atmega1284p_16MHz.hex
 1284.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-#make atmega1284 AVR_FREQ=20000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega1284 AVR_FREQ=20000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 1284.menu.clock.20MHz_external=20MHz external (BOD 4.3v)
 1284.menu.clock.20MHz_external.upload.speed=115200
 1284.menu.clock.20MHz_external.bootloader.low_fuses=0xff
@@ -34,7 +34,7 @@ menu.clock=Clock
 1284.menu.clock.20MHz_external.bootloader.file=optiboot/atmega1284/optiboot_atmega1284p_20MHz.hex
 1284.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-#make atmega1284 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega1284 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 1284.menu.clock.8MHz_internal=8MHz internal   (BOD 2.7v)
 1284.menu.clock.8MHz_internal.upload.speed=57600
 1284.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
@@ -43,18 +43,9 @@ menu.clock=Clock
 1284.menu.clock.8MHz_internal.bootloader.file=optiboot/atmega1284/optiboot_atmega1284p_8MHz.hex
 1284.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-#make atmega1284 AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega1284 AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 1284.menu.clock.1MHz_internal=1MHz internal   (BOD 1.8v)
 1284.menu.clock.1MHz_internal.upload.speed=9600
-1284.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
-1284.menu.clock.1MHz_internal.bootloader.high_fuses=0xde
-1284.menu.clock.1MHz_internal.bootloader.extended_fuses=0xfe
-1284.menu.clock.1MHz_internal.bootloader.file=optiboot/atmega1284/optiboot_atmega1284p_1MHz.hex
-1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
-
-#make atmega1284 AVR_FREQ=1000000L BAUD_RATE=19200 UART=0 LED=B0 LED_START_FLASHES=2
-1284.menu.clock.1MHz_internal=1MHz internal   (BOD 1.8v)
-1284.menu.clock.1MHz_internal.upload.speed=19200
 1284.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 1284.menu.clock.1MHz_internal.bootloader.high_fuses=0xde
 1284.menu.clock.1MHz_internal.bootloader.extended_fuses=0xfe
@@ -80,7 +71,7 @@ menu.clock=Clock
 644.build.board=AVR_ATmega644
 644.build.variant=standard644
 
-#make atmega644p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega644p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 644.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
 644.menu.clock.16MHz_external.upload.speed=115200
 644.menu.clock.16MHz_external.bootloader.low_fuses=0xff
@@ -89,7 +80,7 @@ menu.clock=Clock
 644.menu.clock.16MHz_external.bootloader.file=optiboot/atmega644/optiboot_atmega644p_16MHz.hex
 644.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-#make atmega644p AVR_FREQ=20000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega644p AVR_FREQ=20000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 644.menu.clock.20MHz_external=20MHz external (BOD 4.3v)
 644.menu.clock.20MHz_external.upload.speed=115200
 644.menu.clock.20MHz_external.bootloader.low_fuses=0xff
@@ -98,7 +89,7 @@ menu.clock=Clock
 644.menu.clock.20MHz_external.bootloader.file=optiboot/atmega644/optiboot_atmega644p_20MHz.hex
 644.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-#make atmega644p AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega644p AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 644.menu.clock.8MHz_external=8MHz internal   (BOD 1.8v)
 644.menu.clock.8MHz_external.upload.speed=57600
 644.menu.clock.8MHz_external.bootloader.low_fuses=0xe2
@@ -107,7 +98,7 @@ menu.clock=Clock
 644.menu.clock.8MHz_external.bootloader.file=optiboot/atmega644/optiboot_atmega644p_8MHz.hex
 644.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-#make atmega644p AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2
+#make atmega644p AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 644.menu.clock.1MHz_external=1MHz internal   (BOD 1.8v)
 644.menu.clock.1MHz_external.upload.speed=9600
 644.menu.clock.1MHz_external.bootloader.low_fuses=0x62

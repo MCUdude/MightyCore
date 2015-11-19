@@ -487,7 +487,7 @@ atmega328_pro8_isp: isp
 #
 # Include additional platforms
 include Makefile.extras
-include Makefile.DIP40
+include Makefile.mighty
 
 
 #---------------------------------------------------------------------------
