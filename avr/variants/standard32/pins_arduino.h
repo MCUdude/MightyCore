@@ -164,7 +164,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[32] = {
 	NOT_ON_TIMER,  // PB0 ** D0
 	NOT_ON_TIMER,  // PB1 ** D1
 	NOT_ON_TIMER,  // PB2 ** D2
-	TIMER0A,	   // PB3 ** D3
+	TIMER0,		   // PB3 ** D3
 	NOT_ON_TIMER,  // PB4 ** D4
 	NOT_ON_TIMER,  // PB5 ** D5
 	NOT_ON_TIMER,  // PB6 ** D6
