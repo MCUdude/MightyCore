@@ -21,7 +21,7 @@ Major libraries, such as SD, SPI, Wire are modified to work with this core
 * 1 MHz internal oscillator
 
 ##How to install
-Click on the "Download ZIP" button to the left. Exctract the Zip file, and move the extracted folder to the location "~/Documents/Arduino/hardware". Create the "hardware" folder if it doesn't exist.
+Click on the "Download ZIP" button. Exctract the Zip file, and move the extracted folder to the location "~/Documents/Arduino/hardware". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE, and a new category in the boards menu, called "MightyCore" will show up.
 
 ##Pinout
