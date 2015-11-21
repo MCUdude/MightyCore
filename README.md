@@ -26,5 +26,5 @@ Open Arduino IDE, and a new category in the boards menu, called "MightyCore" wil
 
 ##Pinout
 All the microcontrollers in this core shares the same basic pinout
-Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the pins_arduino.h file for the specified microcontroller
+Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the pins_arduino.h file for the specified microcontroller</br>
 ![MightyCore pinout](http://i.imgur.com/VZHussQ.png "Basic pinout")
