@@ -17,6 +17,7 @@ Major libraries, such as SD, SPI, Wire are modified to work with this core
 ##Supported clock frequencies
 * 20 MHz external oscillator
 * 16 MHz external oscillator (default)
+* 8 MHz external oscillator
 * 8 MHz interal oscillator
 * 1 MHz internal oscillator
 
