@@ -109,7 +109,7 @@ menu.clock=Clock
 644.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 #make atmega644p AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
-644.menu.clock.8MHz_internal=8MHz internal   (BOD 1.8v)
+644.menu.clock.8MHz_internal=8MHz internal   (BOD 2.7v)
 644.menu.clock.8MHz_internal.upload.speed=57600
 644.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 644.menu.clock.8MHz_internal.bootloader.high_fuses=0xde
