@@ -100,7 +100,7 @@ menu.clock=Clock
 644.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 #make atmega644p AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
-644.menu.clock.8MHz_external=8MHz external (BOD 2.7v)
+644.menu.clock.8MHz_external=8MHz external  (BOD 2.7v)
 644.menu.clock.8MHz_external.upload.speed=57600
 644.menu.clock.8MHz_external.bootloader.low_fuses=0xff
 644.menu.clock.8MHz_external.bootloader.high_fuses=0xde
@@ -164,7 +164,7 @@ menu.clock=Clock
 324.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 #make atmega324 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
-324.menu.clock.8MHz_external=8MHz external (BOD 2.7v)
+324.menu.clock.8MHz_external=8MHz external  (BOD 2.7v)
 324.menu.clock.8MHz_external.upload.speed=57600
 324.menu.clock.8MHz_external.bootloader.low_fuses=0xff
 324.menu.clock.8MHz_external.bootloader.high_fuses=0xde
@@ -189,65 +189,6 @@ menu.clock=Clock
 324.menu.clock.1MHz_internal.bootloader.extended_fuses=0xfe
 324.menu.clock.1MHz_internal.bootloader.file=optiboot/atmega324/optiboot_atmega324p_1MHz.hex
 324.menu.clock.1MHz_internal.build.f_cpu=1000000L
-
-
-############################################################
-
-
-32.name=ATmega32
-32.upload.tool=avrdude
-32.upload.protocol=arduino
-32.upload.maximum_size=32256
-32.upload.maximum_data_size=2048
-
-32.bootloader.tool=avrdudeCustom
-32.bootloader.unlock_bits=0x3f
-32.bootloader.lock_bits=0x0f
-
-32.build.mcu=atmega32
-32.build.core=modified_16_164_32_324_8535
-32.build.board=AVR_ATmega32
-32.build.variant=standard32
-
-#make atmega32 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
-32.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
-32.menu.clock.16MHz_external.upload.speed=115200
-32.menu.clock.16MHz_external.bootloader.low_fuses=0xbf
-32.menu.clock.16MHz_external.bootloader.high_fuses=0xde
-32.menu.clock.16MHz_external.bootloader.file=optiboot/atmega32/optiboot_atmega32_16MHz.hex
-32.menu.clock.16MHz_external.build.f_cpu=16000000L
-
-#make atmega32 AVR_FREQ=20000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
-32.menu.clock.20MHz_external=20MHz external (BOD 4.0v)
-32.menu.clock.20MHz_external.upload.speed=115200
-32.menu.clock.20MHz_external.bootloader.low_fuses=0x3f
-32.menu.clock.20MHz_external.bootloader.high_fuses=0xde
-32.menu.clock.20MHz_external.bootloader.file=optiboot/atmega32/optiboot_atmega32_20MHz.hex
-32.menu.clock.20MHz_external.build.f_cpu=20000000L
-
-#make atmega32 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
-32.menu.clock.8MHz_external=8MHz external (BOD 2.7v)
-32.menu.clock.8MHz_external.upload.speed=57600
-32.menu.clock.8MHz_external.bootloader.low_fuses=0xbf
-32.menu.clock.8MHz_external.bootloader.high_fuses=0xde
-32.menu.clock.8MHz_external.bootloader.file=optiboot/atmega32/optiboot_atmega32_8MHz.hex
-32.menu.clock.8MHz_external.build.f_cpu=8000000L
-
-#make atmega32 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
-32.menu.clock.8MHz_internal=8MHz internal   (BOD 2.7v)
-32.menu.clock.8MHz_internal.upload.speed=57600
-32.menu.clock.8MHz_internal.bootloader.low_fuses=0xa4
-32.menu.clock.8MHz_internal.bootloader.high_fuses=0xde
-32.menu.clock.8MHz_internal.bootloader.file=optiboot/atmega32/optiboot_atmega32_8MHz.hex
-32.menu.clock.8MHz_internal.build.f_cpu=8000000L
-
-#make atmega32 AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2
-32.menu.clock.1MHz_internal=1MHz internal   (BOD 2.7v)
-32.menu.clock.1MHz_internal.upload.speed=9600
-32.menu.clock.1MHz_internal.bootloader.low_fuses=0xa1
-32.menu.clock.1MHz_internal.bootloader.high_fuses=0xde
-32.menu.clock.1MHz_internal.bootloader.file=optiboot/atmega32/optiboot_atmega32_1MHz.hex
-32.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
 ############################################################
@@ -287,7 +228,7 @@ menu.clock=Clock
 164.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 #make atmega164 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
-164.menu.clock.8MHz_external=8MHz external (BOD 2.7v)
+164.menu.clock.8MHz_external=8MHz external   (BOD 2.7v)
 164.menu.clock.8MHz_external.upload.speed=57600
 164.menu.clock.8MHz_external.bootloader.low_fuses=0xff
 164.menu.clock.8MHz_external.bootloader.high_fuses=0xdc
@@ -296,7 +237,7 @@ menu.clock=Clock
 164.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 #make atmega164 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
-164.menu.clock.8MHz_internal=8MHz internal (BOD 2.7v)
+164.menu.clock.8MHz_internal=8MHz internal   (BOD 2.7v)
 164.menu.clock.8MHz_internal.upload.speed=57600
 164.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 164.menu.clock.8MHz_internal.bootloader.high_fuses=0xdc
@@ -305,13 +246,72 @@ menu.clock=Clock
 164.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 #make atmega164 AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2
-164.menu.clock.1MHz_internal=1MHz internal (BOD 2.7v)
+164.menu.clock.1MHz_internal=1MHz internal   (BOD 2.7v)
 164.menu.clock.1MHz_internal.upload.speed=9600
 164.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 164.menu.clock.1MHz_internal.bootloader.high_fuses=0xdc
 164.menu.clock.1MHz_internal.bootloader.extended_fuses=0xfe
 164.menu.clock.1MHz_internal.bootloader.file=optiboot/atmega164/optiboot_atmega164p_1MHz.hex
 164.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+
+############################################################
+
+
+32.name=ATmega32
+32.upload.tool=avrdude
+32.upload.protocol=arduino
+32.upload.maximum_size=32256
+32.upload.maximum_data_size=2048
+
+32.bootloader.tool=avrdudeCustom
+32.bootloader.unlock_bits=0x3f
+32.bootloader.lock_bits=0x0f
+
+32.build.mcu=atmega32
+32.build.core=modified_16_164_32_324_8535
+32.build.board=AVR_ATmega32
+32.build.variant=standard32
+
+#make atmega32 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
+32.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
+32.menu.clock.16MHz_external.upload.speed=115200
+32.menu.clock.16MHz_external.bootloader.low_fuses=0xbf
+32.menu.clock.16MHz_external.bootloader.high_fuses=0xde
+32.menu.clock.16MHz_external.bootloader.file=optiboot/atmega32/optiboot_atmega32_16MHz.hex
+32.menu.clock.16MHz_external.build.f_cpu=16000000L
+
+#make atmega32 AVR_FREQ=20000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
+32.menu.clock.20MHz_external=20MHz external (BOD 4.0v)
+32.menu.clock.20MHz_external.upload.speed=115200
+32.menu.clock.20MHz_external.bootloader.low_fuses=0x3f
+32.menu.clock.20MHz_external.bootloader.high_fuses=0xde
+32.menu.clock.20MHz_external.bootloader.file=optiboot/atmega32/optiboot_atmega32_20MHz.hex
+32.menu.clock.20MHz_external.build.f_cpu=20000000L
+
+#make atmega32 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
+32.menu.clock.8MHz_external=8MHz external  (BOD 2.7v)
+32.menu.clock.8MHz_external.upload.speed=57600
+32.menu.clock.8MHz_external.bootloader.low_fuses=0xbf
+32.menu.clock.8MHz_external.bootloader.high_fuses=0xde
+32.menu.clock.8MHz_external.bootloader.file=optiboot/atmega32/optiboot_atmega32_8MHz.hex
+32.menu.clock.8MHz_external.build.f_cpu=8000000L
+
+#make atmega32 AVR_FREQ=8000000L BAUD_RATE=57600 UART=0 LED=B0 LED_START_FLASHES=2
+32.menu.clock.8MHz_internal=8MHz internal   (BOD 2.7v)
+32.menu.clock.8MHz_internal.upload.speed=57600
+32.menu.clock.8MHz_internal.bootloader.low_fuses=0xa4
+32.menu.clock.8MHz_internal.bootloader.high_fuses=0xde
+32.menu.clock.8MHz_internal.bootloader.file=optiboot/atmega32/optiboot_atmega32_8MHz.hex
+32.menu.clock.8MHz_internal.build.f_cpu=8000000L
+
+#make atmega32 AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2
+32.menu.clock.1MHz_internal=1MHz internal   (BOD 2.7v)
+32.menu.clock.1MHz_internal.upload.speed=9600
+32.menu.clock.1MHz_internal.bootloader.low_fuses=0xa1
+32.menu.clock.1MHz_internal.bootloader.high_fuses=0xde
+32.menu.clock.1MHz_internal.bootloader.file=optiboot/atmega32/optiboot_atmega32_1MHz.hex
+32.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
 ############################################################
@@ -349,7 +349,7 @@ menu.clock=Clock
 16.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 #make atmega16 AVR_FREQ=8000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
-16.menu.clock.8MHz_external=8MHz external (BOD 2.7v)
+16.menu.clock.8MHz_external=8MHz external   (BOD 2.7v)
 16.menu.clock.8MHz_external.upload.speed=115200
 16.menu.clock.8MHz_external.bootloader.low_fuses=0xbf
 16.menu.clock.8MHz_external.bootloader.high_fuses=0xdc
@@ -357,7 +357,7 @@ menu.clock=Clock
 16.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 #make atmega16 AVR_FREQ=8000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
-16.menu.clock.8MHz_internal=8MHz internal   (BOD 2.7v)
+16.menu.clock.8MHz_internal=8MHz internal    (BOD 2.7v)
 16.menu.clock.8MHz_internal.upload.speed=115200
 16.menu.clock.8MHz_internal.bootloader.low_fuses=0xa4
 16.menu.clock.8MHz_internal.bootloader.high_fuses=0xdc
@@ -365,7 +365,7 @@ menu.clock=Clock
 16.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 #make atmega16 AVR_FREQ=1000000L BAUD_RATE=9600 UART=0 LED=B0 LED_START_FLASHES=2
-16.menu.clock.1MHz_internal=1MHz internal   (BOD 2.7v)
+16.menu.clock.1MHz_internal=1MHz internal    (BOD 2.7v)
 16.menu.clock.1MHz_internal.upload.speed=9600
 16.menu.clock.1MHz_internal.bootloader.low_fuses=0xa1
 16.menu.clock.1MHz_internal.bootloader.high_fuses=0xdc
@@ -408,7 +408,7 @@ menu.clock=Clock
 8535.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 #make atmega8535 AVR_FREQ=8000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
-8535.menu.clock.8MHz_external=8MHz external (BOD 2.7v)
+8535.menu.clock.8MHz_external=8MHz external   (BOD 2.7v)
 8535.menu.clock.8MHz_external.upload.speed=115200
 8535.menu.clock.8MHz_external.bootloader.low_fuses=0xbf
 8535.menu.clock.8MHz_external.bootloader.high_fuses=0xdc
