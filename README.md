@@ -18,8 +18,8 @@ Major libraries, such as SD, SPI, Wire are modified to work with this core
 * 20 MHz external oscillator
 * 16 MHz external oscillator (default)
 * 8 MHz external oscillator
-* 8 MHz interal oscillator
-* 1 MHz internal oscillator
+* 8 MHz internal oscillator
+* 1 MHz internal oscillator 
 
 ##How to install
 Click on the "Download ZIP" button. Exctract the Zip file, and move the extracted folder to the location "~/Documents/Arduino/hardware". Create the "hardware" folder if it doesn't exist.
