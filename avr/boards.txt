@@ -2,7 +2,7 @@ menu.clock=Clock
 ############################################################
 
 1284.name=ATmega1284p
-1284.upload.tool=arduino:avrdude
+1284.upload.tool=avrdude
 1284.upload.protocol=arduino
 1284.upload.maximum_size=130048
 1284.upload.maximum_data_size=16384
@@ -12,7 +12,7 @@ menu.clock=Clock
 1284.bootloader.lock_bits=0x0f
 
 1284.build.mcu=atmega1284p
-1284.build.core=arduino:arduino
+1284.build.core=standard
 1284.build.board=AVR_ATmega1284
 1284.build.variant=standard1284
 
@@ -67,7 +67,7 @@ menu.clock=Clock
 
 
 644.name=ATmega644p
-644.upload.tool=arduino:avrdude
+644.upload.tool=avrdude
 644.upload.protocol=arduino
 644.upload.maximum_size=64512
 644.upload.maximum_data_size=4096
@@ -77,7 +77,7 @@ menu.clock=Clock
 644.bootloader.lock_bits=0x0f
 
 644.build.mcu=atmega644p
-644.build.core=arduino:arduino
+644.build.core=standard
 644.build.board=AVR_ATmega644
 644.build.variant=standard644
 
