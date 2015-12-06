@@ -27,7 +27,7 @@ Click on the "Download ZIP" button. Exctract the Zip file, and move the extracte
 Open Arduino IDE, and a new category in the boards menu, called "MightyCore" will show up.
 
 ##Hardware
-I've designed a development board for this particular core. I've added all the functionality I've missed with the original Arduino boards, and added the original AVR pinout. <br/>
+I've designed a development board for this particular core. I've added all the functionality I've missed with the original Arduino boards, and added the original AVR pinout. 
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. <br/>
 The development board got some additional features not all Arduino compatible boards got:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
@@ -40,9 +40,13 @@ The development board got some additional features not all Arduino compatible bo
 * Socketed crystal, perfect for experimenting with different clock frequencies
 * A Reset enable header to disable auto-reset when uploading new code or opening the serial monitor <br/>
 
-I'm thinking about selling these as bare PCBs and as complete assembled boards including a microcontroller. More info about will be added later!
+I'm thinking about selling these as bare PCBs and as complete assembled boards including a microcontroller. More info about will be added later!<br/>
+Click the images for full resolution :) <br/>
 ![Development board front](http://i.imgur.com/zovyQUy.jpg)
+<br/>
 ![Development board back](http://i.imgur.com/cWmPBWh.jpg)
+<br/>
+![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
 
 ##Pinout
 All the microcontrollers in this core use the same basic pinout
