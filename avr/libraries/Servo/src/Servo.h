@@ -60,7 +60,7 @@
 
 // Architecture specific include
 #if defined(ARDUINO_ARCH_AVR)
-#include "avr/ServoTimers.h"
+#include "ServoTimers.h"
 #else
 #error "This library only supports boards with an AVR processor."
 #endif
