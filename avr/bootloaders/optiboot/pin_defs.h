@@ -12,7 +12,8 @@
  */
 
 /*------------------------------------------------------------------------ */
-#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega88) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
+#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__) \
+	|| defined(__AVR_ATmega88) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega88__)
 /*------------------------------------------------------------------------ */
 
 /* Onboard LED is connected to pin PB5 in Arduino NG, Diecimila, and Duemilanove
@@ -86,28 +87,12 @@
   #define WDCE		WDTOE
 #endif
 
-/* Luminet support */
-/*------------------------------------------------------------------------ */
-#if defined(__AVR_ATtiny84__)
-/*------------------------------------------------------------------------ */
-/* Red LED is connected to pin PA4 */ 
-#if !defined(LED)
-#define LED         A4
-#endif
-
-/* Ports for soft UART - left port only for now. TX/RX on PA2/PA3 */
-#ifdef SOFT_UART
-#define UART_PORT   PORTA
-#define UART_PIN    PINA
-#define UART_DDR    DDRA
-#define UART_TX_BIT 2
-#define UART_RX_BIT 3
-#endif
-#endif
 
 /*------------------------------------------------------------------------ */
 /* Sanguino support (and other 40pin DIP cpus) */
-#if defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega324__) ||  defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega164__)
+#if defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega324__) \
+    || defined(__AVR_ATmega164__) ||  defined(__AVR_ATmega32__) || defined(__AVR_ATmega16__) \
+	|| defined(__AVR_ATmega8535__)
 /*------------------------------------------------------------------------ */
 /* Onboard LED is connected to pin PB0 on Sanguino */ 
 #if !defined(LED)

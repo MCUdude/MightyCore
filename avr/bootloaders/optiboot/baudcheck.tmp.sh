@@ -3,9 +3,9 @@
 # 1 "<command-line>"
 # 1 "baudcheck.c"
 # 24 "baudcheck.c"
-bpsx=9600
+bpsx=115200
 bps=${bpsx/L/}
-fcpux=1000000L
+fcpux=16000000L
 fcpu=${fcpux/L/}
 
 
