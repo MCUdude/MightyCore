@@ -1,7 +1,7 @@
 # MightyCore
-An Arduino core for large, breadboard friendly AVRs, all running Optiboot 6.1 </br>
-Major libraries such as SD, Servo SPI and Wire are modified to work with this core. My experience is that a large amount of third-party libraries works out of the box with no modifications.
-
+An Arduino core for large, breadboard friendly AVRs, all running Optiboot 6.1 <br/>
+Major libraries such as SD, Servo SPI and Wire are modified to work with this core. My experience is that a large amount of third-party libraries also works without any modifications. <br/>
+This core requires at least Arduino IDE v1.6.x, where v1.6.3+ is recommended.
 
 ##Supported microcontrollers
 * ATmega1284*
@@ -41,11 +41,11 @@ The development board got some additional features not all Arduino compatible bo
 * A Reset enable header to disable auto-reset when uploading new code or opening the serial monitor <br/>
 
 I'm thinking about selling these as bare PCBs and as complete assembled boards including a microcontroller. More info about will be added later!<br/>
-Click the images for full resolution :) <br/>
+Click the images for full resolution :) <br>
 ![Development board front](http://i.imgur.com/zovyQUy.jpg)
-<br/>
+<br>
 ![Development board back](http://i.imgur.com/cWmPBWh.jpg)
-<br/>
+<br>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
 
 ##Pinout
