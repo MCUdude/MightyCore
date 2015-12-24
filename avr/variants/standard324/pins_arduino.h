@@ -65,8 +65,8 @@ static const uint8_t A7 = 31;
 #define digitalPinToPCMSK(p)    (((p) <= 7) ? (&PCMSK2) : (((p) <= 13) ? (&PCMSK0) : (((p) <= 21) ? (&PCMSK1) : ((uint8_t *)0))))
 #define digitalPinToPCMSKbit(p) ((p) % 8)
 
-/**** Needed to get the SD library to work, 
-caused by some changes in the iom324.h file ****/
+/**** Needed to get the SD library to work. 
+Missing definitions in the iom324.h file ****/
 #define SPR0 0
 #define SPR1 1
 #define CPHA 2
