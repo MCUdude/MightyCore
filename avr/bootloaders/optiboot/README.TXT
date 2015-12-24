@@ -1,14 +1,11 @@
-This directory contains the Optiboot small bootloader for AVR
-microcontrollers, somewhat modified specifically for the Arduino
-environment.
+This copy of Optiboot is modified to work with ATmega8535, ATmega164 and ATmega324.
+All ‘make’ commands needed to build Optiboot from source can be found in the boards.txt file.
 
-Optiboot is more fully described here: http://code.google.com/p/optiboot/
+
+Optiboot is more fully described here: https://github.com/Optiboot/optiboot
 and is the work of Peter Knight (aka Cathedrow), building on work of Jason P
 Kyle, Spiff, and Ladyada.  Arduino-specific modification are by Bill
 Westfield (aka WestfW)
-
-Arduino-specific issues are tracked as part of the Arduino project
-at http://code.google.com/p/arduino
 
 
 ------------------------------------------------------------
