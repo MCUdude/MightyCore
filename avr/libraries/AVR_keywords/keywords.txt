@@ -1,9 +1,3 @@
-#FUNCTIONS COLOR 			#D35400 - ORANGE			KEYWORD1
-#FUNCTIONS COLOR			#D35400 - ORANGE			KEYWORD2
-#STRUCTURE COLORS 			#5E6D03 - GREEN				KEYWORD3
-#VARIABLES COLOR 			#00979C - BLUE				LITERAL1
-
-
 # This file is a work in progress. The plan is to add (all/most) AVR specific words, so
 # they get highlighted in the Arduino IDE when used
 # More libraries will be added later
@@ -22,6 +16,7 @@ __AVR_ATmega644P__	KEYWORD3	 	RESERVED_WORD
 __AVR_ATmega644PA__	KEYWORD3	 	RESERVED_WORD
 __AVR_ATmega1284__	KEYWORD3	 	RESERVED_WORD
 __AVR_ATmega1284P__	KEYWORD3	 	RESERVED_WORD
+__ASM__	KEYWORD3	 	RESERVED_WORD
 F_CPU 	LITERAL2		RESERVED_WORD_2
 main	KEYWORD3	 	RESERVED_WORD
 
