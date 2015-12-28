@@ -24,8 +24,21 @@ If you're into "pure" AVR programming, I'm happy to tell you that all relevant k
 * 1 MHz internal oscillator 
 
 ##How to install
-Click on the "Download ZIP" button. Exctract the ZIP file, and move the extracted folder to the location "~/Documents/Arduino/hardware". Create the "hardware" folder if it doesn't exist.
-Open Arduino IDE, and a new category in the boards menu, called "MightyCore" will show up.
+#### Boards Manager Installation
+This installation method requires Arduino IDE version 1.6.4 or greater.
+* Open the Arduino IDE.
+* Open the **File > Preferences** menu item.
+* Enter the following URL in **Additional Boards Manager URLs**: https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json
+* Open the **Tools > Board > Boards Manager...** menu item.
+* Wait for the platform indexes to finish downloading.
+* Scroll down until you see the **MightyCore** entry and click on it.
+  * **Note**: If you are using Arduino IDE 1.6.6 then you may need to close **Boards Manager** and then reopen it before the **MightyCore** entry will appear.
+* Click **Install**.
+* After installation is complete close the **Boards Manager** window.
+
+#### Manual Installation
+Click on the "Download ZIP" button. Exctract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
+Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
 
 ##How do I change the clock frequency?
 Select your microcontroller in the boards menu, then select the clock frequency. If you want to change the clock frequency, you'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
