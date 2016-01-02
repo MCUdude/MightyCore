@@ -37,7 +37,7 @@
    PCINT7-0: D31-24   : bit 0
 */
 
-#define NUM_DIGITAL_PINS            31
+#define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 24 : -1)
 
