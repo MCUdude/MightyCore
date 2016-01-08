@@ -47,7 +47,7 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 ##Hardware
 I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0*10.0 cm.<br/>
-The development board got some additional features not all Arduino compatible boards got:
+The development board got some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
 * All pins are located at the same side of the board, making it easy to hook it up to a breadboard
 * Possible to add both male and female header for the IO pins (and solder a row of male headers under the board for breadboarding)
@@ -59,7 +59,7 @@ The development board got some additional features not all Arduino compatible bo
 * A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor <br/>
 * IO peripherals can be found on the underside of the board. No need to search in the datasheet anymore!
 
-I'm thinking about selling these as complete assembled boards including a microcontroller. More info about price will be added later!<br/>
+I'm thinking about selling these as complete assembled boards including a microcontroller. Price will be about 30$ + shipping. More info will be added later!<br/>
 Click the images for full resolution :) <br/>
 ![Development board front](http://i.imgur.com/zovyQUy.jpg)
 <br/>
@@ -68,6 +68,6 @@ Click the images for full resolution :) <br/>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
 
 ##Pinout
-All the microcontrollers in this core use the same basic pinout
-Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the pins_arduino.h file for the specified microcontroller<br/>
+All the microcontrollers in this core use the same basic pinout.
+Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the pins_arduino.h file for the specified microcontroller.<br/>
 ![MightyCore pinout](http://i.imgur.com/VZHussQ.png "Basic pinout")
