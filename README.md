@@ -49,7 +49,7 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 
 ##Hardware
 I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
-Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0*10.0 cm.<br/>
+Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board got some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
 * All pins are located at the same side of the board, making it easy to hook it up to a breadboard
@@ -57,10 +57,14 @@ The development board got some additional unique features:
 * A JTAG header for programming and debugging
 * A high voltage parallel programming header for programming and fixing bad fuse settings (pin compatible with the AVR Dragon)
 * A potmeter for using as a voltage reference (e.g adjusting the LCD contrast)
-* LOTS of 5V, 3.3V and GND points broken out
+* LOTS of 5V, 3.3V and GND points broken out, both male and female
 * Socketed crystal, perfect for experimenting with different clock frequencies
-* A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor <br/>
+* A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor
+* PWM pins are clearly marked, and a lookup table can be found on the under side of the board (three '~'s - all microcontrollers, two '~'s - 164; 324; 644; 1284, one '~' - 1284)
 * IO peripherals can be found on the underside of the board. No need to search in the datasheet anymore!
+* Mini USB instead of the large USB Type-B plug
+* The USB to serial chip is broken out on the underside of the board in a standard "FTDI pinout" for using the board as a USB to serial adapter, or for using an external programmer instead
+* The rest of the hand shake pins (CTS, DTR, RI, DCD) in the USB to serial adapter are broken out for other applications, such as bit banging
 
 I'm thinking about selling these as complete assembled boards including a microcontroller. Price will be about 30$ + shipping. More info will be added later!<br/>
 Click the images for full resolution :) <br/>
