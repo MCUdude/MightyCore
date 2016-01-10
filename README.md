@@ -57,7 +57,7 @@ The development board got some additional unique features:
 * A JTAG header for programming and debugging
 * A high voltage parallel programming header for programming and fixing bad fuse settings (pin compatible with the AVR Dragon)
 * A potmeter for using as a voltage reference (e.g adjusting the LCD contrast)
-* LOTS of 5V, 3.3v and GND points broken out
+* LOTS of 5V, 3.3V and GND points broken out
 * Socketed crystal, perfect for experimenting with different clock frequencies
 * A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor <br/>
 * IO peripherals can be found on the underside of the board. No need to search in the datasheet anymore!
