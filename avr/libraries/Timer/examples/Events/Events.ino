@@ -1,3 +1,11 @@
+/* ARDUINO TIMER LIBRARY 
+   https://github.com/JChristensen/Timer/tree/v2.1
+
+   This sketch demonstrates the usage of events,
+   and that they got diffrent IDs.
+   Works great with MightyCore!
+*/
+
 #include "Timer.h"
 
 int ledPin = 0;     // LED is attached to digital pin 0
@@ -17,24 +25,38 @@ void setup() {
   
   Serial.begin(9600);
   pinMode(ledPin, OUTPUT); // Define ledPin as an output
-  
-  tickEvent = t.every(pause1, doSomething, (void*)1); // Run the doSomething method every 1000th millisecond, and store the timer ID to tickEvent. Send the value '1' as an argument to the doSomething method
+
+
+/* Run the doSomething method every 1000th millisecond, 
+   and store the timer ID to tickEvent. Send the value
+   '1' as an argument to the doSomething method, then
+   print the event ID on the serial monitor */
   Serial.print("1 second tick started. ID = ");
-  Serial.println(tickEvent); // Prints the timer ID
-  
-  ledEvent = t.oscillate(ledPin, pause2, HIGH); // Let ledPin toggle every 2000th millisecond with start condition HIGH and store the timer ID to ledEvent
+  tickEvent = t.every(pause1, doSomething, (void*)1); 
+  Serial.println(tickEvent); 
+
+
+/* Let ledPin toggle every 2000th millisecond with start
+   condition HIGH and store the timer ID to ledEvent.
+   Finally print the event ID on the serial monitor */
+  ledEvent = t.oscillate(ledPin, pause2, HIGH);
   Serial.print("LED event started. ID = ");
-  Serial.println(ledEvent); // Prints the timer ID
-  
-  afterEvent = t.after(pause3, doAfter, (void*)10); // Run the doAfter method once after 10000 milliseconds and srore the timer ID to afterEvent. Send the value '10' as an argument to the doAfter method
+  Serial.println(ledEvent); 
+
+
+/* Run the doAfter method once after 10000 milliseconds 
+   and srore the timer ID to afterEvent. Send the value
+   '10' as an argument to the doAfter method, then print
+   the event ID on the serial monitor */
+  afterEvent = t.after(pause3, doAfter, (void*)10); 
   Serial.print("After event started. ID = ");
-  Serial.println(afterEvent); // Prints the timer ID 
+  Serial.println(afterEvent); 
   
 }
 
-void loop() {
-  t.update();
-  
+void loop() 
+{
+  t.update(); // Updates the timer
 }
 
 void doSomething(void* context) {
