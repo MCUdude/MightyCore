@@ -2,7 +2,10 @@
 An Arduino core for large, breadboard friendly AVRs, all running Optiboot 6 <br/>
 Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. <br/>
 This core requires at least Arduino IDE v1.6, where v1.6.5 is recommended.<br/>
-If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file.
+If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. <br />
+**If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
+but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. 
+Read more about this board in the hardware section below (A link to buy the board will be added any day soon).**
 
 ##Supported microcontrollers
 * ATmega1284*
@@ -68,6 +71,6 @@ Click the images for full resolution :) <br/>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
 
 ##Pinout
-All the microcontrollers in this core use the same basic pinout.
+All the microcontrollers in this core use the same basic pinout. 
 Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the pins_arduino.h file for the specified microcontroller.<br/>
 ![MightyCore pinout](http://i.imgur.com/VZHussQ.png "Basic pinout")
