@@ -4,8 +4,8 @@ Major libraries such as SD, Servo, SPI and Wire are modified to work with this c
 This core requires at least Arduino IDE v1.6, where v1.6.5 is recommended.<br/>
 If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. <br />
 **If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
-but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. 
-Read more about this board in the hardware section below (A link to buy the board will be added any day soon).**
+but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
+Read more in the hardware section below.**
 
 ##Supported microcontrollers
 * ATmega1284*
@@ -66,8 +66,9 @@ The development board got some additional unique features:
 * The USB to serial chip is broken out on the underside of the board in a standard "FTDI pinout" for using the board as a USB to serial adapter, or for using an external programmer instead
 * The rest of the hand shake pins (CTS, DTR, RI, DCD) in the USB to serial adapter are broken out for other applications, such as bit banging
 
-I'm thinking about selling these as complete assembled boards including a microcontroller. Price will be about 30$ + shipping. More info will be added later!<br/>
-Click the images for full resolution :) <br/>
+####[The development board can be bought on my Tindie store.](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board/) This includes a pre programmed ATmega32. <br/>
+<br/>
+Click the images for full resolution <br/>
 ![Development board front](http://i.imgur.com/zovyQUy.jpg)
 <br/>
 ![Development board back](http://i.imgur.com/cWmPBWh.jpg)
