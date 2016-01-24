@@ -76,6 +76,8 @@ Click the images for full resolution <br/>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
 
 ##Pinout
-All the microcontrollers in this core use the same basic pinout. 
-Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the [pins_arduino.h file for the specified microcontroller.](https://github.com/MCUdude/MightyCore/tree/master/avr/variants)<br/>
-![MightyCore pinout](http://i.imgur.com/VZHussQ.png "Basic pinout")
+All the microcontrollers in this core use the same basic pinout, and can be modified in the `pins_arduino.h` file for each microcontroller.
+![MightyCore pinout ATmega8535/16/32](http://i.imgur.com/wWO2gv9.png "Standard pinout")
+<br/>
+<br/>
+![MightyCore pinout ATmega164/324/644p/1284](http://i.imgur.com/Dl0OcNa.png "Standard pinout")
