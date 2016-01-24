@@ -73,10 +73,18 @@ Click the images for full resolution <br/>
 ![Development board back](http://i.imgur.com/cWmPBWh.jpg)
 <br/>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
-
+<br/>
+<br/>
+<br/>
 ##Pinout
 All the microcontrollers in this core use the same basic pinout, and can be modified in the `pins_arduino.h` file for each microcontroller.
+<br/>
+<br/>
+<br/>
+<br/>
 ![MightyCore pinout ATmega8535/16/32](http://i.imgur.com/wWO2gv9.png "Standard pinout")
+<br/>
+<br/>
 <br/>
 <br/>
 ![MightyCore pinout ATmega164/324/644p/1284](http://i.imgur.com/Dl0OcNa.png "Standard pinout")
