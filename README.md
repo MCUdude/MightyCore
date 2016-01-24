@@ -1,5 +1,5 @@
 # MightyCore
-An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot) <br/>
+An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot). <br/>
 Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. <br/>
 This core requires at least Arduino IDE v1.6, where v1.6.5 is recommended.<br/>
 If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the example files (File > Examples > AVR keywords).<br />
@@ -77,5 +77,5 @@ Click the images for full resolution <br/>
 
 ##Pinout
 All the microcontrollers in this core use the same basic pinout. 
-Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the pins_arduino.h file for the specified microcontroller.<br/>
+Note that there are some differences when it comes to PWM pins and hardware serial. For more information, please look in the datasheet or in the [pins_arduino.h file for the specified microcontroller.](https://github.com/MCUdude/MightyCore/tree/master/avr/variants)<br/>
 ![MightyCore pinout](http://i.imgur.com/VZHussQ.png "Basic pinout")
