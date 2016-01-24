@@ -46,7 +46,9 @@ int main(void)
 
 // Method to set a pin HIGH
 void SetPinHigh(volatile byte *port, byte pin)
+{
   *port |= (1 << pin); // 0b00000001 where the number '1' are shifted left 'pin' times
+}
 
 // Method to set pin LOW
 void SetPinLow(volatile byte *port, byte pin)
