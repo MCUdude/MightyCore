@@ -1,5 +1,5 @@
 # MightyCore
-An Arduino core for large, breadboard friendly AVRs, all running Optiboot 6 <br/>
+An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot) <br/>
 Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. <br/>
 This core requires at least Arduino IDE v1.6, where v1.6.5 is recommended.<br/>
 If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the example files (File > Examples > AVR keywords).<br />
