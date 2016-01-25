@@ -68,7 +68,7 @@ recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf
 
 ## Save compiled hex
 recipe.output.tmp_file={build.project_name}.hex
-recipe.output.save_file={build.project_name}_{build.mcu}.hex
+recipe.output.save_file={build.project_name}_{build.mcu}_{build.f_cpu}.hex
 
 ## Compute size
 recipe.size.pattern="{compiler.path}{compiler.size.cmd}" -A "{build.path}/{build.project_name}.elf"
