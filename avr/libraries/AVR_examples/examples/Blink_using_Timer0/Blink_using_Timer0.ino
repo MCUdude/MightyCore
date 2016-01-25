@@ -1,4 +1,5 @@
-/* This sketch makes the pin PB0 toggle every second
+/************************************************************* 
+ This sketch makes the pin PB0 toggle every second
  (if you have a 16MHz crystal attached). It uses Timer0
  or Timer0B, and divide the clock frequncy by 1024.
  The divided frequencys period is multiplied with the
@@ -9,8 +10,9 @@
  16MHz / 1024 = 15625 hz        We divide the 16 MHz clock by 1024
  1/15625 = 0.000064s            Period time
  256 * 0.000064 = 0.016384      
- 0.016384 * 61 = 0.999424 ≈ 1s   X = 0.999424 / 0.016384 where X is approximately 61
- */
+ 0.016384 * 61 = 0.999424 ≈ 1s   
+ X = 0.999424 / 0.016384 where X is approximately 61
+**************************************************************/ 
 
 
 #include <avr/io.h>

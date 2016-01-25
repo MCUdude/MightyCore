@@ -1,4 +1,5 @@
-/* This sketch measures the period of a square wave.
+/************************************************************** 
+ This sketch measures the period of a square wave.
  The square wave connected to PD6 are measured and printed
  on the serial monitor. The measurement starts and stops
  on rising edge.
@@ -7,7 +8,7 @@
  2000 counts have occured. Dividinng the counts by 2000
  produces the actual number of milliseconds in the measurement
  period.
- */
+ **************************************************************/
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
