@@ -20,30 +20,39 @@ int main(void)
    A few different ways to set a pin as output and 
    ignore the rest of the pins. Pick your favorite!
   *************************************************/
-  DDRB |= 0x01; 		 // XXXXXXXX | 00000001 = XXXXXXX1
+  DDRB |= 0x01; 		// XXXXXXXX | 00000001 = XXXXXXX1
   //DDRB |= _BV(DDB0);	 // Set data direction register B bit 0 as output, ignore the rest
-  //DDRB |= (1 << DDB0); // Shift the number '1' left 'DDB0' times
-  
+  //DDRB |= (1 << DDB0); // Shift the number '1' left 'DDB0' times (DDB0 = 1)
+
+
+
+  /************************************************ 
+   A few different ways to set a pin as input and 
+   ignore the rest of the pins.
+  *************************************************/
+  //DDRB &= ~0x01; //00000001 -> 11111110 & XXXXXXXX = XXXXXXX0
+  //DDRB &= ~_BV(DDB0); 
+  //DDRB &= ~(1 << DDB0);
     
   
   // Infinite loop
   while(1)
   {
-    /************************************************ 
+    /*********************************************** 
      A few different ways to set a pin high and 
      ignore the rest of the pins. 
-    *************************************************/
+    ************************************************/
     PORTB |= 0x01;  // XXXXXXXX | 00000001 = XXXXXXX1
     //PORTB |= _BV(PB0);
     //PORTB |= (1 << PB0);
-	//SetPinHigh(&PORTB, 0); 
+	  //SetPinHigh(&PORTB, 0); 
     _delay_ms(1000);
     
     
-    /************************************************ 
+    /*********************************************** 
      A few different ways to set a pin low and 
-     ignore the rest of the pins. 
-    *************************************************/
+     ignore the rest of the pins.
+    ************************************************/
     PORTB &= ~0x01;  // 00000001 -> 11111110 & XXXXXXXX = XXXXXXX0
     //PORTB &= ~_BV(PB0);
     //PORTB &= ~(1 << PB0);
@@ -66,4 +75,3 @@ void SetPinLow(volatile byte *port, byte pin)
 {
   *port &= ~(1 << pin); // The number '1' are shifted left 'pin' times
 }
-
