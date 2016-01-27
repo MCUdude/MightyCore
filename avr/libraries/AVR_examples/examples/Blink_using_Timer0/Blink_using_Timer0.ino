@@ -30,7 +30,8 @@ int main (void)
     TCNT0 = 0; // Start to count from zero
     TIMSK = 0x01; // Enable overflow interrupt
 
-  #else //ATmega164, ATmega324, ATmega644, ATmega1284
+  #elseif defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324P__) \
+  || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284P__)
     TCCR0B = 0x05; // clock frequency / 1024 
     OCR0B = 0x00;  // Output compare
     TCNT0 = 0; // Set counter 0 to zero
