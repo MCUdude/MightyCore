@@ -15,7 +15,7 @@ Read more in the hardware section below.**
 * ATmega16*
 * ATmega8535*
 
-(* all variants, such as P, PA, PV and so on)
+(* all variants - P, PA, A. Select the correct version in the 'Variant' menu)
 
 
 ##Supported clock frequencies
