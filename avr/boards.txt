@@ -1,4 +1,5 @@
 menu.clock=Clock
+menu.variant=Variant
 ############################################################
 
 1284.name=ATmega1284p
@@ -11,10 +12,14 @@ menu.clock=Clock
 1284.bootloader.unlock_bits=0x3f
 1284.bootloader.lock_bits=0x0f
 
-1284.build.mcu=atmega1284p
 1284.build.core=standard
 1284.build.board=AVR_ATmega1284
 1284.build.variant=standard1284
+
+1284.menu.variant.modelP=1284P
+1284.menu.variant.modelP.build.mcu=atmega1284p
+1284.menu.variant.modelNone=1284
+1284.menu.variant.modelNone.build.mcu=atmega1284
 
 #make atmega1284 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 1284.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
@@ -81,6 +86,11 @@ menu.clock=Clock
 644.build.board=AVR_ATmega644
 644.build.variant=standard644
 
+644.menu.variant.modelP=644P / 644PA
+644.menu.variant.modelP.build.mcu=atmega644p
+644.menu.variant.modelA=644 / 644A
+644.menu.variant.modelA.build.mcu=atmega644
+
 #make atmega644p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 644.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
 644.menu.clock.16MHz_external.upload.speed=115200
@@ -145,6 +155,13 @@ menu.clock=Clock
 324.build.board=AVR_ATmega324
 324.build.variant=standard324
 
+324.menu.variant.modelP=324P
+324.menu.variant.modelP.build.mcu=atmega324p
+324.menu.variant.modelPA=324PA
+324.menu.variant.modelPA.build.mcu=atmega324pa
+324.menu.variant.modelA=324A
+324.menu.variant.modelA.build.mcu=atmega324a
+
 #make atmega324 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 324.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
 324.menu.clock.16MHz_external.upload.speed=115200
@@ -208,6 +225,11 @@ menu.clock=Clock
 164.build.core=modified_16_164_32_324_8535
 164.build.board=AVR_ATmega164
 164.build.variant=standard164
+
+164.menu.variant.modelP=164P / 164PA
+164.menu.variant.modelP.build.mcu=atmega164p
+164.menu.variant.modelA=164A
+164.menu.variant.modelA.build.mcu=atmega164a
 
 #make atmega164 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 164.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
