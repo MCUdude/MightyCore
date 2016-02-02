@@ -40,6 +40,9 @@
 
 #define digitalPinHasPWM(p)         ((p) == 3 || (p) == 12 || (p) == 13 || (p) == 15)
 
+static const uint8_t LED = 0;
+#define LED_BUILTIN 0
+
 static const uint8_t SS   = 4;
 static const uint8_t MOSI = 5;
 static const uint8_t MISO = 6;
@@ -47,7 +50,6 @@ static const uint8_t SCK  = 7;
 
 static const uint8_t SDA = 17;
 static const uint8_t SCL = 16;
-static const uint8_t LED = 0;
 
 static const uint8_t A0 = 24;
 static const uint8_t A1 = 25;
