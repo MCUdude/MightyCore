@@ -13,7 +13,7 @@ menu.variant=Variant
 1284.bootloader.unlock_bits=0x3f
 1284.bootloader.lock_bits=0x0f
 
-1284.build.core=standard
+1284.build.core=MightyCore_modified
 1284.build.board=AVR_ATmega1284
 1284.build.variant=standard1284
 
@@ -87,7 +87,7 @@ menu.variant=Variant
 644.bootloader.unlock_bits=0x3f
 644.bootloader.lock_bits=0x0f
 
-644.build.core=standard
+644.build.core=MightyCore_modified
 644.build.board=AVR_ATmega644
 644.build.variant=standard644
 
@@ -160,7 +160,7 @@ menu.variant=Variant
 324.bootloader.unlock_bits=0x3f
 324.bootloader.lock_bits=0x0f
 
-324.build.core=modified_16_164_32_324_8535
+324.build.core=MightyCore_modified
 324.build.board=AVR_ATmega324
 324.build.variant=standard324
 
@@ -235,7 +235,7 @@ menu.variant=Variant
 164.bootloader.unlock_bits=0x3f
 164.bootloader.lock_bits=0x0f
 
-164.build.core=modified_16_164_32_324_8535
+164.build.core=MightyCore_modified
 164.build.board=AVR_ATmega164
 164.build.variant=standard164
 
@@ -309,7 +309,7 @@ menu.variant=Variant
 32.bootloader.lock_bits=0x0f
 
 32.build.mcu=atmega32
-32.build.core=modified_16_164_32_324_8535
+32.build.core=MightyCore_modified
 32.build.board=AVR_ATmega32
 32.build.variant=standard32
 
@@ -368,7 +368,7 @@ menu.variant=Variant
 16.bootloader.lock_bits=0x0f
 
 16.build.mcu=atmega16
-16.build.core=modified_16_164_32_324_8535
+16.build.core=MightyCore_modified
 16.build.board=AVR_ATmega16
 16.build.variant=standard16
 
@@ -427,7 +427,7 @@ menu.variant=Variant
 8535.bootloader.lock_bits=0x0f
 
 8535.build.mcu=atmega8535
-8535.build.core=modified_16_164_32_324_8535
+8535.build.core=MightyCore_modified
 8535.build.board=AVR_ATmega8535
 8535.build.variant=standard8535
 
