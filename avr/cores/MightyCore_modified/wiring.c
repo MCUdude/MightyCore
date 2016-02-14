@@ -206,9 +206,10 @@ void init()
 	// CPU specific: different values for the ATmega128
 	sbi(TCCR0, CS02);
 #elif defined(TCCR0) && defined(CS01) && defined(CS00)
-	// this combination is for the standard atmega8
+	// this combination is for the ATmega8535, ATmega16 and ATmega32
 	sbi(TCCR0, CS01);
 	sbi(TCCR0, CS00);
+	sbi(TCCR0, WGM00);
 #elif defined(TCCR0B) && defined(CS01) && defined(CS00)
 	// this combination is for the standard 168/328/1280/2560
 	sbi(TCCR0B, CS01);
