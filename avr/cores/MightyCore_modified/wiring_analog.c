@@ -128,7 +128,8 @@ void analogWrite(uint8_t pin, int val)
 			#if defined(TCCR0) && defined(COM00) && !defined(__AVR_ATmega8__)
 			case TIMER0A:
 				// connect pwm to pin on timer 0
-				sbi(TCCR0, COM00);
+				// this combination is for the ATmega8535, ATmega16 and ATmega32
+				sbi(TCCR0, COM01);
 				OCR0 = val; // set pwm duty
 				break;
 			#endif
