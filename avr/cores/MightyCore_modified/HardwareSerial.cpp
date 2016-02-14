@@ -138,8 +138,7 @@ void HardwareSerial::begin(unsigned long baud, byte config)
 void HardwareSerial::end()
 {
   // wait for transmission of outgoing data
-  while (_tx_buffer_head != _tx_buffer_tail)
-    ;
+  flush();
 
   cbi(*_ucsrb, RXEN0);
   cbi(*_ucsrb, TXEN0);
@@ -213,6 +212,7 @@ void HardwareSerial::flush()
 
 size_t HardwareSerial::write(uint8_t c)
 {
+  _written = true;
   // If the buffer and the data register is empty, just write the byte
   // to the data register and be done. This shortcut helps
   // significantly improve the effective datarate at high (>
@@ -243,7 +243,6 @@ size_t HardwareSerial::write(uint8_t c)
   _tx_buffer_head = i;
 	
   sbi(*_ucsrb, UDRIE0);
-  _written = true;
   
   return 1;
 }
