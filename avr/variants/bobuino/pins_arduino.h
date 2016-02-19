@@ -34,7 +34,6 @@
 				PWM*: ATmega164/324/644/1284
 		      		  PWM**: ATmega1284
 
-
 PCINT ONLY ON ATmega164/324/644/1284
    
 */
