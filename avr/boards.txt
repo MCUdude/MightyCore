@@ -1,5 +1,6 @@
 menu.clock=Clock
 menu.BOD=B.O.D
+menu.pinout=Pinout
 menu.variant=Variant
 ############################################################
 
@@ -15,7 +16,11 @@ menu.variant=Variant
 
 1284.build.core=MightyCore_modified
 1284.build.board=AVR_ATmega1284
-1284.build.variant=standard
+
+1284.menu.pinout.standard=Standard
+1284.menu.pinout.standard.build.variant=standard
+1284.menu.pinout.bobuino=Bobuino
+1284.menu.pinout.bobuino.build.variant=bobuino
 
 1284.menu.variant.modelP=1284P
 1284.menu.variant.modelP.build.mcu=atmega1284p

@@ -44,6 +44,7 @@ PCINT ONLY ON ATmega164/324/644/1284
 #define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 
 
+
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
 #define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 30 || (p) == 31)
 
@@ -78,19 +79,52 @@ static const uint8_t A6 = 20;
 static const uint8_t A7 = 21;
 
 
+
+
+
+#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
+/**** Needed to get the SD library to work. 
+Missing definitions in the iom164.h/iom324.h file ****/
+#define SPR0 0
+#define SPR1 1
+#define CPHA 2
+#define CPOL 3
+#define MSTR 4
+#define DORD 5
+#define SPE 6
+#define SPIE 7
+#define SPSR _SFR_IO8(0x2D)
+#define SPI2X 0
+#define WCOL 6
+#define SPIF 7
+#define SPCR _SFR_IO8(0x2C)
+#define SPDR _SFR_IO8(0x2E)
+#endif
+
+
+#ifdef ARDUINO_MAIN
+
+#define PA 1
+#define PB 2
+#define PC 3
+#define PD 4
+
+
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
 defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
 extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
 extern const uint16_t __pcmsk[];
 extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
+
 #define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : (uint8_t )0))))
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
 #define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,0)
 #define digitalPinToPCMSK(p)    ifpin(p,(uint8_t *)PORT_NDX_TO_PCMSK(digital_pin_to_pcint[p] >> 3),(uint8_t *)0)
 #define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,0)
 
-const uint16_t __pcmsk[] = 
+const uint16_t PROGMEM __pcmsk[] = 
 {
   	(uint16_t)&PCMSK0, 
   	(uint16_t)&PCMSK1, 
@@ -98,7 +132,7 @@ const uint16_t __pcmsk[] =
   	(uint16_t)&PCMSK3
 };
 
-const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
+const uint8_t PROGMEM digital_pin_to_pcint[NUM_DIGITAL_PINS] =
 {
   	24, // D0 - PD0
   	25, // D1 - PD1
@@ -134,35 +168,6 @@ const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
   	31, // D31 - PD7
 };
 #endif
-
-
-#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
-/**** Needed to get the SD library to work. 
-Missing definitions in the iom164.h/iom324.h file ****/
-#define SPR0 0
-#define SPR1 1
-#define CPHA 2
-#define CPOL 3
-#define MSTR 4
-#define DORD 5
-#define SPE 6
-#define SPIE 7
-#define SPSR _SFR_IO8(0x2D)
-#define SPI2X 0
-#define WCOL 6
-#define SPIF 7
-#define SPCR _SFR_IO8(0x2C)
-#define SPDR _SFR_IO8(0x2E)
-#endif
-
-
-#ifdef ARDUINO_MAIN
-
-#define PA 1
-#define PB 2
-#define PC 3
-#define PD 4
 
 // these arrays map port names (e.g. port B) to the
 // appropriate addresses for various functions (e.g. reading
