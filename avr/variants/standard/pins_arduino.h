@@ -4,11 +4,11 @@
 #include <avr/pgmspace.h>
 /*
 
-				 MIGHTYCORE STANDARD PINOUT
+		   MIGHTYCORE STANDARD PINOUT
          ATmega8535, ATmega16, ATmega32, ATmega164, 
               ATmega324, ATmega644, ATmega1284
    	 
-	 	                 +---\/---+
+  	                  +---\/---+
          LED (D 0) PB0  1|        |40  PA0 (A 0 / D24)
              (D 1) PB1  2|        |39  PA1 (A 1 / D25)
         INT2 (D 2) PB2  3|        |38  PA2 (A 2 / D26)
@@ -30,9 +30,9 @@
         PWM (D 13) PD5 19|        |22  PC0 (D 16) SCL
        PWM* (D 14) PD6 20|        |21  PD7 (D 15) PWM
                          +--------+
-		  PWM: ATmega8535/16/32/164/324/644/1284
-			  PWM*: ATmega164/324/644/1284
-					 PWM**: ATmega1284
+	  PWM: ATmega8535/16/32/164/324/644/1284
+		PWM*: ATmega164/324/644/1284
+		      PWM**: ATmega1284
 
 
 PCINT ONLY ON ATmega164/324/644/1284
@@ -228,19 +228,19 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER, 	/* D0  - PB0 */
 	NOT_ON_TIMER, 	/* D1  - PB1 */
 	NOT_ON_TIMER, 	/* D2  - PB2 */
-	TIMER0A,     	/* D3  - PB3 */
-	TIMER0B, 		/* D4  - PB4 */
+	TIMER0,     	/* D3  - PB3 */
+	NOT_ON_TIMER, 	/* D4  - PB4 */
 	NOT_ON_TIMER, 	/* D5  - PB5 */
-	TIMER3A, 		/* D6  - PB6 */
-	TIMER3B,		/* D7  - PB7 */
+	NOT_ON_TIMER, 	/* D6  - PB6 */
+	NOT_ON_TIMER,	/* D7  - PB7 */
 	NOT_ON_TIMER, 	/* D8  - PD0 */
 	NOT_ON_TIMER, 	/* D9  - PD1 */
 	NOT_ON_TIMER, 	/* D10 - PD2 */
 	NOT_ON_TIMER, 	/* D11 - PD3 */
 	TIMER1B,     	/* D12 - PD4 */
 	TIMER1A,     	/* D13 - PD5 */
-	TIMER2B,     	/* D14 - PD6 */
-	TIMER2A,     	/* D15 - PD7 */
+	NOT_ON_TIMER,   /* D14 - PD6 */
+	TIMER2,     	/* D15 - PD7 */
 	NOT_ON_TIMER, 	/* D16 - PC0 */
 	NOT_ON_TIMER,   /* D17 - PC1 */
 	NOT_ON_TIMER,   /* D18 - PC2 */
