@@ -8,7 +8,7 @@
          ATmega8535, ATmega16, ATmega32, ATmega164, 
               ATmega324, ATmega644, ATmega1284
    	 
-  	                  +---\/---+
+  	                 +---\/---+
          LED (D 0) PB0  1|        |40  PA0 (A 0 / D24)
              (D 1) PB1  2|        |39  PA1 (A 1 / D25)
         INT2 (D 2) PB2  3|        |38  PA2 (A 2 / D26)
@@ -268,7 +268,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER, 	/* D1  - PB1 */
 	NOT_ON_TIMER, 	/* D2  - PB2 */
 	TIMER0A,     	/* D3  - PB3 */
-	TIMER0B, 		/* D4  - PB4 */
+	TIMER0B, 	/* D4  - PB4 */
 	NOT_ON_TIMER, 	/* D5  - PB5 */
 	NOT_ON_TIMER, 	/* D6  - PB6 */
 	NOT_ON_TIMER,	/* D7  - PB7 */
@@ -305,10 +305,10 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER, 	/* D1  - PB1 */
 	NOT_ON_TIMER, 	/* D2  - PB2 */
 	TIMER0A,     	/* D3  - PB3 */
-	TIMER0B, 		/* D4  - PB4 */
+	TIMER0B, 	/* D4  - PB4 */
 	NOT_ON_TIMER, 	/* D5  - PB5 */
-	TIMER3A, 		/* D6  - PB6 */
-	TIMER3B,		/* D7  - PB7 */
+	TIMER3A, 	/* D6  - PB6 */
+	TIMER3B,	/* D7  - PB7 */
 	NOT_ON_TIMER, 	/* D8  - PD0 */
 	NOT_ON_TIMER, 	/* D9  - PD1 */
 	NOT_ON_TIMER, 	/* D10 - PD2 */
