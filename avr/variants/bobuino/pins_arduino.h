@@ -4,11 +4,11 @@
 #include <avr/pgmspace.h>
 /*
 
-		          MIGHTYCORE BOBUINO PINOUT
-         ATmega8535, ATmega16, ATmega32, ATmega164, 
+		   MIGHTYCORE BOBUINO PINOUT
+          ATmega8535, ATmega16, ATmega32, ATmega164, 
                ATmega324, ATmega644, ATmega1284
    	 
-  	     	             +---\/---+
+  	     	          +---\/---+
               (D 4) PB0  1|        |40  PA0 (A 7 / D21)
               (D 5) PB1  2|        |39  PA1 (A 6 / D20)
          INT2 (D 6) PB2  3|        |38  PA2 (A 5 / D19)
@@ -30,9 +30,9 @@
           PWM (D 8) PD5 19|        |22  PC0 (D 22) SCL
          PWM* (D 9) PD6 20|        |21  PD7 (D 31) PWM
                           +--------+
-   	  	  PWM: ATmega8535/16/32/164/324/644/1284
-				PWM*: ATmega164/324/644/1284
-		      		  PWM**: ATmega1284
+   	    PWM: ATmega8535/16/32/164/324/644/1284
+		PWM*: ATmega164/324/644/1284
+		      PWM**: ATmega1284
 
 PCINT ONLY ON ATmega164/324/644/1284
    
@@ -41,7 +41,6 @@ PCINT ONLY ON ATmega164/324/644/1284
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
-
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
 #define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 30 || (p) == 31)
@@ -75,9 +74,6 @@ static const uint8_t A4 = 18;
 static const uint8_t A5 = 19;
 static const uint8_t A6 = 20;
 static const uint8_t A7 = 21;
-
-
-
 
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
