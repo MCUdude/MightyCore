@@ -1,7 +1,7 @@
 # MightyCore
 An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. <br/> <br/>
 This core requires at least Arduino IDE v1.6, where v1.6.5 is recommended.<br/> <br/>
-If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the example files (File > Examples > AVR keywords).<br /> <br/>
+If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the example files (File > Examples > AVR C code examples).<br /> <br/>
 **If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
 but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
 Read more in the hardware section below.**
@@ -24,6 +24,18 @@ Read more in the hardware section below.**
 * 8 MHz external oscillator
 * 8 MHz internal oscillator
 * 1 MHz internal oscillator 
+ 
+Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
+Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended.
+
+##BOD option
+Brown out detection, or BOD for short lets the microcontroller sense the input voltage and shut down if the voltage goes below the brown out setting. For microcontrollers with an extended fuse (ATmega164/324/644/1284) there is a separate BOD option. To change the BOD settings you'll have to connect an ISP programmer and hit "Burn bootloader".
+
+##Pinout
+This core got two different pinout option. The default one is named "Standard", and is based on the original AVR pinout. The other one is named "Bobuino" and is basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stays the same (MOSI on D11, MISO on D12, SCK on D13). Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
+<b>Click to enlarge:</b> 
+</br> </br>
+<img src="http://i.imgur.com/wWO2gv9.png" width="430"> <img src="http://i.imgur.com/Dl0OcNa.png" width="430">
 
 ##How to install
 #### Boards Manager Installation
@@ -41,10 +53,6 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 #### Manual Installation
 Click on the "Download ZIP" button. Exctract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
-
-##How do I change the clock frequency?
-Select your microcontroller in the boards menu, then select the clock frequency. If you want to change the clock frequency, you'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
-Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended.
 
 ##Hardware
 I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
@@ -73,18 +81,3 @@ Click the images for full resolution <br/>
 ![Development board back](http://i.imgur.com/cWmPBWh.jpg)
 <br/>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
-<br/>
-<br/>
-<br/>
-##Pinout
-All the microcontrollers in this core use the same basic pinout, and can be modified in the `pins_arduino.h` file for each microcontroller.
-<br/>
-<br/>
-<br/>
-<br/>
-![MightyCore pinout ATmega8535/16/32](http://i.imgur.com/wWO2gv9.png "Standard pinout")
-<br/>
-<br/>
-<br/>
-<br/>
-![MightyCore pinout ATmega164/324/644p/1284](http://i.imgur.com/Dl0OcNa.png "Standard pinout")
