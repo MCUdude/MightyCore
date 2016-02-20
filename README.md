@@ -35,7 +35,9 @@ Brown out detection, or BOD for short lets the microcontroller sense the input v
 This core got two different pinout option. The default one is named "Standard", and is based on the original AVR pinout. The other one is named "Bobuino" and is basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stays the same (MOSI on D11, MISO on D12, SCK on D13). Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
 <b>Click to enlarge:</b> 
 </br> </br>
-<img src="http://i.imgur.com/wWO2gv9.png" width="430"> <img src="http://i.imgur.com/Dl0OcNa.png" width="430">
+<img src="http://i.imgur.com/wWO2gv9.png" width="430"> <img src="http://i.imgur.com/9cpfTGl.png" width="430">
+</br> </br>
+<img src="http://i.imgur.com/PF1HWho.png" width="430"> <img src="http://i.imgur.com/fHC5LQK.png" width="430">
 
 ##How to install
 #### Boards Manager Installation
