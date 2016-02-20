@@ -94,7 +94,11 @@ menu.variant=Variant
 
 644.build.core=MightyCore_modified
 644.build.board=AVR_ATmega644
-644.build.variant=standard
+
+644.menu.pinout.standard=Standard
+644.menu.pinout.standard.build.variant=standard
+644.menu.pinout.bobuino=Bobuino
+644.menu.pinout.bobuino.build.variant=bobuino
 
 644.menu.variant.modelP=644P / 644PA
 644.menu.variant.modelP.build.mcu=atmega644p
@@ -167,7 +171,11 @@ menu.variant=Variant
 
 324.build.core=MightyCore_modified
 324.build.board=AVR_ATmega324
-324.build.variant=standard
+
+324.menu.pinout.standard=Standard
+324.menu.pinout.standard.build.variant=standard
+324.menu.pinout.bobuino=Bobuino
+324.menu.pinout.bobuino.build.variant=bobuino
 
 324.menu.variant.modelP=324P
 324.menu.variant.modelP.build.mcu=atmega324p
@@ -242,7 +250,11 @@ menu.variant=Variant
 
 164.build.core=MightyCore_modified
 164.build.board=AVR_ATmega164
-164.build.variant=standard
+
+164.menu.pinout.standard=Standard
+164.menu.pinout.standard.build.variant=standard
+164.menu.pinout.bobuino=Bobuino
+164.menu.pinout.bobuino.build.variant=bobuino
 
 164.menu.variant.modelP=164P / 164PA
 164.menu.variant.modelP.build.mcu=atmega164p
@@ -316,7 +328,11 @@ menu.variant=Variant
 32.build.mcu=atmega32
 32.build.core=MightyCore_modified
 32.build.board=AVR_ATmega32
-32.build.variant=standard
+
+32.menu.pinout.standard=Standard
+32.menu.pinout.standard.build.variant=standard
+32.menu.pinout.bobuino=Bobuino
+32.menu.pinout.bobuino.build.variant=bobuino
 
 #make atmega32 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 32.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
@@ -375,7 +391,11 @@ menu.variant=Variant
 16.build.mcu=atmega16
 16.build.core=MightyCore_modified
 16.build.board=AVR_ATmega16
-16.build.variant=standard
+
+16.menu.pinout.standard=Standard
+16.menu.pinout.standard.build.variant=standard
+16.menu.pinout.bobuino=Bobuino
+16.menu.pinout.bobuino.build.variant=bobuino
 
 #make atmega16 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 16.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
@@ -434,7 +454,11 @@ menu.variant=Variant
 8535.build.mcu=atmega8535
 8535.build.core=MightyCore_modified
 8535.build.board=AVR_ATmega8535
-8535.build.variant=standard
+
+8535.menu.pinout.standard=Standard
+8535.menu.pinout.standard.build.variant=standard
+8535.menu.pinout.bobuino=Bobuino
+8535.menu.pinout.bobuino.build.variant=bobuino
 
 #make atmega8535 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 8535.menu.clock.16MHz_external=16MHz external (BOD 2.7v)
