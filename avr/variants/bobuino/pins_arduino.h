@@ -41,8 +41,6 @@ PCINT ONLY ON ATmega164/324/644/1284
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
-#define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
-
 
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
@@ -117,7 +115,7 @@ defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATme
 extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
 extern const uint16_t __pcmsk[];
 extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
-
+#define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 #define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : (uint8_t )0))))
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
 #define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,0)
