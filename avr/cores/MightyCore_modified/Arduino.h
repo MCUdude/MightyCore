@@ -184,7 +184,14 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #define PB 2
 #define PC 3
 #define PD 4
-#define PE 5
+
+
+// This fixes compiler warnings for ATmega8535/16/32
+#if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)	
+#else 
+#define PE 5	
+#endif
+
 #define PF 6
 #define PG 7
 #define PH 8
