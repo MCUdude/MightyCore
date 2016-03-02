@@ -44,6 +44,9 @@ This core got two different pinout option. The default one is named "Standard", 
 </br> </br>
 <img src="http://i.imgur.com/PF1HWho.png" width="375"> <img src="http://i.imgur.com/fHC5LQK.png" width="430">
 
+##Programmers
+MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, or ATmega164A.
+
 ##How to install
 #### Boards Manager Installation
 This installation method requires Arduino IDE version 1.6.4 or greater.
