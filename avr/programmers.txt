@@ -1,6 +1,6 @@
 
 
-stk500.name=STK500 as ISP
+stk500.name=STK500 as ISP (MightyCore)
 stk500.communication=serial
 stk500.protocol=stk500
 stk500.program.protocol=stk500
@@ -15,3 +15,65 @@ stk500.program.extra_params= -P {serial.port}
 #stk500hvpp.program.tool=avrdude
 #stk500hvpp.program.extra_params= -P {serial.port}
 
+# The following are the standard programmers from Arduino AVR Boards 1.6.9 with the name values modified to identify them as specific to MightyCore.
+# These are required for Upload Using Programmer to work with the MCUs added to the MightyCore avrdude.conf.
+
+avrisp.name=AVR ISP (MightyCore)
+avrisp.communication=serial
+avrisp.protocol=stk500v1
+avrisp.program.protocol=stk500v1
+avrisp.program.tool=avrdude
+avrisp.program.extra_params=-P{serial.port}
+
+avrispmkii.name=AVRISP mkII (MightyCore)
+avrispmkii.communication=usb
+avrispmkii.protocol=stk500v2
+avrispmkii.program.protocol=stk500v2
+avrispmkii.program.tool=avrdude
+avrispmkii.program.extra_params=-Pusb
+
+usbtinyisp.name=USBtinyISP (MightyCore)
+usbtinyisp.protocol=usbtiny
+usbtinyisp.program.tool=avrdude
+usbtinyisp.program.extra_params=
+
+arduinoisp.name=ArduinoISP (MightyCore)
+arduinoisp.protocol=arduinoisp
+arduinoisp.program.tool=avrdude
+arduinoisp.program.extra_params=
+
+usbasp.name=USBasp (MightyCore)
+usbasp.communication=usb
+usbasp.protocol=usbasp
+usbasp.program.protocol=usbasp
+usbasp.program.tool=avrdude
+usbasp.program.extra_params=-Pusb
+
+parallel.name=Parallel Programmer (MightyCore)
+parallel.protocol=dapa
+parallel.force=true
+# parallel.delay=200
+parallel.program.tool=avrdude
+parallel.program.extra_params=-F
+
+arduinoasisp.name=Arduino as ISP (MightyCore)
+arduinoasisp.communication=serial
+arduinoasisp.protocol=stk500v1
+arduinoasisp.speed=19200
+arduinoasisp.program.protocol=stk500v1
+arduinoasisp.program.speed=19200
+arduinoasisp.program.tool=avrdude
+arduinoasisp.program.extra_params=-P{serial.port} -b{program.speed}
+
+## Notes about Dangerous Prototypes Bus Pirate as ISP
+## Bus Pirate V3 need Firmware v5.10 or later
+## Bus Pirate V4 need Firmware v6.3-r2151 or later
+## Could happen that BP does not have enough current to power an Arduino board
+## through the ICSP connector. In this case disconnect the +Vcc from ICSP connector
+## and power Arduino board in the normal way.
+buspirate.name=BusPirate as ISP (MightyCore)
+buspirate.communication=serial
+buspirate.protocol=buspirate
+buspirate.program.protocol=buspirate
+buspirate.program.tool=avrdude
+buspirate.program.extra_params=-P{serial.port}
