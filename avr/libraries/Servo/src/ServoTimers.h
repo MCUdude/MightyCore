@@ -31,20 +31,33 @@
  */
 
 // Say which 16 bit timers can be used and in what order
-#if defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
+
+// MegaCore
+#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__) \
+|| defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
 #define _useTimer3
 #define _useTimer1
 typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
 
-#elif defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644A__) \
-  || defined(__AVR_ATmega644P__)  || defined(__AVR_ATmega644PA__) \
-  || defined(__AVR_ATmega324__)  || defined(__AVR_ATmega324P__) \
-  || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324PV__) \
-  || defined(__AVR_ATmega324A__) || defined(__AVR_ATmega164__) \
-  || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega164PA__) \
-  || defined(__AVR_ATmega164PV__) || defined(__AVR_ATmega164A__)
+
+// MightyCore
+#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
+#define _useTimer3
+#define _useTimer1
+typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
+
+#elif defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644P__) \
+|| defined(__AVR_ATmega324P__)  || defined(__AVR_ATmega324PA__) \
+|| defined(__AVR_ATmega324A__) || defined(__AVR_ATmega164P__) \
+|| defined(__AVR_ATmega164A__)
 #define _useTimer1 
 typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t ;
+
+#elif defined(__AVR_ATmega32__)  || defined(__AVR_ATmega16__) \
+|| defined(__AVR_ATmega8535__) 
+#define _useTimer1 
+typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t ;
+
 
 #elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
 #define _useTimer5
@@ -62,10 +75,6 @@ typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t;
 #define _useTimer1
 typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
 
-#elif defined(__AVR_ATmega128__) ||defined(__AVR_ATmega1281__)||defined(__AVR_ATmega2561__)
-#define _useTimer3
-#define _useTimer1
-typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
 
 #else  // everything else
 #define _useTimer1

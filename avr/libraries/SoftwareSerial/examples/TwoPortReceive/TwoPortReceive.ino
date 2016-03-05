@@ -16,7 +16,14 @@
  * First serial device's TX attached to digital pin 2, RX to pin 3
  * Second serial device's TX attached to digital pin 4, RX to pin 5
 
+ Note:
+ Not all pins on the Mega and Mega 2560 support change interrupts,
+ so only the following can be used for RX:
+ 10, 11, 12, 13, 50, 51, 52, 53, 62, 63, 64, 65, 66, 67, 68, 69
 
+ Not all pins on the Leonardo support change interrupts,
+ so only the following can be used for RX:
+ 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
 
  created 18 Apr. 2011
  modified 25 May 2012
@@ -28,18 +35,18 @@
  */
 
 #include <SoftwareSerial.h>
-// software serial #1: TX = digital pin 12, RX = digital pin 13
-SoftwareSerial portOne(12, 13);
+// software serial #1: TX = digital pin 10, RX = digital pin 11
+SoftwareSerial portOne(10, 11);
 
-// software serial #2: TX = digital pin 14, RX = digital pin 15
-SoftwareSerial portTwo(14, 15);
+// software serial #2: TX = digital pin 8, RX = digital pin 9
+// on the Mega, use other pins instead, since 8 and 9 don't work on the Mega
+SoftwareSerial portTwo(8, 9);
 
-void setup()
-{
+void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for Leonardo only
+    ; // wait for serial port to connect. Needed for native USB port only
   }
 
 
@@ -48,8 +55,7 @@ void setup()
   portTwo.begin(9600);
 }
 
-void loop()
-{
+void loop() {
   // By default, the last intialized port is listening.
   // when you want to listen on a port, explicitly select it:
   portOne.listen();

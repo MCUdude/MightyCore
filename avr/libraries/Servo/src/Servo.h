@@ -49,6 +49,7 @@
 #define Servo_h
 
 #include <inttypes.h>
+#include "ServoTimers.h"
 
 /* 
  * Defines for 16 bit timers used with  Servo library 
@@ -58,12 +59,6 @@
  * _Nbr_16timers indicates how many 16 bit timers are available.
  */
 
-// Architecture specific include
-#if defined(ARDUINO_ARCH_AVR)
-#include "ServoTimers.h"
-#else
-#error "This library only supports boards with an AVR processor."
-#endif
 
 #define Servo_VERSION           2     // software version of this library
 

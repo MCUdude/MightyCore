@@ -23,7 +23,7 @@ extern "C" {
   #include <stdlib.h>
   #include <string.h>
   #include <inttypes.h>
-  #include "utility/twi.h"
+  #include "twi.h"
 }
 
 #include "Wire.h"
@@ -75,13 +75,36 @@ void TwoWire::begin(int address)
   begin((uint8_t)address);
 }
 
+void TwoWire::end(void)
+{
+  twi_disable();
+}
+
 void TwoWire::setClock(uint32_t frequency)
 {
   TWBR = ((F_CPU / frequency) - 16) / 2;
 }
 
-uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop)
+uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint32_t iaddress, uint8_t isize, uint8_t sendStop)
 {
+  if (isize > 0) {
+  // send internal address; this mode allows sending a repeated start to access
+  // some devices' internal registers. This function is executed by the hardware
+  // TWI module on other processors (for example Due's TWI_IADR and TWI_MMR registers)
+
+  beginTransmission(address);
+
+  // the maximum size of internal address is 3 bytes
+  if (isize > 3){
+    isize = 3;
+  }
+
+  // write internal register address - most significant byte first
+  while (isize-- > 0)
+    write((uint8_t)(iaddress >> (isize*8)));
+  endTransmission(false);
+  }
+
   // clamp to buffer length
   if(quantity > BUFFER_LENGTH){
     quantity = BUFFER_LENGTH;
@@ -93,6 +116,10 @@ uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop
   rxBufferLength = read;
 
   return read;
+}
+
+uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint8_t sendStop) {
+	return requestFrom((uint8_t)address, (uint8_t)quantity, (uint32_t)0, (uint8_t)0, (uint8_t)sendStop);
 }
 
 uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity)
@@ -142,7 +169,7 @@ void TwoWire::beginTransmission(int address)
 uint8_t TwoWire::endTransmission(uint8_t sendStop)
 {
   // transmit buffer (blocking)
-  int8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);
+  uint8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1, sendStop);
   // reset tx buffer iterator vars
   txBufferIndex = 0;
   txBufferLength = 0;

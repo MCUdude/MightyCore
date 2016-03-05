@@ -38,6 +38,7 @@ PCINT ONLY ON ATmega164/324/644/1284
    
 */
 
+#define BOBUINO_PINOUT
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
