@@ -110,6 +110,40 @@
               "version": "6.0.1-arduino5"
             }
           ]
+        },
+        {
+          "name": "MightyCore",
+          "architecture": "avr",
+          "version": "1.0.3-r1",
+          "category": "Contributed",
+          "help": {
+            "online": ""
+          },
+          "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.3r1.tar.gz",
+          "archiveFileName": "MightyCore-1.0.3r1.tar.gz",
+          "checksum": "SHA-256:b5e759273e63b1b415c9c3412a568f10657b12db25cd1b26d02cc43c676c03db",
+          "size": "271214",
+          "boards": [
+            {"name": "ATmega1284/P"},
+            {"name": "ATmega644/P/PA/A"},
+            {"name": "ATmega324P/PA/A"},
+            {"name": "ATmega164P/PA/A"},
+            {"name": "ATmega32"},
+            {"name": "ATmega16"},
+            {"name": "ATmega8535"}
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "avr-gcc",
+              "version": "4.8.1-arduino5"
+            },
+            {
+              "packager": "arduino",
+              "name": "avrdude",
+              "version": "6.0.1-arduino5"
+            }
+          ]
         }
       ],
       "tools": []
