@@ -64,6 +64,7 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 Click on the "Download ZIP" button. Exctract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
 
+
 ##Hardware
 I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
@@ -91,3 +92,8 @@ Click the images for full resolution <br/>
 ![Development board back](http://i.imgur.com/cWmPBWh.jpg)
 <br/>
 ![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
+
+##Minimal setup
+Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
+<img src="http://i.imgur.com/DG9AiKe.png" width="750">
+
