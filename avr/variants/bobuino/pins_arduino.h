@@ -43,6 +43,7 @@ PCINT ONLY ON ATmega164/324/644/1284
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
 #define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
+#define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
 #define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 30 || (p) == 31)
@@ -113,7 +114,6 @@ defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATme
 extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
 extern const uint16_t __pcmsk[];
 extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
-#define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 #define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : (uint8_t )0))))
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
 #define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,0)
@@ -211,14 +211,14 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] =
   	PB, // D11 - PB5
   	PB, // D12 - PB6
   	PB, // D13 - PB7
-  	PA, // D14 - PA0
-  	PA, // D15 - PA1
-  	PA, // D16 - PA2
-  	PA, // D17 - PA3
-  	PA, // D18 - PA4
-  	PA, // D19 - PA5
-  	PA, // D20 - PA6
-  	PA, // D21 - PA7
+  	PA, // D14 - PA7
+  	PA, // D15 - PA6
+  	PA, // D16 - PA5
+  	PA, // D17 - PA4
+  	PA, // D18 - PA3
+  	PA, // D19 - PA2
+  	PA, // D20 - PA1
+  	PA, // D21 - PA0
   	PC, // D22 - PC0
   	PC, // D23 - PC1
   	PC, // D24 - PC2
@@ -285,14 +285,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   	NOT_ON_TIMER, // D11 - PB5
   	NOT_ON_TIMER, // D12 - PB6
   	NOT_ON_TIMER, // D13 - PB7
-  	NOT_ON_TIMER, // D14 - PA0
-  	NOT_ON_TIMER, // D15 - PA1
-  	NOT_ON_TIMER, // D16 - PA2
-  	NOT_ON_TIMER, // D17 - PA3
-  	NOT_ON_TIMER, // D18 - PA4
-  	NOT_ON_TIMER, // D19 - PA5
-  	NOT_ON_TIMER, // D20 - PA6
-  	NOT_ON_TIMER, // D21 - PA7
+  	NOT_ON_TIMER, // D14 - PA7
+  	NOT_ON_TIMER, // D15 - PA6
+  	NOT_ON_TIMER, // D16 - PA5
+  	NOT_ON_TIMER, // D17 - PA4
+  	NOT_ON_TIMER, // D18 - PA3
+  	NOT_ON_TIMER, // D19 - PA2
+  	NOT_ON_TIMER, // D20 - PA1
+  	NOT_ON_TIMER, // D21 - PA0
   	NOT_ON_TIMER, // D22 - PC0
   	NOT_ON_TIMER, // D23 - PC1
   	NOT_ON_TIMER, // D24 - PC2
@@ -324,14 +324,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   	NOT_ON_TIMER, // D11 - PB5
   	NOT_ON_TIMER, // D12 - PB6
   	NOT_ON_TIMER, // D13 - PB7
-  	NOT_ON_TIMER, // D14 - PA0
-  	NOT_ON_TIMER, // D15 - PA1
-  	NOT_ON_TIMER, // D16 - PA2
-  	NOT_ON_TIMER, // D17 - PA3
-  	NOT_ON_TIMER, // D18 - PA4
-  	NOT_ON_TIMER, // D19 - PA5
-  	NOT_ON_TIMER, // D20 - PA6
-  	NOT_ON_TIMER, // D21 - PA7
+  	NOT_ON_TIMER, // D14 - PA7
+  	NOT_ON_TIMER, // D15 - PA6
+  	NOT_ON_TIMER, // D16 - PA5
+  	NOT_ON_TIMER, // D17 - PA4
+  	NOT_ON_TIMER, // D18 - PA3
+  	NOT_ON_TIMER, // D19 - PA2
+  	NOT_ON_TIMER, // D20 - PA1
+  	NOT_ON_TIMER, // D21 - PA0
   	NOT_ON_TIMER, // D22 - PC0
   	NOT_ON_TIMER, // D23 - PC1
   	NOT_ON_TIMER, // D24 - PC2
@@ -361,14 +361,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   	NOT_ON_TIMER, // D11 - PB5
   	TIMER3A, 	  // D12 - PB6
   	TIMER3B, 	  // D13 - PB7
-  	NOT_ON_TIMER, // D14 - PA0
-  	NOT_ON_TIMER, // D15 - PA1
-  	NOT_ON_TIMER, // D16 - PA2
-  	NOT_ON_TIMER, // D17 - PA3
-  	NOT_ON_TIMER, // D18 - PA4
-  	NOT_ON_TIMER, // D19 - PA5
-  	NOT_ON_TIMER, // D20 - PA6
-  	NOT_ON_TIMER, // D21 - PA7
+  	NOT_ON_TIMER, // D14 - PA7
+  	NOT_ON_TIMER, // D15 - PA6
+  	NOT_ON_TIMER, // D16 - PA5
+  	NOT_ON_TIMER, // D17 - PA4
+  	NOT_ON_TIMER, // D18 - PA3
+  	NOT_ON_TIMER, // D19 - PA2
+  	NOT_ON_TIMER, // D20 - PA1
+  	NOT_ON_TIMER, // D21 - PA0
   	NOT_ON_TIMER, // D22 - PC0
   	NOT_ON_TIMER, // D23 - PC1
   	NOT_ON_TIMER, // D24 - PC2

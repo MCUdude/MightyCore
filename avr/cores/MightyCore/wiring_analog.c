@@ -56,7 +56,12 @@ int analogRead(uint8_t pin)
 || defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__) || defined(__AVR_ATmega164__) \
 || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega164PA__) || defined(__AVR_ATmega16__) \
  || defined(__AVR_ATmega16A__) || defined(__AVR_ATmega8535__)
-	if (pin >= 24) pin -= 24; // allow for channel or pin numbers
+ 	#if defined(BOBUINO_PINOUT)
+ 		if (pin >= 14) pin = 7 - (pin-14);
+ 	#elif defined(STANDARD_PINOUT)	
+		if (pin >= 24) pin -= 24; 
+	#endif	
+	
 #else
 	if (pin >= 14) pin -= 14; // allow for channel or pin numbers
 #endif
