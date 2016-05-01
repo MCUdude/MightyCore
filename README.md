@@ -1,4 +1,4 @@
-# MightyCore
+#MightyCore
 An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. 
 <br/> <br/>
 This core requires at least Arduino IDE v1.6, where v1.6.5+ is recommended. 
@@ -10,6 +10,20 @@ If you're into "pure" AVR programming, I'm happy to tell you that all relevant k
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
 but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
 Read more in the hardware section below.
+
+#Table of contents
+* [Supported microcontroller](#supported-microcontrollers)
+* [Supported clock frequencies](#supported-clock-frequencies)
+* [BOD option](#bod-option)
+* [Pinout](#pinout)
+* [Programmers](#programmers)
+* [How to install](#how-to-install)
+	- [Boards Manager Installation](#boards-manager-installation)
+	- [Manual Installation](#manual-installation)
+* [Library porting](#library-porting)	
+* [Hardware](#hardware)	
+* [Minimal setup](#minimal-setup)
+
 
 ##Supported microcontrollers
 * ATmega1284*
@@ -60,10 +74,13 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 * Click **Install**.
 * After installation is complete close the **Boards Manager** window.
 
-#### Manual Installation
+####Manual Installation
 Click on the "Download ZIP" button. Exctract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
 
+##Library porting
+Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16 or ATmega32.
+A simple guide to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ##Hardware
 I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 

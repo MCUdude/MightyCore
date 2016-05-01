@@ -1,11 +1,11 @@
 # 1 "baudcheck.c"
-# 1 "/Users/hansi/Documents/Arduino/hardware/MightyCore/avr/bootloaders/optiboot//"
+# 1 "/Users/Hans/Documents/Arduino/hardware/MightyCore/avr/bootloaders/optiboot//"
 # 1 "<command-line>"
 # 1 "baudcheck.c"
 # 24 "baudcheck.c"
-bpsx=115200
+bpsx=57600
 bps=${bpsx/L/}
-fcpux=16000000L
+fcpux=8000000L
 fcpu=${fcpux/L/}
 
 
