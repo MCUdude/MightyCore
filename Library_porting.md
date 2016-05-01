@@ -12,7 +12,7 @@ Just remember that the ATmega8535/16/32 doesn't got more than 4 PWM outputs and 
 * Copy the code below and paste it in the first line of the header file.
 * Save and close. <b>The library should now be working!</b>
 
-<b>Why am I still getting an error message? <b>
+<b>Why am I still getting an error message?</b>
 * The library are using a PWM pin that's not supported. Only digital pin 3, 12, 13 and 15 supports PWM on ATmega8535/16/32 (using the standard pinout)
 * The library relies on pin change interrupt (which the ATmega8535/16/32 doesn't support)
 * You haven't pasted the code in the correct header file
