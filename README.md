@@ -12,7 +12,7 @@ but felt like some functionality was missing on the board. When designing this b
 Read more in the hardware section below.
 
 #Table of contents
-* [Supported microcontroller](#supported-microcontrollers)
+* [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
 * [BOD option](#bod-option)
 * [Pinout](#pinout)
