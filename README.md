@@ -17,6 +17,7 @@ Read more in the hardware section below.
 * [BOD option](#bod-option)
 * [Pinout](#pinout)
 * [Programmers](#programmers)
+* [Write to own flash](#write-to-own-flash)
 * [How to install](#how-to-install)
 	- [Boards Manager Installation](#boards-manager-installation)
 	- [Manual Installation](#manual-installation)
@@ -60,6 +61,12 @@ This core got two different pinout option. The default one is named "Standard", 
 
 ##Programmers
 MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, or ATmega164A.
+
+##Write to own flash
+A while ago [@majekw](https://github.com/majekw) announced that he'd [successfully modified the Optiboot bootloader](http://forum.arduino.cc/index.php?topic=332191.0) to let the running program permanently store content in the flash memory.
+The flash memory is much faster than the EEPROM, and can handle about 10 000 write cycles. With help from [@sunnyque](https://github.com/MCUdude/MightyCore/issues/24) this feature is working perfectly with the MightyCore! To enable this feature the bootloader needs to be replaced by the new one. Simply hit "Burn Bootloader", and it's done!
+Please check out the [Optiboot flasher example](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/Optiboot_flasher/examples/Read_and_write/Read_and_write.ino) for more info about how this feature works, and how you can try it on your MightyCore compatible microcontroller.
+
 
 ##How to install
 #### Boards Manager Installation

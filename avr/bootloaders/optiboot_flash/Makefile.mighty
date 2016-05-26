@@ -1,0 +1,144 @@
+#
+# Makefile for 40-pin AVR chips, including  ATmega8535, ATmega16, ATmega164, ATmega32, ATmega324, ATmega644 and ATmega1284
+
+#
+# * Copyright 2013-2015 by Bill Westfield.  Part of Optiboot.
+# * This software is licensed under version 2 of the Gnu Public Licence.
+# * See optiboot.c for details.
+
+# Chip level targets
+#
+
+
+####ATMEGA8535####
+atmega8535: TARGET = atmega8535
+atmega8535: MCU_TARGET = atmega8535
+atmega8535: CFLAGS += $(COMMON_OPTIONS)
+atmega8535: AVR_FREQ ?= 16000000L
+atmega8535: LDSECTIONS = -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe
+atmega8535: $(PROGRAM)_atmega8535.hex
+atmega8535: $(PROGRAM)_atmega8535.lst
+
+
+
+####ATMEGA16####
+atmega16: TARGET = atmega16
+atmega16: MCU_TARGET = atmega16
+atmega16: CFLAGS += $(COMMON_OPTIONS)
+atmega16: AVR_FREQ ?= 16000000L
+atmega16: LDSECTIONS  = -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe
+atmega16: $(PROGRAM)_atmega16.hex
+atmega16: $(PROGRAM)_atmega16.lst
+
+atmega16_isp: atmega16
+atmega16_isp: TARGET = atmega16
+atmega16_isp: MCU_TARGET = atmega16
+# No OCD or JTAG, SPIEN, CKOPT (for full swing xtal), Bootsize=512B
+atmega16_isp: HFUSE ?= DC
+# 2.7V brownout, 16MHz Xtal, 16KCK/14CK+65ms
+atmega16_isp: LFUSE ?= FF
+atmega16_isp: isp
+
+
+
+####ATMEGA32####
+atmega32: TARGET = atmega32
+atmega32: MCU_TARGET = atmega32
+atmega32: CFLAGS += $(COMMON_OPTIONS)
+atmega32: AVR_FREQ ?= 16000000L
+atmega32: LDSECTIONS  = -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe
+atmega32: $(PROGRAM)_atmega32.hex
+atmega32: $(PROGRAM)_atmega32.lst
+
+atmega32_isp: atmega32
+atmega32_isp: TARGET = atmega32
+atmega32_isp: MCU_TARGET = atmega32
+# No OCD or JTAG, SPIEN, CKOPT (for full swing xtal), Bootsize=512B
+atmega32_isp: HFUSE ?= CE
+# 2.7V brownout, 16MHz Xtal, 16KCK/14CK+65ms
+atmega32_isp: LFUSE ?= BF
+atmega32_isp: isp
+
+
+
+####ATMEGA164####
+atmega164: TARGET = atmega164p
+atmega164: MCU_TARGET = atmega164p
+atmega164: CFLAGS += $(COMMON_OPTIONS)
+atmega164: AVR_FREQ ?= 16000000L
+atmega164: LDSECTIONS  = -Wl,--section-start=.text=0x3e00
+atmega164: CFLAGS += $(UARTCMD)
+atmega164: $(PROGRAM)_atmega164p.hex
+atmega164: $(PROGRAM)_atmega164p.lst
+atmega164p: atmega164
+
+atmega164_isp: atmega164
+atmega164_isp: TARGET = atmega164p
+atmega164_isp: MCU_TARGET = atmega164p
+# 1024 byte boot
+atmega164_isp: HFUSE = DC
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega164_isp: LFUSE = FF
+# 2.7V brownout
+atmega164_isp: EFUSE = 05
+atmega164_isp: isp
+
+
+
+####ATMEGA324####
+atmega324: TARGET = atmega324p
+atmega324: MCU_TARGET = atmega324p
+atmega324: CFLAGS += $(COMMON_OPTIONS)
+atmega324: AVR_FREQ ?= 16000000L
+atmega324: LDSECTIONS  = -Wl,--section-start=.text=0x7e00
+atmega324: CFLAGS += $(UARTCMD)
+atmega324: $(PROGRAM)_atmega324p.hex
+atmega324: $(PROGRAM)_atmega324p.lst
+
+atmega324_isp: atmega324
+atmega324_isp: TARGET = atmega324p
+atmega324_isp: MCU_TARGET = atmega324p
+# 1024 byte boot
+atmega324_isp: HFUSE = DE
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega324_isp: LFUSE = FF
+# 2.7V brownout
+atmega324_isp: EFUSE = 05
+atmega324_isp: isp
+
+
+
+####ATMEGA644####
+atmega644p: TARGET = atmega644p
+atmega644p: MCU_TARGET = atmega644p
+atmega644p: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT
+atmega644p: AVR_FREQ ?= 16000000L
+atmega644p: LDSECTIONS  = -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe
+atmega644p: CFLAGS += $(UARTCMD)
+atmega644p: $(PROGRAM)_atmega644p.hex
+atmega644p: $(PROGRAM)_atmega644p.lst
+atmega644: atmega644p
+
+
+
+####ATMEGA1284####
+atmega1284: TARGET = atmega1284p
+atmega1284: MCU_TARGET = atmega1284p
+atmega1284: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT
+atmega1284: AVR_FREQ ?= 16000000L
+atmega1284: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe
+atmega1284: CFLAGS += $(UARTCMD)
+atmega1284: $(PROGRAM)_atmega1284p.hex
+atmega1284: $(PROGRAM)_atmega1284p.lst
+atmega1284p: atmega1284
+
+atmega1284_isp: atmega1284
+atmega1284_isp: TARGET = atmega1284p
+atmega1284_isp: MCU_TARGET = atmega1284p
+# 1024 byte boot
+atmega1284_isp: HFUSE ?= DE
+# Full Swing xtal (16MHz) 16KCK/14CK+65ms
+atmega1284_isp: LFUSE ?= F7
+# 2.7V brownout
+atmega1284_isp: EFUSE ?= FD
+atmega1284_isp: isp

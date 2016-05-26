@@ -146,4 +146,3 @@ tools.avrdudeCustom.erase.pattern="{cmd.path}" "-C{config.path}" {erase.verbose}
 tools.avrdudeCustom.bootloader.params.verbose=-v
 tools.avrdudeCustom.bootloader.params.quiet=-q -q
 tools.avrdudeCustom.bootloader.pattern="{cmd.path}" "-C{config.path}" {bootloader.verbose} -p{build.mcu} -c{protocol} {program.extra_params} "-Uflash:w:{runtime.platform.path}/bootloaders/{bootloader.file}:i" -Ulock:w:{bootloader.lock_bits}:m
-
