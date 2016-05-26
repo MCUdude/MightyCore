@@ -21,6 +21,7 @@ Read more in the hardware section below.
 * [How to install](#how-to-install)
 	- [Boards Manager Installation](#boards-manager-installation)
 	- [Manual Installation](#manual-installation)
+	- [PlatformIO](#platformio)
 * [Library porting](#library-porting)	
 * [Hardware](#hardware)	
 * [Minimal setup](#minimal-setup)
@@ -84,6 +85,18 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 ####Manual Installation
 Click on the "Download ZIP" button. Exctract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
+
+####PlatformIO
+[PlatformIO](http://platformio.org) is an open source ecosystem for IoT development. It got a built-in library manager and is Arduino compatible. It support most operating systems; Windows, Mac OSX, Linux 32 and 64-bit; ARM and X86.
+
+* [What is PlatformIO?](http://docs.platformio.org/en/latest/what-is-platformio.html)
+* [PlatformIO IDE](http://platformio.org/#!/platformio-ide)
+* Getting started with [PlatformIO IDE](http://docs.platformio.org/en/latest/ide/atom.html#quick-start) or [PlatformIO command line interface](http://docs.platformio.org/en/latest/quickstart.html)
+* [Advanced functionality](http://docs.platformio.org/en/latest/platforms/atmelavr.html) 
+* [MightyCore compatible microcontrollers](http://docs.platformio.org/en/latest/platforms/atmelavr.html#mcudude)
+* [Integration with other IDE](http://docs.platformio.org/en/latest/ide.html) -
+  Atom, CLion, Eclipse, Emacs, NetBeans, Qt Creator, Sublime Text, VIM and Visual Studio
+* [Project Examples](http://docs.platformio.org/en/latest/platforms/atmelavr.html#examples)
 
 ##Library porting
 Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16 or ATmega32.
