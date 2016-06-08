@@ -1,7 +1,7 @@
-/*---------------- Flasher example for the MightyCore ----------------------|
+/*------------ Optiboot flasher example for the MightyCore -----------------|
  |                                                                          |
  | Created May 2016 by MCUdude, https://github.com/MCUdude                  |
- | Based on the work done by by Marek Wodzinski, https://github.com/majekw  | 
+ | Based on the work done by Marek Wodzinski, https://github.com/majekw     |
  | Released to public domain                                                |
  |                                                                          |
  | This is example how to use optiboot.h together with Optiboot             |
@@ -28,73 +28,34 @@
  | 3. Write temporary buffer to FLASH by optiboot_page_write                |
  |-------------------------------------------------------------------------*/
 
+// optiboot.h contains the functions that lets you read to
+// and write from the flash memory
 #include "optiboot.h"
+
 
 // Define the number of pages you want to write to here (limited by flash size)
 #define NUMBER_OF_PAGES 8
 
-// Define your termination character here
+// Define your termination and blank character here
 const char terminationChar = '@';
 
-
-// This array allocates the space you'll be able to write to
-const char flash_buffer[SPM_PAGESIZE * NUMBER_OF_PAGES] __attribute__ (( aligned(SPM_PAGESIZE) )) PROGMEM = {
-  "This some default content stored on page one."
-};
+// This is the character that gets printed if the memory doesn't contain any data
+const char blankChar = '.';
 
 
-uint8_t ramBuffer[SPM_PAGESIZE];
 uint8_t charBuffer;
-
 uint8_t menuOption;
 uint16_t pageNumber;
+char returnToMenu;
 
+// The temporary data (data that's read or is about to get written) is stored here
+uint8_t ramBuffer[SPM_PAGESIZE];
 
-// Method to read a flash page
-void readPage(uint16_t page)
-{
-  uint8_t buffer;
-  for(uint16_t j = 0; j < SPM_PAGESIZE; j++) 
-  {
-    buffer = pgm_read_byte(&flash_buffer[j + SPM_PAGESIZE*(page-1)]);
-    if (buffer != 0 && buffer != 255) 
-      Serial.write(buffer);
-    else
-      Serial.print(".");
-  }
-}
+// This array allocates the space you'll be able to write to
+const char flashSpace[SPM_PAGESIZE * NUMBER_OF_PAGES] __attribute__ (( aligned(SPM_PAGESIZE) )) PROGMEM = {
+  "This some default content stored on page one"
+};
 
-
-//Method to write data to a flash page
-void writePage(uint8_t data[], uint16_t page)
-{
-   uint16_t wordBuffer = 0; 
-   // Erase flash page
-    Serial.println(F("Erasing buffer"));
-    optiboot_page_erase((optiboot_addr_t)(void*) &flash_buffer[0 + SPM_PAGESIZE*(page-1)]);
-
-    
-    // Copy ram buffer to temporary flash buffer
-    Serial.println(F("Writing to temporary flash buffer"));
-    
-  
-    for (uint16_t i = 0; i < SPM_PAGESIZE; i++) 
-    {
-      if (i % 2 == 0) // We must write words
-        wordBuffer = data[i];
-      else 
-      {
-        wordBuffer += (data[i] << 8);
-        optiboot_page_fill((optiboot_addr_t)(void*) &flash_buffer[i + SPM_PAGESIZE*(page-1)], wordBuffer);
-      }
-    }
-    
-    // Writing temporary buffer to FLASH
-    Serial.println(F("Writing buffer to flash"));
-    optiboot_page_write((optiboot_addr_t)(void*) &flash_buffer[0 + SPM_PAGESIZE*(page-1)]);
-  
-    Serial.println(F("Write done, thank you!"));   
-}
 
 
 void setup()
@@ -106,13 +67,18 @@ void setup()
 
 void loop() 
 {
-   // Print main menu
+  // Print main menu
   Serial.println();
   Serial.println(F("|------------------------------------------------|"));
   Serial.println(F("| Welcome to the Optiboot flash writer example!  |"));
   Serial.print(F("| Each flash page is "));
   Serial.print(SPM_PAGESIZE);
   Serial.println(F(" bytes long.             |"));
+  Serial.print(F("| There are "));
+  Serial.print(NUMBER_OF_PAGES);
+  Serial.println(F(" pages that can be read/written to. |"));
+  Serial.println(F("| Change the NUMBER_OF_PAGES constant to         |"));
+  Serial.println(F("| increase or decrease this number.              |"));
   Serial.println(F("|                                                |"));
   Serial.println(F("| Please tell me what you want to do:            |"));
   Serial.println(F("| 1. Show current flash content                  |"));
@@ -135,8 +101,9 @@ void loop()
   Serial.print(menuOption);
   Serial.println(F(" selected."));
 
+
     
-  // Flash read option selected
+  // Read flash option selected
   if(menuOption == 1)
   {
     Serial.print(F("What page number do you want to read? Page: "));
@@ -155,23 +122,29 @@ void loop()
     }
     while(pageNumber < 1 || pageNumber > NUMBER_OF_PAGES);
     Serial.println(pageNumber);
-   
+
+    // READ SELECTED PAGE AND STORE THE CONTENT IN THE ramBuffer ARRAY
+    // flash_buffer is where the data is stored (contains the memory addresses)
+    // ramBuffer is where the data gets stored after reading from flash
+    // pageNumber is the page the data is read from
+    // blankChar is the character that gets printed/stored if there are unused space (default '.')
+    // use optiboot_readPage(flashSpace, ramBuffer, pageNumber) if you don't want blank chars
+    optiboot_readPage(flashSpace, ramBuffer, pageNumber, blankChar);
   
     // Print page content
     Serial.print(F("\nContent of page "));
     Serial.print(pageNumber);
     Serial.println(F(":"));
-    readPage(pageNumber);
+    Serial.println((char*)ramBuffer);
   }  // End of flash read option
 
 
  
-  // Flash write option selected
+  // Write flash option selected
   else if(menuOption == 2)
   {
     // Clear pageNumber
     pageNumber = 0;
-
 
     //Get page number from the serial monitor
     Serial.print(F("\nWhat page do you want to write to? Page: "));
@@ -189,7 +162,6 @@ void loop()
     while(pageNumber < 1 || pageNumber > NUMBER_OF_PAGES);
     Serial.println(pageNumber);
 
-
     // Print prompt to enter some new characters to write to flash
     Serial.print(F("Please type the characters you want to store (max "));
     Serial.print(SPM_PAGESIZE);
@@ -198,8 +170,8 @@ void loop()
     Serial.write(terminationChar);
     Serial.println(F("' character:"));
     
-
-    // Get all characters from the serial monitor
+    // Get all characters from the serial monitor and store it to the ramBuffer
+    memset(ramBuffer, 0, sizeof(ramBuffer));
     uint16_t counter = 0;
     while (counter < SPM_PAGESIZE && charBuffer != terminationChar) 
     {
@@ -214,17 +186,22 @@ void loop()
         }      
       }
     }
-    Serial.println(F("\n\nAll chars received"));
+    charBuffer = 0;
+    Serial.println(F("\n\nAll chars received \nWriting to flash..."));
 
-    // Write data to flash
-    writePage(ramBuffer, pageNumber);
-    Serial.println(F("Now you can reset or power cycle board and check for new contents!"));
+    // WRITE RECEIVED DATA TO THE CURRENT FLASH PAGE
+    // flash_buffer is where the data is stored (contains the memory addresses)
+    // ramBuffer contains the data that's going to be stored in the flash
+    // pageNumber is the page the data is written to
+    optiboot_writePage(flashSpace, ramBuffer, pageNumber);
+
+    Serial.println(F("Writing finished. You can now reset or power cycle the board and check for new contents!"));
   } // End of flash write option
+
 
 
   //Return to the main menu if 'm' is sent
   Serial.println(F("\ntype the character 'm' to return to to the main menu"));
-  char returnToMenu;
   do
   {
     while(!Serial.available());
@@ -233,10 +210,7 @@ void loop()
       Serial.print(F("\nPlease type a valid character! "));
   }
   while(returnToMenu != 'm');
+  returnToMenu = 0;
 
 } // End of loop
 
-
-
-
- 
