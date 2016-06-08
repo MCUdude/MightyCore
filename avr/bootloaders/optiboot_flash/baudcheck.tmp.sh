@@ -5,7 +5,7 @@
 # 24 "baudcheck.c"
 bpsx=115200
 bps=${bpsx/L/}
-fcpux=16000000L
+fcpux=8000000L
 fcpu=${fcpux/L/}
 
 
