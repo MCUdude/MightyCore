@@ -43,11 +43,17 @@ Read more in the hardware section below.
 * 20 MHz external oscillator
 * 16 MHz external oscillator (default)
 * 8 MHz external oscillator
-* 8 MHz internal oscillator
+* 8 MHz internal oscillator*
 * 1 MHz internal oscillator 
  
 Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
-Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended.
+Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended. 
+</br></br>
+*There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
+* Edit the [boards.txt](https://github.com/MCUdude/MightyCore/blob/f6e416b650c33399fb53fd5eec5e967466082bfd/avr/boards.txt#L66-L69) file and choose a precompiled bootloader with a higher or lower baudrate (115200, 57600 or 38400 baud)
+* Upload the code using a programmer (USBasp, USBtinyISP etc.) and drop the bootloader
+* Use the 1 MHz option instead
+
 
 ##BOD option
 Brown out detection, or BOD for short lets the microcontroller sense the input voltage and shut down if the voltage goes below the brown out setting. For microcontrollers with an extended fuse (ATmega164/324/644/1284) there is a separate BOD option. To change the BOD settings you'll have to connect an ISP programmer and hit "Burn bootloader".
@@ -67,7 +73,7 @@ MightyCore adds its own copies of all the standard programmers to the "Programme
 A while ago [@majekw](https://github.com/majekw) announced that he'd [successfully modified the Optiboot bootloader](http://forum.arduino.cc/index.php?topic=332191.0) to let the running program permanently store content in the flash memory.
 The flash memory is much faster than the EEPROM, and can handle about 10 000 write cycles. <br/>
 With help from [@sunnyque](https://github.com/MCUdude/MightyCore/issues/24) this feature is working perfectly with the MightyCore! To enable this feature the bootloader needs to be replaced by the new one. Simply hit "Burn Bootloader", and it's done! <br/>
-Please check out the [Optiboot flasher example](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/Optiboot_flasher/examples/Read_and_write/Read_and_write.ino) for more info about how this feature works, and how you can try it on your own MightyCore compatible microcontroller.
+Please check out the [Optiboot flasher example](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/SerialReadWrite/SerialReadWrite.ino) for more info about how this feature works, and how you can try it on your MightyCore compatible microcontroller.
 
 
 ##How to install
