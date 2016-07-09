@@ -1,0 +1,79 @@
+#
+# Makefile for "other" implemented platforms.
+#
+# * Copyright 2013-2015 by Bill Westfield.  Part of Optiboot.
+# * This software is licensed under version 2 of the Gnu Public Licence.
+# * See optiboot.c for details.
+#
+
+#
+# Extra chips (maybe) supported by optiboot
+# Note that these are usually only minimally tested.
+#
+
+
+
+#
+# ATtiny84
+#
+attiny84: TARGET = attiny84
+attiny84: MCU_TARGET = attiny84
+attiny84: CFLAGS += $(COMMON_OPTIONS) -DSOFT_UART -DVIRTUAL_BOOT_PARTITION
+attiny84: LDSECTIONS = -Wl,--section-start=.text=0x1d00 -Wl,--section-start=.version=0x1ffe
+attiny84: $(PROGRAM)_attiny84.hex
+attiny84: $(PROGRAM)_attiny84.lst
+
+
+
+#
+# ATmega88
+#
+atmega88: TARGET = atmega88
+atmega88: MCU_TARGET = atmega88
+atmega88: CFLAGS += $(COMMON_OPTIONS)
+atmega88: AVR_FREQ ?= 16000000L 
+atmega88: LDSECTIONS  = -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe
+atmega88: $(PROGRAM)_atmega88.hex
+atmega88: $(PROGRAM)_atmega88.lst
+
+atmega88_isp: atmega88
+atmega88_isp: TARGET = atmega88
+atmega88_isp: MCU_TARGET = atmega88
+# 2.7V brownout
+atmega88_isp: HFUSE ?= DD
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega88_isp: LFUSE ?= FF
+# 512 byte boot
+atmega88_isp: EFUSE ?= 04
+atmega88_isp: isp
+
+atmega88p_isp: atmega88
+atmega88p_isp: TARGET = atmega88
+atmega88p_isp: MCU_TARGET = atmega88p
+# 2.7V brownout
+atmega88p_isp: HFUSE ?= DD
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega88p_isp: LFUSE ?= FF
+# 512 byte boot
+atmega88p_isp: EFUSE ?= 04
+atmega88p_isp: isp
+
+#
+# ATmega168p [QFN32]
+#
+atmega168p: TARGET = atmega168p
+atmega168p: MCU_TARGET = atmega168p
+atmega168p: CFLAGS += $(COMMON_OPTIONS)
+atmega168p: AVR_FREQ ?= 16000000L 
+atmega168p: $(PROGRAM)_atmega168p_16MHz.hex
+atmega168p: $(PROGRAM)_atmega168p_16MHz.lst
+
+atmega168p_isp: atmega168p
+atmega168p_isp: TARGET = atmega168p
+# 2.7V brownout
+atmega168p_isp: HFUSE ?= DD
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega168p_isp: LFUSE ?= FF
+# 512 byte boot
+atmega168p_isp: EFUSE ?= 04
+atmega168p_isp: isp
