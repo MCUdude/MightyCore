@@ -386,6 +386,38 @@ void appStart(uint8_t rstFlags) __attribute__ ((naked));
 #endif
 #endif
 
+
+// Make sure all variants gets the correct device signature
+#if defined(__AVR_ATmega1284__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x06
+#elif defined(__AVR_ATmega1284P__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x05
+#elif defined(__AVR_ATmega644__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x09
+#elif defined(__AVR_ATmega644P__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x0A
+#elif defined(__AVR_ATmega324A__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x15
+#elif defined(__AVR_ATmega324P__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x08
+	#elif defined(__AVR_ATmega324PA__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x11	
+#elif defined(__AVR_ATmega164A__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x0F
+#elif defined(__AVR_ATmega164P__)
+	#undef SIGNATURE_2
+	#define SIGNATURE_2 0x0A	
+#endif	
+
+
 /* C zero initialises all global variables. However, that requires */
 /* These definitions are NOT zero initialised, but that doesn't matter */
 /* This allows us to drop the zero init code, saving us memory */

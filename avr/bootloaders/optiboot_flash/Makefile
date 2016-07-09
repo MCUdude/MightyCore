@@ -42,7 +42,7 @@
 #----------------------------------------------------------------------
 #
 # program name should not be changed...
-PROGRAM    = optiboot
+PROGRAM    = optiboot_flash
 
 # The default behavior is to build using tools that are in the users
 # current path variables, but we can also build using an installed
@@ -234,260 +234,141 @@ endif
 #---------------------------------------------------------------------------
 #
 
-# Test platforms
-# Virtual boot block test
-virboot328: TARGET = atmega328
-virboot328: MCU_TARGET = atmega328p
-virboot328: CFLAGS += $(COMMON_OPTIONS) '-DVIRTUAL_BOOT_PARTITION'
-virboot328: AVR_FREQ ?= 16000000L
-virboot328: LDSECTIONS  = -Wl,--section-start=.text=0x7d80 -Wl,--section-start=.version=0x7ffe
-virboot328: $(PROGRAM)_virboot328.hex
-virboot328: $(PROGRAM)_virboot328.lst
 
-virboot328_isp: virboot328
-virboot328_isp: TARGET = virboot328
-virboot328_isp: MCU_TARGET = atmega328p
-# no boot section, SPIEN
-virboot328_isp: HFUSE ?= DF
-# Low power xtal (16MHz) 16KCK/14CK+65ms
-virboot328_isp: LFUSE ?= FF
-# 2.7V brownout
-virboot328_isp: EFUSE ?= 05
-virboot328_isp: isp
+# ATmega8535/A
+atmega8535: TARGET = atmega8535
+atmega8535: MCU_TARGET = atmega8535
+atmega8535: CFLAGS += $(COMMON_OPTIONS)
+atmega8535: AVR_FREQ ?= 16000000L
+atmega8535: LDSECTIONS = -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe
+atmega8535: atmega8535/$(PROGRAM)_atmega8535_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega8535: atmega8535/$(PROGRAM)_atmega8535_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega8535a: atmega8535
 
 
-# Diecimila, Duemilanove with m168, and NG use identical bootloaders
-# Call it "atmega168" for generality and clarity, keep "diecimila" for
-# backward compatibility of makefile
-#
-atmega168: TARGET = atmega168
-atmega168: MCU_TARGET = atmega168
-atmega168: CFLAGS += $(COMMON_OPTIONS)
-atmega168: AVR_FREQ ?= 16000000L 
-atmega168: $(PROGRAM)_atmega168.hex
-atmega168: $(PROGRAM)_atmega168.lst
-
-atmega168_isp: atmega168
-atmega168_isp: TARGET = atmega168
-# 2.7V brownout
-atmega168_isp: HFUSE ?= DD
-# Full swing (16MHz) 16KCK/14CK+65ms
-atmega168_isp: LFUSE ?= F7
-# 512 byte boot
-atmega168_isp: EFUSE ?= 04
-atmega168_isp: isp
-
-atmega328: TARGET = atmega328
-atmega328: MCU_TARGET = atmega328p
-atmega328: CFLAGS += $(COMMON_OPTIONS)
-atmega328: AVR_FREQ ?= 16000000L
-atmega328: LDSECTIONS  = -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe
-atmega328: $(PROGRAM)_atmega328.hex
-atmega328: $(PROGRAM)_atmega328.lst
-
-atmega328_isp: atmega328
-atmega328_isp: TARGET = atmega328
-atmega328_isp: MCU_TARGET = atmega328p
-# 512 byte boot, SPIEN
-atmega328_isp: HFUSE ?= DE
-# Low power xtal (16MHz) 16KCK/14CK+65ms
-atmega328_isp: LFUSE ?= FF
-# 2.7V brownout
-atmega328_isp: EFUSE ?= 05
-atmega328_isp: isp
-
-#Atmega1280
-atmega1280: MCU_TARGET = atmega1280
-atmega1280: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT $(UART_CMD)
-atmega1280: AVR_FREQ ?= 16000000L
-atmega1280: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00  -Wl,--section-start=.version=0x1fffe
-atmega1280: $(PROGRAM)_atmega1280.hex
-atmega1280: $(PROGRAM)_atmega1280.lst
+# ATmega16/A
+atmega16: TARGET = atmega16
+atmega16: MCU_TARGET = atmega16
+atmega16: CFLAGS += $(COMMON_OPTIONS)
+atmega16: AVR_FREQ ?= 16000000L
+atmega16: LDSECTIONS  = -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe
+atmega16: atmega16/$(PROGRAM)_atmega16_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega16: atmega16/$(PROGRAM)_atmega16_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega16a: atmega16
 
 
-# ATmega8
-#
-atmega8: TARGET = atmega8
-atmega8: MCU_TARGET = atmega8
-atmega8: CFLAGS += $(COMMON_OPTIONS)
-atmega8: AVR_FREQ ?= 16000000L 
-atmega8: LDSECTIONS  = -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe
-atmega8: $(PROGRAM)_atmega8.hex
-atmega8: $(PROGRAM)_atmega8.lst
-
-atmega8_isp: atmega8
-atmega8_isp: TARGET = atmega8
-atmega8_isp: MCU_TARGET = atmega8
-# SPIEN, CKOPT (for full swing xtal), Bootsize=512B
-atmega8_isp: HFUSE ?= CC
-# 2.7V brownout, 16MHz Xtal, 16KCK/14CK+65ms
-atmega8_isp: LFUSE ?= BF
-atmega8_isp: isp
+# ATmega32/A
+atmega32: TARGET = atmega32
+atmega32: MCU_TARGET = atmega32
+atmega32: CFLAGS += $(COMMON_OPTIONS)
+atmega32: AVR_FREQ ?= 16000000L
+atmega32: LDSECTIONS  = -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe
+atmega32: atmega32/$(PROGRAM)_atmega32_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega32: atmega32/$(PROGRAM)_atmega32_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega32a: atmega32
 
 
-#---------------------------------------------------------------------------
-# "Board-level Platform" targets.
-# A "Board-level Platform" implies a manufactured platform with a particular
-# AVR_FREQ, LED, and so on.  Parameters are not particularly changable from
-# the "make" command line.
-# Most of the board-level platform builds should envoke make recursively
-#  appropriate specific options
-#---------------------------------------------------------------------------
-# 20MHz clocked platforms
-#
-# These are capable of 230400 baud, or 115200 baud on PC (Arduino Avrdude issue)
-#
+# ATmega164/A
+atmega164a: TARGET = atmega164a
+atmega164a: MCU_TARGET = atmega164a
+atmega164a: CFLAGS += $(COMMON_OPTIONS)
+atmega164a: AVR_FREQ ?= 16000000L
+atmega164a: LDSECTIONS  = -Wl,--section-start=.text=0x3e00
+atmega164a: CFLAGS += $(UARTCMD)
+atmega164a: atmega164a/$(PROGRAM)_atmega164a_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega164a: atmega164a/$(PROGRAM)_atmega164a_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega164: atmega164a
 
-pro20: TARGET = pro_20mhz
-pro20: CHIP = atmega168
-pro20:
-	$(MAKE) atmega168 AVR_FREQ=20000000L LED_START_FLASHES=3
-	mv $(PROGRAM)_$(CHIP).hex $(PROGRAM)_$(TARGET).hex
-	mv $(PROGRAM)_$(CHIP).lst $(PROGRAM)_$(TARGET).lst
 
-pro20_isp: pro20
-pro20_isp: TARGET = pro_20mhz
-# 4.3V brownout (for max speed!)
-pro20_isp: HFUSE ?= DC
-# Full swing xtal (20MHz) 258CK/14CK+4.1ms
-pro20_isp: LFUSE ?= F7
-# 512 byte boot
-pro20_isp: EFUSE ?= 04
-pro20_isp: isp
+# ATmega164P/PA
+atmega164p: TARGET = atmega164p
+atmega164p: MCU_TARGET = atmega164p
+atmega164p: CFLAGS += $(COMMON_OPTIONS)
+atmega164p: AVR_FREQ ?= 16000000L
+atmega164p: LDSECTIONS  = -Wl,--section-start=.text=0x3e00
+atmega164p: CFLAGS += $(UARTCMD)
+atmega164p: atmega164p/$(PROGRAM)_atmega164p_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega164p: atmega164p/$(PROGRAM)_atmega164p_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega164pa: atmega164p
 
-# 16MHz clocked platforms
-#
-# These are capable of 230400 baud, or 115200 baud on PC (Arduino Avrdude issue)
-#
 
-pro16: TARGET = pro_16MHz
-pro16: CHIP = atmega168
-pro16:
-	$(MAKE) $(CHIP) AVR_FREQ=16000000L LED_START_FLASHES=3
-	mv $(PROGRAM)_$(CHIP).hex $(PROGRAM)_$(TARGET).hex
-	mv $(PROGRAM)_$(CHIP).lst $(PROGRAM)_$(TARGET).lst
+# ATmega324A
+atmega324a: TARGET = atmega324a
+atmega324a: MCU_TARGET = atmega324a
+atmega324a: CFLAGS += $(COMMON_OPTIONS)
+atmega324a: AVR_FREQ ?= 16000000L
+atmega324a: LDSECTIONS  = -Wl,--section-start=.text=0x7e00
+atmega324a: CFLAGS += $(UARTCMD)
+atmega324a: atmega324a/$(PROGRAM)_atmega324a_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega324a: atmega324a/$(PROGRAM)_atmega324a_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega324: atmega324a
 
-pro16_isp: pro16
-pro16_isp: TARGET = pro_16MHz
-# 2.7V brownout
-pro16_isp: HFUSE ?= DD
-# Full swing xtal (20MHz) 258CK/14CK+4.1ms
-pro16_isp: LFUSE ?= F7
-# 512 byte boot
-pro16_isp: EFUSE ?= 04
-pro16_isp: isp
 
-diecimila: TARGET = diecimila
-diecimila: CHIP = atmega168
-diecimila:
-	$(MAKE) $(CHIP) AVR_FREQ=16000000L LED_START_FLASHES=3
-	mv $(PROGRAM)_$(CHIP).hex $(PROGRAM)_$(TARGET).hex
-	mv $(PROGRAM)_$(CHIP).lst $(PROGRAM)_$(TARGET).lst
+# ATmega324P
+atmega324p: TARGET = atmega324p
+atmega324p: MCU_TARGET = atmega324p
+atmega324p: CFLAGS += $(COMMON_OPTIONS)
+atmega324p: AVR_FREQ ?= 16000000L
+atmega324p: LDSECTIONS  = -Wl,--section-start=.text=0x7e00
+atmega324p: CFLAGS += $(UARTCMD)
+atmega324p: atmega324p/$(PROGRAM)_atmega324p_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega324p: atmega324p/$(PROGRAM)_atmega324p_$(BAUD_RATE)_$(AVR_FREQ).lst
 
-diecimila_isp: diecimila
-diecimila_isp: TARGET = diecimila
-# 2.7V brownout
-diecimila_isp: HFUSE ?= DD
-# Low power xtal (16MHz) 16KCK/14CK+65ms
-diecimila_isp: LFUSE ?= F7
-# 512 byte boot
-diecimila_isp: EFUSE ?= 04
-diecimila_isp: isp
 
-# MEGA1280 Board (this is different from the atmega1280 chip platform)
-# Mega has a minimum boot size of 1024 bytes, so enable extra functions
-# Note that optiboot does not (can not) work on the MEGA2560
-#mega: TARGET = atmega1280
-mega1280: atmega1280
+# ATmega324PA
+atmega324pa: TARGET = atmega324pa
+atmega324pa: MCU_TARGET = atmega324pa
+atmega324pa: CFLAGS += $(COMMON_OPTIONS)
+atmega324pa: AVR_FREQ ?= 16000000L
+atmega324pa: LDSECTIONS  = -Wl,--section-start=.text=0x7e00
+atmega324pa: CFLAGS += $(UARTCMD)
+atmega324pa: atmega324pa/$(PROGRAM)_atmega324pa_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega324pa: atmega324pa/$(PROGRAM)_atmega324pa_$(BAUD_RATE)_$(AVR_FREQ).lst
 
-mega1280_isp: mega1280
-mega1280_isp: TARGET = atmega1280
-mega1280_isp: MCU_TARGET = atmega1280
-# 1024 byte boot
-mega1280_isp: HFUSE ?= DE
-# Low power xtal (16MHz) 16KCK/14CK+65ms
-mega1280_isp: LFUSE ?= FF
-# 2.7V brownout; wants F5 for some reason...
-mega1280_isp: EFUSE ?= F5
-mega1280_isp: isp
 
-# 8MHz clocked platforms
-#
-# These are capable of 115200 baud
-# Note that "new" Arduinos with an AVR as USB/Serial converter will NOT work
-# with an 8MHz target Arduino.  The bitrate errors are in opposite directions,
-# and total too large a number.
-#
+# ATmega644/A
+atmega644: TARGET = atmega644
+atmega644: MCU_TARGET = atmega644
+atmega644: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT
+atmega644: AVR_FREQ ?= 16000000L
+atmega644: LDSECTIONS  = -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe
+atmega644: CFLAGS += $(UARTCMD)
+atmega644: atmega644/$(PROGRAM)_atmega644_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega644: atmega644/$(PROGRAM)_atmega644_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega644a: atmega644
 
-lilypad: TARGET = $@
-lilypad: CHIP = atmega168
-lilypad:
-	$(MAKE) $(CHIP) AVR_FREQ=8000000L LED_START_FLASHES=3
-	mv $(PROGRAM)_$(CHIP).hex $(PROGRAM)_$(TARGET).hex
-	mv $(PROGRAM)_$(CHIP).lst $(PROGRAM)_$(TARGET).lst
+# ATmega644P/PA
+atmega644p: TARGET = atmega644p
+atmega644p: MCU_TARGET = atmega644p
+atmega644p: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT
+atmega644p: AVR_FREQ ?= 16000000L
+atmega644p: LDSECTIONS  = -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe
+atmega644p: CFLAGS += $(UARTCMD)
+atmega644p: atmega644p/$(PROGRAM)_atmega644p_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega644p: atmega644p/$(PROGRAM)_atmega644p_$(BAUD_RATE)_$(AVR_FREQ).lst
+atmega644pa: atmega644p
 
-lilypad_isp: lilypad
-lilypad_isp: TARGET = lilypad
-# 2.7V brownout
-lilypad_isp: HFUSE ?= DD
-# Internal 8MHz osc (8MHz) Slow rising power
-lilypad_isp: LFUSE ?= E2
-# 512 byte boot
-lilypad_isp: EFUSE ?= 04
-lilypad_isp: isp
 
-# lilypad_resonator is the same as a 8MHz lilypad, except for fuses.
-lilypad_resonator: lilypad
+# ATmega1284
+atmega1284: TARGET = atmega1284
+atmega1284: MCU_TARGET = atmega1284
+atmega1284: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT
+atmega1284: AVR_FREQ ?= 16000000L
+atmega1284: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe
+atmega1284: CFLAGS += $(UARTCMD)
+atmega1284: atmega1284/$(PROGRAM)_atmega1284_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega1284: atmega1284/$(PROGRAM)_atmega1284_$(BAUD_RATE)_$(AVR_FREQ).lst
 
-lilypad_resonator_isp: lilypad
-lilypad_resonator_isp: TARGET = lilypad
-# 2.7V brownout
-lilypad_resonator_isp: HFUSE ?= DD
-# Full swing xtal (20MHz) 258CK/14CK+4.1ms
-lilypad_resonator_isp: LFUSE ?= C6
-# 512 byte boot
-lilypad_resonator_isp: EFUSE ?= 04
-lilypad_resonator_isp: isp
 
-pro8: TARGET = pro_8MHz
-pro8: CHIP = atmega168
-pro8:
-	$(MAKE) $(CHIP) AVR_FREQ=8000000L LED_START_FLASHES=3
-	mv $(PROGRAM)_$(CHIP).hex $(PROGRAM)_$(TARGET).hex
-	mv $(PROGRAM)_$(CHIP).lst $(PROGRAM)_$(TARGET).lst
-
-pro8_isp: pro8
-pro8_isp: TARGET = pro_8MHz
-# 2.7V brownout
-pro8_isp: HFUSE ?= DD
-# Full swing xtal (20MHz) 258CK/14CK+4.1ms
-pro8_isp: LFUSE ?= C6
-# 512 byte boot
-pro8_isp: EFUSE ?= 04
-pro8_isp: isp
-
-atmega328_pro8: TARGET = atmega328_pro_8MHz
-atmega328_pro8: CHIP = atmega328
-atmega328_pro8:
-	$(MAKE) $(CHIP) AVR_FREQ=8000000L LED_START_FLASHES=3
-	mv $(PROGRAM)_$(CHIP).hex $(PROGRAM)_$(TARGET).hex
-	mv $(PROGRAM)_$(CHIP).lst $(PROGRAM)_$(TARGET).lst
-
-atmega328_pro8_isp: atmega328_pro8
-atmega328_pro8_isp: TARGET = atmega328_pro_8MHz
-atmega328_pro8_isp: MCU_TARGET = atmega328p
-# 512 byte boot, SPIEN
-atmega328_pro8_isp: HFUSE ?= DE
-# Low power xtal (16MHz) 16KCK/14CK+65ms
-atmega328_pro8_isp: LFUSE ?= FF
-# 2.7V brownout
-atmega328_pro8_isp: EFUSE ?= 05
-atmega328_pro8_isp: isp
-
-#
-# Include additional platforms
-include Makefile.extras
-include Makefile.mighty
+# ATmega1284P
+atmega1284p: TARGET = atmega1284p
+atmega1284p: MCU_TARGET = atmega1284p
+atmega1284p: CFLAGS += $(COMMON_OPTIONS) -DBIGBOOT
+atmega1284p: AVR_FREQ ?= 16000000L
+atmega1284p: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe
+atmega1284p: CFLAGS += $(UARTCMD)
+atmega1284p: atmega1284p/$(PROGRAM)_atmega1284p_$(BAUD_RATE)_$(AVR_FREQ).hex
+atmega1284p: atmega1284p/$(PROGRAM)_atmega1284p_$(BAUD_RATE)_$(AVR_FREQ).lst
 
 
 #---------------------------------------------------------------------------
@@ -515,6 +396,34 @@ isp-stk500: $(PROGRAM)_$(TARGET).hex
 
 clean:
 	rm -rf *.o *.elf *.lst *.map *.sym *.lss *.eep *.srec *.bin *.hex *.tmp.sh
+	rm -rf atmega8535/*.hex atmega8535/*.lst
+	rm -rf atmega16/*.hex atmega16/*.lst
+	rm -rf atmega32/*.hex atmega32/*.lst
+	rm -rf atmega164a/*.hex atmega164a/*.lst
+	rm -rf atmega164p/*.hex atmega164p/*.lst
+	rm -rf atmega324a/*.hex atmega324a/*.lst
+	rm -rf atmega324p/*.hex atmega324p/*.lst
+	rm -rf atmega324pa/*.hex atmega324pa/*.lst
+	rm -rf atmega644/*.hex atmega644/*.lst
+	rm -rf atmega644p/*.hex atmega644p/*.lst
+	rm -rf atmega1284/*.hex atmega1284/*.lst
+	rm -rf atmega1284p/*.hex atmega1284p/*.lst
+
+clean_asm:
+	rm -rf atmega8535/*.lst
+	rm -rf atmega16/*.lst
+	rm -rf atmega32/*.lst
+	rm -rf atmega164a/*.lst
+	rm -rf atmega164p/*.lst
+	rm -rf atmega324a/*.lst
+	rm -rf atmega324p/*.lst
+	rm -rf atmega324pa/*.lst
+	rm -rf atmega644/*.lst
+	rm -rf atmega644p/*.lst
+	rm -rf atmega1284/*.lst
+	rm -rf atmega1284p/*.lst
+
+
 
 %.lst: %.elf
 	$(OBJDUMP) -h -S $< > $@
