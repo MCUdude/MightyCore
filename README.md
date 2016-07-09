@@ -42,15 +42,16 @@ Read more in the hardware section below.
 ##Supported clock frequencies
 * 20 MHz external oscillator
 * 16 MHz external oscillator (default)
+* 12 MHz external oscillator
 * 8 MHz external oscillator
-* 8 MHz internal oscillator*
+* 8 MHz internal oscillator <b>*</b>
 * 1 MHz internal oscillator 
  
 Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
 Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended. 
 </br></br>
-*There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
-* Edit the [boards.txt](https://github.com/MCUdude/MightyCore/blob/f6e416b650c33399fb53fd5eec5e967466082bfd/avr/boards.txt#L66-L69) file and choose a precompiled bootloader with a higher or lower baudrate (115200, 57600 or 38400 baud)
+<b>*</b> There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
+* Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/a1d4a54df392290ebfd5b67f41fd93fec2b94313/avr/boards.txt#L83) file, and choose either 115200, 57600, 38400 or 19200 baud.
 * Upload the code using a programmer (USBasp, USBtinyISP etc.) and drop the bootloader
 * Use the 1 MHz option instead
 
