@@ -4,7 +4,7 @@
 #include <avr/pgmspace.h>
 /*
 
-		   MIGHTYCORE BOBUINO PINOUT
+		   						MIGHTYCORE BOBUINO PINOUT
           ATmega8535, ATmega16, ATmega32, ATmega164, 
                ATmega324, ATmega644, ATmega1284
    	 
@@ -30,9 +30,9 @@
           PWM (D 8) PD5 19|        |22  PC0 (D 22) SCL
          PWM* (D 9) PD6 20|        |21  PD7 (D 31) PWM
                           +--------+
-   	    PWM: ATmega8535/16/32/164/324/644/1284
-		PWM*: ATmega164/324/644/1284
-		      PWM**: ATmega1284
+   	    	PWM: ATmega8535/16/32/164/324/644/1284
+								PWM*: ATmega164/324/644/1284
+		      						PWM**: ATmega1284
 
 PCINT ONLY ON ATmega164/324/644/1284
    
@@ -80,6 +80,58 @@ static const uint8_t A7 = 21;
 
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
+defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
+
+#define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : (uint8_t )0))))
+#define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
+#define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,0)
+#define digitalPinToPCMSK(p)    ifpin(p,(uint8_t *)PORT_NDX_TO_PCMSK(digital_pin_to_pcint[p] >> 3),(uint8_t *)0)
+#define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,0)
+
+#ifndef ARDUINO_MAIN
+extern const uint8_t digital_pin_to_pcint[];
+#else
+const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
+{
+  	24, // D0 - PD0
+  	25, // D1 - PD1
+  	26, // D2 - PD2
+  	27, // D3 - PD3
+  	8,  // D4 - PB0
+  	9,  // D5 - PB1
+  	10, // D6 - PB2
+  	11, // D7 - PB3
+ 		29, // D8 - PD5
+  	30, // D9 - PD6
+  	12, // D10 - PB4
+  	13, // D11 - PB5
+  	14, // D12 - PB6
+  	15, // D13 - PB7
+  	7,  // D14 - PA7
+  	6,  // D15 - PA6
+  	5,  // D16 - PA5
+  	4,  // D17 - PA4
+  	3,  // D18 - PA3
+  	2,  // D19 - PA2
+  	1,  // D20 - PA1
+  	0,  // D21 - PA0
+  	16, // D22 - PC0
+  	17, // D23 - PC1
+ 		18, // D24 - PC2
+  	19, // D25 - PC3
+  	20, // D26 - PC4
+  	21, // D27 - PC5
+  	22, // D28 - PC6
+  	23, // D29 - PC7
+  	28, // D30 - PD4
+  	31, // D31 - PD7
+};
+#endif
+
+#endif
+
+#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
 /**** Needed to get the SD library to work. 
 Missing definitions in the iom164.h/iom324.h file ****/
@@ -106,64 +158,6 @@ Missing definitions in the iom164.h/iom324.h file ****/
 #define PB 2
 #define PC 3
 #define PD 4
-
-
-#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
-defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
-extern const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS];
-extern const uint16_t __pcmsk[];
-extern const uint8_t digital_pin_to_timer_PGM[NUM_DIGITAL_PINS];
-#define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : (uint8_t )0))))
-#define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
-#define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,0)
-#define digitalPinToPCMSK(p)    ifpin(p,(uint8_t *)PORT_NDX_TO_PCMSK(digital_pin_to_pcint[p] >> 3),(uint8_t *)0)
-#define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,0)
-
-const uint16_t PROGMEM __pcmsk[] = 
-{
-  	(uint16_t)&PCMSK0, 
-  	(uint16_t)&PCMSK1, 
-  	(uint16_t)&PCMSK2, 
-  	(uint16_t)&PCMSK3
-};
-
-const uint8_t PROGMEM digital_pin_to_pcint[NUM_DIGITAL_PINS] =
-{
-  	24, // D0 - PD0
-  	25, // D1 - PD1
-  	26, // D2 - PD2
-  	27, // D3 - PD3
-  	8,  // D4 - PB0
-  	9,  // D5 - PB1
-  	10, // D6 - PB2
-  	11, // D7 - PB3
- 	29, // D8 - PD5
-  	30, // D9 - PD6
-  	12, // D10 - PB4
-  	13, // D11 - PB5
-  	14, // D12 - PB6
-  	15, // D13 - PB7
-  	7,  // D14 - PA7
-  	6,  // D15 - PA6
-  	5,  // D16 - PA5
-  	4,  // D17 - PA4
-  	3,  // D18 - PA3
-  	2,  // D19 - PA2
-  	1,  // D20 - PA1
-  	0,  // D21 - PA0
-  	16, // D22 - PC0
-  	17, // D23 - PC1
- 	18, // D24 - PC2
-  	19, // D25 - PC3
-  	20, // D26 - PC4
-  	21, // D27 - PC5
-  	22, // D28 - PC6
-  	23, // D29 - PC7
-  	28, // D30 - PD4
-  	31, // D31 - PD7
-};
-#endif
 
 // these arrays map port names (e.g. port B) to the
 // appropriate addresses for various functions (e.g. reading
@@ -234,10 +228,10 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] =
 const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 {
   	_BV(0), // D0 - PD0
-	_BV(1), // D1 - PD1
-	_BV(2), // D2 - PD2
-	_BV(3), // D3 - PD3
-	_BV(0), // D4 - PB0
+		_BV(1), // D1 - PD1
+		_BV(2), // D2 - PD2
+		_BV(3), // D3 - PD3
+		_BV(0), // D4 - PB0
   	_BV(1), // D5 - PB1
   	_BV(2), // D6 - PB2
   	_BV(3), // D7 - PB3
