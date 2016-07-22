@@ -22,6 +22,7 @@ Read more in the hardware section below.
 	- [Boards Manager Installation](#boards-manager-installation)
 	- [Manual Installation](#manual-installation)
 	- [PlatformIO](#platformio)
+	- [Eclipse](#eclipse)
 * [Library porting](#library-porting)	
 * [Hardware](#hardware)	
 * [Minimal setup](#minimal-setup)
@@ -106,6 +107,17 @@ Open Arduino IDE, and a new category in the boards menu called "MightyCore" will
 * [Integration with other IDE](http://docs.platformio.org/en/latest/ide.html) -
   Atom, CLion, Eclipse, Emacs, NetBeans, Qt Creator, Sublime Text, VIM and Visual Studio
 * [Project Examples](http://docs.platformio.org/en/latest/platforms/atmelavr.html#examples)
+ 
+#### Eclipse
+MightyCore works perfectly with Eclipse using the [Arduino Eclipse plugin](http://eclipse.baeyens.it) (formally Sloeber). If you're tired of Arduino IDEs limits but still want to stick with open source software; this is the way to go!
+* Download and install the latest version of Arduino Eclipse (Download the nighty build if you want support for aditional programmers)
+* Open **Preferences** (<i>Windows</i>: Window -> Preferences, <i>Mac</i>: [App name] -> Preferences)
+* Click the <i>expand</i> arrow next to the **Arduino** option in the preferences menu
+* Click **Locations**, paste the board manager URL and hit the **Apply** button: `https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json`
+* Click the **Platform and Boards** menu option to the left and expand the **MightyCore** option. Select the latest version.
+* Click the **OK** button. MightyCore is now installed! 
+<br/> <br/>
+Make sure to select the MightyCore boards.txt file when you create a new sketch.
 
 ##Library porting
 Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16 or ATmega32.
