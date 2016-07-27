@@ -30,18 +30,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         },
         {
           "name": "MightyCore",
@@ -64,18 +53,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         },
         {
           "name": "MightyCore",
@@ -98,18 +76,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         },
         {
           "name": "MightyCore",
@@ -132,18 +99,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         },
         {
           "name": "MightyCore",
@@ -166,18 +122,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         },
         {
           "name": "MightyCore",
@@ -200,18 +145,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         },
         {
           "name": "MightyCore",
@@ -234,18 +168,7 @@
             {"name": "ATmega16"},
             {"name": "ATmega8535"}
           ],
-          "toolsDependencies": [
-            {
-              "packager": "arduino",
-              "name": "avr-gcc",
-              "version": "4.8.1-arduino5"
-            },
-            {
-              "packager": "arduino",
-              "name": "avrdude",
-              "version": "6.0.1-arduino5"
-            }
-          ]
+          "toolsDependencies": []
         }
       ],
       "tools": []
