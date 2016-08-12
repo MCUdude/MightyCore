@@ -1,7 +1,8 @@
 This copy of Optiboot is modified to work with ATmega8535, ATmega164 and ATmega324.
 All ‘make’ commands needed to build Optiboot from source can be found in the boards.txt file.
+If you want to compile all bootloader variants, simply run ./makeall
 
-This optiboot version is modified to let the running program write to the microcontrollers flash memory. This means that data (variables, strings) can be permanently stored to the flash memory, like you can do with EEPROM. This amazing mod is done by @majekw, and @sunnyque implemented it to the MightyCore.
+This optiboot version is modified to let the running program write to the microcontrollers flash memory. This means that data (variables, strings) can be permanently stored to the flash memory, like you can do with EEPROM. This amazing mod is done by @majekw, and @sunnyque implemented it to the MightyCore. You can get the latest version of this bootloader at https://github.com/majekw/optiboot
 
 Optiboot is more fully described here: https://github.com/Optiboot/optiboot
 and is the work of Peter Knight (aka Cathedrow), building on work of Jason P

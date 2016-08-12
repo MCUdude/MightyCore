@@ -1,12 +1,10 @@
 #define FUNC_READ 1
 #define FUNC_WRITE 1
 /**********************************************************/
-/* Optiboot bootloader for Arduino                        */
+/* Majek's Optiboot bootloader for Arduino                */
 /*                                                        */
-/* http://optiboot.googlecode.com                         */
+/* http://github.com/majekw/optiboot                      */
 /*                                                        */
-/* Arduino-maintained version : See README.TXT            */
-/* http://code.google.com/p/arduino/                      */
 /*  It is the intent that changes not relevant to the     */
 /*  Arduino production envionment get moved from the      */
 /*  optiboot project to the arduino project in "lumps."   */
@@ -21,6 +19,7 @@
 /*   Customisable timeout with accurate timeconstant      */
 /*   Optional virtual UART. No hardware UART required.    */
 /*   Optional virtual boot partition for devices without. */
+/*	 Supports "write to flash" in application! 						*/
 /*                                                        */
 /* What you lose:                                         */
 /*   Implements a skeleton STK500 protocol which is       */
@@ -29,25 +28,15 @@
 /*   High baud rate breaks compatibility with standard    */
 /*     Arduino flash settings                             */
 /*                                                        */
-/* Fully supported:                                       */
-/*   ATmega168 based devices  (Diecimila etc)             */
-/*   ATmega328P based devices (Duemilanove etc)           */
+/*  Supported microcontrollers:                           */
+/*   ATmega1284             															*/
+/*   ATmega644           																	*/
+/*   ATmega324           																	*/
+/*   ATmega164           																	*/
+/*   ATmega32           																	*/
+/*   ATmega16           																	*/
+/*   ATmega8535																	          */
 /*                                                        */
-/* Beta test (believed working.)                          */
-/*   ATmega8 based devices (Arduino legacy)               */
-/*   ATmega328 non-picopower devices                      */
-/*   ATmega644P based devices (Sanguino)                  */
-/*   ATmega1284P based devices                            */
-/*   ATmega1280 based devices (Arduino Mega)              */
-/*                                                        */
-/* Alpha test                                             */
-/*   ATmega32                                             */
-/*                                                        */
-/* Work in progress:                                      */
-/*   ATtiny84 based devices (Luminet)                     */
-/*                                                        */
-/* Does not support:                                      */
-/*   USB based devices (eg. Teensy, Leonardo)             */
 /*                                                        */
 /* Assumptions:                                           */
 /*   The code makes several assumptions that reduce the   */

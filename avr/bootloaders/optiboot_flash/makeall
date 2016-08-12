@@ -1,4 +1,5 @@
-#### Execute  ./makeall to build all variants of this bootloader ####
+#### Execute  $ ./makeall to build all variants of this bootloader 
+#### run $ chmod +x if this file isn't executable.
 
 make clean
 
