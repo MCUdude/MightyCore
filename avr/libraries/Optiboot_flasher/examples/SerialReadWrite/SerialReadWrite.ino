@@ -39,7 +39,7 @@
 // Define your termination and blank character here
 const char terminationChar = '@';
 
-// This is the character that gets printed if the memory doesn't contain any data
+// This is the character that gets printed if the memory block doesn't contain any data
 const char blankChar = '.';
 
 
@@ -52,7 +52,7 @@ char returnToMenu;
 uint8_t ramBuffer[SPM_PAGESIZE];
 
 // This array allocates the space you'll be able to write to
-const char flashSpace[SPM_PAGESIZE * NUMBER_OF_PAGES] __attribute__ (( aligned(SPM_PAGESIZE) )) PROGMEM = {
+const uint8_t flashSpace[SPM_PAGESIZE * NUMBER_OF_PAGES] __attribute__ (( aligned(SPM_PAGESIZE) )) PROGMEM = {
   "This some default content stored on page one"
 };
 
@@ -77,10 +77,13 @@ void loop()
   Serial.print(F("| There are "));
   Serial.print(NUMBER_OF_PAGES);
   Serial.println(F(" pages that can be read/written to. |"));
+  Serial.print(F("| Total assigned flash space: "));
+  Serial.print(NUMBER_OF_PAGES * SPM_PAGESIZE);
+  Serial.println(F(" bytes.        |"));
   Serial.println(F("| Change the NUMBER_OF_PAGES constant to         |"));
   Serial.println(F("| increase or decrease this number.              |"));
   Serial.println(F("|                                                |"));
-  Serial.println(F("| Please tell me what you want to do:            |"));
+  Serial.println(F("| What do you want to do?                        |"));
   Serial.println(F("| 1. Show current flash content                  |"));
   Serial.println(F("| 2. Write to flash memory                       |"));
   Serial.println(F("|------------------------------------------------|"));
@@ -213,4 +216,3 @@ void loop()
   returnToMenu = 0;
 
 } // End of loop
-
