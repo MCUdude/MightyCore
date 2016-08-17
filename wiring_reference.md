@@ -20,7 +20,7 @@ The <b>portMode()</b> method sets a specified digital I/O port as INPUT or OUTPU
 ``` cpp
 portMode(portNumber, value)
 ```
-<br/>
+
 
 ####Parameters
 `portNumber` - <i>byte/uint8_t</i> <br/>
@@ -32,12 +32,12 @@ portMode(portNumber, value)
 | 1           | PORTB         |
 | 2           | PORTC         |
 | 3           | PORTD         |
-<br/>
+
 
 ####Returns
 `none`
 <br/>
-<br/>
+
 ###Example
 ``` c++
 byte portNumber = 1; // Use port B
@@ -54,17 +54,17 @@ void loop() {
     val = 0;
 }
 ```
-<br/>
+
 
 ##portRead()
 The <b>portRead()</b> method reads the value of the digital input port specified.
-<br/>
+
 
 ###Syntax
 ``` c++
 portRead(portNumber)
 ```
-<br/>
+
 
 ####Parameters
 `portNumber` - <i>byte/uint8_t</i> <br/>
@@ -75,12 +75,12 @@ portRead(portNumber)
 | 1           | PORTB         |
 | 2           | PORTC         |
 | 3           | PORTD         |
-<br/>
+
 
 ####Returns
 `byte/uint8_t`
 <br/>
-<br/>
+
 
 ###Example
 ``` c++
