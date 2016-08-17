@@ -1,7 +1,7 @@
 #MightyCore
 An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. 
 <br/> <br/>
-This core requires at least Arduino IDE v1.6, where v1.6.5+ is recommended. 
+This core requires at least Arduino IDE v1.6, where v1.6.5+ is recommended. <b>Please don't update to IDE v1.6.10 just yet, as there's still some issues to resolve.</b>
 <br/>
 An Arduino forum post for this particular core are located [here](http://forum.arduino.cc/index.php?topic=379427.0). 
 <br/> <br/>
@@ -23,6 +23,7 @@ Read more in the hardware section below.
 	- [Manual Installation](#manual-installation)
 	- [PlatformIO](#platformio)
 	- [Eclipse](#eclipse)
+* [Wiring reference](#wiring-reference)	
 * [Library porting](#library-porting)	
 * [Hardware](#hardware)	
 * [Minimal setup](#minimal-setup)
@@ -109,7 +110,8 @@ Open Arduino IDE, and a new category in the boards menu called "MightyCore" will
 * [Project Examples](http://docs.platformio.org/en/latest/platforms/atmelavr.html#examples)
  
 #### Eclipse
-MightyCore works perfectly with Eclipse using the [Arduino Eclipse plugin](http://eclipse.baeyens.it) (formally Sloeber). If you're tired of Arduino IDEs limits but still want to stick with open source software; this is the way to go!
+### Eclipse is currently broken
+~MightyCore works perfectly with Eclipse using the [Arduino Eclipse plugin](http://eclipse.baeyens.it) (formally Sloeber). If you're tired of Arduino IDEs limits but still want to stick with open source software; this is the way to go!~
 * Download and install the latest version of Arduino Eclipse (Download the nighty build if you want support for aditional programmers)
 * Open **Preferences** (<i>Windows</i>: Window -> Preferences, <i>Mac</i>: [App name] -> Preferences)
 * Click the <i>expand</i> arrow next to the **Arduino** option in the preferences menu
@@ -118,6 +120,23 @@ MightyCore works perfectly with Eclipse using the [Arduino Eclipse plugin](http:
 * Click the **OK** button. MightyCore is now installed! 
 <br/> <br/>
 Make sure to select the MightyCore boards.txt file when you create a new sketch.
+
+##Wiring reference
+To extend this core's functionality a bit futher, I've added a few missing Wiring functions. As many of you know Arduino is based on Wiring, but that doesn't mean the Wiring development isnt active. These functions is used as "regular" Arduino functions, and there's no need to include an external library.<br/>
+I hope you find this useful, because they really are!
+
+###Function list
+* portMode()
+* portRead()
+* portWrite()
+* sleepMode()
+* sleep()
+* noSleep()
+* enablePower()	
+* disablePower()
+
+###For further information please view the [Wiring reference page](https://github.com/MCUdude/MightyCore/blob/master/Wiring_reference.md)!
+
 
 ##Library porting
 Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16 or ATmega32.
