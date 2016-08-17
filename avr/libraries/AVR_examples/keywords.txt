@@ -35,6 +35,39 @@ _SFR_MEM16	KEYWORD3	 	RESERVED_WORD
 
 
 
+# Wiring spesific - http://wiring.org.co/reference/
+pullup	KEYWORD2
+noPullup	KEYWORD2
+portMode	KEYWORD2
+portRead	KEYWORD2
+portWrite	KEYWORD2
+enableSleep	KEYWORD2
+noSleep	KEYWORD2
+disableSleep	KEYWORD2
+sleepMode	KEYWORD2
+SLEEP_IDLE	LITERAL2		RESERVED_WORD_2
+SLEEP_ADC	LITERAL2		RESERVED_WORD_2
+SLEEP_POWER_DOWN	LITERAL2		RESERVED_WORD_2
+SLEEP_POWER_SAVE	LITERAL2		RESERVED_WORD_2
+SLEEP_STANDBY	LITERAL2		RESERVED_WORD_2
+SLEEP_EXTENDED_STANDBY	LITERAL2		RESERVED_WORD_2
+startSleep	KEYWORD2
+sleep	KEYWORD2
+enablePower	KEYWORD2
+POWER_ADC	LITERAL2		RESERVED_WORD_2
+POWER_SPI	LITERAL2		RESERVED_WORD_2
+POWER_WIRE	LITERAL2		RESERVED_WORD_2
+POWER_TIMER0	LITERAL2		RESERVED_WORD_2
+POWER_TIMER1	LITERAL2		RESERVED_WORD_2
+POWER_TIMER2	LITERAL2		RESERVED_WORD_2
+POWER_TIMER3	LITERAL2		RESERVED_WORD_2
+POWER_SERIAL0	LITERAL2		RESERVED_WORD_2
+POWER_SERIAL1	LITERAL2		RESERVED_WORD_2
+POWER_ALL	LITERAL2		RESERVED_WORD_2
+disablePower	KEYWORD2
+
+
+
 # <util/atomic.h> - http://www.nongnu.org/avr-libc/user-manual/group__util__atomic.html
 ATOMIC_BLOCK	KEYWORD3	 	RESERVED_WORD
 NONATOMIC_BLOCK	KEYWORD3	 	RESERVED_WORD
@@ -143,6 +176,21 @@ lroundf	KEYWORD3	 	RESERVED_WORD
 lround	KEYWORD2
 lrintf	KEYWORD3	 	RESERVED_WORD
 lrint	KEYWORD2
+
+
+
+# <avr/power.h> - http://www.nongnu.org/avr-libc/user-manual/power_8h.html
+power_adc_disable	KEYWORD2
+power_spi_disable	KEYWORD2
+power_twi_disable	KEYWORD2
+power_timer0_disable	KEYWORD2
+power_timer1_disable	KEYWORD2
+power_timer2_disable	KEYWORD2
+power_timer3_disable	KEYWORD2
+power_usart0_disable	KEYWORD2
+power_usart1_disable	KEYWORD2
+power_all_disable	KEYWORD2
+
 
 
 # <avr/sleep.h>	 - http://www.nongnu.org/avr-libc/user-manual/sleep_8h.html

@@ -28,7 +28,8 @@
 #include <avr/pgmspace.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-
+#include <avr/power.h>
+#include <avr/sleep.h>
 #include "binary.h"
 
 #ifdef __cplusplus
@@ -145,6 +146,8 @@ void detachInterrupt(uint8_t);
 void setup(void);
 void loop(void);
 
+
+
 // Get the bit location within the hardware port of the given virtual pin.
 // This comes from the pins_*.c file for the active board configuration.
 
@@ -221,6 +224,26 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #define TIMER5B 17
 #define TIMER5C 18
 
+/* Power management constants */
+#define POWER_ADC 0
+#define POWER_SPI 1
+#define POWER_WIRE 2
+#define POWER_TIMER0 3
+#define POWER_TIMER1 4
+#define POWER_TIMER2 5
+#define POWER_TIMER3 6
+#define POWER_SERIAL0 7
+#define POWER_SERIAL1 8
+#define POWER_ALL 9
+
+/* Sleep management constants */
+#define SLEEP_IDLE 0
+#define SLEEP_ADC 1
+#define SLEEP_POWER_DOWN 2
+#define SLEEP_POWER_SAVE 3
+#define SLEEP_STANDBY 4
+#define SLEEP_EXTENDED_STANDBY 5
+
 #ifdef __cplusplus
 } // extern "C"
 #endif
@@ -230,6 +253,8 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #include "WString.h"
 #include "HardwareSerial.h"
 #include "USBAPI.h"
+#include "wiring_extras.h"
+
 #if defined(HAVE_HWSERIAL0) && defined(HAVE_CDCSERIAL)
 #error "Targets with both UART0 and CDC serial not supported"
 #endif
