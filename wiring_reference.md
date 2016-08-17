@@ -2,14 +2,14 @@
 To extend this core's functionality a bit futher, I've added a few missing Wiring functions. As many of you know Arduino is based on Wiring, but that doesn't mean the Wiring development isnt active. These functions is used as "regular" Arduino functions, and there's no need to include an external library.
 
 ##Content
-* [portMode](#portmode())()
-* [portRead](#portread())()
-* [portWrite](#portwrite())()
-* [sleepMode](#sleepmode())()
-* [sleep](#sleep())()
-* [noSleep](#disablesleep())()
-* [enablePower](#enablepower())()	
-* [disablepower](#disablepower())()
+* [portMode](#portmode)()
+* [portRead](#portread)()
+* [portWrite](#portwrite)()
+* [sleepMode](#sleepmode)()
+* [sleep](#sleep)()
+* [noSleep](#disablesleep)()
+* [enablePower](#enablepower)()	
+* [disablepower](#disablepower)()
 
 ##portMode()
 The <b>portMode()</b> method sets a specified digital I/O port as INPUT or OUTPUT. A digital I/O port is a group of 8 pins. By writing 0 to a port it will set individually each of the 8 pins to 0 (LOW). Possible values range from 0 to 255. It possible to read or write a value of a digital I/O port by using the <b>[portRead()](#portread)</b> and <b>[portWrite()](#portwrite)</b> methods.
@@ -181,7 +181,7 @@ if(some_condition)
 ```
 
 ##sleep()
-the <b>sleep()</b> command can allow an application to reduce its power comsumption considerably. Sleep modes enable the application to shut down unused modules in the microcontroller, thereby saving power. The default mode is SLEEP_IDLE. Different AVR devices provides various sleep modes allowing the user to tailor the power consumption to the application's requirements. There are six sleep modes set by the [sleepMode()](#sleepmode()) command.
+the <b>sleep()</b> command can allow an application to reduce its power comsumption considerably. Sleep modes enable the application to shut down unused modules in the microcontroller, thereby saving power. The default mode is SLEEP_IDLE. Different AVR devices provides various sleep modes allowing the user to tailor the power consumption to the application's requirements. There are six sleep modes set by the [sleepMode()](#sleepmode) command.
 
 ###Syntax
 ``` c++
@@ -209,7 +209,7 @@ if(some_condition)
 
 
 ##noSleep()
-the <b>noSleep()</b> command wakes up the microcontroller from a previous sleep(). Sleep modes enable the application to shut down unused modules in the microcontroller, thereby saving power. The default mode is SLEEP_IDLE. Different AVR devices provides various sleep modes allowing the user to tailor the power consumption to the application's requirements. There are six sleep modes set by the [sleepMode()](#sleepmode()) command.
+the <b>noSleep()</b> command wakes up the microcontroller from a previous [sleep()](#sleep). Sleep modes enable the application to shut down unused modules in the microcontroller, thereby saving power. The default mode is SLEEP_IDLE. Different AVR devices provides various sleep modes allowing the user to tailor the power consumption to the application's requirements. There are six sleep modes set by the [sleepMode()](#sleepmode) command.
 
 ###Syntax
 ``` c++
@@ -237,7 +237,7 @@ if(some_condition)
 
 
 ##enablePower()
-The <b>enablePower()</b> and [disablePower()](#disablepower()) methods enable and disable power to specific devices or sections of the Wiring hardware. By default power is enabled in all sections on the Wiring board. Note that the Wiring functionality regarding a specific section will stop by disabling power. These methods are useful to do efficient power management in conditions where power is very limited or has to be very efficient. The methods are provided for advanced users who know exactly what they are doing. Sections / features are encapsulated by constants as follow: POWER_ADC (analog input), POWER_SPI (SPI), POWER_WIRE (Wire), POWER_TIMER0 (Timer0, disbling this will stop all Wiring activity), POWER_TIMER1 (Timer1), POWER_TIMER2 (Timer2), POWER_TIMER3 (Timer3), POWER_SERIAL0 (Serial), POWER_SERIAL1 (Serial1) and POWER_ALL (all the above). The power management functions provide a method to stop the clock to individual peripherals to reduce power consumption. Note: calling enablePower() or disablePower() commands might have no effect on ATmega32, ATmega16 and ATmega8535.
+The <b>enablePower()</b> and [disablePower()](#disablepower) methods enable and disable power to specific devices or sections of the Wiring hardware. By default power is enabled in all sections on the Wiring board. Note that the Wiring functionality regarding a specific section will stop by disabling power. These methods are useful to do efficient power management in conditions where power is very limited or has to be very efficient. The methods are provided for advanced users who know exactly what they are doing. Sections / features are encapsulated by constants as follow: POWER_ADC (analog input), POWER_SPI (SPI), POWER_WIRE (Wire), POWER_TIMER0 (Timer0, disbling this will stop all Wiring activity), POWER_TIMER1 (Timer1), POWER_TIMER2 (Timer2), POWER_TIMER3 (Timer3), POWER_SERIAL0 (Serial), POWER_SERIAL1 (Serial1) and POWER_ALL (all the above). The power management functions provide a method to stop the clock to individual peripherals to reduce power consumption. Note: calling enablePower() or disablePower() commands might have no effect on ATmega32, ATmega16 and ATmega8535.
 
 ###Syntax
 ``` c++
