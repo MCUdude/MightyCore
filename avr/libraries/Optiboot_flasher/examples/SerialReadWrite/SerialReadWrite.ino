@@ -123,8 +123,10 @@ void loop()
         Serial.println(F(". The number of pages can be extended by changing NUMBER_OF_PAGES constant"));
       }
     }
-    while(pageNumber < 1 || pageNumber > NUMBER_OF_PAGES);
-    Serial.println(pageNumber);
+    while(pageNumber > NUMBER_OF_PAGES);
+    
+    if(pageNumber > 0)
+      Serial.println(pageNumber);
 
     // READ SELECTED PAGE AND STORE THE CONTENT IN THE ramBuffer ARRAY
     // flash_buffer is where the data is stored (contains the memory addresses)
@@ -132,13 +134,30 @@ void loop()
     // pageNumber is the page the data is read from
     // blankChar is the character that gets printed/stored if there are unused space (default '.')
     // use optiboot_readPage(flashSpace, ramBuffer, pageNumber) if you don't want blank chars
-    optiboot_readPage(flashSpace, ramBuffer, pageNumber, blankChar);
-  
-    // Print page content
-    Serial.print(F("\nContent of page "));
-    Serial.print(pageNumber);
-    Serial.println(F(":"));
-    Serial.println((char*)ramBuffer);
+    
+    if(pageNumber == 0) // Read all pages
+    {
+      Serial.println(F("\nAll flash content:"));
+      for(uint16_t page = 1; page < NUMBER_OF_PAGES+1; page++)
+      {
+        Serial.print(F("Page "));
+        Serial.print(page);
+        Serial.print(F(": "));
+        optiboot_readPage(flashSpace, ramBuffer, page, blankChar);
+        Serial.println((char*)ramBuffer);
+      }
+    }
+    else // Read selected page
+    {
+      optiboot_readPage(flashSpace, ramBuffer, pageNumber, blankChar);
+      
+      // Print page content
+      Serial.print(F("\nContent of page "));
+      Serial.print(pageNumber);
+      Serial.println(F(":"));
+      Serial.println((char*)ramBuffer);
+    }
+
   }  // End of flash read option
 
 
