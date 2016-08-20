@@ -37,34 +37,25 @@ void analogReference(uint8_t mode)
 	analog_reference = mode;
 }
 
+
 int analogRead(uint8_t pin)
 {
 	uint8_t low, high;
 
-#if defined(analogPinToChannel)
-#if defined(__AVR_ATmega32U4__)
-	if (pin >= 18) pin -= 18; // allow for channel or pin numbers
-#endif
-	pin = analogPinToChannel(pin);
-#elif defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
-	if (pin >= 54) pin -= 54; // allow for channel or pin numbers
-#elif defined(__AVR_ATmega32U4__)
-	if (pin >= 18) pin -= 18; // allow for channel or pin numbers
-#elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) \
-|| defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644PA__) \
-|| defined(__AVR_ATmega324__) || defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) \
-|| defined(__AVR_ATmega32__) || defined(__AVR_ATmega32A__) || defined(__AVR_ATmega164__) \
-|| defined(__AVR_ATmega164P__) || defined(__AVR_ATmega164PA__) || defined(__AVR_ATmega16__) \
- || defined(__AVR_ATmega16A__) || defined(__AVR_ATmega8535__)
- 	#if defined(BOBUINO_PINOUT)
- 		if (pin >= 14) pin = 7 - (pin-14);
- 	#elif defined(STANDARD_PINOUT)	
-		if (pin >= 24) pin -= 24; 
+	#if defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) \
+	|| defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__)    \
+	|| defined(__AVR_ATmega324__) || defined(__AVR_ATmega324P__)    \
+	|| defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega164P__)  \
+	|| defined(__AVR_ATmega164A__) || defined(__AVR_ATmega32__)     \
+	|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega8535__)
+ 		#if defined(BOBUINO_PINOUT)
+ 			if (pin >= 14) pin = 7 - (pin-14);
+ 			else if (pin <= 7) pin = 7 - pin;
+ 		#elif defined(STANDARD_PINOUT)	
+			if (pin >= 24) pin -= 24; 
+ 	 // else if(pin <= 7) pin = pin;
+		#endif	
 	#endif	
-	
-#else
-	if (pin >= 14) pin -= 14; // allow for channel or pin numbers
-#endif
 
 #if defined(ADCSRB) && defined(MUX5)
 	// the MUX5 bit of ADCSRB selects whether we're reading from channels
