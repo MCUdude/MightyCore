@@ -4,11 +4,11 @@
 #include <avr/pgmspace.h>
 /*
 
-		   						MIGHTYCORE BOBUINO PINOUT
+                  MIGHTYCORE BOBUINO PINOUT
           ATmega8535, ATmega16, ATmega32, ATmega164, 
                ATmega324, ATmega644, ATmega1284
    	 
-  	     	          +---\/---+
+                          +---\/---+
               (D 4) PB0  1|        |40  PA0 (A 7 / D21)
               (D 5) PB1  2|        |39  PA1 (A 6 / D20)
          INT2 (D 6) PB2  3|        |38  PA2 (A 5 / D19)
@@ -30,20 +30,18 @@
           PWM (D 8) PD5 19|        |22  PC0 (D 22) SCL
          PWM* (D 9) PD6 20|        |21  PD7 (D 31) PWM
                           +--------+
-   	    	PWM: ATmega8535/16/32/164/324/644/1284
-								PWM*: ATmega164/324/644/1284
-		      						PWM**: ATmega1284
-
-PCINT ONLY ON ATmega164/324/644/1284
-   
+         PWM: ATmega8535/16/32/164/324/644/1284
+         PWM*: ATmega164/324/644/1284
+         PWM**: ATmega1284
+         PCINT ONLY ON ATmega164/324/644/1284
 */
 
 #define BOBUINO_PINOUT
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
-#define analogPinToChannel(p)				((p) >= 14 ? (pin) = 7 - (pin-14) : ((p) <= 7 ? (p) = 7 - (p) : (p)))
-#define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
+#define analogPinToChannel(p)       ((p) >= 14 ? (pin) = 7 - (pin-14) : ((p) <= 7 ? (p) = 7 - (p) : (p)))
+#define digitalPinToInterrupt(p)    ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
 #define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
@@ -103,7 +101,7 @@ const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
   	9,  // D5 - PB1
   	10, // D6 - PB2
   	11, // D7 - PB3
- 		29, // D8 - PD5
+        29, // D8 - PD5
   	30, // D9 - PD6
   	12, // D10 - PB4
   	13, // D11 - PB5
@@ -119,7 +117,7 @@ const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
   	0,  // D21 - PA0
   	16, // D22 - PC0
   	17, // D23 - PC1
- 		18, // D24 - PC2
+        18, // D24 - PC2
   	19, // D25 - PC3
   	20, // D26 - PC4
   	21, // D27 - PC5
