@@ -43,7 +43,7 @@ int analogRead(uint8_t pin)
 	uint8_t low, high;
 
 	// Macro located in the pins_arduino.h file
-	analogPinToChannel(pin);
+	pin = analogPinToChannel(pin);
 
 #if defined(ADCSRB) && defined(MUX5)
 	// the MUX5 bit of ADCSRB selects whether we're reading from channels
