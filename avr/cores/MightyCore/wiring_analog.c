@@ -42,20 +42,8 @@ int analogRead(uint8_t pin)
 {
 	uint8_t low, high;
 
-	#if defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) \
-	|| defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__)    \
-	|| defined(__AVR_ATmega324__) || defined(__AVR_ATmega324P__)    \
-	|| defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega164P__)  \
-	|| defined(__AVR_ATmega164A__) || defined(__AVR_ATmega32__)     \
-	|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega8535__)
- 		#if defined(BOBUINO_PINOUT)
- 			if (pin >= 14) pin = 7 - (pin-14);
- 			else if (pin <= 7) pin = 7 - pin;
- 		#elif defined(STANDARD_PINOUT)	
-			if (pin >= 24) pin -= 24; 
- 	 // else if(pin <= 7) pin = pin;
-		#endif	
-	#endif	
+	// Macro located in the pins_arduino.h file
+	analogPinToChannel(pin);
 
 #if defined(ADCSRB) && defined(MUX5)
 	// the MUX5 bit of ADCSRB selects whether we're reading from channels

@@ -42,6 +42,7 @@ PCINT ONLY ON ATmega164/324/644/1284
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
+#define analogPinToChannel(p)				((p) >= 14 ? (pin) = 7 - (pin-14) : ((p) <= 7 ? (p) = 7 - (p) : (p)))
 #define digitalPinToInterrupt(p)  ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
 #define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 
