@@ -15,18 +15,18 @@ Read more in the hardware section below.
 * [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
 * [BOD option](#bod-option)
-* [Pinout](#pinout)
+* **[Pinout](#pinout)**
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
-* [How to install](#how-to-install)
+* **[How to install](#how-to-install)**
 	- [Boards Manager Installation](#boards-manager-installation)
 	- [Manual Installation](#manual-installation)
 	- [PlatformIO](#platformio)
-	- [Eclipse](#eclipse)
+* **[Getting started with MightyCore](#getting-started-with-mightycore)**
 * [Wiring reference](#wiring-reference)	
 * [Library porting](#library-porting)	
 * [Hardware](#hardware)	
-* [Minimal setup](#minimal-setup)
+* **[Minimal setup](#minimal-setup)**
 
 
 ##Supported microcontrollers
@@ -109,17 +109,24 @@ Open Arduino IDE, and a new category in the boards menu called "MightyCore" will
   Atom, CLion, Eclipse, Emacs, NetBeans, Qt Creator, Sublime Text, VIM and Visual Studio
 * [Project Examples](http://docs.platformio.org/en/latest/platforms/atmelavr.html#examples)
  
-#### Eclipse
-### Eclipse is currently broken
-~MightyCore works perfectly with Eclipse using the [Arduino Eclipse plugin](http://eclipse.baeyens.it) (formally Sloeber). If you're tired of Arduino IDEs limits but still want to stick with open source software; this is the way to go!~
-* Download and install the latest version of Arduino Eclipse (Download the nighty build if you want support for aditional programmers)
-* Open **Preferences** (<i>Windows</i>: Window -> Preferences, <i>Mac</i>: [App name] -> Preferences)
-* Click the <i>expand</i> arrow next to the **Arduino** option in the preferences menu
-* Click **Locations**, paste the board manager URL and hit the **Apply** button: `https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json`
-* Click the **Platform and Boards** menu option to the left and expand the **MightyCore** option. Select the latest version.
-* Click the **OK** button. MightyCore is now installed! 
-<br/> <br/>
-Make sure to select the MightyCore boards.txt file when you create a new sketch.
+
+##Getting started with MightyCore
+Ok, so you're downloaded and installed MightyCore, but do I get the wheels spinning? Here's a quick start guide:
+* Hook up your microcontroller as shown in the [pinout diagram](#pinout).
+	- If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
+* Open the **Tools > Board** menu item, and select a MighyCore compatible microcontroller.
+* If the *BOD option* is presented, you can select at what voltage the microcontroller will shut down at. Read more about BOD [here](#bod-option).
+* Select your prefered pinout. Personally I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compability. Read more about the different pinouts [here](#pinouts).
+* Select your prefered clock frequency. **16 MHz** is standard on most Arduino boards.
+* Select what kind of programmer you're using under the **Programmers** menu.
+* If the *Variants* option is presented, you'll have to specify what version of the microcontroller you're using. E.g the ATmega1284 and the ATmega1284P got different device signatures, so selecting the wrong one will result in an error.
+* Hit **Burn Bootloader**. If an LED is connected to pin PB0, it should flash twice every second.
+* Now that the correct fuse settings is sat and the bootloader burnt, you can upload your code in two ways:
+	- Disconnect your programmer tool, and connect a USB to serial adapter to the microcontroller, like shown in the [minimal setup circuit](#minimal-setup). Then select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting some kind of timeout error, it means your RX and TX pins are swapped, or your auto reset circuity isn't working properly (the 100 nF capacitor on the reset line).
+	- Keep your programmer connected, and hold down the `shift` button while clicking **Upload**. This will erase the bootloader and upload your code using the programmer tool.
+
+Your code should now be running on your microcontroller! If you experience any issues related to bootloader burning or serial uploading, please use *[this forum post](https://forum.arduino.cc/index.php?topic=379427.0)* or create an issue on Github.
+
 
 ##Wiring reference
 To extend this core's functionality a bit futher, I've added a few missing Wiring functions. As many of you know Arduino is based on Wiring, but that doesn't mean the Wiring development isnt active. These functions is used as "regular" Arduino functions, and there's no need to include an external library.<br/>
@@ -143,7 +150,7 @@ Some users have reported issues when trying to use some 3rd party libraries with
 A simple guide to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ##Hardware
-I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
+I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. **And for just 30$ it's a really good deal!**
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board got some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
