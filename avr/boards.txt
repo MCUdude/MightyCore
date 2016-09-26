@@ -401,7 +401,7 @@ menu.variant=Variant
 32.upload.maximum_size=32256
 32.upload.maximum_data_size=2048
 
-32.bootloader.tool=avrdudeCustom
+32.bootloader.tool=avrdude
 32.bootloader.unlock_bits=0x3f
 32.bootloader.lock_bits=0x0f
 
@@ -474,7 +474,7 @@ menu.variant=Variant
 16.upload.maximum_size=15872
 16.upload.maximum_data_size=1024
 
-16.bootloader.tool=avrdudeCustom
+16.bootloader.tool=avrdude
 16.bootloader.unlock_bits=0x3f
 16.bootloader.lock_bits=0x0f
 
@@ -547,7 +547,7 @@ menu.variant=Variant
 8535.upload.maximum_size=7680
 8535.upload.maximum_data_size=512
 
-8535.bootloader.tool=avrdudeCustom
+8535.bootloader.tool=avrdude
 8535.bootloader.unlock_bits=0x3f
 8535.bootloader.lock_bits=0x0f
 
