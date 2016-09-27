@@ -6,7 +6,7 @@
       "websiteURL": "https://github.com/MCUdude/MightyCore",
       "email": "",
       "help": {
-        "online": ""
+        "online": "http://forum.arduino.cc/index.php?topic=379427"
       },
       "platforms": [
         {
@@ -14,9 +14,6 @@
           "architecture": "avr",
           "version": "1.0.0",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.0.tar.gz",
           "archiveFileName": "MightyCore-1.0.0.tar.gz",
           "checksum": "SHA-256:283b442209cef5406bc7c21074664e1b2783d9b5997f50b3195a5c6cd0ee4de5",
@@ -37,9 +34,6 @@
           "architecture": "avr",
           "version": "1.0.1",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.1.tar.gz",
           "archiveFileName": "MightyCore-1.0.1.tar.gz",
           "checksum": "SHA-256:999905c879d35ad8036fad976e7cccc84b7b68e4d7f3ca11e1ead5b23b1c8409",
@@ -60,9 +54,6 @@
           "architecture": "avr",
           "version": "1.0.2",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.2.tar.gz",
           "archiveFileName": "MightyCore-1.0.2.tar.gz",
           "checksum": "SHA-256:fbbb6d5f150edc71fc7d55550f066defeb3505bc19992c69d61b46b0e8462387",
@@ -83,9 +74,6 @@
           "architecture": "avr",
           "version": "1.0.3-r1",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.3r1.tar.gz",
           "archiveFileName": "MightyCore-1.0.3r1.tar.gz",
           "checksum": "SHA-256:b5e759273e63b1b415c9c3412a568f10657b12db25cd1b26d02cc43c676c03db",
@@ -106,9 +94,6 @@
           "architecture": "avr",
           "version": "1.0.4",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.4.tar.gz",
           "archiveFileName": "MightyCore-1.0.4.tar.gz",
           "checksum": "SHA-256:64e64091cb823823cbe90ccd251b1150e22e8546489dc460e41c2d73a44bc347",
@@ -129,9 +114,6 @@
           "architecture": "avr",
           "version": "1.0.5",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.5.tar.gz",
           "archiveFileName": "MightyCore-1.0.5.tar.gz",
           "checksum": "SHA-256:c3c82e0be56bd5cd745b2b5300937f4135f2be59b49d5203e6fce33bd81a184a",
@@ -152,9 +134,6 @@
           "architecture": "avr",
           "version": "1.0.6",
           "category": "Contributed",
-          "help": {
-            "online": ""
-          },
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-1.0.6.tar.gz",
           "archiveFileName": "MightyCore-1.0.6.tar.gz",
           "checksum": "SHA-256:d85d26335782f5511a63a0b4ea62ae34517ed513599213674a531e5f1a7ec0ca",
