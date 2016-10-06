@@ -15,6 +15,7 @@ Read more in the hardware section below.
 * [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
 * [BOD option](#bod-option)
+* [Link time optimization / LTO](#link-time-optimization--lto)
 * **[Pinout](#pinout)**
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
