@@ -1,8 +1,26 @@
+##########################################
+## This file is created by MCUdude 
+## for use with MightyCore
+## https://github.com/MCUdude/MightyCore	
+##
+## This is the file where fuse settings,
+## BOD options, pinouts, clock frequencies
+## and compiler flags are located.
+##
+## Run ./makeall to build all bootloaders
+##########################################
+
+# Menu options
 menu.clock=Clock
-menu.BOD=B.O.D
+menu.BOD=BOD
 menu.pinout=Pinout
 menu.variant=Variant
-############################################################
+menu.LTO=Compiler LTO
+
+
+######################
+#### ATmega1284/P ####
+######################
 
 1284.name=ATmega1284
 1284.upload.tool=avrdude
@@ -17,16 +35,19 @@ menu.variant=Variant
 1284.build.core=MightyCore
 1284.build.board=AVR_ATmega1284
 
+# Pinouts
 1284.menu.pinout.standard=Standard
 1284.menu.pinout.standard.build.variant=standard
 1284.menu.pinout.bobuino=Bobuino
 1284.menu.pinout.bobuino.build.variant=bobuino
 
+# Variants
 1284.menu.variant.modelP=1284P
 1284.menu.variant.modelP.build.mcu=atmega1284p
 1284.menu.variant.modelNonP=1284
 1284.menu.variant.modelNonP.build.mcu=atmega1284
 
+# Brown out detection
 1284.menu.BOD.2v7=2.7v
 1284.menu.BOD.2v7.bootloader.extended_fuses=0xfd
 1284.menu.BOD.4v3=4.3v
@@ -36,7 +57,20 @@ menu.variant=Variant
 1284.menu.BOD.disabled=Disabled
 1284.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
+# Compiler link time optimization
+1284.menu.LTO.Os=Disabled (default)
+1284.menu.LTO.Os.compiler.c.extra_flags=
+1284.menu.LTO.Os.compiler.c.elf.extra_flags=
+1284.menu.LTO.Os.compiler.cpp.extra_flags=
+1284.menu.LTO.Os.ltoarcmd=avr-ar
 
+1284.menu.LTO.Os_flto=Enabled
+1284.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+1284.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+1284.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+1284.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+# Clock frequencies
 #make atmega1284 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 #make atmega1284p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 1284.menu.clock.16MHz_external=16 MHz external
@@ -97,8 +131,9 @@ menu.variant=Variant
 
 
 
-############################################################
-
+###########################
+#### ATmega644/A/P/PA  ####
+###########################
 
 644.name=ATmega644
 644.upload.tool=avrdude
@@ -113,16 +148,19 @@ menu.variant=Variant
 644.build.core=MightyCore
 644.build.board=AVR_ATmega644
 
+# Pinouts
 644.menu.pinout.standard=Standard
 644.menu.pinout.standard.build.variant=standard
 644.menu.pinout.bobuino=Bobuino
 644.menu.pinout.bobuino.build.variant=bobuino
 
+# Variants
 644.menu.variant.modelP=644P / 644PA
 644.menu.variant.modelP.build.mcu=atmega644p
 644.menu.variant.modelNonP=644 / 644A
 644.menu.variant.modelNonP.build.mcu=atmega644
 
+# Brown out detection
 644.menu.BOD.2v7=2.7v
 644.menu.BOD.2v7.bootloader.extended_fuses=0xfd
 644.menu.BOD.4v3=4.3v
@@ -132,7 +170,20 @@ menu.variant=Variant
 644.menu.BOD.disabled=Disabled
 644.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
+# Compiler link time optimization
+644.menu.LTO.Os=Disabled (default)
+644.menu.LTO.Os.compiler.c.extra_flags=
+644.menu.LTO.Os.compiler.c.elf.extra_flags=
+644.menu.LTO.Os.compiler.cpp.extra_flags=
+644.menu.LTO.Os.ltoarcmd=avr-ar
 
+644.menu.LTO.Os_flto=Enabled
+644.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+644.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+644.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+644.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+# Clock frequencies
 #make atmega644 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 #make atmega644p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2 -BIGBOOT
 644.menu.clock.16MHz_external=16 MHz external
@@ -192,8 +243,9 @@ menu.variant=Variant
 644.menu.clock.1MHz_external.build.f_cpu=1000000L
 
 
-############################################################
-
+##########################
+#### ATmega324A/P/PA  ####
+##########################
 
 324.name=ATmega324
 324.upload.tool=avrdude
@@ -208,11 +260,13 @@ menu.variant=Variant
 324.build.core=MightyCore
 324.build.board=AVR_ATmega324
 
+# Pinouts
 324.menu.pinout.standard=Standard
 324.menu.pinout.standard.build.variant=standard
 324.menu.pinout.bobuino=Bobuino
 324.menu.pinout.bobuino.build.variant=bobuino
 
+# Variants
 324.menu.variant.modelP=324P
 324.menu.variant.modelP.build.mcu=atmega324p
 324.menu.variant.modelPA=324PA
@@ -220,6 +274,7 @@ menu.variant=Variant
 324.menu.variant.modelA=324A
 324.menu.variant.modelA.build.mcu=atmega324a
 
+# Brown out detection
 324.menu.BOD.2v7=2.7v
 324.menu.BOD.2v7.bootloader.extended_fuses=0xfd
 324.menu.BOD.4v3=4.3v
@@ -229,7 +284,20 @@ menu.variant=Variant
 324.menu.BOD.disabled=Disabled
 324.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
+# Compiler link time optimization
+324.menu.LTO.Os=Disabled (default)
+324.menu.LTO.Os.compiler.c.extra_flags=
+324.menu.LTO.Os.compiler.c.elf.extra_flags=
+324.menu.LTO.Os.compiler.cpp.extra_flags=
+324.menu.LTO.Os.ltoarcmd=avr-ar
 
+324.menu.LTO.Os_flto=Enabled
+324.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+324.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+324.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+324.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+# Clock frequencies
 #make atmega324a AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 #make atmega324p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 #make atmega324pa AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
@@ -297,8 +365,9 @@ menu.variant=Variant
 324.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
-############################################################
-
+##########################
+#### ATmega164A/P/PA  ####
+##########################
 
 164.name=ATmega164
 164.upload.tool=avrdude
@@ -313,16 +382,19 @@ menu.variant=Variant
 164.build.core=MightyCore
 164.build.board=AVR_ATmega164
 
+# Pinouts
 164.menu.pinout.standard=Standard
 164.menu.pinout.standard.build.variant=standard
 164.menu.pinout.bobuino=Bobuino
 164.menu.pinout.bobuino.build.variant=bobuino
 
+# Variants
 164.menu.variant.modelP=164P / 164PA
 164.menu.variant.modelP.build.mcu=atmega164p
 164.menu.variant.modelA=164A
 164.menu.variant.modelA.build.mcu=atmega164a
 
+# Brown out detection
 164.menu.BOD.2v7=2.7v
 164.menu.BOD.2v7.bootloader.extended_fuses=0xfd
 164.menu.BOD.4v3=4.3v
@@ -332,7 +404,20 @@ menu.variant=Variant
 164.menu.BOD.disabled=Disabled
 164.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
+# Compiler link time optimization
+164.menu.LTO.Os=Disabled (default)
+164.menu.LTO.Os.compiler.c.extra_flags=
+164.menu.LTO.Os.compiler.c.elf.extra_flags=
+164.menu.LTO.Os.compiler.cpp.extra_flags=
+164.menu.LTO.Os.ltoarcmd=avr-ar
 
+164.menu.LTO.Os_flto=Enabled
+164.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+164.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+164.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+164.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+# Clock frequencies
 #make atmega164a AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 #make atmega164p AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 164.menu.clock.16MHz_external=16 MHz external
@@ -392,8 +477,9 @@ menu.variant=Variant
 164.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
-############################################################
-
+#####################
+#### ATmega32/A  ####
+#####################
 
 32.name=ATmega32
 32.upload.tool=avrdude
@@ -409,11 +495,26 @@ menu.variant=Variant
 32.build.core=MightyCore
 32.build.board=AVR_ATmega32
 
+# Pinouts
 32.menu.pinout.standard=Standard
 32.menu.pinout.standard.build.variant=standard
 32.menu.pinout.bobuino=Bobuino
 32.menu.pinout.bobuino.build.variant=bobuino
 
+# Compiler link time optimization
+32.menu.LTO.Os=Disabled (default)
+32.menu.LTO.Os.compiler.c.extra_flags=
+32.menu.LTO.Os.compiler.c.elf.extra_flags=
+32.menu.LTO.Os.compiler.cpp.extra_flags=
+32.menu.LTO.Os.ltoarcmd=avr-ar
+
+32.menu.LTO.Os_flto=Enabled
+32.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+32.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+32.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+32.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+# Clock frequencies
 #make atmega32 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 32.menu.clock.16MHz_external=16 MHz external (BOD 2.7v)
 32.menu.clock.16MHz_external.upload.speed=115200
@@ -465,8 +566,9 @@ menu.variant=Variant
 32.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
-############################################################
-
+#####################
+#### ATmega16/A  ####
+#####################
 
 16.name=ATmega16
 16.upload.tool=avrdude
@@ -482,11 +584,27 @@ menu.variant=Variant
 16.build.core=MightyCore
 16.build.board=AVR_ATmega16
 
+# Pinouts
 16.menu.pinout.standard=Standard
 16.menu.pinout.standard.build.variant=standard
 16.menu.pinout.bobuino=Bobuino
 16.menu.pinout.bobuino.build.variant=bobuino
 
+# Compiler link time optimization
+16.menu.LTO.Os=Disabled (default)
+16.menu.LTO.Os.compiler.c.extra_flags=
+16.menu.LTO.Os.compiler.c.elf.extra_flags=
+16.menu.LTO.Os.compiler.cpp.extra_flags=
+16.menu.LTO.Os.ltoarcmd=avr-ar
+
+16.menu.LTO.Os_flto=Enabled
+16.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+16.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+16.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+16.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+
+# Clock frequencies
 #make atmega16 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 16.menu.clock.16MHz_external=16 MHz external (BOD 2.7v)
 16.menu.clock.16MHz_external.upload.speed=115200
@@ -538,7 +656,9 @@ menu.variant=Variant
 16.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
-############################################################
+#####################
+#### ATmega8535  ####
+#####################
 
 
 8535.name=ATmega8535
@@ -555,11 +675,26 @@ menu.variant=Variant
 8535.build.core=MightyCore
 8535.build.board=AVR_ATmega8535
 
+# Pinouts
 8535.menu.pinout.standard=Standard
 8535.menu.pinout.standard.build.variant=standard
 8535.menu.pinout.bobuino=Bobuino
 8535.menu.pinout.bobuino.build.variant=bobuino
 
+# Compiler link time optimization
+8535.menu.LTO.Os=Disabled (default)
+8535.menu.LTO.Os.compiler.c.extra_flags=
+8535.menu.LTO.Os.compiler.c.elf.extra_flags=
+8535.menu.LTO.Os.compiler.cpp.extra_flags=
+8535.menu.LTO.Os.ltoarcmd=avr-ar
+
+8535.menu.LTO.Os_flto=Enabled
+8535.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
+8535.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
+8535.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+8535.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+# Clock frequencies
 #make atmega8535 AVR_FREQ=16000000L BAUD_RATE=115200 UART=0 LED=B0 LED_START_FLASHES=2
 8535.menu.clock.16MHz_external=16 MHz external (BOD 2.7v)
 8535.menu.clock.16MHz_external.upload.speed=115200

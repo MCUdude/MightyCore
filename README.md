@@ -61,6 +61,10 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 ##BOD option
 Brown out detection, or BOD for short lets the microcontroller sense the input voltage and shut down if the voltage goes below the brown out setting. For microcontrollers with an extended fuse (ATmega164/324/644/1284) there is a separate BOD option. To change the BOD settings you'll have to connect an ISP programmer and hit "Burn bootloader".
 
+##Link time optimization / LTO
+After Arduino IDE 1.6.11 where released, There have been support for link time optimization or LTO for short. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep its backwards compatibility. Enabling LTO in IDE 1.6.10 and older will return an error. 
+I encourage you to try the new LTO option and see how much smaller your code gets! Note that you don't need to hit "Burn Bootloader" in order to enable LTO. Simply enable it in the "Tools" menu, and your code is ready for compilation. If you want to read more about LTO and GCC flags in general, head over to the [GNU GCC website](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)!
+
 ##Pinout
 This core got two different pinout option. The default one is named "Standard", and is based on the original AVR pinout. The other one is named "Bobuino" and is basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stays the same (MOSI on D11, MISO on D12, SCK on D13). Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
 <b>Click to enlarge:</b> 
@@ -116,7 +120,7 @@ Ok, so you're downloaded and installed MightyCore, but do I get the wheels spinn
 	- If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
 * Open the **Tools > Board** menu item, and select a MighyCore compatible microcontroller.
 * If the *BOD option* is presented, you can select at what voltage the microcontroller will shut down at. Read more about BOD [here](#bod-option).
-* Select your prefered pinout. Personally I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compability. Read more about the different pinouts [here](#pinouts).
+* Select your prefered pinout. Personally I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compatibility. Read more about the different pinouts [here](#pinouts).
 * Select your prefered clock frequency. **16 MHz** is standard on most Arduino boards.
 * Select what kind of programmer you're using under the **Programmers** menu.
 * If the *Variants* option is presented, you'll have to specify what version of the microcontroller you're using. E.g the ATmega1284 and the ATmega1284P got different device signatures, so selecting the wrong one will result in an error.
