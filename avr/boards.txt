@@ -504,7 +504,7 @@ menu.LTO=Compiler LTO
 
 # Brown out detection - This is the first part of the low fuse bit concatenation
 32.menu.BOD.2v7=2.7v
-32.menu.BOD.2v7.bootloader.bod_bits=01
+32.menu.BOD.2v7.bootloader.bod_bits=10
 32.menu.BOD.4v0=4.0v
 32.menu.BOD.4v0.bootloader.bod_bits=00
 32.menu.BOD.disabled=Disabled
@@ -603,7 +603,7 @@ menu.LTO=Compiler LTO
 
 # Brown out detection - This is the first part of the low fuse bit concatenation
 16.menu.BOD.2v7=2.7v
-16.menu.BOD.2v7.bootloader.bod_bits=01
+16.menu.BOD.2v7.bootloader.bod_bits=10
 16.menu.BOD.4v0=4.0v
 16.menu.BOD.4v0.bootloader.bod_bits=00
 16.menu.BOD.disabled=Disabled
@@ -702,7 +702,7 @@ menu.LTO=Compiler LTO
 
 # Brown out detection - This is the first part of the low fuse bit concatenation
 8535.menu.BOD.2v7=2.7v
-8535.menu.BOD.2v7.bootloader.bod_bits=01
+8535.menu.BOD.2v7.bootloader.bod_bits=10
 8535.menu.BOD.4v0=4.0v
 8535.menu.BOD.4v0.bootloader.bod_bits=00
 8535.menu.BOD.disabled=Disabled
