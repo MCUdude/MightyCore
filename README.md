@@ -39,7 +39,7 @@ Read more in the hardware section below.
 * ATmega16*
 * ATmega8535*
 
-(* all variants - P, PA, A. Select the correct version in the 'Variant' menu)
+<b>*</b> All variants - P, PA, A except PB. Select the correct version in the 'Variant' menu
 
 
 ##Supported clock frequencies
@@ -60,7 +60,15 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 
 
 ##BOD option
-Brown out detection, or BOD for short lets the microcontroller sense the input voltage and shut down if the voltage goes below the brown out setting. For microcontrollers with an extended fuse (ATmega164/324/644/1284) there is a separate BOD option. To change the BOD settings you'll have to connect an ISP programmer and hit "Burn bootloader".
+Brown out detection, or BOD for short lets the microcontroller sense the input voltage and shut down if the voltage goes below the brown out setting. To change the BOD settings you'll have to connect an ISP programmer and hit "Burn bootloader". Below is a table that shows the available BOD options:
+<br/>
+
+| ATmega1284 | Atmega644 | ATmega324 | ATmega164 | ATmega32 | ATmega16 | ATmega8535 |
+|------------|-----------|-----------|-----------|----------|----------|------------|
+| 4.3v       | 4.3v      | 4.3v      | 4.3v      | 4.0v     | 4.0v     | 4.0v       |
+| 2.7v       | 2.7v      | 2.7v      | 2.7v      | 2.7v     | 2.7v     | 2.7v       |
+| 1.8v       | 1.8v      | 1.8v      | 1.8v      | -        | -        | -          |
+| Disabled   | Disabled  | Disabled  | Disabled  | Disabled | Disabled | Disabled   |
 
 ##Link time optimization / LTO
 After Arduino IDE 1.6.11 where released, There have been support for link time optimization or LTO for short. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep its backwards compatibility. Enabling LTO in IDE 1.6.10 and older will return an error. 
