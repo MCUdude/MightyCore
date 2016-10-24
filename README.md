@@ -1,7 +1,7 @@
 #MightyCore
 An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often works without any modifications. 
 <br/> <br/>
-This core requires at least Arduino IDE v1.6, where v1.6.5+ is recommended. <b>Please don't update to IDE v1.6.10 just yet, as there's still some issues to resolve.</b>
+This core requires at least Arduino IDE v1.6, where v1.6.11+ is recommended.
 <br/>
 An Arduino forum post for this particular core are located [here](http://forum.arduino.cc/index.php?topic=379427.0). 
 <br/> <br/>
@@ -73,6 +73,15 @@ Brown out detection, or BOD for short lets the microcontroller sense the input v
 ##Link time optimization / LTO
 After Arduino IDE 1.6.11 where released, There have been support for link time optimization or LTO for short. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep its backwards compatibility. Enabling LTO in IDE 1.6.10 and older will return an error. 
 I encourage you to try the new LTO option and see how much smaller your code gets! Note that you don't need to hit "Burn Bootloader" in order to enable LTO. Simply enable it in the "Tools" menu, and your code is ready for compilation. If you want to read more about LTO and GCC flags in general, head over to the [GNU GCC website](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)!
+<br/> <br/>
+Here's some numbers to convince you. These sketches were compiled for an **ATmega1284** using **Arduino IDE 1.6.12 (avr-gcc 4.9.2)**. Impressing, right?
+<br/>
+
+|                  | Blink.ino  | AnalogReadSerial.ino  | SerialReadWrite.ino | CardInfo.ino |
+|------------------|------------|-----------------------|---------------------|--------------|
+| **LTO enabled**  | 1084 bytes | 1974 bytes            | 7190 bytes          | 9416 bytes   |
+| **LTO disabled** | 1216 bytes | 2414 bytes            | 7710 bytes          | 11518 bytes  |
+
 
 ##Pinout
 This core got two different pinout option. The default one is named "Standard", and is based on the original AVR pinout. The other one is named "Bobuino" and is basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stays the same (MOSI on D11, MISO on D12, SCK on D13). Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
@@ -102,7 +111,6 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 * Open the **Tools > Board > Boards Manager...** menu item.
 * Wait for the platform indexes to finish downloading.
 * Scroll down until you see the **MightyCore** entry and click on it.
-  * **Note**: If you are using Arduino IDE 1.6.6 then you may need to close **Boards Manager** and then reopen it before the **MightyCore** entry will appear.
 * Click **Install**.
 * After installation is complete close the **Boards Manager** window.
 
@@ -142,7 +150,7 @@ Your code should now be running on your microcontroller! If you experience any i
 
 
 ##Wiring reference
-To extend this core's functionality a bit futher, I've added a few missing Wiring functions. As many of you know Arduino is based on Wiring, but that doesn't mean the Wiring development isnt active. These functions is used as "regular" Arduino functions, and there's no need to include an external library.<br/>
+To extend this core's functionality a bit futher, I've added a few missing Wiring functions. As many of you know Arduino is based on Wiring, but that doesn't mean the Wiring development isn't active. These functions is used as "regular" Arduino functions, and there's no need to include an external library.<br/>
 I hope you find this useful, because they really are!
 
 ###Function list
@@ -160,7 +168,7 @@ I hope you find this useful, because they really are!
 
 ##Library porting
 Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16 or ATmega32.
-A simple guide to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
+A simple guide on hiw to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ##Hardware
 I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. **And for just 30$ it's a really good deal!**
@@ -192,5 +200,4 @@ Click the images for full resolution <br/>
 
 ##Minimal setup
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
-<img src="http://i.imgur.com/DG9AiKe.png" width="750">
-
+<img src="http://i.imgur.com/sfeTDsZ.png" width="750">
