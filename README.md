@@ -11,6 +11,7 @@ If you're looking for a great development board for these DIP-40 microcontroller
 but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
 Read more in the hardware section below.
 
+
 #Table of contents
 * [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
@@ -43,17 +44,24 @@ Read more in the hardware section below.
 
 
 ##Supported clock frequencies
-* 20 MHz external oscillator
 * 16 MHz external oscillator (default)
+* 20 MHz external oscillator
+* 18.432 Mhz external oscillator <b>*</b>
 * 12 MHz external oscillator
 * 8 MHz external oscillator
-* 8 MHz internal oscillator <b>*</b>
+* 8 MHz internal oscillator <b>**</b>
 * 1 MHz internal oscillator 
  
 Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
 Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended. 
 </br></br>
-<b>*</b> There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
+
+<b>*</b> When using the 18.432 MHz option (or any frequency by which 64 cannot be divided evenly), micros() is 4-5 times slower (~110 clocks). It reports the time at the point when it was called, not the end.
+This clock frequency is not recommended if your application relies on accurate timing, but is [superb for UART communication](http://wormfood.net/avrbaudcalc.php?bitrate=300%2C600%2C1200%2C2400%2C4800%2C9600%2C14.4k%2C19.2k%2C28.8k%2C38.4k%2C57.6k%2C76.8k%2C115.2k%2C230.4k%2C250k%2C.5m%2C1m&clock=18.432&databits=8). 
+Millis() is not effected, only micros() and delay(). Micros() executes equally fast at all clock speeds, but returns wrong values with anything that 64 doesn't divide evenly by.
+<br/><br/>
+
+<b>**</b> There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
 * Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/a1d4a54df392290ebfd5b67f41fd93fec2b94313/avr/boards.txt#L83) file, and choose either 115200, 57600, 38400 or 19200 baud.
 * Upload the code using a programmer (USBasp, USBtinyISP etc.) and drop the bootloader
 * Use the 1 MHz option instead
@@ -69,6 +77,7 @@ Brown out detection, or BOD for short lets the microcontroller sense the input v
 | 2.7v       | 2.7v      | 2.7v      | 2.7v      | 2.7v     | 2.7v     | 2.7v       |
 | 1.8v       | 1.8v      | 1.8v      | 1.8v      | -        | -        | -          |
 | Disabled   | Disabled  | Disabled  | Disabled  | Disabled | Disabled | Disabled   |
+
 
 ##Link time optimization / LTO
 After Arduino IDE 1.6.11 where released, There have been support for link time optimization or LTO for short. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep its backwards compatibility. Enabling LTO in IDE 1.6.10 and older will return an error. 
@@ -91,8 +100,10 @@ This core got two different pinout option. The default one is named "Standard", 
 </br> </br>
 <img src="http://i.imgur.com/PF1HWho.png" width="375"> <img src="http://i.imgur.com/fHC5LQK.png" width="430">
 
+
 ##Programmers
 MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, or ATmega164A.
+
 
 ##Write to own flash
 A while ago [@majekw](https://github.com/majekw) announced that he'd [successfully modified the Optiboot bootloader](http://forum.arduino.cc/index.php?topic=332191.0) to let the running program permanently store content in the flash memory.
