@@ -1,7 +1,7 @@
 ##########################################
-## This file is created by MCUdude 
+## This file is created by MCUdude
 ## for use with MightyCore
-## https://github.com/MCUdude/MightyCore	
+## https://github.com/MCUdude/MightyCore
 ##
 ## This is the file where fuse settings,
 ## BOD options, pinouts, clock frequencies
@@ -41,6 +41,8 @@ menu.LTO=Compiler LTO
 1284.menu.pinout.standard.build.variant=standard
 1284.menu.pinout.bobuino=Bobuino
 1284.menu.pinout.bobuino.build.variant=bobuino
+1284.menu.pinout.sanguinololu=Sanguinololu
+1284.menu.pinout.sanguinololu.build.variant=sanguinololu
 
 # Variants
 1284.menu.variant.modelP=1284P
@@ -145,6 +147,8 @@ menu.LTO=Compiler LTO
 644.menu.pinout.standard.build.variant=standard
 644.menu.pinout.bobuino=Bobuino
 644.menu.pinout.bobuino.build.variant=bobuino
+644.menu.pinout.sanguinololu=Sanguinololu
+644.menu.pinout.sanguinololu.build.variant=sanguinololu
 
 # Variants
 644.menu.variant.modelP=644P / 644PA
