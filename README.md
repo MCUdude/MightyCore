@@ -32,15 +32,26 @@ Read more in the hardware section below.
 
 
 ##Supported microcontrollers
-* ATmega1284*
-* ATmega644*
-* ATmega324*
-* ATmega164*
-* ATmega32*
-* ATmega16*
-* ATmega8535*
-
+* ATmega1284
+* ATmega644
+* ATmega324
+* ATmega164
+* ATmega32
+* ATmega16
+* ATmega8535
+<br>
+<br>
 <b>*</b> All variants - P, PA, A except PB. Select the correct version in the 'Variant' menu
+
+Can't decide what microcontroller to choose? Have a look at the specification table below:
+
+|                  | mega1284 | mega644 | mega324 | mega164 | mega32 | mega16 | mega8535 |
+|------------------|----------|---------|---------|---------|--------|--------|----------|
+| **Flash**        | 128kB    | 64kB    | 32kB    | 16kB    | 32kB   | 16kB   | 8kB      |
+| **RAM**          | 16kB     | 4kB     | 2kB     | 1kB     | 2kB    | 1kB    | 512B     |
+| **EEPROM**       | 4kB      | 2kB     | 1kB     | 512B    | 512B   | 512B   | 512B     |
+| **Serial ports** | 2        | 2       | 2       | 2       | 1      | 1      | 1        |
+| **PWM pins**     | 8        | 6       | 6       | 6       | 4      | 4      | 4        |
 
 
 ##Supported clock frequencies
@@ -58,7 +69,7 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 
 <b>*</b> When using the 18.432 MHz option (or any frequency by which 64 cannot be divided evenly), micros() is 4-5 times slower (~110 clocks). It reports the time at the point when it was called, not the end.
 This clock frequency is not recommended if your application relies on accurate timing, but is [superb for UART communication](http://wormfood.net/avrbaudcalc.php?bitrate=300%2C600%2C1200%2C2400%2C4800%2C9600%2C14.4k%2C19.2k%2C28.8k%2C38.4k%2C57.6k%2C76.8k%2C115.2k%2C230.4k%2C250k%2C.5m%2C1m&clock=18.432&databits=8). 
-Millis() is not effected, only micros() and delay(). Micros() executes equally fast at all clock speeds, but returns wrong values with anything that 64 doesn't divide evenly by.
+Millis() is not affected, only micros() and delay(). Micros() executes equally fast at all clock speeds, but returns wrong values with anything that 64 doesn't divide evenly by.
 <br/><br/>
 
 <b>**</b> There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
