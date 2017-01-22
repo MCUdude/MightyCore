@@ -107,9 +107,9 @@ Here's some numbers to convince you. These sketches were compiled for an **ATmeg
 This core got two different pinout option. The default one is named "Standard", and is based on the original AVR pinout. The other one is named "Bobuino" and is basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stays the same (MOSI on D11, MISO on D12, SCK on D13). Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
 <b>Click to enlarge:</b> 
 </br> </br>
-<img src="http://i.imgur.com/FR4GYcM.jpg" width="375"> <img src="http://i.imgur.com/glVtfoD.jpg" width="430">
+<img src="http://i.imgur.com/FR4GYcM.jpg" width="430"> <img src="http://i.imgur.com/glVtfoD.jpg" width="430">
 </br> </br>
-<img src="http://i.imgur.com/jtu8ueA.jpg" width="375"> <img src="http://i.imgur.com/xVaXbQ7.jpg" width="430">
+<img src="http://i.imgur.com/jtu8ueA.jpg" width="430"> <img src="http://i.imgur.com/xVaXbQ7.jpg" width="430">
 
 
 ##Programmers
@@ -203,22 +203,23 @@ The development board got some additional unique features:
 * A high voltage parallel programming header for programming and fixing bad fuse settings (pin compatible with the AVR Dragon)
 * A potmeter for using as a voltage reference (e.g adjusting the LCD contrast)
 * LOTS of 5V, 3.3V and GND points broken out, both male and female
+* A large ground pad on the underside of the board for connecting alligator clips, such as the ground clip of your oscilloscope
 * Socketed crystal, perfect for experimenting with different clock frequencies
 * A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor
 * PWM pins are clearly marked, and a lookup table can be found on the under side of the board (three '~'s - all microcontrollers, two '~'s - 164; 324; 644; 1284, one '~' - 1284)
 * IO peripherals can be found on the underside of the board. No need to search in the datasheet anymore!
 * Mini USB instead of the large USB Type-B plug
 * The USB to serial chip is broken out on the underside of the board in a standard "FTDI pinout" for using the board as a USB to serial adapter, or for using an external programmer instead
-* The rest of the hand shake pins (CTS, DTR, RI, DCD) in the USB to serial adapter are broken out for other applications, such as bit banging
+* The all hand shake pins (CTS, DTR, RI, DCD, DRT, RST) to the USB to serial adapter broken out for other applications, such as bit banging
 
 ####[The development board can be bought on my Tindie store.](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board/) This includes a pre programmed ATmega32. <br/>
 <br/>
 Click the images for full resolution <br/>
-![Development board front](http://i.imgur.com/zovyQUy.jpg)
+![Development board front](http://i.imgur.com/0ZqEKS8.jpg)
 <br/>
-![Development board back](http://i.imgur.com/cWmPBWh.jpg)
+![Development board back](http://i.imgur.com/O4kskqP.jpg[)
 <br/>
-![Semi assembled board](http://i.imgur.com/CEDMgzg.jpg)
+![Pinouts](http://i.imgur.com/ex733X6.jpg)
 
 ##Minimal setup
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
