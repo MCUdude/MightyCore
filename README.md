@@ -109,7 +109,7 @@ This core got two different pinout option. The default one is named "Standard", 
 </br> </br>
 <img src="http://i.imgur.com/FR4GYcM.jpg" width="430"> <img src="http://i.imgur.com/glVtfoD.jpg" width="430">
 </br> </br>
-<img src="http://i.imgur.com/jtu8ueA.jpg" width="430"> <img src="http://i.imgur.com/xVaXbQ7.jpg" width="430">
+<img src="http://i.imgur.com/Td0Nhug.jpg" width="430"> <img src="http://i.imgur.com/qihkoXX.jpg" width="430">
 
 
 ##Programmers
