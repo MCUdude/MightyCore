@@ -214,10 +214,13 @@ The development board got some additional unique features:
 #### [The development board can be bought on my Tindie store.](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board/) This includes a pre programmed ATmega32. <br/>
 <br/>
 Click the images for full resolution <br/>
+
 ![Development board front](http://i.imgur.com/0ZqEKS8.jpg)
 <br/>
-![Development board back](http://i.imgur.com/O4kskqP.jpg[)
+
+![Development board back](http://i.imgur.com/O4kskqP.jpg)
 <br/>
+
 ![Pinouts](http://i.imgur.com/ex733X6.jpg)
 
 ## Minimal setup
