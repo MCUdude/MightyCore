@@ -1,4 +1,4 @@
-#MightyCore library porting
+# MightyCore library porting
 If you're used this core for a while, you've might discovered that some 3rd party libraries doesn't work with these microcontrolles. 
 The ATmega8535, ATmega16 and ATmega32 are particularly vulnerable, while the newer generation (ATmega164, ATmega324, ATmega644 and ATmega1284) mostly work without modifications. Here's why: </br>
 
