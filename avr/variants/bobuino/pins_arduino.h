@@ -42,6 +42,7 @@ https://github.com/JChristensen/mighty-1284p
 #define BOBUINO_PINOUT
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
+#define EXTERNAL_NUM_INTERRUPTS     3
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
 #define analogPinToChannel(p)       ((p) < NUM_ANALOG_INPUTS) ? (7 - (p)) : ((p)  >=  14 && (p) <= 21) ? (21 - (p)) : -1
 #define digitalPinToInterrupt(p)    ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))

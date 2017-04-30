@@ -44,6 +44,7 @@ PCINT7-0: D31-24   : bit 0
 #define STANDARD_PINOUT
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
+#define EXTERNAL_NUM_INTERRUPTS     3
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 24 : -1)
 #define analogPinToChannel(p)       ((p) < NUM_ANALOG_INPUTS ? (p) : (p) >= 24 ? (p) - 24 : -1)
 #define digitalPinToInterrupt(p)    ((p) == 2 ? 2 : ((p) == 10 ? 0 : ((p) == 11 ? 1 : NOT_AN_INTERRUPT)))
