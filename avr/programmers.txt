@@ -42,6 +42,11 @@ arduinoisp.protocol=arduinoisp
 arduinoisp.program.tool=avrdude
 arduinoisp.program.extra_params=
 
+arduinoisporg.name=ArduinoISP.org (MightyCore)
+arduinoisporg.protocol=arduinoisporg
+arduinoisporg.program.tool=avrdude
+arduinoisporg.program.extra_params=
+
 usbasp.name=USBasp (MightyCore)
 usbasp.communication=usb
 usbasp.protocol=usbasp
@@ -77,3 +82,10 @@ buspirate.protocol=buspirate
 buspirate.program.protocol=buspirate
 buspirate.program.tool=avrdude
 buspirate.program.extra_params=-P{serial.port}
+
+atmel_ice.name=Atmel-ICE (AVR) (MightyCore)
+atmel_ice.communication=usb
+atmel_ice.protocol=atmelice_isp
+atmel_ice.program.protocol=atmelice_isp
+atmel_ice.program.tool=avrdude
+atmel_ice.program.extra_params=-Pusb
