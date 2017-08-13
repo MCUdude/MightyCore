@@ -83,14 +83,13 @@ buspirate.program.protocol=buspirate
 buspirate.program.tool=avrdude
 buspirate.program.extra_params=-P{serial.port}
 
-<<<<<<< HEAD
 atmel_ice.name=Atmel-ICE (AVR) (MightyCore)
 atmel_ice.communication=usb
 atmel_ice.protocol=atmelice_isp
 atmel_ice.program.protocol=atmelice_isp
 atmel_ice.program.tool=avrdude
 atmel_ice.program.extra_params=-Pusb
-=======
+
 jtag3isp.name=Atmel JTAGICE3 (ISP mode) (MightyCore)
 jtag3isp.communication=usb
 jtag3isp.protocol=jtag3isp
@@ -107,4 +106,3 @@ jtag3.program.tool=avrdude
 # work regardless of the crystal used, since JTAG doesn't use the MCU
 # clock but dictates its own clock.
 jtag3.program.extra_params=-B0.1
->>>>>>> Add Atmel JTAGICE3 programmers
