@@ -1,11 +1,11 @@
 # MightyCore library porting
-If you're used this core for a while, you've might discovered that some 3rd party libraries doesn't work with these microcontrolles. 
+If you have used this core for a while, you might have discovered that some 3rd party libraries don't work with these microcontrollers. 
 The ATmega8535, ATmega16 and ATmega32 are particularly vulnerable, while the newer generation (ATmega164, ATmega324, ATmega644 and ATmega1284) mostly work without modifications. Here's why: </br>
 
-According to the [AVR505 Application note](http://www.atmel.com/Images/doc8001.pdf) which was released in 2006, the ATmega164/324 (as well as 644/1284) are new an enhanced versions of the ATmega16/32.
-They features lower power consumption, lower opertaing voltage and an extra USART port, but also different register names. These names are the ones that breaks compatibility.
+According to the [AVR505 Application note](http://www.atmel.com/Images/doc8001.pdf) which was released in 2006, the ATmega164/324 (as well as 644/1284) are new and enhanced versions of the ATmega16/32.
+They feature lower power consumption, lower operating voltages and an extra USART port, but also different register names. These names are the ones that break compatibility.
 While the new generation (ATmega164/324/644/1284) share the same register names as the ATmega168/328, the "old" generation (ATmega8535/16/32) share the same register names as the ATmega8. </br>
-Just remember that the ATmega8535/16/32 doesn't got more than 4 PWM outputs and no pin change interrupt (PCINT), so some libraries (like SoftwareSerial) will never work.
+Just remember that the ATmega8535/16/32 doesn't have more than 4 PWM outputs and no pin change interrupt (PCINT), so some libraries (like SoftwareSerial) will never work.
 
 <b>Here's how to port a library</b>
 * Download your library and open the header file (the one that ends with *.h)
@@ -13,7 +13,7 @@ Just remember that the ATmega8535/16/32 doesn't got more than 4 PWM outputs and 
 * Save and close. <b>The library should now be working!</b>
 
 <b>Why am I still getting an error message?</b>
-* The library are using a PWM pin that's not supported. Only digital pin 3, 12, 13 and 15 supports PWM on ATmega8535/16/32 (using the standard pinout)
+* The library is using a PWM pin that's not supported. Only digital pins 3, 12, 13 and 15 support PWM on ATmega8535/16/32 (using the standard pinout)
 * The library relies on pin change interrupt (which the ATmega8535/16/32 doesn't support)
 * You haven't pasted the code in the correct header file
 
