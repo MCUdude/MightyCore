@@ -10,6 +10,7 @@ Multi-instance software serial library for Arduino/Wiring
 -- Pin change interrupt macros by Paul Stoffregen (http://www.pjrc.com)
 -- 20MHz processor support by Garrett Mace (http://www.macetech.com)
 -- ATmega1280/2560 support by Brett Hagman (http://www.roguerobotics.com/)
+-- ATmega8/16/32/64/128/8515/8535 support by MCUdude (https://github.com/MCUdude)
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -35,25 +36,24 @@ http://arduiniana.org.
 #include <inttypes.h>
 #include <Stream.h>
 
-
-/******************************************************************************
-* Hardware detection
-******************************************************************************/
-
-//MegaCore
-#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
-  #error "ATmega64 and ATmega128 doesn't support SoftSerial!"
-
-//MightyCore
-#elif defined(__AVR_ATmega32__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega8535__)
-  #error "ATmega8535, ATmega16 and ATmega32 doesn't support SoftSerial!"
+// Add dummy PCINT macros
+#if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega8535__) || defined(__AVR_ATmega8__) \
+|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega64__)     \
+|| defined(__AVR_ATmega128__)
+#define digitalPinToPCICR(p)    ((uint8_t *) 0)
+#define digitalPinToPCICRbit(p) (0)
+#define digitalPinToPCMSK(p)    ((uint8_t *) 0)
+#define digitalPinToPCMSKbit(p) (0)
 #endif
 
 /******************************************************************************
 * Definitions
 ******************************************************************************/
 
+#ifndef _SS_MAX_RX_BUFF
 #define _SS_MAX_RX_BUFF 64 // RX buffer size
+#endif
+
 #ifndef GCC_VERSION
 #define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
 #endif
@@ -80,18 +80,17 @@ private:
   uint16_t _inverse_logic:1;
 
   // static data
-  static char _receive_buffer[_SS_MAX_RX_BUFF]; 
+  static uint8_t _receive_buffer[_SS_MAX_RX_BUFF]; 
   static volatile uint8_t _receive_buffer_tail;
   static volatile uint8_t _receive_buffer_head;
   static SoftwareSerial *active_object;
 
   // private methods
-  void recv() __attribute__((__always_inline__));
+  inline void recv() __attribute__((__always_inline__));
   uint8_t rx_pin_read();
-  void tx_pin_write(uint8_t pin_state) __attribute__((__always_inline__));
   void setTX(uint8_t transmitPin);
   void setRX(uint8_t receivePin);
-  void setRxIntMsk(bool enable) __attribute__((__always_inline__));
+  inline void setRxIntMsk(bool enable) __attribute__((__always_inline__));
 
   // Return num - sub, or 1 if the result would be < 1
   static uint16_t subtract_cap(uint16_t num, uint16_t sub);

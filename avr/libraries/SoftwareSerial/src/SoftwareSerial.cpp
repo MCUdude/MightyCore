@@ -10,6 +10,8 @@ Multi-instance software serial library for Arduino/Wiring
 -- Pin change interrupt macros by Paul Stoffregen (http://www.pjrc.com)
 -- 20MHz processor support by Garrett Mace (http://www.macetech.com)
 -- ATmega1280/2560 support by Brett Hagman (http://www.roguerobotics.com/)
+-- ATmega8/16/32/64/128/8515/8535 support by MCUdude (https://github.com/MCUdude)
+
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -48,7 +50,7 @@ http://arduiniana.org.
 // Statics
 //
 SoftwareSerial *SoftwareSerial::active_object = 0;
-char SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF]; 
+uint8_t SoftwareSerial::_receive_buffer[_SS_MAX_RX_BUFF]; 
 volatile uint8_t SoftwareSerial::_receive_buffer_tail = 0;
 volatile uint8_t SoftwareSerial::_receive_buffer_head = 0;
 
@@ -57,9 +59,9 @@ volatile uint8_t SoftwareSerial::_receive_buffer_head = 0;
 //
 // This function generates a brief pulse
 // for debugging or measuring on an oscilloscope.
+#if _DEBUG
 inline void DebugPulse(uint8_t pin, uint8_t count)
 {
-#if _DEBUG
   volatile uint8_t *pport = portOutputRegister(digitalPinToPort(pin));
 
   uint8_t val = *pport;
@@ -68,8 +70,10 @@ inline void DebugPulse(uint8_t pin, uint8_t count)
     *pport = val | digitalPinToBitMask(pin);
     *pport = val;
   }
-#endif
 }
+#else
+inline void DebugPulse(uint8_t, uint8_t) {}
+#endif
 
 //
 // Private methods
@@ -213,6 +217,12 @@ uint8_t SoftwareSerial::rx_pin_read()
 // Interrupt handling
 //
 
+// gets called from attachInterrupt
+static void isr()
+{
+  SoftwareSerial::handle_interrupt();
+}
+
 /* static */
 inline void SoftwareSerial::handle_interrupt()
 {
@@ -268,7 +278,7 @@ void SoftwareSerial::setTX(uint8_t tx)
 {
   // First write, then set output. If we do this the other way around,
   // the pin would be output low for a short while before switching to
-  // output hihg. Now, it is input with pullup for a short while, which
+  // output high. Now, it is input with pullup for a short while, which
   // is fine. With inverse logic, either order is fine.
   digitalWrite(tx, _inverse_logic ? LOW : HIGH);
   pinMode(tx, OUTPUT);
@@ -360,6 +370,51 @@ void SoftwareSerial::begin(long speed)
     // can be used inside the ISR without costing too much time.
     _pcint_maskreg = digitalPinToPCMSK(_receivePin);
     _pcint_maskvalue = _BV(digitalPinToPCMSKbit(_receivePin));
+
+    tunedDelay(_tx_delay); // if we were low this establishes the end
+  }
+  
+   // The microcontroller doesn't have PCINTs. Using regular interrupts instead
+  else 
+  {
+     // direct interrupts
+     attachInterrupt(digitalPinToInterrupt(_receivePin), isr, CHANGE);
+     
+    #if GCC_VERSION > 40800
+    // Timings counted from gcc 4.8.2 output. This works up to 115200 on
+    // 16Mhz and 57600 on 8Mhz.
+    //
+    // When the start bit occurs, there are 3 or 4 cycles before the
+    // interrupt flag is set, 4 cycles before the PC is set to the right
+    // interrupt vector address and the old PC is pushed on the stack,
+    // and then 75 cycles of instructions (including the RJMP in the
+    // ISR vector table) until the first delay. After the delay, there
+    // are 17 more cycles until the pin value is read (excluding the
+    // delay in the loop).
+    // We want to have a total delay of 1.5 bit time. Inside the loop,
+    // we already wait for 1 bit time - 23 cycles, so here we wait for
+    // 0.5 bit time - (71 + 18 - 22) cycles.
+    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 75 + 17 - 23) / 4);
+
+    // There are 23 cycles in each loop iteration (excluding the delay)
+    _rx_delay_intrabit = subtract_cap(bit_delay, 23 / 4);
+
+    // There are 37 cycles from the last bit read to the start of
+    // stopbit delay and 11 cycles from the delay until the interrupt
+    // mask is enabled again (which _must_ happen during the stopbit).
+    // This delay aims at 3/4 of a bit time, meaning the end of the
+    // delay will be at 1/4th of the stopbit. This allows some extra
+    // time for ISR cleanup, which makes 115200 baud at 16Mhz work more
+    // reliably
+    _rx_delay_stopbit = subtract_cap(bit_delay * 3 / 4, (37 + 11) / 4);
+    #else // Timings counted from gcc 4.3.2 output
+    // Note that this code is a _lot_ slower, mostly due to bad register
+    // allocation choices of gcc. This works up to 57600 on 16Mhz and
+    // 38400 on 8Mhz.
+    _rx_delay_centering = subtract_cap(bit_delay / 2, (4 + 4 + 97 + 29 - 11) / 4);
+    _rx_delay_intrabit = subtract_cap(bit_delay, 11 / 4);
+    _rx_delay_stopbit = subtract_cap(bit_delay * 3 / 4, (44 + 17) / 4);
+    #endif
 
     tunedDelay(_tx_delay); // if we were low this establishes the end
   }
@@ -467,13 +522,7 @@ size_t SoftwareSerial::write(uint8_t b)
 
 void SoftwareSerial::flush()
 {
-  if (!isListening())
-    return;
-
-  uint8_t oldSREG = SREG;
-  cli();
-  _receive_buffer_head = _receive_buffer_tail = 0;
-  SREG = oldSREG;
+  // There is no tx buffering, simply return
 }
 
 int SoftwareSerial::peek()
