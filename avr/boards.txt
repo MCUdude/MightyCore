@@ -24,13 +24,13 @@
 ##                                                                                      ##
 ##########################################################################################
 
+
 # Menu options
 menu.clock=Clock
 menu.BOD=BOD
 menu.pinout=Pinout
 menu.variant=Variant
 menu.LTO=Compiler LTO
-
 
 
 ######################
@@ -170,8 +170,8 @@ menu.LTO=Compiler LTO
 # Variants
 644.menu.variant.modelP=644P / 644PA
 644.menu.variant.modelP.build.mcu=atmega644p
-644.menu.variant.modelNonP=644 / 644A
-644.menu.variant.modelNonP.build.mcu=atmega644
+644.menu.variant.modelA=644 / 644A
+644.menu.variant.modelA.build.mcu=atmega644
 
 # Brown out detection
 644.menu.BOD.2v7=2.7v
