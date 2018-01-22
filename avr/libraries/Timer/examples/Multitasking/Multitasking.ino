@@ -46,5 +46,6 @@ void takeReading(void* context)
 }
 
 void toggle(void* context) {
+  (void)context;  // Cast unused parameter to void to avoid compiler warning
   digitalWrite(ledPin, !digitalRead(ledPin)); // Toggle the ledPin
 }
