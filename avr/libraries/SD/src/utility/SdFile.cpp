@@ -904,8 +904,8 @@ uint8_t SdFile::rmRfStar(void) {
       if (!f.remove()) return false;
     }
     // position to next entry if required
-    if (curPosition_ != (32*(index + 1))) {
-      if (!seekSet(32*(index + 1))) return false;
+    if (curPosition_ != (32u*(index + 1))) {
+      if (!seekSet(32u*(index + 1))) return false;
     }
   }
   // don't try to delete root

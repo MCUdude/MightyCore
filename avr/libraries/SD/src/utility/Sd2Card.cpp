@@ -376,7 +376,6 @@ uint8_t Sd2Card::readBlock(uint32_t block, uint8_t* dst) {
  */
 uint8_t Sd2Card::readData(uint32_t block,
         uint16_t offset, uint16_t count, uint8_t* dst) {
-  uint16_t n;
   if (count == 0) return true;
   if ((count + offset) > 512) {
     goto fail;

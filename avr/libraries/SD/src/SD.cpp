@@ -233,7 +233,7 @@ boolean walkPath(const char *filepath, SdFile& parentDir,
  */
 
 boolean callback_pathExists(SdFile& parentDir, const char *filePathComponent, 
-			    boolean isLastComponent, void *object) {
+			    boolean /* isLastComponent */, void * /* object */) {
   /*
 
     Callback used to determine if a file/directory exists in parent
@@ -311,7 +311,7 @@ boolean callback_openPath(SdFile& parentDir, char *filePathComponent,
 
 
 boolean callback_remove(SdFile& parentDir, const char *filePathComponent, 
-			boolean isLastComponent, void *object) {
+			boolean isLastComponent, void * /* object */) {
   if (isLastComponent) {
     return SdFile::remove(parentDir, filePathComponent);
   }
@@ -319,7 +319,7 @@ boolean callback_remove(SdFile& parentDir, const char *filePathComponent,
 }
 
 boolean callback_rmdir(SdFile& parentDir, const char *filePathComponent, 
-			boolean isLastComponent, void *object) {
+			boolean isLastComponent, void * /* object */) {
   if (isLastComponent) {
     SdFile f;
     if (!f.open(parentDir, filePathComponent, O_READ)) return false;
