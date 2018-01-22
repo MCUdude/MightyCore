@@ -12,7 +12,7 @@
 
 int ledPin = 0;                   // LED is attached to digital pin 0
 int tenSeconds = 10 * 1000;       // 10000 ms
-long tenMinutes = 10 * 60 * 1000; // 600000 ms
+long tenMinutes = 10 * 60 * 1000L; // 600000 ms
 
 Timer t; // Object of the timer class
 
