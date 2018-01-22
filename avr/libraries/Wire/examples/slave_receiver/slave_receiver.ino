@@ -25,6 +25,7 @@ void loop() {
 // function that executes whenever data is received from master
 // this function is registered as an event, see setup()
 void receiveEvent(int howMany) {
+  (void)howMany;  // cast unused parameter to void to avoid compiler warning
   while (1 < Wire.available()) { // loop through all but the last
     char c = Wire.read(); // receive byte as a character
     Serial.print(c);         // print the character
