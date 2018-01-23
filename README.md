@@ -1,10 +1,9 @@
 # MightyCore
-An Arduino core for large, breadboard friendly AVRs, all running [Optiboot 6](https://github.com/Optiboot/optiboot). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often work without any modifications. 
-<br/> <br/>
-This core requires at least Arduino IDE v1.6, but v1.6.11+ is recommended.
-<br/>
-An Arduino forum post for this particular core is located [here](http://forum.arduino.cc/index.php?topic=379427.0). 
-<br/> <br/>
+
+[![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
+  
+An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running a [custom version of Optiboot](#write-to-own-flash). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often work without any modifications.  
+This core requires at least Arduino IDE v1.6, but v1.6.11+ is recommended. 
 If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the [example files](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/AVR_examples/examples) (File > Examples > AVR C code examples).
 <br/> <br/>
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
@@ -72,7 +71,7 @@ Millis() is not affected, only micros() and delay(). Micros() executes equally f
 <br/><br/>
 
 <b>**</b> There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading fails while using the 8 MHz internal oscillator you have three options:
-* Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/a1d4a54df392290ebfd5b67f41fd93fec2b94313/avr/boards.txt#L83) file, and choose either 115200, 57600, 38400 or 19200 baud.
+* Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/be8e1012161f65bfc34bad1daa22857b4644f877/avr/boards.txt#L131) file, and choose either 115200, 57600, 38400 or 19200 baud.
 * Upload the code using a programmer (USBasp, USBtinyISP etc.) and drop the bootloader
 * Use the 1 MHz option instead
 
@@ -140,7 +139,7 @@ Click on the "Download ZIP" button. Extract the ZIP file, and move the extracted
 Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
 
 #### PlatformIO
-[PlatformIO](http://platformio.org) is an open source ecosystem for IoT development. It has a built-in library manager and is Arduino compatible. It supports most operating systems; Windows, Mac OSX, Linux 32 and 64-bit; ARM and X86.
+[PlatformIO](http://platformio.org) is an open source ecosystem for IoT development. It has a built-in library manager and is Arduino compatible. It supports most operating systems; Windows, MacOS, Linux 32 and 64-bit; ARM and X86.
 
 * [What is PlatformIO?](http://docs.platformio.org/en/latest/what-is-platformio.html)
 * [PlatformIO IDE](http://platformio.org/#!/platformio-ide)
@@ -192,7 +191,7 @@ Some users have reported issues when trying to use some 3rd party libraries with
 A simple guide on how to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ## Hardware
-I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. **And for just 30$ it's a really good deal!**
+I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. **And for just 35$ it's a really good deal!**
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board has some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
@@ -225,4 +224,4 @@ Click the images for full resolution <br/>
 
 ## Minimal setup
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
-<img src="http://i.imgur.com/sfeTDsZ.png" width="750">
+<img src="https://i.imgur.com/uN3E6w6.png" width="425"> <img src="https://i.imgur.com/WgvcivB.png" width="425"> 
