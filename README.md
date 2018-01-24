@@ -1,6 +1,5 @@
 # MightyCore
-
-[![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
+[![Build Status](https://travis-ci.org/MCUdude/MightyCore.svg?branch=master)](https://travis-ci.org/MCUdude/MightyCore) [![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
   
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running a [custom version of Optiboot](#write-to-own-flash). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often work without any modifications.  
 This core requires at least Arduino IDE v1.6, but v1.6.11+ is recommended. 
