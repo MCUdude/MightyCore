@@ -34,8 +34,8 @@ env:
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:1284:pinout=standard,variant=modelP,BOD=2v7,LTO=Os_flto,clock=20MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_LTO"
     # pinout=bobuino, variant=modelNonP, BOD=4v3, clock=18_432MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:1284:pinout=bobuino,variant=modelNonP,BOD=4v3,LTO=Os,clock=18_432MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # BOD=1v8, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:1284:pinout=standard,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=1v8, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:1284:pinout=sanguino,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # BOD=disabled, clock=8MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:1284:pinout=standard,variant=modelP,BOD=disabled,LTO=Os,clock=8MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # F_CPU of 8 MHz has already been fully tested and the BOD and internal clock configuration will have no effect on code so it's only necessary to do a single verification per IDE version for the 8 MHz internal clock setting
@@ -51,8 +51,8 @@ env:
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:644:pinout=standard,variant=modelP,BOD=2v7,LTO=Os_flto,clock=20MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_LTO"
     # pinout=bobuino, variant=modelA, BOD=4v3, clock=18_432MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:644:pinout=bobuino,variant=modelA,BOD=4v3,LTO=Os,clock=18_432MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # BOD=1v8, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:644:pinout=standard,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=1v8, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:644:pinout=sanguino,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # BOD=disabled, clock=8MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:644:pinout=standard,variant=modelP,BOD=disabled,LTO=Os,clock=8MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # F_CPU of 8 MHz has already been fully tested and the BOD and internal clock configuration will have no effect on code so it's only necessary to do a single verification per IDE version for the 8 MHz internal clock setting
@@ -68,8 +68,8 @@ env:
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=2v7,LTO=Os_flto,clock=20MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_LTO"
     # pinout=bobuino, variant=modelA, BOD=4v3, clock=18_432MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=bobuino,variant=modelA,BOD=4v3,LTO=Os,clock=18_432MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # BOD=1v8, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=1v8, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=sanguino,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # BOD=disabled, clock=8MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=disabled,LTO=Os,clock=8MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # F_CPU of 8 MHz has already been fully tested and the BOD and internal clock configuration will have no effect on code so it's only necessary to do a single verification per IDE version for the 8 MHz internal clock setting
@@ -94,8 +94,8 @@ env:
 
     # Ethernet/BarometricPressureWebServer
     # Compiling with LTO=Os errors with "Sketch too big"
-    # BOD=1v8, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/BarometricPressureWebServer/BarometricPressureWebServer.ino" BOARD_ID="MightyCore:avr:164:pinout=standard,variant=modelP,BOD=1v8,LTO=Os_flto,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=1v8, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/BarometricPressureWebServer/BarometricPressureWebServer.ino" BOARD_ID="MightyCore:avr:164:pinout=sanguino,variant=modelP,BOD=1v8,LTO=Os_flto,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
 
     # Ethernet/ChatServer
     # BOD=disabled, clock=8MHz_external
@@ -164,8 +164,8 @@ env:
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:32:pinout=standard,BOD=2v7,LTO=Os_flto,clock=20MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_LTO"
     # pinout=bobuino, BOD=4v0, clock=18_432MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:32:pinout=bobuino,BOD=4v0,LTO=Os,clock=18_432MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # BOD=disabled, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:32:pinout=standard,BOD=disabled,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=disabled, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:32:pinout=sanguino,BOD=disabled,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # clock=8MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:32:pinout=standard,BOD=2v7,LTO=Os,clock=8MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # F_CPU of 8 MHz has already been fully tested and the BOD and internal clock configuration will have no effect on code so it's only necessary to do a single verification per IDE version for the 8 MHz internal clock setting
@@ -190,8 +190,8 @@ env:
 
     # Ethernet/BarometricPressureWebServer
     # Compiling with LTO=Os errors with "Sketch too big"
-    # BOD=disabled, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/BarometricPressureWebServer/BarometricPressureWebServer.ino" BOARD_ID="MightyCore:avr:16:pinout=standard,BOD=disabled,LTO=Os_flto,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=disabled, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/BarometricPressureWebServer/BarometricPressureWebServer.ino" BOARD_ID="MightyCore:avr:16:pinout=sanguino,BOD=disabled,LTO=Os_flto,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
 
     # Ethernet/ChatServer
     # clock=8MHz_external
@@ -269,8 +269,8 @@ env:
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/UDPSendReceiveString/UDPSendReceiveString.ino" BOARD_ID="MightyCore:avr:8535:pinout=bobuino,BOD=4v0,LTO=Os_flto,clock=18_432MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
 
     # Optiboot_flasher
-    # BOD=disabled, clock=12MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Optiboot_flasher" BOARD_ID="MightyCore:avr:8535:pinout=standard,BOD=disabled,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=sanguino, BOD=disabled, clock=12MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Optiboot_flasher" BOARD_ID="MightyCore:avr:8535:pinout=sanguino,BOD=disabled,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
 
     # SD
     # All SD library examples fail to compile "section `.text' will not fit in region `text'"

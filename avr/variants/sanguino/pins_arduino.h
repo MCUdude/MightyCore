@@ -4,19 +4,19 @@
 #include <avr/pgmspace.h>
 /*
 
-                 MIGHTYCORE STANDARD PINOUT
+                 MIGHTYCORE SANGUINO PINOUT
          ATmega8535, ATmega16, ATmega32, ATmega164, 
               ATmega324, ATmega644, ATmega1284
    	 
                          +---\/---+
-         LED (D 0) PB0  1|        |40  PA0 (A 0 / D24)
-             (D 1) PB1  2|        |39  PA1 (A 1 / D25)
-        INT2 (D 2) PB2  3|        |38  PA2 (A 2 / D26)
-         PWM (D 3) PB3  4|        |37  PA3 (A 3 / D27)
-    PWM* /SS (D 4) PB4  5|        |36  PA4 (A 4 / D28)
-        MOSI (D 5) PB5  6|        |35  PA5 (A 5 / D29)
- PWM** /MISO (D 6) PB6  7|        |34  PA6 (A 6 / D30)
-  PWM** /SCK (D 7) PB7  8|        |33  PA7 (A 7 / D31)
+         LED (D 0) PB0  1|        |40  PA0 (A 0 / D31)
+             (D 1) PB1  2|        |39  PA1 (A 1 / D30)
+        INT2 (D 2) PB2  3|        |38  PA2 (A 2 / D29)
+         PWM (D 3) PB3  4|        |37  PA3 (A 3 / D28)
+    PWM* /SS (D 4) PB4  5|        |36  PA4 (A 4 / D27)
+        MOSI (D 5) PB5  6|        |35  PA5 (A 5 / D26)
+ PWM** /MISO (D 6) PB6  7|        |34  PA6 (A 6 / D25)
+  PWM** /SCK (D 7) PB7  8|        |33  PA7 (A 7 / D24)
                    RST  9|        |32  AREF
                    VCC 10|        |31  GND 
                    GND 11|        |30  AVCC
@@ -41,12 +41,12 @@ PCINT23-16: D23-16 : bit 2
 PCINT7-0: D31-24   : bit 0
 */
 
-#define STANDARD_PINOUT
+#define SANGUINO_PINOUT
 #define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define EXTERNAL_NUM_INTERRUPTS     3
-#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 24 : -1)
-#define analogPinToChannel(p)       ((p) < NUM_ANALOG_INPUTS ? (p) : (p) >= 24 ? (p) - 24 : -1)
+#define analogInputToDigitalPin(p)  ((p) < NUM_ANALOG_INPUTS ? 31 - (p) : -1)
+#define analogPinToChannel(p)       ((p) < NUM_ANALOG_INPUTS ? (p) : (p) >= 24 ? 31 - (p) : -1)
 #define digitalPinToInterrupt(p)    ((p) == 2 ? 2 : ((p) == 10 ? 0 : ((p) == 11 ? 1 : NOT_AN_INTERRUPT)))
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
@@ -73,14 +73,14 @@ static const uint8_t SCK  = 7;
 static const uint8_t SDA = 17;
 static const uint8_t SCL = 16;
 
-static const uint8_t A0 = 24;
-static const uint8_t A1 = 25;
-static const uint8_t A2 = 26;
-static const uint8_t A3 = 27;
-static const uint8_t A4 = 28;
-static const uint8_t A5 = 29;
-static const uint8_t A6 = 30;
-static const uint8_t A7 = 31;
+static const uint8_t A0 = 31;
+static const uint8_t A1 = 30;
+static const uint8_t A2 = 29;
+static const uint8_t A3 = 28;
+static const uint8_t A4 = 27;
+static const uint8_t A5 = 26;
+static const uint8_t A6 = 25;
+static const uint8_t A7 = 24;
 
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
@@ -89,7 +89,7 @@ defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATme
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) ( (p) <= 7 ? 1 : (p) <= 15 ? 3 : (p) <= 23 ? 2 : 0 )
 #define digitalPinToPCMSK(p)    ( (p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0 )
-#define digitalPinToPCMSKbit(p) ((p) % 8)
+#define digitalPinToPCMSKbit(p) ( (p) <= 23 ? (p) % 8 : ( 31 - (p) ) % 8 )
 #endif
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
@@ -212,14 +212,14 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 	_BV(5),
 	_BV(6),
 	_BV(7),
-	_BV(0), /* D24, port A */
-	_BV(1),
-	_BV(2),
-	_BV(3),
-	_BV(4),
-	_BV(5),
+	_BV(7), /* D24, port A */
 	_BV(6),
-	_BV(7)
+	_BV(5),
+	_BV(4),
+	_BV(3),
+	_BV(2),
+	_BV(1),
+	_BV(0)
 };
 
 
@@ -250,14 +250,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER,   /* D21 - PC5 */
 	NOT_ON_TIMER,   /* D22 - PC6 */
 	NOT_ON_TIMER,   /* D23 - PC7 */
-	NOT_ON_TIMER,   /* D24 - PA0 */
-	NOT_ON_TIMER,   /* D25 - PA1 */
-	NOT_ON_TIMER,   /* D26 - PA2 */
-	NOT_ON_TIMER,   /* D27 - PA3 */
-	NOT_ON_TIMER,   /* D28 - PA4 */
-	NOT_ON_TIMER,   /* D29 - PA5 */
-	NOT_ON_TIMER,   /* D30 - PA6 */
-	NOT_ON_TIMER    /* D31 - PA7 */
+	NOT_ON_TIMER,   /* D24 - PA7 */
+	NOT_ON_TIMER,   /* D25 - PA6 */
+	NOT_ON_TIMER,   /* D26 - PA5 */
+	NOT_ON_TIMER,   /* D27 - PA4 */
+	NOT_ON_TIMER,   /* D28 - PA3 */
+	NOT_ON_TIMER,   /* D29 - PA2 */
+	NOT_ON_TIMER,   /* D30 - PA1 */
+	NOT_ON_TIMER    /* D31 - PA0 */
 };
 
 #elif defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
@@ -289,14 +289,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER,   /* D21 - PC5 */
 	NOT_ON_TIMER,   /* D22 - PC6 */
 	NOT_ON_TIMER,   /* D23 - PC7 */
-	NOT_ON_TIMER,   /* D24 - PA0 */
-	NOT_ON_TIMER,   /* D25 - PA1 */
-	NOT_ON_TIMER,   /* D26 - PA2 */
-	NOT_ON_TIMER,   /* D27 - PA3 */
-	NOT_ON_TIMER,   /* D28 - PA4 */
-	NOT_ON_TIMER,   /* D29 - PA5 */
-	NOT_ON_TIMER,   /* D30 - PA6 */
-	NOT_ON_TIMER    /* D31 - PA7 */
+	NOT_ON_TIMER,   /* D24 - PA7 */
+	NOT_ON_TIMER,   /* D25 - PA6 */
+	NOT_ON_TIMER,   /* D26 - PA5 */
+	NOT_ON_TIMER,   /* D27 - PA4 */
+	NOT_ON_TIMER,   /* D28 - PA3 */
+	NOT_ON_TIMER,   /* D29 - PA2 */
+	NOT_ON_TIMER,   /* D30 - PA1 */
+	NOT_ON_TIMER    /* D31 - PA0 */
 };
 
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
@@ -326,14 +326,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER,   /* D21 - PC5 */
 	NOT_ON_TIMER,   /* D22 - PC6 */
 	NOT_ON_TIMER,   /* D23 - PC7 */
-	NOT_ON_TIMER,   /* D24 - PA0 */
-	NOT_ON_TIMER,   /* D25 - PA1 */
-	NOT_ON_TIMER,   /* D26 - PA2 */
-	NOT_ON_TIMER,   /* D27 - PA3 */
-	NOT_ON_TIMER,   /* D28 - PA4 */
-	NOT_ON_TIMER,   /* D29 - PA5 */
-	NOT_ON_TIMER,   /* D30 - PA6 */
-	NOT_ON_TIMER    /* D31 - PA7 */
+	NOT_ON_TIMER,   /* D24 - PA7 */
+	NOT_ON_TIMER,   /* D25 - PA6 */
+	NOT_ON_TIMER,   /* D26 - PA5 */
+	NOT_ON_TIMER,   /* D27 - PA4 */
+	NOT_ON_TIMER,   /* D28 - PA3 */
+	NOT_ON_TIMER,   /* D29 - PA2 */
+	NOT_ON_TIMER,   /* D30 - PA1 */
+	NOT_ON_TIMER    /* D31 - PA0 */
 };
 
 #endif // Timer defs

@@ -55,6 +55,8 @@ menu.LTO=Compiler LTO
 1284.menu.pinout.standard.build.variant=standard
 1284.menu.pinout.bobuino=Bobuino
 1284.menu.pinout.bobuino.build.variant=bobuino
+1284.menu.pinout.sanguino=Sanguino
+1284.menu.pinout.sanguino.build.variant=sanguino
 
 # Variants
 1284.menu.variant.modelP=1284P
@@ -166,6 +168,8 @@ menu.LTO=Compiler LTO
 644.menu.pinout.standard.build.variant=standard
 644.menu.pinout.bobuino=Bobuino
 644.menu.pinout.bobuino.build.variant=bobuino
+644.menu.pinout.sanguino=Sanguino
+644.menu.pinout.sanguino.build.variant=sanguino
 
 # Variants
 644.menu.variant.modelP=644P / 644PA
@@ -277,6 +281,8 @@ menu.LTO=Compiler LTO
 324.menu.pinout.standard.build.variant=standard
 324.menu.pinout.bobuino=Bobuino
 324.menu.pinout.bobuino.build.variant=bobuino
+324.menu.pinout.sanguino=Sanguino
+324.menu.pinout.sanguino.build.variant=sanguino
 
 # Variants
 324.menu.variant.modelP=324P
@@ -390,6 +396,8 @@ menu.LTO=Compiler LTO
 164.menu.pinout.standard.build.variant=standard
 164.menu.pinout.bobuino=Bobuino
 164.menu.pinout.bobuino.build.variant=bobuino
+164.menu.pinout.sanguino=Sanguino
+164.menu.pinout.sanguino.build.variant=sanguino
 
 # Variants
 164.menu.variant.modelP=164P / 164PA
@@ -503,6 +511,8 @@ menu.LTO=Compiler LTO
 32.menu.pinout.standard.build.variant=standard
 32.menu.pinout.bobuino=Bobuino
 32.menu.pinout.bobuino.build.variant=bobuino
+32.menu.pinout.sanguino=Sanguino
+32.menu.pinout.sanguino.build.variant=sanguino
 
 # Brown out detection - This is the first part of the low fuse bit concatenation
 32.menu.BOD.2v7=2.7v
@@ -609,6 +619,8 @@ menu.LTO=Compiler LTO
 16.menu.pinout.standard.build.variant=standard
 16.menu.pinout.bobuino=Bobuino
 16.menu.pinout.bobuino.build.variant=bobuino
+16.menu.pinout.sanguino=Sanguino
+16.menu.pinout.sanguino.build.variant=sanguino
 
 # Brown out detection - This is the first part of the low fuse bit concatenation
 16.menu.BOD.2v7=2.7v
@@ -715,6 +727,8 @@ menu.LTO=Compiler LTO
 8535.menu.pinout.standard.build.variant=standard
 8535.menu.pinout.bobuino=Bobuino
 8535.menu.pinout.bobuino.build.variant=bobuino
+8535.menu.pinout.sanguino=Sanguino
+8535.menu.pinout.sanguino.build.variant=sanguino
 
 # Brown out detection - This is the first part of the low fuse bit concatenation
 8535.menu.BOD.2v7=2.7v
