@@ -101,7 +101,12 @@ Here's some numbers to convince you. These sketches were compiled for an **ATmeg
 
 
 ## Pinout
-This core has two different pinout options. The default one is named "Standard", and is based on the original AVR pinout. The other one is named "Bobuino" and is basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stay the same (MOSI on D11, MISO on D12, SCK on D13). Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
+This core has three different pinout options:
+- **Standard**: The default pinout, and is based on the original AVR pinout.
+- **Bobuino**: Basically an Arduino UNO pinout setting. This pinout version is great for using with shields or code that's written for the Arduino UNO, as the pin functions stay the same (MOSI on D11, MISO on D12, SCK on D13).
+- **Sanguino**: This pinout is common on older 3D printer controllers such as the Sanguino, RepRap Sanguinololu, and RepRap Gen7. This pinout is also known as "avr_developers".
+
+Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
 <b>Click to enlarge:</b> 
 </br> </br>
 <img src="http://i.imgur.com/FR4GYcM.jpg" width="430"> <img src="http://i.imgur.com/glVtfoD.jpg" width="430">
