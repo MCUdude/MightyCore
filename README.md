@@ -109,9 +109,9 @@ This core has three different pinout options:
 Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
 <b>Click to enlarge:</b> 
 </br> </br>
-<img src="http://i.imgur.com/FR4GYcM.jpg" width="430"> <img src="http://i.imgur.com/glVtfoD.jpg" width="430">
+<img src="https://i.imgur.com/QfUt0iV.jpg" width="280"> <img src="https://i.imgur.com/q171gYg.jpg" width="280"> <img src="https://i.imgur.com/eIIbA77.jpg" width="280">
 </br> </br>
-<img src="http://i.imgur.com/Td0Nhug.jpg" width="430"> <img src="http://i.imgur.com/qihkoXX.jpg" width="430">
+<img src="https://i.imgur.com/j02HPOA.jpg" width="280"> <img src="https://i.imgur.com/sYTtuUI.jpg" width="280"> <img src="https://i.imgur.com/KQWLJu2.jpg" width="280">
 
 
 ## Programmers
