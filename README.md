@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/MCUdude/MightyCore.svg?branch=master)](https://travis-ci.org/MCUdude/MightyCore) [![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
   
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running a [custom version of Optiboot](#write-to-own-flash). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often work without any modifications.  
-This core requires at least Arduino IDE v1.6, but v1.6.11+ is recommended. 
-If you're into "pure" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the [example files](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/AVR_examples/examples) (File > Examples > AVR C code examples).
+This core requires at least Arduino IDE v1.6, but v1.6.11+ is recommended.  
+If you're into "generic" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the [example files](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/AVR_examples/examples) (File > Examples > AVR C code examples).
 <br/> <br/>
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
 but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
@@ -119,9 +119,7 @@ MightyCore adds its own copies of all the standard programmers to the "Programme
 
 
 ## Write to own flash
-A while ago [@majekw](https://github.com/majekw) announced that he'd [successfully modified the Optiboot bootloader](http://forum.arduino.cc/index.php?topic=332191.0) to let the running program permanently store content in the flash memory.
-The flash memory is much faster than the EEPROM, and can handle about 10,000 write cycles. <br/>
-With help from [@sunnyque](https://github.com/MCUdude/MightyCore/issues/24) this feature is working perfectly with the MightyCore! To enable this feature the bootloader needs to be replaced by the new one. Simply hit "Burn Bootloader", and it's done! <br/>
+MightyCore implements [@majekw](https://github.com/majekw)'s fork of Optiboot, which enables flash writing functionality within the running application. This means that content from e.g. a sensor can be stored in the flash memory directly, without the need of external memory. Flash memory is much faster than EEPROM, and can handle about 10 000 write cycles.  
 Please check out the [Optiboot flasher example](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/SerialReadWrite/SerialReadWrite.ino) for more info about how this feature works, and how you can try it on your MightyCore compatible microcontroller.
 
 
