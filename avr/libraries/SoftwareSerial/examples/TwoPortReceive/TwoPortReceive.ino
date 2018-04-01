@@ -21,6 +21,16 @@
  This example code is in the public domain.
  
  
+ ***** MIGHTYCORE *****
+ All pins on the ATmega164, ATmega324, ATmega644 and ATmega1284
+ support interrupts, so all pins may be used for RX.
+ 
+ No pins on the ATmega8535, ATmega16 and ATmega32 support
+ pin change interrupts, so only "regular" interrupts may be used.
+ For the "STANDARD pinout" this is digital pin 2, 10, 11
+ For the "BOBUINO pinout" this is digital pin 2, 3, 6
+ 
+ 
  ***** MEGACORE *****
  Not all pins on the ATmega640, ATmega1280 and ATmega2560 support interrupts. 
  For the "Arduino MEGA pinout" the following pins may be used for RX:
