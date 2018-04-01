@@ -1,5 +1,4 @@
 ## **EEPROM Library V2.0** for Arduino
-## This version is modified for compatibility with the "MightyCore"
 
 **Written by:** _Christopher Andrews_.  
 
