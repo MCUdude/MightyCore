@@ -4,8 +4,6 @@
 #ifndef Dhcp_h
 #define Dhcp_h
 
-#include "EthernetUdp.h"
-
 /* DHCP state machine. */
 #define STATE_DHCP_START 0
 #define	STATE_DHCP_DISCOVER	1
@@ -120,7 +118,7 @@ enum
 	endOption		=	255
 };
 
-typedef struct __attribute__((packed)) _RIP_MSG_FIXED
+typedef struct _RIP_MSG_FIXED
 {
 	uint8_t  op; 
 	uint8_t  htype; 
@@ -135,43 +133,5 @@ typedef struct __attribute__((packed)) _RIP_MSG_FIXED
 	uint8_t  giaddr[4];
 	uint8_t  chaddr[6];
 }RIP_MSG_FIXED;
-
-class DhcpClass {
-private:
-  uint32_t _dhcpInitialTransactionId;
-  uint32_t _dhcpTransactionId;
-  uint8_t  _dhcpMacAddr[6];
-  uint8_t  _dhcpLocalIp[4];
-  uint8_t  _dhcpSubnetMask[4];
-  uint8_t  _dhcpGatewayIp[4];
-  uint8_t  _dhcpDhcpServerIp[4];
-  uint8_t  _dhcpDnsServerIp[4];
-  uint32_t _dhcpLeaseTime;
-  uint32_t _dhcpT1, _dhcpT2;
-  unsigned long _renewInSec;
-  unsigned long _rebindInSec;
-  unsigned long _timeout;
-  unsigned long _responseTimeout;
-  unsigned long _lastCheckLeaseMillis;
-  uint8_t _dhcp_state;
-  EthernetUDP _dhcpUdpSocket;
-  
-  int request_DHCP_lease();
-  void reset_DHCP_lease();
-  void presend_DHCP();
-  void send_DHCP_MESSAGE(uint8_t, uint16_t);
-  void printByte(char *, uint8_t);
-  
-  uint8_t parseDHCPResponse(unsigned long responseTimeout, uint32_t& transactionId);
-public:
-  IPAddress getLocalIp();
-  IPAddress getSubnetMask();
-  IPAddress getGatewayIp();
-  IPAddress getDhcpServerIp();
-  IPAddress getDnsServerIp();
-  
-  int beginWithDHCP(uint8_t *, unsigned long timeout = 60000, unsigned long responseTimeout = 4000);
-  int checkLease();
-};
 
 #endif

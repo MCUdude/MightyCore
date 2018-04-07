@@ -2,14 +2,9 @@
 // (c) Copyright 2009-2010 MCQN Ltd.
 // Released under Apache License, version 2.0
 
-#include "utility/w5100.h"
-#include "EthernetUdp.h"
-#include "utility/util.h"
-
+#include "Ethernet.h"
 #include "Dns.h"
-#include <string.h>
-//#include <stdlib.h>
-#include "Arduino.h"
+#include "w5100.h"
 
 
 #define SOCKET_NONE	255
@@ -179,8 +174,7 @@ uint16_t DNSClient::BuildRequest(const char* aName)
 
     // FIXME We should also check that there's enough space available to write to, rather
     // FIXME than assume there's enough space (as the code does at present)
-    uint16_t _id = htons(iRequestId);
-    iUdp.write((uint8_t*)&_id, sizeof(_id));
+    iUdp.write((uint8_t*)&iRequestId, sizeof(iRequestId));
 
     twoByteBuffer = htons(QUERY_FLAG | OPCODE_STANDARD_QUERY | RECURSION_DESIRED_FLAG);
     iUdp.write((uint8_t*)&twoByteBuffer, sizeof(twoByteBuffer));
@@ -249,7 +243,12 @@ uint16_t DNSClient::ProcessResponse(uint16_t aTimeout, IPAddress& aAddress)
 
     // We've had a reply!
     // Read the UDP header
-    uint8_t header[DNS_HEADER_SIZE]; // Enough space to reuse for the DNS header
+    //uint8_t header[DNS_HEADER_SIZE]; // Enough space to reuse for the DNS header
+    union {
+        uint8_t  byte[DNS_HEADER_SIZE]; // Enough space to reuse for the DNS header
+        uint16_t word[DNS_HEADER_SIZE/2];
+    } header;
+
     // Check that it's a response from the right server and the right port
     if ( (iDNSServer != iUdp.remoteIP()) || 
         (iUdp.remotePort() != DNS_PORT) )
@@ -263,11 +262,11 @@ uint16_t DNSClient::ProcessResponse(uint16_t aTimeout, IPAddress& aAddress)
     {
         return TRUNCATED;
     }
-    iUdp.read(header, DNS_HEADER_SIZE);
+    iUdp.read(header.byte, DNS_HEADER_SIZE);
 
-    uint16_t header_flags = word(header[2], header[3]);
+    uint16_t header_flags = htons(header.word[1]);
     // Check that it's a response to this request
-    if ( (iRequestId != word(header[0], header[1])) ||
+    if ( ( iRequestId != (header.word[0]) ) ||
         ((header_flags & QUERY_RESPONSE_MASK) != (uint16_t)RESPONSE_FLAG) )
     {
         // Mark the entire packet as read
@@ -284,7 +283,7 @@ uint16_t DNSClient::ProcessResponse(uint16_t aTimeout, IPAddress& aAddress)
     }
 
     // And make sure we've got (at least) one answer
-    uint16_t answerCount = word(header[6], header[7]);
+    uint16_t answerCount = htons(header.word[3]);
     if (answerCount == 0 )
     {
         // Mark the entire packet as read
@@ -293,7 +292,7 @@ uint16_t DNSClient::ProcessResponse(uint16_t aTimeout, IPAddress& aAddress)
     }
 
     // Skip over any questions
-    for (uint16_t i =0; i < word(header[4], header[5]); i++)
+    for (uint16_t i =0; i < htons(header.word[2]); i++)
     {
         // Skip over the name
         uint8_t len;

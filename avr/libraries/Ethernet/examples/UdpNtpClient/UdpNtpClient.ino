@@ -16,6 +16,21 @@
 
  This code is in the public domain.
 
+
+ MightyCore Standard/Sanguino pinout:
+ Wiznet      AVR
+ SS/CS  ->   D4 
+ MOSI   ->   D5
+ MISO   ->   D6
+ SCK    ->   D7
+
+ MightyCore Bobuino pinout:
+ Wiznet      AVR
+ SS/CS  ->   D10
+ MOSI   ->   D11
+ MISO   ->   D12
+ SCK    ->   D13
+ 
  */
 
 #include <SPI.h>
@@ -30,11 +45,11 @@ byte mac[] = {
 
 unsigned int localPort = 8888;       // local port to listen for UDP packets
 
-char timeServer[] = "time.nist.gov"; // time.nist.gov NTP server
+const char timeServer[] = "time.nist.gov"; // time.nist.gov NTP server
 
 const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of the message
 
-byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets
+byte packetBuffer[NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing packets
 
 // A UDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
@@ -109,7 +124,7 @@ void loop() {
 }
 
 // send an NTP request to the time server at the given address
-void sendNTPpacket(char* address) {
+void sendNTPpacket(const char * address) {
   // set all bytes in the buffer to 0
   memset(packetBuffer, 0, NTP_PACKET_SIZE);
   // Initialize values needed to form NTP request
@@ -126,7 +141,7 @@ void sendNTPpacket(char* address) {
 
   // all NTP fields have been given values, now
   // you can send a packet requesting a timestamp:
-  Udp.beginPacket(address, 123); //NTP requests are to port 123
+  Udp.beginPacket(address, 123); // NTP requests are to port 123
   Udp.write(packetBuffer, NTP_PACKET_SIZE);
   Udp.endPacket();
 }

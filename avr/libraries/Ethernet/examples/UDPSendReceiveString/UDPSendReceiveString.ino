@@ -10,12 +10,28 @@
  by Michael Margolis
 
  This code is in the public domain.
+ 
+
+ MightyCore Standard/Sanguino pinout:
+ Wiznet      AVR
+ SS/CS  ->   D4 
+ MOSI   ->   D5
+ MISO   ->   D6
+ SCK    ->   D7
+
+ MightyCore Bobuino pinout:
+ Wiznet      AVR
+ SS/CS  ->   D10
+ MOSI   ->   D11
+ MISO   ->   D12
+ SCK    ->   D13
+ 
  */
 
 
-#include <SPI.h>         // needed for Arduino versions later than 0018
+#include <SPI.h>          // needed for Arduino versions later than 0018
 #include <Ethernet.h>
-#include <EthernetUdp.h>         // UDP library from: bjoern@cs.stanford.edu 12/30/2008
+#include <EthernetUdp.h>  // UDP library from: bjoern@cs.stanford.edu 12/30/2008
 
 
 // Enter a MAC address and IP address for your controller below.
@@ -28,8 +44,8 @@ IPAddress ip(192, 168, 1, 177);
 unsigned int localPort = 8888;      // local port to listen on
 
 // buffers for receiving and sending data
-char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  //buffer to hold incoming packet,
-char  ReplyBuffer[] = "acknowledged";       // a string to send back
+char packetBuffer[UDP_TX_PACKET_MAX_SIZE];  // buffer to hold incoming packet,
+char ReplyBuffer[] = "acknowledged";        // a string to send back
 
 // An EthernetUDP instance to let us send and receive packets over UDP
 EthernetUDP Udp;
@@ -50,7 +66,7 @@ void loop() {
     Serial.println(packetSize);
     Serial.print("From ");
     IPAddress remote = Udp.remoteIP();
-    for (int i = 0; i < 4; i++) {
+    for (int i=0; i < 4; i++) {
       Serial.print(remote[i], DEC);
       if (i < 3) {
         Serial.print(".");

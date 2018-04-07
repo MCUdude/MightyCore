@@ -1,13 +1,9 @@
 // DHCP Library v0.3 - April 25, 2009
 // Author: Jordan Terrell - blog.jordanterrell.com
 
-#include "utility/w5100.h"
-
-#include <string.h>
-#include <stdlib.h>
+#include "Ethernet.h"
 #include "Dhcp.h"
-#include "Arduino.h"
-#include "utility/util.h"
+#include "w5100.h"
 
 int DhcpClass::beginWithDHCP(uint8_t *mac, unsigned long timeout, unsigned long responseTimeout)
 {
@@ -140,6 +136,7 @@ void DhcpClass::send_DHCP_MESSAGE(uint8_t messageType, uint16_t secondsElapsed)
 
     if (-1 == _dhcpUdpSocket.beginPacket(dest_addr, DHCP_SERVER_PORT))
     {
+	//Serial.printf("DHCP transmit error\n");
         // FIXME Need to return errors
         return;
     }
@@ -329,9 +326,9 @@ uint8_t DhcpClass::parseDHCPResponse(unsigned long responseTimeout, uint32_t& tr
                 
                 case dhcpServerIdentifier :
                     opt_len = _dhcpUdpSocket.read();
-                    if ((_dhcpDhcpServerIp[0] == 0 && _dhcpDhcpServerIp[1] == 0 &&
-                         _dhcpDhcpServerIp[2] == 0 && _dhcpDhcpServerIp[3] == 0) ||
-                        IPAddress(_dhcpDhcpServerIp) == _dhcpUdpSocket.remoteIP())
+                    //if( *((uint32_t*)_dhcpDhcpServerIp) == 0 || 
+                    if( IPAddress(_dhcpDhcpServerIp) == IPAddress((uint32_t)0) || 
+                        IPAddress(_dhcpDhcpServerIp) == _dhcpUdpSocket.remoteIP() )
                     {
                         _dhcpUdpSocket.read(_dhcpDhcpServerIp, sizeof(_dhcpDhcpServerIp));
                     }
@@ -411,7 +408,7 @@ int DhcpClass::checkLease(){
             _renewInSec = 0;
         else
             _renewInSec -= elapsed;
-        
+
         if (_rebindInSec < elapsed * 2)
             _rebindInSec = 0;
         else
