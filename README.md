@@ -206,7 +206,7 @@ The development board has some additional unique features:
 * A large ground pad on the underside of the board for connecting alligator clips, such as the ground clip of your oscilloscope
 * Socketed crystal, perfect for experimenting with different clock frequencies
 * A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor
-* PWM pins are clearly marked, and a lookup table can be found on the under side of the board (three '~'s - all microcontrollers, two '~'s - 164; 324; 644; 1284, one '~' - 1284)
+* PWM pins are clearly marked, and a lookup table can be found on the under side of the board (three ~ - all microcontrollers, two ~ - 164; 324; 644; 1284, one ~ - 1284)
 * IO peripherals can be found on the underside of the board. No need to search in the datasheet anymore!
 * Mini USB instead of the large USB Type-B plug
 * The USB to serial chip is broken out on the underside of the board in a standard "FTDI pinout" for using the board as a USB to serial adapter, or for using an external programmer instead
