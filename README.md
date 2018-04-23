@@ -230,4 +230,4 @@ Here is a simple schematic showing a minimal setup using an external crystal. Sk
 
 | DIP-40 package                                        | TQFP-44 SMD package                                   |
 |-------------------------------------------------------|-------------------------------------------------------|
-|<img src="https://i.imgur.com/uN3E6w6.png" width="425">|<img src="https://i.imgur.com/WgvcivB.png" width="425">|
+|<img src="https://i.imgur.com/GQZCupp.png" width="425">|<img src="https://i.imgur.com/A2lBJBt.png" width="425">|
