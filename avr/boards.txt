@@ -293,6 +293,8 @@ menu.LTO=Compiler LTO
 324.menu.variant.modelPA.build.mcu=atmega324pa
 324.menu.variant.modelA=324A
 324.menu.variant.modelA.build.mcu=atmega324a
+324.menu.variant.modelPB=324PB
+324.menu.variant.modelPB.build.mcu=atmega324pb
 
 # Brown out detection
 324.menu.BOD.2v7=2.7v
