@@ -61,7 +61,7 @@ env:
     # clock=1MHz_internal
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:644:pinout=standard,variant=modelP,BOD=2v7,LTO=Os,clock=1MHz_internal" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
 
-    # ATmega324
+    # ATmega324 - Since the variant files will be compiled significantly differently for ATmega324PB, test each pinout for variant=modelPB
     # pinout=standard, variant=modelP, BOD=2v7, LTO=Os, clock=16MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=2v7,LTO=Os,clock=16MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # LTO=Os_flto, clock=20MHz_external
@@ -70,13 +70,12 @@ env:
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=bobuino,variant=modelA,BOD=4v3,LTO=Os,clock=18_432MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
     # pinout=sanguino, BOD=1v8, clock=12MHz_external
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=sanguino,variant=modelP,BOD=1v8,LTO=Os,clock=12MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # BOD=disabled, clock=8MHz_external
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=disabled,LTO=Os,clock=8MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # F_CPU of 8 MHz has already been fully tested and the BOD and internal clock configuration will have no effect on code so it's only necessary to do a single verification per IDE version for the 8 MHz internal clock setting
-    # clock=8MHz_internal
-    - SKETCH_PATH="${APPLICATION_FOLDER}/arduino/examples/01.Basics/BareMinimum/BareMinimum.ino" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=2v7,LTO=Os,clock=8MHz_internal" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
-    # clock=1MHz_internal
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelP,BOD=2v7,LTO=Os,clock=1MHz_internal" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=standard, variant=modelPB, BOD=disabled, clock=8MHz_external
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=standard,variant=modelPB,BOD=disabled,LTO=Os,clock=8MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=standard, variant=modelPB, clock=8MHz_internal
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=bobuino,variant=modelPB,BOD=2v7,LTO=Os,clock=8MHz_internal" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
+    # pinout=standard, variant=modelPB, clock=1MHz_internal
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries" BOARD_ID="MightyCore:avr:324:pinout=sanguino,variant=modelPB,BOD=2v7,LTO=Os,clock=1MHz_internal" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
 
     # ATmega164
     # Some library examples use more memory than this microcontroller provides so each library or sketch must be be done in a separate job
@@ -308,6 +307,8 @@ before_install:
 
   # Install MightyCore from the repository
   - install_package
+  # Install beta version of Arduino AVR Boards, required for ATmega324PB
+  - install_package "arduino:avr" "https://downloads.arduino.cc/packages/package_avr_3.6.0_index.json"
 
 
 script:
