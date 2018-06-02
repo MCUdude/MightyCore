@@ -7,7 +7,7 @@
                  MIGHTYCORE STANDARD PINOUT
          ATmega8535, ATmega16, ATmega32, ATmega164, 
               ATmega324, ATmega644, ATmega1284
-   	 
+      
                          +---\/---+
          LED (D 0) PB0  1|        |40  PA0 (A 0 / D24)
              (D 1) PB1  2|        |39  PA1 (A 1 / D25)
@@ -41,8 +41,12 @@ PCINT23-16: D23-16 : bit 2
 PCINT7-0: D31-24   : bit 0
 */
 
+#if defined(__AVR_ATmega324PB__)
+  #define NUM_DIGITAL_PINS          39
+#else
+  #define NUM_DIGITAL_PINS          32
+#endif
 #define STANDARD_PINOUT
-#define NUM_DIGITAL_PINS            32
 #define NUM_ANALOG_INPUTS           8
 #define EXTERNAL_NUM_INTERRUPTS     3
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 24 : -1)
@@ -56,6 +60,9 @@ PCINT7-0: D31-24   : bit 0
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
 defined(__AVR_ATmega644P__)
 #define digitalPinHasPWM(p)         ((p) == 3 || (p) == 4 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
+
+#elif defined(__AVR_ATmega324PB__)
+ #define digitalPinHasPWM(p)        ((p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15  || (p) == 20)
 
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
  #define digitalPinHasPWM(p)        ((p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
@@ -73,6 +80,21 @@ static const uint8_t SCK  = 7;
 static const uint8_t SDA = 17;
 static const uint8_t SCL = 16;
 
+#if defined(__AVR_ATmega324PB__)
+  static const uint8_t SS0   = 4;
+  static const uint8_t MOSI0 = 5;
+  static const uint8_t MISO0 = 6;
+  static const uint8_t SCK0  = 7;
+  static const uint8_t SDA0 = 17;
+  static const uint8_t SCL0 = 16;
+  static const uint8_t SS1   = 14;
+  static const uint8_t SCK1  = 15;
+  static const uint8_t MISO1 = 34;
+  static const uint8_t MOSI1 = 35;
+  static const uint8_t SDA1  = 37;
+  static const uint8_t SCL1  = 38;
+#endif
+
 static const uint8_t A0 = 24;
 static const uint8_t A1 = 25;
 static const uint8_t A2 = 26;
@@ -84,18 +106,22 @@ static const uint8_t A7 = 31;
 
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
-defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324PB__) || \
+defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || \
+defined(__AVR_ATmega1284P__)
+#define digitalPinToPCMSKbit(p) ((p) % 8)
 #define digitalPinToPCICR(p)    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (&PCICR) : ((uint8_t *)0))
 #define digitalPinToPCICRbit(p) ( (p) <= 7 ? 1 : (p) <= 15 ? 3 : (p) <= 23 ? 2 : 0 )
-#define digitalPinToPCMSK(p)    ( (p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0 )
-#define digitalPinToPCMSKbit(p) ((p) % 8)
+#if defined(__AVR_ATmega324PB__)
+  #define digitalPinToPCMSK(p)  ((p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : (p) <= 31 ? &PCMSK0 : &PCMSK4)
+#else
+  #define digitalPinToPCMSK(p)  ((p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0)
+#endif  
 #endif
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
-/**** Needed to get the SD library to work. 
-Missing definitions in the iom164.h/iom324.h file ****/
+// Missing definitions in iom164.h/iom324.h file
 #define SPR0 0
 #define SPR1 1
 #define CPHA 2
@@ -112,6 +138,11 @@ Missing definitions in the iom164.h/iom324.h file ****/
 #define SPDR _SFR_IO8(0x2E)
 #endif
 
+#if defined(__AVR_ATmega324PB__)
+  // Missing 324PB register definitions goes here
+  //#define TWBR TWBR0
+  //#define TWSR TWSR0
+#endif
 
 #ifdef ARDUINO_MAIN
 
@@ -119,145 +150,174 @@ Missing definitions in the iom164.h/iom324.h file ****/
 #define PB 2
 #define PC 3
 #define PD 4
+#if defined(__AVR_ATmega324PB__)
+#define PE 5
+#endif
 
 // these arrays map port names (e.g. port B) to the
 // appropriate addresses for various functions (e.g. reading
 // and writing)
 const uint16_t PROGMEM port_to_mode_PGM[] =
 {
-	NOT_A_PORT,
-	(uint16_t) &DDRA,
-	(uint16_t) &DDRB,
-	(uint16_t) &DDRC,
-	(uint16_t) &DDRD,
+  NOT_A_PORT,
+  (uint16_t) &DDRA,
+  (uint16_t) &DDRB,
+  (uint16_t) &DDRC,
+  (uint16_t) &DDRD,
+  #if defined(__AVR_ATmega324PB__)
+    (uint16_t) &DDRE,
+  #endif
 };
 
 const uint16_t PROGMEM port_to_output_PGM[] =
 {
-	NOT_A_PORT,
-	(uint16_t) &PORTA,
-	(uint16_t) &PORTB,
-	(uint16_t) &PORTC,
-	(uint16_t) &PORTD,
+  NOT_A_PORT,
+  (uint16_t) &PORTA,
+  (uint16_t) &PORTB,
+  (uint16_t) &PORTC,
+  (uint16_t) &PORTD,
+  #if defined(__AVR_ATmega324PB__)
+    (uint16_t) &PORTE,
+  #endif
 };
 
 const uint16_t PROGMEM port_to_input_PGM[] =
 {
-	NOT_A_PORT,
-	(uint16_t) &PINA,
-	(uint16_t) &PINB,
-	(uint16_t) &PINC,
-	(uint16_t) &PIND,
+  NOT_A_PORT,
+  (uint16_t) &PINA,
+  (uint16_t) &PINB,
+  (uint16_t) &PINC,
+  (uint16_t) &PIND,
+  #if defined(__AVR_ATmega324PB__)
+    (uint16_t) &PINE,
+  #endif
 };
 
 const uint8_t PROGMEM digital_pin_to_port_PGM[] =
 {
-	PB, /* D0 */
-	PB,
-	PB,
-	PB,
-	PB,
-	PB,
-	PB,
-	PB,
-	PD, /* D8 */
-	PD,
-	PD,
-	PD,
-	PD,
-	PD,
-	PD,
-	PD,
-	PC, /* D16 */
-	PC,
-	PC,
-	PC,
-	PC,
-	PC,
-	PC,
-	PC,
-	PA, /* D24 */
-	PA,
-	PA,
-	PA,
-	PA,
-	PA,
-	PA,
-	PA  /* D31 */
+  PB, /* D0 */
+  PB,
+  PB,
+  PB,
+  PB,
+  PB,
+  PB,
+  PB,
+  PD, /* D8 */
+  PD,
+  PD,
+  PD,
+  PD,
+  PD,
+  PD,
+  PD,
+  PC, /* D16 */
+  PC,
+  PC,
+  PC,
+  PC,
+  PC,
+  PC,
+  PC,
+  PA, /* D24 */
+  PA,
+  PA,
+  PA,
+  PA,
+  PA,
+  PA,
+  PA,
+  #if defined(__AVR_ATmega324PB__)
+    PE, /* D32 */
+    PE,
+    PE,
+    PE,
+    PE,
+    PE,  
+  #endif
 };
 
 const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
 {
-	_BV(0), /* D0, port B */
-	_BV(1),
-	_BV(2),
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7),
-	_BV(0), /* D8, port D */
-	_BV(1),
-	_BV(2),
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7),
-	_BV(0), /* D16, port C */
-	_BV(1),
-	_BV(2),
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7),
-	_BV(0), /* D24, port A */
-	_BV(1),
-	_BV(2),
-	_BV(3),
-	_BV(4),
-	_BV(5),
-	_BV(6),
-	_BV(7)
+  _BV(0), /* D0, port B */
+  _BV(1),
+  _BV(2),
+  _BV(3),
+  _BV(4),
+  _BV(5),
+  _BV(6),
+  _BV(7),
+  _BV(0), /* D8, port D */
+  _BV(1),
+  _BV(2),
+  _BV(3),
+  _BV(4),
+  _BV(5),
+  _BV(6),
+  _BV(7),
+  _BV(0), /* D16, port C */
+  _BV(1),
+  _BV(2),
+  _BV(3),
+  _BV(4),
+  _BV(5),
+  _BV(6),
+  _BV(7),
+  _BV(0), /* D24, port A */
+  _BV(1),
+  _BV(2),
+  _BV(3),
+  _BV(4),
+  _BV(5),
+  _BV(6),
+  _BV(7),
+  #if defined(__AVR_ATmega324PB__)
+    _BV(0), /* D32, port E */
+    _BV(1),
+    _BV(2),
+    _BV(3),
+    _BV(4),
+    _BV(5),
+    _BV(6),
+  #endif  
 };
 
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
-	NOT_ON_TIMER, 	/* D0  - PB0 */
-	NOT_ON_TIMER, 	/* D1  - PB1 */
-	NOT_ON_TIMER, 	/* D2  - PB2 */
-	TIMER0A,     	/* D3  - PB3 */
-	NOT_ON_TIMER, 	/* D4  - PB4 */
-	NOT_ON_TIMER, 	/* D5  - PB5 */
-	NOT_ON_TIMER, 	/* D6  - PB6 */
-	NOT_ON_TIMER,	/* D7  - PB7 */
-	NOT_ON_TIMER, 	/* D8  - PD0 */
-	NOT_ON_TIMER, 	/* D9  - PD1 */
-	NOT_ON_TIMER, 	/* D10 - PD2 */
-	NOT_ON_TIMER, 	/* D11 - PD3 */
-	TIMER1B,     	/* D12 - PD4 */
-	TIMER1A,     	/* D13 - PD5 */
-	NOT_ON_TIMER,   /* D14 - PD6 */
-	TIMER2,     	/* D15 - PD7 */
-	NOT_ON_TIMER, 	/* D16 - PC0 */
-	NOT_ON_TIMER,   /* D17 - PC1 */
-	NOT_ON_TIMER,   /* D18 - PC2 */
-	NOT_ON_TIMER,   /* D19 - PC3 */
-	NOT_ON_TIMER,   /* D20 - PC4 */
-	NOT_ON_TIMER,   /* D21 - PC5 */
-	NOT_ON_TIMER,   /* D22 - PC6 */
-	NOT_ON_TIMER,   /* D23 - PC7 */
-	NOT_ON_TIMER,   /* D24 - PA0 */
-	NOT_ON_TIMER,   /* D25 - PA1 */
-	NOT_ON_TIMER,   /* D26 - PA2 */
-	NOT_ON_TIMER,   /* D27 - PA3 */
-	NOT_ON_TIMER,   /* D28 - PA4 */
-	NOT_ON_TIMER,   /* D29 - PA5 */
-	NOT_ON_TIMER,   /* D30 - PA6 */
-	NOT_ON_TIMER    /* D31 - PA7 */
+  NOT_ON_TIMER,   /* D0  - PB0 */
+  NOT_ON_TIMER,   /* D1  - PB1 */
+  NOT_ON_TIMER,   /* D2  - PB2 */
+  TIMER0A,        /* D3  - PB3 */
+  NOT_ON_TIMER,   /* D4  - PB4 */
+  NOT_ON_TIMER,   /* D5  - PB5 */
+  NOT_ON_TIMER,   /* D6  - PB6 */
+  NOT_ON_TIMER,   /* D7  - PB7 */
+  NOT_ON_TIMER,   /* D8  - PD0 */
+  NOT_ON_TIMER,   /* D9  - PD1 */
+  NOT_ON_TIMER,   /* D10 - PD2 */
+  NOT_ON_TIMER,   /* D11 - PD3 */
+  TIMER1B,        /* D12 - PD4 */
+  TIMER1A,        /* D13 - PD5 */
+  NOT_ON_TIMER,   /* D14 - PD6 */
+  TIMER2,         /* D15 - PD7 */
+  NOT_ON_TIMER,   /* D16 - PC0 */
+  NOT_ON_TIMER,   /* D17 - PC1 */
+  NOT_ON_TIMER,   /* D18 - PC2 */
+  NOT_ON_TIMER,   /* D19 - PC3 */
+  NOT_ON_TIMER,   /* D20 - PC4 */
+  NOT_ON_TIMER,   /* D21 - PC5 */
+  NOT_ON_TIMER,   /* D22 - PC6 */
+  NOT_ON_TIMER,   /* D23 - PC7 */
+  NOT_ON_TIMER,   /* D24 - PA0 */
+  NOT_ON_TIMER,   /* D25 - PA1 */
+  NOT_ON_TIMER,   /* D26 - PA2 */
+  NOT_ON_TIMER,   /* D27 - PA3 */
+  NOT_ON_TIMER,   /* D28 - PA4 */
+  NOT_ON_TIMER,   /* D29 - PA5 */
+  NOT_ON_TIMER,   /* D30 - PA6 */
+  NOT_ON_TIMER    /* D31 - PA7 */
 };
 
 #elif defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
@@ -265,75 +325,119 @@ defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATm
 defined(__AVR_ATmega644P__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
-	NOT_ON_TIMER, 	/* D0  - PB0 */
-	NOT_ON_TIMER, 	/* D1  - PB1 */
-	NOT_ON_TIMER, 	/* D2  - PB2 */
-	TIMER0A,     	/* D3  - PB3 */
-	TIMER0B, 	/* D4  - PB4 */
-	NOT_ON_TIMER, 	/* D5  - PB5 */
-	NOT_ON_TIMER, 	/* D6  - PB6 */
-	NOT_ON_TIMER,	/* D7  - PB7 */
-	NOT_ON_TIMER, 	/* D8  - PD0 */
-	NOT_ON_TIMER, 	/* D9  - PD1 */
-	NOT_ON_TIMER, 	/* D10 - PD2 */
-	NOT_ON_TIMER, 	/* D11 - PD3 */
-	TIMER1B,     	/* D12 - PD4 */
-	TIMER1A,     	/* D13 - PD5 */
-	TIMER2B,     	/* D14 - PD6 */
-	TIMER2A,     	/* D15 - PD7 */
-	NOT_ON_TIMER, 	/* D16 - PC0 */
-	NOT_ON_TIMER,   /* D17 - PC1 */
-	NOT_ON_TIMER,   /* D18 - PC2 */
-	NOT_ON_TIMER,   /* D19 - PC3 */
-	NOT_ON_TIMER,   /* D20 - PC4 */
-	NOT_ON_TIMER,   /* D21 - PC5 */
-	NOT_ON_TIMER,   /* D22 - PC6 */
-	NOT_ON_TIMER,   /* D23 - PC7 */
-	NOT_ON_TIMER,   /* D24 - PA0 */
-	NOT_ON_TIMER,   /* D25 - PA1 */
-	NOT_ON_TIMER,   /* D26 - PA2 */
-	NOT_ON_TIMER,   /* D27 - PA3 */
-	NOT_ON_TIMER,   /* D28 - PA4 */
-	NOT_ON_TIMER,   /* D29 - PA5 */
-	NOT_ON_TIMER,   /* D30 - PA6 */
-	NOT_ON_TIMER    /* D31 - PA7 */
+  NOT_ON_TIMER,   /* D0  - PB0 */
+  NOT_ON_TIMER,   /* D1  - PB1 */
+  NOT_ON_TIMER,   /* D2  - PB2 */
+  TIMER0A,        /* D3  - PB3 */
+  TIMER0B,        /* D4  - PB4 */
+  NOT_ON_TIMER,   /* D5  - PB5 */
+  NOT_ON_TIMER,   /* D6  - PB6 */
+  NOT_ON_TIMER,   /* D7  - PB7 */
+  NOT_ON_TIMER,   /* D8  - PD0 */
+  NOT_ON_TIMER,   /* D9  - PD1 */
+  NOT_ON_TIMER,   /* D10 - PD2 */
+  NOT_ON_TIMER,   /* D11 - PD3 */
+  TIMER1B,        /* D12 - PD4 */
+  TIMER1A,        /* D13 - PD5 */
+  TIMER2B,        /* D14 - PD6 */
+  TIMER2A,        /* D15 - PD7 */
+  NOT_ON_TIMER,   /* D16 - PC0 */
+  NOT_ON_TIMER,   /* D17 - PC1 */
+  NOT_ON_TIMER,   /* D18 - PC2 */
+  NOT_ON_TIMER,   /* D19 - PC3 */
+  NOT_ON_TIMER,   /* D20 - PC4 */
+  NOT_ON_TIMER,   /* D21 - PC5 */
+  NOT_ON_TIMER,   /* D22 - PC6 */
+  NOT_ON_TIMER,   /* D23 - PC7 */
+  NOT_ON_TIMER,   /* D24 - PA0 */
+  NOT_ON_TIMER,   /* D25 - PA1 */
+  NOT_ON_TIMER,   /* D26 - PA2 */
+  NOT_ON_TIMER,   /* D27 - PA3 */
+  NOT_ON_TIMER,   /* D28 - PA4 */
+  NOT_ON_TIMER,   /* D29 - PA5 */
+  NOT_ON_TIMER,   /* D30 - PA6 */
+  NOT_ON_TIMER    /* D31 - PA7 */
 };
 
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {
-	NOT_ON_TIMER, 	/* D0  - PB0 */
-	NOT_ON_TIMER, 	/* D1  - PB1 */
-	NOT_ON_TIMER, 	/* D2  - PB2 */
-	TIMER0A,     	/* D3  - PB3 */
-	TIMER0B, 	/* D4  - PB4 */
-	NOT_ON_TIMER, 	/* D5  - PB5 */
-	TIMER3A, 	/* D6  - PB6 */
-	TIMER3B,	/* D7  - PB7 */
-	NOT_ON_TIMER, 	/* D8  - PD0 */
-	NOT_ON_TIMER, 	/* D9  - PD1 */
-	NOT_ON_TIMER, 	/* D10 - PD2 */
-	NOT_ON_TIMER, 	/* D11 - PD3 */
-	TIMER1B,     	/* D12 - PD4 */
-	TIMER1A,     	/* D13 - PD5 */
-	TIMER2B,     	/* D14 - PD6 */
-	TIMER2A,     	/* D15 - PD7 */
-	NOT_ON_TIMER, 	/* D16 - PC0 */
-	NOT_ON_TIMER,   /* D17 - PC1 */
-	NOT_ON_TIMER,   /* D18 - PC2 */
-	NOT_ON_TIMER,   /* D19 - PC3 */
-	NOT_ON_TIMER,   /* D20 - PC4 */
-	NOT_ON_TIMER,   /* D21 - PC5 */
-	NOT_ON_TIMER,   /* D22 - PC6 */
-	NOT_ON_TIMER,   /* D23 - PC7 */
-	NOT_ON_TIMER,   /* D24 - PA0 */
-	NOT_ON_TIMER,   /* D25 - PA1 */
-	NOT_ON_TIMER,   /* D26 - PA2 */
-	NOT_ON_TIMER,   /* D27 - PA3 */
-	NOT_ON_TIMER,   /* D28 - PA4 */
-	NOT_ON_TIMER,   /* D29 - PA5 */
-	NOT_ON_TIMER,   /* D30 - PA6 */
-	NOT_ON_TIMER    /* D31 - PA7 */
+  NOT_ON_TIMER,   /* D0  - PB0 */
+  NOT_ON_TIMER,   /* D1  - PB1 */
+  NOT_ON_TIMER,   /* D2  - PB2 */
+  TIMER0A,        /* D3  - PB3 */
+  TIMER0B,        /* D4  - PB4 */
+  NOT_ON_TIMER,   /* D5  - PB5 */
+  TIMER3A,        /* D6  - PB6 */
+  TIMER3B,        /* D7  - PB7 */
+  NOT_ON_TIMER,   /* D8  - PD0 */
+  NOT_ON_TIMER,   /* D9  - PD1 */
+  NOT_ON_TIMER,   /* D10 - PD2 */
+  NOT_ON_TIMER,   /* D11 - PD3 */
+  TIMER1B,        /* D12 - PD4 */
+  TIMER1A,        /* D13 - PD5 */
+  TIMER2B,        /* D14 - PD6 */
+  TIMER2A,        /* D15 - PD7 */
+  NOT_ON_TIMER,   /* D16 - PC0 */
+  NOT_ON_TIMER,   /* D17 - PC1 */
+  NOT_ON_TIMER,   /* D18 - PC2 */
+  NOT_ON_TIMER,   /* D19 - PC3 */
+  NOT_ON_TIMER,   /* D20 - PC4 */
+  NOT_ON_TIMER,   /* D21 - PC5 */
+  NOT_ON_TIMER,   /* D22 - PC6 */
+  NOT_ON_TIMER,   /* D23 - PC7 */
+  NOT_ON_TIMER,   /* D24 - PA0 */
+  NOT_ON_TIMER,   /* D25 - PA1 */
+  NOT_ON_TIMER,   /* D26 - PA2 */
+  NOT_ON_TIMER,   /* D27 - PA3 */
+  NOT_ON_TIMER,   /* D28 - PA4 */
+  NOT_ON_TIMER,   /* D29 - PA5 */
+  NOT_ON_TIMER,   /* D30 - PA6 */
+  NOT_ON_TIMER    /* D31 - PA7 */
+};
+
+#elif defined(__AVR_ATmega324PB__)
+const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
+{
+  NOT_ON_TIMER,   /* D0  - PB0 */
+  NOT_ON_TIMER,   /* D1  - PB1 */
+  NOT_ON_TIMER,   /* D2  - PB2 */
+  TIMER0A,        /* D3  - PB3 */
+  TIMER0B,        /* D4  - PB4 */
+  NOT_ON_TIMER,   /* D5  - PB5 */
+  TIMER3A,        /* D6  - PB6 */
+  TIMER3B,        /* D7  - PB7 */
+  NOT_ON_TIMER,   /* D8  - PD0 */
+  NOT_ON_TIMER,   /* D9  - PD1 */
+  NOT_ON_TIMER,   /* D10 - PD2 */
+  NOT_ON_TIMER,   /* D11 - PD3 */
+  TIMER1B,        /* D12 - PD4 */
+  TIMER1A,        /* D13 - PD5 */
+  TIMER2B,        /* D14 - PD6 */
+  TIMER2A,        /* D15 - PD7 */
+  NOT_ON_TIMER,   /* D16 - PC0 */
+  NOT_ON_TIMER,   /* D17 - PC1 */
+  NOT_ON_TIMER,   /* D18 - PC2 */
+  NOT_ON_TIMER,   /* D19 - PC3 */
+  TIMER4A,        /* D20 - PC4 */
+  NOT_ON_TIMER,   /* D21 - PC5 */
+  NOT_ON_TIMER,   /* D22 - PC6 */
+  NOT_ON_TIMER,   /* D23 - PC7 */
+  NOT_ON_TIMER,   /* D24 - PA0 */
+  NOT_ON_TIMER,   /* D25 - PA1 */
+  NOT_ON_TIMER,   /* D26 - PA2 */
+  NOT_ON_TIMER,   /* D27 - PA3 */
+  NOT_ON_TIMER,   /* D28 - PA4 */
+  NOT_ON_TIMER,   /* D29 - PA5 */
+  NOT_ON_TIMER,   /* D30 - PA6 */
+  NOT_ON_TIMER,   /* D31 - PA7 */
+  NOT_ON_TIMER,   /* D32 - PE0 */
+  NOT_ON_TIMER,   /* D33 - PE1 */
+  NOT_ON_TIMER,   /* D34 - PE2 */
+  NOT_ON_TIMER,   /* D35 - PE3 */
+  NOT_ON_TIMER,   /* D36 - PE4 */
+  NOT_ON_TIMER,   /* D37 - PE5 */
+  NOT_ON_TIMER    /* D38 - PE6 */
 };
 
 #endif // Timer defs
