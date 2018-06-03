@@ -185,7 +185,8 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] =
     PE,
     PE,
     PE,
-    PE,  
+    PE,
+    PE,
   #endif
 };
 
