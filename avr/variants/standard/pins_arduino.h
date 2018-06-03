@@ -119,31 +119,6 @@ defined(__AVR_ATmega1284P__)
 #endif  
 #endif
 
-#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
-// Missing definitions in iom164.h/iom324.h file
-#define SPR0 0
-#define SPR1 1
-#define CPHA 2
-#define CPOL 3
-#define MSTR 4
-#define DORD 5
-#define SPE 6
-#define SPIE 7
-#define SPSR _SFR_IO8(0x2D)
-#define SPI2X 0
-#define WCOL 6
-#define SPIF 7
-#define SPCR _SFR_IO8(0x2C)
-#define SPDR _SFR_IO8(0x2E)
-#endif
-
-#if defined(__AVR_ATmega324PB__)
-  // Missing 324PB register definitions goes here
-  //#define TWBR TWBR0
-  //#define TWSR TWSR0
-#endif
-
 #ifdef ARDUINO_MAIN
 
 #define PA 1
@@ -443,6 +418,76 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 #endif // Timer defs
 
 #endif // ARDUINO_MAIN
+
+
+// Missing definitions in iom164.h/iom324.h file
+#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
+#define SPR0 0
+#define SPR1 1
+#define CPHA 2
+#define CPOL 3
+#define MSTR 4
+#define DORD 5
+#define SPE 6
+#define SPIE 7
+#define SPSR SPSR0
+#define SPI2X 0
+#define WCOL 6
+#define SPIF 7
+#define SPCR SPCR0
+#define SPDR SPDR0
+#endif
+
+// Missing definitions in iom324pb.h file
+#if defined(__AVR_ATmega324PB__)
+  // i2c
+  #define TWI_vect TWI0_vect
+  #define TWI_vect_num TWI0_vect_num
+  #define TWBR TWBR0
+  #define TWSR TWSR0
+  #define TWS3 TWS03
+  #define TWS4 TWS04
+  #define TWS5 TWS05
+  #define TWS6 TWS06
+  #define TWS7 TWS07
+  #define TWAR TWAR0
+  #define TWDR TWDR0
+  #define TWD0 0
+  #define TWD1 1
+  #define TWD2 2
+  #define TWD3 3
+  #define TWD4 4
+  #define TWD5 5
+  #define TWD6 6
+  #define TWD7 7
+  #define TWCR  TWCR0
+  #define TWAMR TWAMR0
+  #define TWAM0 TWAM00
+  #define TWAM1 TWAM01
+  #define TWAM2 TWAM02
+  #define TWAM3 TWAM03
+  #define TWAM4 TWAM04
+  #define TWAM5 TWAM05
+  #define TWAM6 TWAM06
+  
+  // SPI
+  #define SPI_STC_vect SPI0_STC_vect
+  #define SPI_STC_vect_num SPI0_STC_vect_num
+  #define SPCR SPCR0
+  #define SPSR SPSR0
+  #define SPDR SPDR0
+  #define SPDRB0 0
+  #define SPDRB1 1
+  #define SPDRB2 2
+  #define SPDRB3 3
+  #define SPDRB4 4
+  #define SPDRB5 5
+  #define SPDRB6 6
+  #define SPDRB7 7
+  
+#endif
+
 
 #endif // Pins_Arduino_h
 
