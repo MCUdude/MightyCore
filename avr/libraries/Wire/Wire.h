@@ -22,6 +22,7 @@
 #ifndef TwoWire_h
 #define TwoWire_h
 
+#include <Arduino.h>
 #include <inttypes.h>
 #include "Stream.h"
 
