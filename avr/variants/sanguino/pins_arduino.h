@@ -398,24 +398,25 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 #endif // ARDUINO_MAIN
 
 
-// Missing definitions in iom164.h/iom324.h file
-#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
-#define SPR0 0
-#define SPR1 1
-#define CPHA 2
-#define CPOL 3
-#define MSTR 4
-#define DORD 5
-#define SPE 6
-#define SPIE 7
-#define SPSR SPSR0
-#define SPI2X 0
-#define WCOL 6
-#define SPIF 7
-#define SPCR SPCR0
-#define SPDR SPDR0
+// Missing definitions in iom164pa.h/iom324a.h/iom324p.h/iom324pa.h
+#if defined(__AVR_ATmega164PA__) || defined(__AVR_ATmega324A__) || defined(__AVR_ATmega324P__)\
+|| defined(__AVR_ATmega324PA__)
+  #define SPSR SPSR0
+  #define SPDR SPDR0
+  #define SPCR SPCR0
+  #define SPR0 SPR00
+  #define SPR1 SPR10
+  #define CPHA CPHA0
+  #define CPOL CPOL0
+  #define MSTR MSTR0
+  #define DORD DORD0
+  #define SPE  SPE0
+  #define SPIE SPIE0
+  #define SPI2X SPI2X0
+  #define WCOL WCOL0
+  #define SPIF SPIF0
 #endif
+
 
 // Missing definitions in iom324pb.h file
 #if defined(__AVR_ATmega324PB__)
