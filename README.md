@@ -116,7 +116,7 @@ Please have a look at the (`pins_arduino.h`) files for more info. Pick your favo
 
 | **MightyCore Standard pinout**                                                                                                                                           | **MightyCore Bobuino pinout**                                                                                                                                            | **MightyCore Sanguino pinout**                                                                                                                                           |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<img src="https://i.imgur.com/QfUt0iV.jpg" width="260"><img src="https://i.imgur.com/j02HPOA.jpg" width="260"><br/><img src="https://i.imgur.com/XRIYB5d.jpg" width="260">|<img src="https://i.imgur.com/q171gYg.jpg" width="260"><img src="https://i.imgur.com/sYTtuUI.jpg" width="260"><br/><img src="https://i.imgur.com/KQWLJu2.jpg" width="260">|<img src="https://i.imgur.com/eIIbA77.jpg" width="260"><img src="https://i.imgur.com/Z0RnQ9m.jpg" width="260"><br/><img src="https://i.imgur.com/hyed9RA.jpg" width="260">|
+|<img src="https://i.imgur.com/QfUt0iV.jpg" width="260"><img src="https://i.imgur.com/j02HPOA.jpg" width="260"><br/><img src="https://i.imgur.com/XRIYB5d.jpg" width="260">|<img src="https://i.imgur.com/q171gYg.jpg" width="260"><img src="https://i.imgur.com/sYTtuUI.jpg" width="260"><br/><img src="https://i.imgur.com/Z0RnQ9m.jpg" width="260">|<img src="https://i.imgur.com/eIIbA77.jpg" width="260"><img src="https://i.imgur.com/KQWLJu2.jpg" width="260"><br/><img src="https://i.imgur.com/hyed9RA.jpg" width="260">|
 
 
 ## Programmers
@@ -247,6 +247,6 @@ Click the images for full resolution <br/>
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
 <b>Click to enlarge:</b> 
 
-| DIP-40 package                                        | TQFP-44 SMD package                                   |
-|-------------------------------------------------------|-------------------------------------------------------|
-|<img src="https://i.imgur.com/uN3E6w6.png" width="425">|<img src="https://i.imgur.com/WgvcivB.png" width="425">|
+| DIP-40 package                                        | TQFP-44 SMD package                                   | ATmega324PB SMD package                               |
+|-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
+|<img src="https://i.imgur.com/uN3E6w6.png" width="280">|<img src="https://i.imgur.com/WgvcivB.png" width="280">|<img src="https://i.imgur.com/iAwH8U8.png" width="280">|
