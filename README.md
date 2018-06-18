@@ -50,7 +50,7 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 | **EEPROM**       | 4kB      | 2kB     | 1kB     | 512B    | 512B   | 512B   | 512B     |
 | **Serial ports** | 2        | 2       | 2/3*    | 2       | 1      | 1      | 1        |
 | **PWM pins**     | 8        | 6       | 6/9*    | 6       | 4      | 4      | 4        |
-| ** IO pins**     | 32       | 32      | 32/39*  | 32      | 32     | 32     | 32       |
+| **IO pins**      | 32       | 32      | 32/39*  | 32      | 32     | 32     | 32       |
 
 <b>*</b> ATmega324PB has 3 serial ports, 9 PWM pins and 39 IO pins if internal oscillator is used.
 
@@ -249,4 +249,4 @@ Here is a simple schematic showing a minimal setup using an external crystal. Sk
 
 | DIP-40 package                                        | TQFP-44 SMD package                                   | ATmega324PB SMD package                               |
 |-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
-|<img src="https://i.imgur.com/uN3E6w6.png" width="280">|<img src="https://i.imgur.com/WgvcivB.png" width="280">|<img src="https://i.imgur.com/iAwH8U8.png" width="280">|
+|<img src="https://i.imgur.com/wfSP08r.png" width="280">|<img src="https://i.imgur.com/WgvcivB.png" width="280">|<img src="https://i.imgur.com/iAwH8U8.png" width="280">|
