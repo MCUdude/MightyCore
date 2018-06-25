@@ -249,4 +249,4 @@ Here is a simple schematic showing a minimal setup using an external crystal. Sk
 
 | DIP-40 package                                        | TQFP-44 SMD package                                   | ATmega324PB SMD package                               |
 |-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
-|<img src="https://i.imgur.com/wfSP08r.png" width="280">|<img src="https://i.imgur.com/WgvcivB.png" width="280">|<img src="https://i.imgur.com/iAwH8U8.png" width="280">|
+|<img src="https://i.imgur.com/pCiKton.png" width="280">|<img src="https://i.imgur.com/WgvcivB.png" width="280">|<img src="https://i.imgur.com/679DBWF.png" width="280">|
