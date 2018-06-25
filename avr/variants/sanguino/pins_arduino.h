@@ -383,7 +383,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 	NOT_ON_TIMER,   /* D28 - PA3 */
 	NOT_ON_TIMER,   /* D29 - PA2 */
 	NOT_ON_TIMER,   /* D30 - PA1 */
-	NOT_ON_TIMER    /* D31 - PA0 */
+	NOT_ON_TIMER,   /* D31 - PA0 */
   NOT_ON_TIMER,   /* D32 - PE0 */
   NOT_ON_TIMER,   /* D33 - PE1 */
   NOT_ON_TIMER,   /* D34 - PE2 */
