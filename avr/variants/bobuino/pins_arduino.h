@@ -149,8 +149,8 @@ const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
 
 #endif
 
-#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__)
+#if defined(__AVR_ATmega164PA__) || defined(__AVR_ATmega324A__) || defined(__AVR_ATmega324P__)\
+|| defined(__AVR_ATmega324PA__)
 /**** Needed to get the SD library to work. 
 Missing definitions in the iom164.h/iom324.h file ****/
 #define SPR0 0
