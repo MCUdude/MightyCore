@@ -88,18 +88,18 @@ Just remember that the ATmega8535/16/32 doesn't have more than 4 PWM outputs and
 #define TXB80   TXB8
 
 //Interrupt vectors
-#define TIMER2_COMPA_vect			TIMER2_COMP_vect
-#define TIMER2_COMPA_vect_num	TIMER2_COMP_vect_num
-#define TIMER0_COMPA_vect		 	TIMER0_COMP_vect
-#define TIMER0_COMPA_vect_num	TIMER0_COMP_vect_num 
-#define USART0_RX_vect				USART_RXC_vect
-#define USART0_RX_vect_num		USART_RXC_vect_num
-#define USART0_UDRE_vect			USART_UDRE_vect
-#define USART0_UDRE_vect_num	USART_UDRE_vect_num
-#define USART0_TX_vect				USART_TXC_vect
-#define USART0_TX_vect_num		USART_TXC_vect_num
-#define ANALOG_COMP_vect			ANA_COMP_vect
-#define ANALOG_COMP_vect_num	ANA_COMP_vect_num
+#define TIMER2_COMPA_vect     TIMER2_COMP_vect
+#define TIMER2_COMPA_vect_num TIMER2_COMP_vect_num
+#define TIMER0_COMPA_vect     TIMER0_COMP_vect
+#define TIMER0_COMPA_vect_num TIMER0_COMP_vect_num 
+#define USART0_RX_vect        USART_RXC_vect
+#define USART0_RX_vect_num    USART_RXC_vect_num
+#define USART0_UDRE_vect      USART_UDRE_vect
+#define USART0_UDRE_vect_num  USART_UDRE_vect_num
+#define USART0_TX_vect        USART_TXC_vect
+#define USART0_TX_vect_num    USART_TXC_vect_num
+#define ANALOG_COMP_vect      ANA_COMP_vect
+#define ANALOG_COMP_vect_num  ANA_COMP_vect_num
 #endif
 ```
 

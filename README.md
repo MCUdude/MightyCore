@@ -19,14 +19,14 @@ Read more in the hardware section below.
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
 * **[How to install](#how-to-install)**
-	- [Boards Manager Installation](#boards-manager-installation)
-	- [Manual Installation](#manual-installation)
-	- [ATmega324PB](#atmega324pb)
-	- [PlatformIO](#platformio)
+  - [Boards Manager Installation](#boards-manager-installation)
+  - [Manual Installation](#manual-installation)
+  - [ATmega324PB](#atmega324pb)
+  - [PlatformIO](#platformio)
 * **[Getting started with MightyCore](#getting-started-with-mightycore)**
-* [Wiring reference](#wiring-reference)	
-* [Library porting](#library-porting)	
-* [Hardware](#hardware)	
+* [Wiring reference](#wiring-reference) 
+* [Library porting](#library-porting) 
+* [Hardware](#hardware) 
 * **[Minimal setup](#minimal-setup)**
 
 
@@ -175,7 +175,7 @@ If you plan to use the new ATmega324PB, you'll need to update to the latest vers
 ## Getting started with MightyCore
 Ok, so you've downloaded and installed MightyCore, but how do you get the wheels spinning? Here's a quick start guide:
 * Hook up your microcontroller as shown in the [pinout diagram](#pinout).
-	- If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
+  - If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
 * Open the **Tools > Board** menu item, and select a MighyCore compatible microcontroller.
 * If the *BOD option* is presented, you can select at what voltage the microcontroller will shut down at. Read more about BOD [here](#bod-option).
 * Select your prefered pinout. Personally I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compatibility. Read more about the different pinouts [here](#pinouts).
@@ -184,8 +184,8 @@ Ok, so you've downloaded and installed MightyCore, but how do you get the wheels
 * If the *Variants* option is presented, you'll have to specify what version of the microcontroller you're using. E.g the ATmega1284 and the ATmega1284P have different device signatures, so selecting the wrong one will result in an error.
 * Hit **Burn Bootloader**. If an LED is connected to pin PB0, it should flash twice every second.
 * Now that the correct fuse settings is set and the bootloader burnt, you can upload your code in two ways:
-	- Disconnect your programmer tool, and connect a USB to serial adapter to the microcontroller, like shown in the [minimal setup circuit](#minimal-setup). Then select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting some kind of timeout error, it means your RX and TX pins are swapped, or your auto reset circuity isn't working properly (the 100 nF capacitor on the reset line).
-	- Keep your programmer connected, and hold down the `shift` button while clicking **Upload**. This will erase the bootloader and upload your code using the programmer tool.
+  - Disconnect your programmer tool, and connect a USB to serial adapter to the microcontroller, like shown in the [minimal setup circuit](#minimal-setup). Then select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting some kind of timeout error, it means your RX and TX pins are swapped, or your auto reset circuity isn't working properly (the 100 nF capacitor on the reset line).
+  - Keep your programmer connected, and hold down the `shift` button while clicking **Upload**. This will erase the bootloader and upload your code using the programmer tool.
 
 Your code should now be running on your microcontroller! If you experience any issues related to bootloader burning or serial uploading, please use *[this forum post](https://forum.arduino.cc/index.php?topic=379427.0)* or create an issue on Github.
 
@@ -201,7 +201,7 @@ I hope you find this useful, because they really are!
 * sleepMode()
 * sleep()
 * noSleep()
-* enablePower()	
+* enablePower() 
 * disablePower()
 
 ### For further information please view the [Wiring reference page](https://github.com/MCUdude/MightyCore/blob/master/Wiring_reference.md)!

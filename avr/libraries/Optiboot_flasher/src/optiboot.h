@@ -1,5 +1,5 @@
 /*------------------------ Optiboot header file ----------------------------|
- |                  																												|
+ |                                                                          |
  | June 2015 by Marek Wodzinski, https://github.com/majekw                  |
  | Modified June 2016 by MCUdude, https://github.com/MCUdude                |
  | Released to public domain                                                |
@@ -8,11 +8,11 @@
  | from Optiboot bootloader memory.                                         |
  |                                                                          |
  | There are 5 convenient functions available here:                         |
- | * optiboot_page_erase - to erase a FLASH page 						                |
- | * optiboot_page_fill - to put words into temporary buffer			          |
- | * optiboot_page_write - to write contents of temporary buffer into FLASH |																			                            |
+ | * optiboot_page_erase - to erase a FLASH page                            |
+ | * optiboot_page_fill - to put words into temporary buffer                |
+ | * optiboot_page_write - to write contents of temporary buffer into FLASH |
  | * optiboot_readPage - higher level function to read a flash page and     |
- | 							          store it in an array           					 					|
+ |                        store it in an array                              |
  | * optiboot_writePage - higher level function to write content to         |
  |                         a flash page                                     |
  |                                                                          |
