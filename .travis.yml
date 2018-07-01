@@ -284,6 +284,12 @@ env:
 
 
 before_install:
+  # Check for tabs (excluding subtrees and keywords.txt files)
+  - find . -path './.git' -prune -or -path './avr/bootloaders/optiboot_flash' -prune -or -path './avr/cores/MCUdude_corefiles' -prune -or -path './avr/travis-ci/arduino-ci-script' -prune -or \( -not -name 'keywords.txt' -and -type f \) -exec grep --with-filename --line-number --binary-files=without-match --regexp=$'\t' '{}' \; -exec echo 'Tab found.' \; -exec false '{}' +
+
+  # Check for non-Unix line endings (excluding subtrees)
+  - find . -path './.git' -prune -or -path './avr/bootloaders/optiboot_flash' -prune -or -path './avr/cores/MCUdude_corefiles' -prune -or -path './avr/travis-ci/arduino-ci-script' -prune -or -type f -exec grep --files-with-matches --binary-files=without-match --regexp=$'\r$' '{}' \; -exec echo 'Non-Unix EOL detected.' \; -exec false '{}' +
+
   # Install the script used to simplify use of Travis CI for testing Arduino projects
   - source "${TRAVIS_BUILD_DIR}/avr/travis-ci/arduino-ci-script/arduino-ci-script.sh"
 
