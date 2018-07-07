@@ -1,5 +1,5 @@
 # Optiboot flash
-Optiboot is an easy to install bootloader for the Arduino environment.
+Optiboot flash is an easy to install bootloader for the Arduino environment.
   
 All hex files in this repository are build with `avr-gcc 5.4.0-atmel3.6.1-arduino2`on MacOS.  
 This toolchain version ships with Arduino AVR boards version 1.6.206, which can be found in the Arduino boards manager menu.
@@ -9,7 +9,7 @@ This toolchain version ships with Arduino AVR boards version 1.6.206, which can 
 * Small in size (512B)
 * Supports baudrates upto 1Mbit
 * Supports write to flash within application
-* Compatible with a lot of AVR microcontrollers
+* Compatible with a most AVR microcontrollers
 
 
 ## Supported devices
@@ -23,18 +23,23 @@ This toolchain version ships with Arduino AVR boards version 1.6.206, which can 
 
 
 ## Precompiled binaries
-This repository contains a lot of precomppiled hex file with a variety of clock frequencies and baud rates:
+This repository contains a bunch of precompiled hex file with a variety of clock frequencies and baud rates:
 
-|            | 1M | 500k | 250k | 115200 | 57600 | 38400 | 19200 | 9600 |
-|------------|----|------|------|--------|-------|-------|-------|------|
-| 20 MHz     |    | X    | X    | X      |       |       |       |      |
-| 18.432 MHz |    |      |      | X      |       |       |       |      |
-| 16 MHz     | X  | X    | X    | X      |       |       |       |      |
-| 12 MHz     |    | X    | X    |        | X     |       |       |      |
-| 8 MHz      | X  | X    | X    | X      | X     | X     | X     |      |
-| 4 MHz      |    | X    | X    |        |       |       | X     | X    |
-| 2 MHz      |    |      | X    |        |       |       | X     | X    |
-| 1 MHz      |    |      |      |        |       |       |       | X    |
+|             | 1000000 | 500000 | 250000 | 230400 | 115200 | 57600 | 38400 | 19200 | 9600 |
+|-------------|---------|--------|--------|--------|--------|-------|-------|-------|------|
+| 20 MHz      |         |  X     |  X     |        |  X     |       |       |  X    |      |
+| 18.4320 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   |
+| 16 MHz      |  X      |  X     |  X     |        |  X     |       |  X    |  X    |  X   |
+| 14.7456 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | 
+| 12 MHz      |         |  X     |  X     |        |        |  X    |       |  X    |  X   |
+| 11.0592 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | 
+| 8 MHz       |  X      |  X     |  X     |        |  X     |  X    |  X    |  X    |  X   |
+| 7.3728 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | 
+| 4 MHz       |         |  X     |  X     |        |        |       |       |  X    |  X   |
+| 3.6864 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | 
+| 2 MHz       |         |        |  X     |        |        |       |       |  X    |  X   |
+| 1.8432 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | 
+| 1 MHz       |         |        |        |        |        |       |       |       |  X   | 
 
 
 ## Using different UARTs
