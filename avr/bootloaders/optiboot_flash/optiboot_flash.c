@@ -486,7 +486,7 @@ int main(void) {
   asm volatile ("clr __zero_reg__");
 #if defined(__AVR_ATmega8__) || defined(__AVR_ATmega8515__) || defined(__AVR_ATmega8535__) \
 || defined (__AVR_ATmega16__) || defined (__AVR_ATmega32__) || defined (__AVR_ATmega64__)  \
-|| defined (__AVR_ATmega128__)
+|| defined (__AVR_ATmega128__) || defined (__AVR_ATmega162__)
   SP=RAMEND;  // This is done by hardware reset
 #endif
 
@@ -556,8 +556,12 @@ int main(void) {
 #else
   UART_SRA = _BV(U2X0); //Double speed mode USART0
   UART_SRB = _BV(RXEN0) | _BV(TXEN0);
-  UART_SRC = _BV(UCSZ00) | _BV(UCSZ01);
   UART_SRL = (uint8_t)( (F_CPU + BAUD_RATE * 4L) / (BAUD_RATE * 8L) - 1 );
+#if defined(__AVR_ATmega162__) 
+    UART_SRC = _BV(URSEL0) | _BV(UCSZ00) | _BV(UCSZ01);
+#else
+    UART_SRC = _BV(UCSZ00) | _BV(UCSZ01);
+#endif
 #endif
 #endif
 
@@ -797,8 +801,8 @@ uint8_t getch(void) {
 
 #ifdef LED_DATA_FLASH
 #if defined(__AVR_ATmega8__) || defined(__AVR_ATmega8515__) || defined(__AVR_ATmega8535__) \
-|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega64__) \
-|| defined(__AVR_ATmega128__)
+|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega162__) || defined(__AVR_ATmega32__)    \
+|| defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
   LED_PORT ^= _BV(LED);
 #else
   LED_PIN |= _BV(LED);
@@ -850,8 +854,8 @@ uint8_t getch(void) {
 
 #ifdef LED_DATA_FLASH
 #if defined(__AVR_ATmega8__) || defined(__AVR_ATmega8515__) || defined(__AVR_ATmega8535__) \
-|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega64__) \
-|| defined(__AVR_ATmega128__)
+|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega162__) ||defined(__AVR_ATmega32__)     \
+|| defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
   LED_PORT ^= _BV(LED);
 #else
   LED_PIN |= _BV(LED);
@@ -901,8 +905,8 @@ void flash_led(uint8_t count) {
     TIFR1 = _BV(TOV1);
     while(!(TIFR1 & _BV(TOV1)));
 #if defined(__AVR_ATmega8__) || defined(__AVR_ATmega8515__) || defined(__AVR_ATmega8535__) \
-|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__) || defined(__AVR_ATmega64__) \
-|| defined(__AVR_ATmega128__)
+|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega162__) || defined(__AVR_ATmega32__)    \
+|| defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
     LED_PORT ^= _BV(LED);
 #else
     LED_PIN |= _BV(LED);

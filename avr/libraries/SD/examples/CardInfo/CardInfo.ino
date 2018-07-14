@@ -11,7 +11,7 @@
  ** MISO - pin 12 on Arduino Uno/Duemilanove/Diecimila
  ** CLK - pin 13 on Arduino Uno/Duemilanove/Diecimila
  ** CS - depends on your SD card shield or module.
- 		Pin 4 used here for consistency with other Arduino examples
+         Pin 4 used here for consistency with other Arduino examples
 
 
  created  28 Mar 2011

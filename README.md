@@ -19,13 +19,14 @@ Read more in the hardware section below.
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
 * **[How to install](#how-to-install)**
-	- [Boards Manager Installation](#boards-manager-installation)
-	- [Manual Installation](#manual-installation)
-	- [PlatformIO](#platformio)
+  - [Boards Manager Installation](#boards-manager-installation)
+  - [Manual Installation](#manual-installation)
+  - [ATmega324PB](#atmega324pb)
+  - [PlatformIO](#platformio)
 * **[Getting started with MightyCore](#getting-started-with-mightycore)**
-* [Wiring reference](#wiring-reference)	
-* [Library porting](#library-porting)	
-* [Hardware](#hardware)	
+* [Wiring reference](#wiring-reference) 
+* [Library porting](#library-porting) 
+* [Hardware](#hardware) 
 * **[Minimal setup](#minimal-setup)**
 
 
@@ -38,7 +39,7 @@ Read more in the hardware section below.
 * ATmega16
 * ATmega8535
 
-<b>*</b> All variants - P, PA, A except PB. Select the correct version in the 'Variant' menu
+<b>*</b> All variants - P, PA, A, PB. Select the correct version in the 'Variant' menu
 <br/> <br/>
 Can't decide what microcontroller to choose? Have a look at the specification table below:
 
@@ -47,14 +48,16 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 | **Flash**        | 128kB    | 64kB    | 32kB    | 16kB    | 32kB   | 16kB   | 8kB      |
 | **RAM**          | 16kB     | 4kB     | 2kB     | 1kB     | 2kB    | 1kB    | 512B     |
 | **EEPROM**       | 4kB      | 2kB     | 1kB     | 512B    | 512B   | 512B   | 512B     |
-| **Serial ports** | 2        | 2       | 2       | 2       | 1      | 1      | 1        |
-| **PWM pins**     | 8        | 6       | 6       | 6       | 4      | 4      | 4        |
+| **Serial ports** | 2        | 2       | 2/3*    | 2       | 1      | 1      | 1        |
+| **PWM pins**     | 8        | 6       | 6/9*    | 6       | 4      | 4      | 4        |
+| **IO pins**      | 32       | 32      | 32/39*  | 32      | 32     | 32     | 32       |
 
+<b>*</b> ATmega324PB has 3 serial ports, 9 PWM pins and 39 IO pins if internal oscillator is used.
 
 ## Supported clock frequencies
 * 16 MHz external oscillator (default)
 * 20 MHz external oscillator
-* 18.432 Mhz external oscillator <b>*</b>
+* 18.432 MHz external oscillator <b>*</b>
 * 12 MHz external oscillator
 * 8 MHz external oscillator
 * 8 MHz internal oscillator <b>**</b>
@@ -91,7 +94,7 @@ Brown out detection, or BOD for short lets the microcontroller sense the input v
 Link time optimization (LTO for short) has been supported by the IDE since v1.6.11. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep backward compatibility. Enabling LTO in IDE 1.6.10 and older will return an error. 
 I encourage you to try the new LTO option and see how much smaller your code gets! Note that you don't need to hit "Burn Bootloader" in order to enable LTO. Simply enable it in the "Tools" menu, and your code is ready for compilation. If you want to read more about LTO and GCC flags in general, head over to the [GNU GCC website](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)!
 <br/> <br/>
-Here's some numbers to convince you. These sketches were compiled for an **ATmega1284** using **Arduino IDE 1.6.12 (avr-gcc 4.9.2)**. Impressive, right?
+Here's some numbers to convince you. These sketches were compiled for an **ATmega1284** using **Arduino IDE 1.6.12 (avr-gcc 4.9.2)**.
 <br/>
 
 |                  | Blink.ino  | AnalogReadSerial.ino  | SerialReadWrite.ino | CardInfo.ino |
@@ -109,13 +112,15 @@ This core has three different pinout options:
 Please have a look at the (`pins_arduino.h`) files for more info. Pick your favorite!</br> </br>
 <b>Click to enlarge:</b> 
 
-| **MightyCore Standard pinout**                                                                               | **MightyCore Bobuino pinout**                                                                                | **MightyCore Sanguino pinout**                                                                               |
-|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-|<img src="https://i.imgur.com/QfUt0iV.jpg" width="260"><img src="https://i.imgur.com/j02HPOA.jpg" width="260">|<img src="https://i.imgur.com/q171gYg.jpg" width="260"><img src="https://i.imgur.com/sYTtuUI.jpg" width="260">|<img src="https://i.imgur.com/eIIbA77.jpg" width="260"><img src="https://i.imgur.com/KQWLJu2.jpg" width="260">|
+
+
+| **MightyCore Standard pinout**                                                                                                                                           | **MightyCore Bobuino pinout**                                                                                                                                            | **MightyCore Sanguino pinout**                                                                                                                                           |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|<img src="https://i.imgur.com/QfUt0iV.jpg" width="260"><img src="https://i.imgur.com/j02HPOA.jpg" width="260"><br/><img src="https://i.imgur.com/XRIYB5d.jpg" width="260">|<img src="https://i.imgur.com/q171gYg.jpg" width="260"><img src="https://i.imgur.com/sYTtuUI.jpg" width="260"><br/><img src="https://i.imgur.com/Z0RnQ9m.jpg" width="260">|<img src="https://i.imgur.com/eIIbA77.jpg" width="260"><img src="https://i.imgur.com/KQWLJu2.jpg" width="260"><br/><img src="https://i.imgur.com/hyed9RA.jpg" width="260">|
 
 
 ## Programmers
-MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, or ATmega164A.
+MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, ATmega324PB, or ATmega164A.
 
 
 ## Write to own flash
@@ -140,6 +145,20 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 Click on the "Download ZIP" button. Extract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
 
+#### ATmega324PB
+If you plan to use the new ATmega324PB, you'll need to update to the latest version of the Arduino toolchain. At the time of writing the latest version is *1.6.207*. Here's how you install it:
+* Open Arduino IDE.
+* Open the **File > Preferences** menu item.
+* In the **Additional Boards Manager URLs** field, add:
+    ```
+    https://downloads.arduino.cc/packages/package_avr_3.6.0_index.json
+    ```
+* Open the **Tools > Board > Boards Manager...** menu item.
+* Wait for the platform indexes to finish downloading.
+* The top is named **Arduino AVR boards**. Click on this item.
+* Click **Update**.
+* After installation is complete close the **Boards Manager** window.
+
 #### PlatformIO
 [PlatformIO](http://platformio.org) is an open source ecosystem for IoT development. It has a built-in library manager and is Arduino compatible. It supports most operating systems; Windows, MacOS, Linux 32 and 64-bit; ARM and X86.
 
@@ -156,7 +175,7 @@ Open Arduino IDE, and a new category in the boards menu called "MightyCore" will
 ## Getting started with MightyCore
 Ok, so you've downloaded and installed MightyCore, but how do you get the wheels spinning? Here's a quick start guide:
 * Hook up your microcontroller as shown in the [pinout diagram](#pinout).
-	- If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
+  - If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
 * Open the **Tools > Board** menu item, and select a MighyCore compatible microcontroller.
 * If the *BOD option* is presented, you can select at what voltage the microcontroller will shut down at. Read more about BOD [here](#bod-option).
 * Select your prefered pinout. Personally I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compatibility. Read more about the different pinouts [here](#pinouts).
@@ -165,8 +184,8 @@ Ok, so you've downloaded and installed MightyCore, but how do you get the wheels
 * If the *Variants* option is presented, you'll have to specify what version of the microcontroller you're using. E.g the ATmega1284 and the ATmega1284P have different device signatures, so selecting the wrong one will result in an error.
 * Hit **Burn Bootloader**. If an LED is connected to pin PB0, it should flash twice every second.
 * Now that the correct fuse settings is set and the bootloader burnt, you can upload your code in two ways:
-	- Disconnect your programmer tool, and connect a USB to serial adapter to the microcontroller, like shown in the [minimal setup circuit](#minimal-setup). Then select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting some kind of timeout error, it means your RX and TX pins are swapped, or your auto reset circuity isn't working properly (the 100 nF capacitor on the reset line).
-	- Keep your programmer connected, and hold down the `shift` button while clicking **Upload**. This will erase the bootloader and upload your code using the programmer tool.
+  - Disconnect your programmer tool, and connect a USB to serial adapter to the microcontroller, like shown in the [minimal setup circuit](#minimal-setup). Then select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting some kind of timeout error, it means your RX and TX pins are swapped, or your auto reset circuity isn't working properly (the 100 nF capacitor on the reset line).
+  - Keep your programmer connected, and hold down the `shift` button while clicking **Upload**. This will erase the bootloader and upload your code using the programmer tool.
 
 Your code should now be running on your microcontroller! If you experience any issues related to bootloader burning or serial uploading, please use *[this forum post](https://forum.arduino.cc/index.php?topic=379427.0)* or create an issue on Github.
 
@@ -182,7 +201,7 @@ I hope you find this useful, because they really are!
 * sleepMode()
 * sleep()
 * noSleep()
-* enablePower()	
+* enablePower() 
 * disablePower()
 
 ### For further information please view the [Wiring reference page](https://github.com/MCUdude/MightyCore/blob/master/Wiring_reference.md)!
@@ -228,6 +247,6 @@ Click the images for full resolution <br/>
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
 <b>Click to enlarge:</b> 
 
-| DIP-40 package                                        | TQFP-44 SMD package                                   |
-|-------------------------------------------------------|-------------------------------------------------------|
-|<img src="https://i.imgur.com/GQZCupp.png" width="425">|<img src="https://i.imgur.com/A2lBJBt.png" width="425">|
+| DIP-40 package                                        | TQFP-44 SMD package                                   | ATmega324PB SMD package                               |
+|-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
+|<img src="https://i.imgur.com/pCiKton.png" width="280">|<img src="https://i.imgur.com/WgvcivB.png" width="280">|<img src="https://i.imgur.com/679DBWF.png" width="280">|

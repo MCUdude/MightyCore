@@ -1,30 +1,35 @@
-##########################################################################################
-## This file is created by MCUdude for use with MightyCore                              ##
-## https://github.com/MCUdude/MightyCore                                                ##
-##                                                                                      ##
-## This is the file where fuse settings, clock frequencies, bootloaders and compiler    ##
-## flags are located.                                                                   ##
-##                                                                                      ##
-## You may change the upload serial port by modifying the upload.port field.            ##
-## Note that ATmega8535/16/32 only has one serial port (UART0), so changing this field  ##
-## will not work for these devices. However, ATmega164/324/644/1284 all have two        ##
-## serial ports (UART0, UART1). Modifying the upload.port field works great for these!  ##
-##                                                                                      ##
-## The table below shows the available precompiled bootloaders for the corresponding    ##
-## clock frequencies and baud rates. Modify the upload.speed field to change baud rate. ##
-##                                                                                      ##
-##  |            | 1000000 | 500000 | 250000 | 115200 | 57600 | 38400 | 19200 | 9600 |  ##
-##  |------------|---------|--------|--------|--------|-------|-------|-------|------|  ##
-##  | 20 MHz     |         |  X     |  X     |  X     |       |       |       |      |  ##
-##  | 18.432 MHz |         |        |        |  X     |       |       |       |      |  ##
-##  | 16 MHz     |  X      |  X     |  X     |  X     |       |       |       |      |  ##
-##  | 12 MHz     |         |  X     |  X     |        |  X    |       |       |      |  ##
-##  | 8 MHz      |  X      |  X     |  X     |  X     |  X    |  X    |  X    |      |  ##
-##  | 4 MHz      |         |  X     |  X     |        |       |       |  X    |  X   |  ##
-##  | 2 MHz      |         |        |  X     |        |       |       |  X    |  X   |  ##
-##  | 1 MHz      |         |        |        |        |       |       |       |  X   |  ## 
-##                                                                                      ##
-##########################################################################################
+##################################################################################################
+## This file is created by MCUdude for use with MightyCore                                      ##
+## https://github.com/MCUdude/MightyCore                                                        ##
+##                                                                                              ##
+## This is the file where fuse settings, clock frequencies, bootloaders and compiler flags are  ##
+## located.                                                                                     ##
+##                                                                                              ##
+## You may change the upload serial port by modifying the upload.port field. Note that          ##
+## ATmega8535/16/32 only has one serial port (UART0), so changing this field will not work for  ##
+## these devices. However, ATmega164/324/644/1284 all have two serial ports (UART0, UART1).     ##
+## Modify the upload.port to change serial port for these devices.                              ##
+##                                                                                              ##
+## The table below shows the available precompiled bootloaders for the corresponding clock      ##
+## frequencies and baud rates. Modify the upload.speed field to change baud rate.               ##
+##                                                                                              ##
+## |             | 1000000 | 500000 | 250000 | 230400 | 115200 | 57600 | 38400 | 19200 | 9600 | ##
+## |-------------|---------|--------|--------|--------|--------|-------|-------|-------|------| ##
+## | 20 MHz      |         |  X     |  X     |        |  X     |       |       |  X    |      | ##
+## | 18.4320 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
+## | 16 MHz      |  X      |  X     |  X     |        |  X     |       |  X    |  X    |  X   | ##
+## | 14.7456 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 12 MHz      |         |  X     |  X     |        |        |  X    |       |  X    |  X   | ##
+## | 11.0592 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 8 MHz       |  X      |  X     |  X     |        |  X     |  X    |  X    |  X    |  X   | ##
+## | 7.3728 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 4 MHz       |         |  X     |  X     |        |        |       |       |  X    |  X   | ##
+## | 3.6864 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 2 MHz       |         |        |  X     |        |        |       |       |  X    |  X   | ##
+## | 1.8432 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 1 MHz       |         |        |        |        |        |       |       |       |  X   | ## 
+##                                                                                              ##
+##################################################################################################
 
 
 # Menu options
@@ -95,7 +100,7 @@ menu.LTO=Compiler LTO
 1284.menu.clock.16MHz_external.upload.speed=115200
 1284.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.16MHz_external.bootloader.high_fuses=0xd6
-1284.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 1284.menu.clock.20MHz_external=20 MHz external
@@ -103,15 +108,15 @@ menu.LTO=Compiler LTO
 1284.menu.clock.20MHz_external.upload.speed=115200
 1284.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.20MHz_external.bootloader.high_fuses=0xd6
-1284.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 1284.menu.clock.18_432MHz_external=18.432 MHz external
 1284.menu.clock.18_432MHz_external.upload.port=UART0
 1284.menu.clock.18_432MHz_external.upload.speed=115200
-1284.menu.clock.18_432MHz_external.bootloader.low_fuses=f7
+1284.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd6
-1284.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 1284.menu.clock.12MHz_external=12 MHz external
@@ -119,7 +124,7 @@ menu.LTO=Compiler LTO
 1284.menu.clock.12MHz_external.upload.speed=57600
 1284.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.12MHz_external.bootloader.high_fuses=0xd6
-1284.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 1284.menu.clock.8MHz_external=8 MHz external
@@ -127,7 +132,7 @@ menu.LTO=Compiler LTO
 1284.menu.clock.8MHz_external.upload.speed=57600
 1284.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.8MHz_external.bootloader.high_fuses=0xd6
-1284.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 1284.menu.clock.8MHz_internal=8 MHz internal
@@ -135,7 +140,7 @@ menu.LTO=Compiler LTO
 1284.menu.clock.8MHz_internal.upload.speed=38400
 1284.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 1284.menu.clock.8MHz_internal.bootloader.high_fuses=0xd6
-1284.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 1284.menu.clock.1MHz_internal=1 MHz internal
@@ -143,7 +148,7 @@ menu.LTO=Compiler LTO
 1284.menu.clock.1MHz_internal.upload.speed=9600
 1284.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 1284.menu.clock.1MHz_internal.bootloader.high_fuses=0xd6
-1284.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+1284.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -208,7 +213,7 @@ menu.LTO=Compiler LTO
 644.menu.clock.16MHz_external.upload.speed=115200
 644.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.16MHz_external.bootloader.high_fuses=0xd6
-644.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 644.menu.clock.20MHz_external=20 MHz external
@@ -216,15 +221,15 @@ menu.LTO=Compiler LTO
 644.menu.clock.20MHz_external.upload.speed=115200
 644.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.20MHz_external.bootloader.high_fuses=0xd6
-644.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 644.menu.clock.18_432MHz_external=18.432 MHz external
 644.menu.clock.18_432MHz_external.upload.port=UART0
 644.menu.clock.18_432MHz_external.upload.speed=115200
-644.menu.clock.18_432MHz_external.bootloader.low_fuses=f7
+644.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd6
-644.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 644.menu.clock.12MHz_external=12 MHz external
@@ -232,7 +237,7 @@ menu.LTO=Compiler LTO
 644.menu.clock.12MHz_external.upload.speed=57600
 644.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.12MHz_external.bootloader.high_fuses=0xd6
-644.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 644.menu.clock.8MHz_external=8 MHz external
@@ -240,7 +245,7 @@ menu.LTO=Compiler LTO
 644.menu.clock.8MHz_external.upload.speed=57600
 644.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.8MHz_external.bootloader.high_fuses=0xd6
-644.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 644.menu.clock.8MHz_internal=8 MHz internal
@@ -248,7 +253,7 @@ menu.LTO=Compiler LTO
 644.menu.clock.8MHz_internal.upload.speed=38400
 644.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 644.menu.clock.8MHz_internal.bootloader.high_fuses=0xd6
-644.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 644.menu.clock.1MHz_internal=1 MHz internal
@@ -256,7 +261,7 @@ menu.LTO=Compiler LTO
 644.menu.clock.1MHz_internal.upload.speed=9600
 644.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 644.menu.clock.1MHz_internal.bootloader.high_fuses=0xd6
-644.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+644.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 644.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -288,11 +293,17 @@ menu.LTO=Compiler LTO
 
 # Variants
 324.menu.variant.modelP=324P
+324.menu.variant.modelP.bootloader.cksel_bits=0111
 324.menu.variant.modelP.build.mcu=atmega324p
 324.menu.variant.modelPA=324PA
+324.menu.variant.modelPA.bootloader.cksel_bits=0111
 324.menu.variant.modelPA.build.mcu=atmega324pa
 324.menu.variant.modelA=324A
+324.menu.variant.modelA.bootloader.cksel_bits=0111
 324.menu.variant.modelA.build.mcu=atmega324a
+324.menu.variant.modelPB=324PB
+324.menu.variant.modelPB.bootloader.cksel_bits=1111
+324.menu.variant.modelPB.build.mcu=atmega324pb
 
 # Brown out detection
 324.menu.BOD.2v7=2.7v
@@ -321,41 +332,41 @@ menu.LTO=Compiler LTO
 324.menu.clock.16MHz_external=16 MHz external
 324.menu.clock.16MHz_external.upload.port=UART0
 324.menu.clock.16MHz_external.upload.speed=115200
-324.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
+324.menu.clock.16MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.16MHz_external.bootloader.high_fuses=0xd6
-324.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 324.menu.clock.20MHz_external=20 MHz external
 324.menu.clock.20MHz_external.upload.port=UART0
 324.menu.clock.20MHz_external.upload.speed=115200
-324.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
+324.menu.clock.20MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.20MHz_external.bootloader.high_fuses=0xd6
-324.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 324.menu.clock.18_432MHz_external=18.432 MHz external
 324.menu.clock.18_432MHz_external.upload.port=UART0
 324.menu.clock.18_432MHz_external.upload.speed=115200
-324.menu.clock.18_432MHz_external.bootloader.low_fuses=f7
+324.menu.clock.18_432MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd6
-324.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 324.menu.clock.12MHz_external=12 MHz external
 324.menu.clock.12MHz_external.upload.port=UART0
 324.menu.clock.12MHz_external.upload.speed=57600
-324.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
+324.menu.clock.12MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.12MHz_external.bootloader.high_fuses=0xd6
-324.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 324.menu.clock.8MHz_external=8 MHz external
 324.menu.clock.8MHz_external.upload.port=UART0
 324.menu.clock.8MHz_external.upload.speed=57600
-324.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
+324.menu.clock.8MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.8MHz_external.bootloader.high_fuses=0xd6
-324.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 324.menu.clock.8MHz_internal=8 MHz internal
@@ -363,7 +374,7 @@ menu.LTO=Compiler LTO
 324.menu.clock.8MHz_internal.upload.speed=38400
 324.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 324.menu.clock.8MHz_internal.bootloader.high_fuses=0xd6
-324.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 324.menu.clock.1MHz_internal=1 MHz internal
@@ -371,7 +382,7 @@ menu.LTO=Compiler LTO
 324.menu.clock.1MHz_internal.upload.speed=9600
 324.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 324.menu.clock.1MHz_internal.bootloader.high_fuses=0xd6
-324.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 324.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -436,7 +447,7 @@ menu.LTO=Compiler LTO
 164.menu.clock.16MHz_external.upload.speed=115200
 164.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.16MHz_external.bootloader.high_fuses=0xd4
-164.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 164.menu.clock.20MHz_external=20 MHz external
@@ -444,15 +455,15 @@ menu.LTO=Compiler LTO
 164.menu.clock.20MHz_external.upload.speed=115200
 164.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.20MHz_external.bootloader.high_fuses=0xd4
-164.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 164.menu.clock.18_432MHz_external=18.432 MHz external
 164.menu.clock.18_432MHz_external.upload.port=UART0
 164.menu.clock.18_432MHz_external.upload.speed=115200
-164.menu.clock.18_432MHz_external.bootloader.low_fuses=f7
+164.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd4
-164.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 164.menu.clock.12MHz_external=12 MHz external
@@ -460,7 +471,7 @@ menu.LTO=Compiler LTO
 164.menu.clock.12MHz_external.upload.speed=57600
 164.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.12MHz_external.bootloader.high_fuses=0xd4
-164.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 164.menu.clock.8MHz_external=8 MHz external
@@ -468,7 +479,7 @@ menu.LTO=Compiler LTO
 164.menu.clock.8MHz_external.upload.speed=57600
 164.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.8MHz_external.bootloader.high_fuses=0xd4
-164.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 164.menu.clock.8MHz_internal=8 MHz internal
@@ -476,7 +487,7 @@ menu.LTO=Compiler LTO
 164.menu.clock.8MHz_internal.upload.speed=38400
 164.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 164.menu.clock.8MHz_internal.bootloader.high_fuses=0xd4
-164.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 164.menu.clock.1MHz_internal=1 MHz internal
@@ -484,7 +495,7 @@ menu.LTO=Compiler LTO
 164.menu.clock.1MHz_internal.upload.speed=9600
 164.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 164.menu.clock.1MHz_internal.bootloader.high_fuses=0xd4
-164.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 164.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -542,40 +553,40 @@ menu.LTO=Compiler LTO
 32.menu.clock.16MHz_external.upload.port=UART0
 32.menu.clock.16MHz_external.upload.speed=115200
 32.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
-32.menu.clock.16MHz_external.bootloader.high_fuses=0xd6
-32.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.16MHz_external.bootloader.high_fuses=0xc6
+32.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 32.menu.clock.20MHz_external=20 MHz external
 32.menu.clock.20MHz_external.upload.port=UART0
 32.menu.clock.20MHz_external.upload.speed=115200
 32.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
-32.menu.clock.20MHz_external.bootloader.high_fuses=0xd6
-32.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.20MHz_external.bootloader.high_fuses=0xc6
+32.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 32.menu.clock.18_432MHz_external=18.432 MHz external
 32.menu.clock.18_432MHz_external.upload.port=UART0
 32.menu.clock.18_432MHz_external.upload.speed=115200
 32.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
-32.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd4
-32.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.18_432MHz_external.bootloader.high_fuses=0xc6
+32.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 32.menu.clock.12MHz_external=12 MHz external
 32.menu.clock.12MHz_external.upload.port=UART0
 32.menu.clock.12MHz_external.upload.speed=57600
 32.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
-32.menu.clock.12MHz_external.bootloader.high_fuses=0xd6
-32.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.12MHz_external.bootloader.high_fuses=0xc6
+32.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 32.menu.clock.8MHz_external=8 MHz external
 32.menu.clock.8MHz_external.upload.port=UART0
 32.menu.clock.8MHz_external.upload.speed=57600
 32.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
-32.menu.clock.8MHz_external.bootloader.high_fuses=0xd6
-32.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.8MHz_external.bootloader.high_fuses=0xc6
+32.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 32.menu.clock.8MHz_internal=8 MHz internal
@@ -583,7 +594,7 @@ menu.LTO=Compiler LTO
 32.menu.clock.8MHz_internal.upload.speed=38400
 32.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
 32.menu.clock.8MHz_internal.bootloader.high_fuses=0xd6
-32.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 32.menu.clock.1MHz_internal=1 MHz internal
@@ -591,7 +602,7 @@ menu.LTO=Compiler LTO
 32.menu.clock.1MHz_internal.upload.speed=9600
 32.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 32.menu.clock.1MHz_internal.bootloader.high_fuses=0xd6
-32.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 32.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -651,40 +662,40 @@ menu.LTO=Compiler LTO
 16.menu.clock.16MHz_external.upload.port=UART0
 16.menu.clock.16MHz_external.upload.speed=115200
 16.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
-16.menu.clock.16MHz_external.bootloader.high_fuses=0xd4
-16.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.16MHz_external.bootloader.high_fuses=0xc4
+16.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 16.menu.clock.20MHz_external=20 MHz external
 16.menu.clock.20MHz_external.upload.port=UART0
 16.menu.clock.20MHz_external.upload.speed=115200
 16.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
-16.menu.clock.20MHz_external.bootloader.high_fuses=0xd4
-16.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.20MHz_external.bootloader.high_fuses=0xc4
+16.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 16.menu.clock.18_432MHz_external=18.432 MHz external
 16.menu.clock.18_432MHz_external.upload.port=UART0
 16.menu.clock.18_432MHz_external.upload.speed=115200
 16.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
-16.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd4
-16.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.18_432MHz_external.bootloader.high_fuses=0xc4
+16.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 16.menu.clock.12MHz_external=12 MHz external
 16.menu.clock.12MHz_external.upload.port=UART0
 16.menu.clock.12MHz_external.upload.speed=57600
 16.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
-16.menu.clock.12MHz_external.bootloader.high_fuses=0xd4
-16.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.12MHz_external.bootloader.high_fuses=0xc4
+16.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 16.menu.clock.8MHz_external=8 MHz external
 16.menu.clock.8MHz_external.upload.port=UART0
 16.menu.clock.8MHz_external.upload.speed=115200
 16.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
-16.menu.clock.8MHz_external.bootloader.high_fuses=0xd4
-16.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.8MHz_external.bootloader.high_fuses=0xc4
+16.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 16.menu.clock.8MHz_internal=8 MHz internal
@@ -692,7 +703,7 @@ menu.LTO=Compiler LTO
 16.menu.clock.8MHz_internal.upload.speed=38400
 16.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
 16.menu.clock.8MHz_internal.bootloader.high_fuses=0xd4
-16.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 16.menu.clock.1MHz_internal=1 MHz internal
@@ -700,7 +711,7 @@ menu.LTO=Compiler LTO
 16.menu.clock.1MHz_internal.upload.speed=9600
 16.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 16.menu.clock.1MHz_internal.bootloader.high_fuses=0xd4
-16.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 16.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -758,40 +769,40 @@ menu.LTO=Compiler LTO
 8535.menu.clock.16MHz_external.upload.port=UART0
 8535.menu.clock.16MHz_external.upload.speed=115200
 8535.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
-8535.menu.clock.16MHz_external.bootloader.high_fuses=0xd4
-8535.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.16MHz_external.bootloader.high_fuses=0xc4
+8535.menu.clock.16MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 8535.menu.clock.20MHz_external=20 MHz external
 8535.menu.clock.20MHz_external.upload.port=UART0
 8535.menu.clock.20MHz_external.upload.speed=115200
 8535.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
-8535.menu.clock.20MHz_external.bootloader.high_fuses=0xd4
-8535.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.20MHz_external.bootloader.high_fuses=0xc4
+8535.menu.clock.20MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 8535.menu.clock.18_432MHz_external=18.432 MHz external
 8535.menu.clock.18_432MHz_external.upload.port=UART0
 8535.menu.clock.18_432MHz_external.upload.speed=115200
 8535.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
-8535.menu.clock.18_432MHz_external.bootloader.high_fuses=0xd4
-8535.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.18_432MHz_external.bootloader.high_fuses=0xc4
+8535.menu.clock.18_432MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 8535.menu.clock.12MHz_external=12 MHz external
 8535.menu.clock.12MHz_external.upload.port=UART0
 8535.menu.clock.12MHz_external.upload.speed=57600
 8535.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
-8535.menu.clock.12MHz_external.bootloader.high_fuses=0xd4
-8535.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.12MHz_external.bootloader.high_fuses=0xc4
+8535.menu.clock.12MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 8535.menu.clock.8MHz_external=8 MHz external
 8535.menu.clock.8MHz_external.upload.port=UART0
 8535.menu.clock.8MHz_external.upload.speed=115200
 8535.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
-8535.menu.clock.8MHz_external.bootloader.high_fuses=0xd4
-8535.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.8MHz_external.bootloader.high_fuses=0xc4
+8535.menu.clock.8MHz_external.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 8535.menu.clock.8MHz_internal=8 MHz internal
@@ -799,7 +810,7 @@ menu.LTO=Compiler LTO
 8535.menu.clock.8MHz_internal.upload.speed=38400
 8535.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
 8535.menu.clock.8MHz_internal.bootloader.high_fuses=0xd4
-8535.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.8MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 8535.menu.clock.1MHz_internal=1 MHz internal
@@ -807,5 +818,5 @@ menu.LTO=Compiler LTO
 8535.menu.clock.1MHz_internal.upload.speed=9600
 8535.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 8535.menu.clock.1MHz_internal.bootloader.high_fuses=0xd4
-8535.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.clock.1MHz_internal.bootloader.file=optiboot_flash/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 8535.menu.clock.1MHz_internal.build.f_cpu=1000000L

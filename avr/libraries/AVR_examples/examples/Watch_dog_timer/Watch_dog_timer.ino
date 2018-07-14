@@ -17,12 +17,12 @@ uint16_t counter;
 
 int main(void)
 {
-  DDRB |= 0x01; 		 // Set PB0 as output, ignore the rest
-  //DDRB |= _BV(PB0);	 // Alternative method
+  DDRB |= 0x01; // Set PB0 as output, ignore the rest
+  //DDRB |= _BV(PB0); // Alternative method
   //DDRB |= (1 << PB0); // Alternative method
 
-  DDRB &= ~0x02; 		 // Set PB1 as input, ignore the rest
-  //DDRB &= _BV(PB1);	 // Alternative method
+  DDRB &= ~0x02;  // Set PB1 as input, ignore the rest
+  //DDRB &= _BV(PB1); // Alternative method
   //DDRB &= ~(1 << PB1);// Alternative method
   
   PORTB |= 0x02; // Enable pullup on PB1

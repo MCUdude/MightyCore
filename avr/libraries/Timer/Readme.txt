@@ -141,93 +141,93 @@ REFERENCE
 
 every();
 Description:
-	Runs the callback function every period milliseconds. Optionally stops after repeatCount times.
+  Runs the callback function every period milliseconds. Optionally stops after repeatCount times.
 Syntax:
-	t.every(period, callback, context);  
-	t.every(period, callback, repeatCount, context);
+  t.every(period, callback, context);  
+  t.every(period, callback, repeatCount, context);
 Parameters:
-	period: How often to run the callback function, in milliseconds (unsigned long) 
-	callback: The name of the callback function which is called when the timer event fires (function pointer)* 
-	repeatCount: The number of times to run the callback function (int, optional)
-	context: Context value to be passed to the callback function (void pointer)
+  period: How often to run the callback function, in milliseconds (unsigned long) 
+  callback: The name of the callback function which is called when the timer event fires (function pointer)* 
+  repeatCount: The number of times to run the callback function (int, optional)
+  context: Context value to be passed to the callback function (void pointer)
 Returns:
-	The ID of the Timer event (int8_t or char)
+  The ID of the Timer event (int8_t or char)
 
 
 after();
 Description:
-	Run the callback function once, after period milliseconds.
+  Run the callback function once, after period milliseconds.
 Syntax:
-	t.after(period, callback, context);
+  t.after(period, callback, context);
 Parameters:
-	period: How long to wait before running the callback function, in milliseconds (unsigned long) 
-	callback: The name of the callback function which is called when the timer event fires (function pointer)
-	context: Context value to be passed to the callback function (void pointer) 
+  period: How long to wait before running the callback function, in milliseconds (unsigned long) 
+  callback: The name of the callback function which is called when the timer event fires (function pointer)
+  context: Context value to be passed to the callback function (void pointer) 
 Returns:
-	The ID of the Timer event (int8_t or char)
+  The ID of the Timer event (int8_t or char)
 
 
 oscillate();
 Description:
-	Toggle the state of the digital output pin every period milliseconds. The pin's starting value is specified by startingValue, which should be HIGH or LOW. Optionally stops after repeatCount times.
+  Toggle the state of the digital output pin every period milliseconds. The pin's starting value is specified by startingValue, which should be HIGH or LOW. Optionally stops after repeatCount times.
 Syntax:
-	t.oscillate(pin, period, startingValue);  
-	t.oscillate(pin, period, startingValue, repeatCount);
+  t.oscillate(pin, period, startingValue);  
+  t.oscillate(pin, period, startingValue, repeatCount);
 Parameters:
-	pin: The number of the pin to oscillate (uint8_t or byte) 
-	period: How often to toggle the pin, in milliseconds (unsigned long)
-	startingValue: HIGH or LOW, the state at which the pin will start (uint8_t or byte)
-	repeatCount: Optional number of toggles to stop after (int)
+  pin: The number of the pin to oscillate (uint8_t or byte) 
+  period: How often to toggle the pin, in milliseconds (unsigned long)
+  startingValue: HIGH or LOW, the state at which the pin will start (uint8_t or byte)
+  repeatCount: Optional number of toggles to stop after (int)
 Returns:
-	The ID of the Timer event (int8_t or char)
+  The ID of the Timer event (int8_t or char)
 
 
 pulse();
 Description:
-	Generates a pulse of !startingValue, occuring period after the call to this method and lasting for period. The pin will be left in !startingValue state.
+  Generates a pulse of !startingValue, occuring period after the call to this method and lasting for period. The pin will be left in !startingValue state.
 Syntax:
-	t.pulse(pin, period, startingValue);
+  t.pulse(pin, period, startingValue);
 Parameters:
-	pin: The number of the pin to pulse (uint8_t or byte)
-	period: The pulse period in milliseconds (unsigned long)
-	startingValue: HIGH or LOW, the state at which the pin will start (uint8_t or byte)
+  pin: The number of the pin to pulse (uint8_t or byte)
+  period: The pulse period in milliseconds (unsigned long)
+  startingValue: HIGH or LOW, the state at which the pin will start (uint8_t or byte)
 Returns:
-	The ID of the Timer event (int8_t or char)
+  The ID of the Timer event (int8_t or char)
 
 
 pulseImmediate();
 Description:
-	Generates a pulse of startingValue, which begins immediately and lasts for period. The pin will be left in the !startingValue state.
+  Generates a pulse of startingValue, which begins immediately and lasts for period. The pin will be left in the !startingValue state.
 Syntax:
-	t.pulseImmediate(pin, period, pulseValue);
+  t.pulseImmediate(pin, period, pulseValue);
 Parameters:
-	pin: The number of the pin to pulse (uint8_t or byte)
-	period: The pulse period in milliseconds (unsigned long)
-	startingValue: HIGH or LOW, the state at which the pulse will start (uint8_t or byte)
+  pin: The number of the pin to pulse (uint8_t or byte)
+  period: The pulse period in milliseconds (unsigned long)
+  startingValue: HIGH or LOW, the state at which the pulse will start (uint8_t or byte)
 Returns:
-	The ID of the Timer event (int8_t or char)
+  The ID of the Timer event (int8_t or char)
 
 
 stop();
 Description:
-	Stops the given timer event.
+  Stops the given timer event.
 Syntax:
 t.stop(timerID);
 Parameters:
-	timerID: The number of the timer event to be stopped, as returned previously by one of the other functions, e.g. every(), after(), oscillate(), etc.
+  timerID: The number of the timer event to be stopped, as returned previously by one of the other functions, e.g. every(), after(), oscillate(), etc.
 Returns:
-	If a valid timerID is given, returns TIMER_NOT_AN_EVENT to indicate that the timer was successfully stopped.  By default, the library supports up to 10 events per timer; the valid range is therefore 0-9.  If a value outside this range is given, that same value is returned.
+  If a valid timerID is given, returns TIMER_NOT_AN_EVENT to indicate that the timer was successfully stopped.  By default, the library supports up to 10 events per timer; the valid range is therefore 0-9.  If a value outside this range is given, that same value is returned.
 
 
 update();
 Description:
-	Must be called from loop().  This will service all the events associated with the timer.
+  Must be called from loop().  This will service all the events associated with the timer.
 Syntax:
-	t.update();
+  t.update();
 Parameters:
-	None.
+  None.
 Returns:
-	None.
+  None.
 
 
 

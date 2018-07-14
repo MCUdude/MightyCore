@@ -8,7 +8,7 @@ To extend this core's functionality a bit further, I've added a few missing Wiri
 * [sleepMode](#sleepmode)()
 * [sleep](#sleep)()
 * [noSleep](#disablesleep)()
-* [enablePower](#enablepower)()	
+* [enablePower](#enablepower)()
 * [disablepower](#disablePower)()
 
 ## portMode()
