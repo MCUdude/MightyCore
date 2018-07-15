@@ -208,6 +208,26 @@
             {"name": "ATmega8535"}
           ],
           "toolsDependencies": []
+        },
+        {
+          "name": "MightyCore",
+          "architecture": "avr",
+          "version": "2.0.1",
+          "category": "Contributed",
+          "url": "https://MCUdude.github.io/MightyCore/MightyCore-2.0.1.tar.bz2",
+          "archiveFileName": "MightyCore-2.0.1.tar.bz2",
+          "checksum": "SHA-256:83cb044c4819c6da16867dc5f223f4abcb0aa1287a6b0d5acb43d5e153845aa6",
+          "size": "387729",
+          "boards": [
+            {"name": "ATmega1284/P"},
+            {"name": "ATmega644/P/PA/A"},
+            {"name": "ATmega324P/PA/A/PB"},
+            {"name": "ATmega164P/PA/A"},
+            {"name": "ATmega32"},
+            {"name": "ATmega16"},
+            {"name": "ATmega8535"}
+          ],
+          "toolsDependencies": []
         }
       ],
       "tools": []
