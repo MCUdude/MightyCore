@@ -294,26 +294,30 @@ menu.LTO=Compiler LTO
 # Variants
 324.menu.variant.modelP=324P
 324.menu.variant.modelP.bootloader.cksel_bits=0111
+324.menu.variant.modelP.bootloader.cfd_bit=1
 324.menu.variant.modelP.build.mcu=atmega324p
 324.menu.variant.modelPA=324PA
 324.menu.variant.modelPA.bootloader.cksel_bits=0111
+324.menu.variant.modelA.bootloader.cfd_bit=1
 324.menu.variant.modelPA.build.mcu=atmega324pa
 324.menu.variant.modelA=324A
 324.menu.variant.modelA.bootloader.cksel_bits=0111
+324.menu.variant.modelA.bootloader.cfd_bit=1
 324.menu.variant.modelA.build.mcu=atmega324a
 324.menu.variant.modelPB=324PB
 324.menu.variant.modelPB.bootloader.cksel_bits=1111
+324.menu.variant.modelPB.bootloader.cfd_bit=0
 324.menu.variant.modelPB.build.mcu=atmega324pb
 
 # Brown out detection
 324.menu.BOD.2v7=2.7v
-324.menu.BOD.2v7.bootloader.extended_fuses=0xfd
+324.menu.BOD.2v7.bootloader.extended_fuses=0b1111{bootloader.cfd_bit}101
 324.menu.BOD.4v3=4.3v
-324.menu.BOD.4v3.bootloader.extended_fuses=0xfc
+324.menu.BOD.4v3.bootloader.extended_fuses=0b1111{bootloader.cfd_bit}100
 324.menu.BOD.1v8=1.8v
-324.menu.BOD.1v8.bootloader.extended_fuses=0xfe
+324.menu.BOD.1v8.bootloader.extended_fuses=0b1111{bootloader.cfd_bit}110
 324.menu.BOD.disabled=Disabled
-324.menu.BOD.disabled.bootloader.extended_fuses=0xff
+324.menu.BOD.disabled.bootloader.extended_fuses=0b1111{bootloader.cfd_bit}111
 
 # Compiler link time optimization
 324.menu.LTO.Os=Disabled (default)
