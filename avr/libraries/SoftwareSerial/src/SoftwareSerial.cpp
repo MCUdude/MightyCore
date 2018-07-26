@@ -383,9 +383,17 @@ void SoftwareSerial::begin(long speed)
 #endif  
 #if defined(INT_ONLY) || defined(INT_AND_PCINT)
   {
-     // Direct interrupts
-     attachInterrupt(digitalPinToInterrupt(_receivePin), isr, CHANGE);
-     
+    // Direct interrupts
+    
+    //INT2 is different on the following the following MCUs, and only support RISING and FALLING 
+    #if defined(__AVR_ATmega8515__) || defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) \
+    || defined(__AVR_ATmega32__) || defined(__AVR_ATmega162__)
+    if(digitalPinToInterrupt(_receivePin) == 2)
+      attachInterrupt(digitalPinToInterrupt(_receivePin), isr, _inverse_logic ? RISING : FALLING);
+    else
+    #endif
+      attachInterrupt(digitalPinToInterrupt(_receivePin), isr, CHANGE); 
+          
     #if GCC_VERSION > 40800
     // Timings counted from gcc 4.8.2 output. This works up to 115200 on
     // 16Mhz and 57600 on 8Mhz.
