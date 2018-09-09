@@ -45,42 +45,72 @@ defined(__AVR_ATmega644P__)
  #define digitalPinHasPWM(p)        ((p) == 3 || (p) == 4 || (p) == 6 || (p) == 7 || (p) == 12 || (p) == 13 || (p) == 14 || (p) == 15)
 #endif
 
+#define PIN_SPI_SS    (4)
+#define PIN_SPI_MOSI  (5)
+#define PIN_SPI_MISO  (6)
+#define PIN_SPI_SCK   (7)
 
-static const uint8_t LED = 0;
+static const uint8_t SS   = PIN_SPI_SS;
+static const uint8_t MOSI = PIN_SPI_MOSI;
+static const uint8_t MISO = PIN_SPI_MISO;
+static const uint8_t SCK  = PIN_SPI_SCK;
+
+#define PIN_WIRE_SDA  (17)
+#define PIN_WIRE_SCL  (16)
+
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
+
 #define LED_BUILTIN 0
-
-static const uint8_t SS   = 4;
-static const uint8_t MOSI = 5;
-static const uint8_t MISO = 6;
-static const uint8_t SCK  = 7;
-
-static const uint8_t SDA = 17;
-static const uint8_t SCL = 16;
+static const uint8_t LED = LED_BUILTIN;
 
 #if defined(__AVR_ATmega324PB__)
-  static const uint8_t SS0   = 4;
-  static const uint8_t MOSI0 = 5;
-  static const uint8_t MISO0 = 6;
-  static const uint8_t SCK0  = 7;
-  static const uint8_t SDA0 = 17;
-  static const uint8_t SCL0 = 16;
-  static const uint8_t SS1   = 14;
-  static const uint8_t SCK1  = 15;
-  static const uint8_t MISO1 = 34;
-  static const uint8_t MOSI1 = 35;
-  static const uint8_t SDA1  = 37;
-  static const uint8_t SCL1  = 38;
+  #define PIN_SPI_SS0   (4)
+  #define PIN_SPI_MOSI0 (5)
+  #define PIN_SPI_MISO0 (6)
+  #define PIN_SPI_SCK0  (7)
+  #define PIN_WIRE_SDA0 (17)
+  #define PIN_WIRE_SCL0 (16)
+
+  #define PIN_SPI_SS1   (14)
+  #define PIN_SPI_MOSI1 (35)
+  #define PIN_SPI_MISO1 (34)
+  #define PIN_SPI_SCK1  (15)
+  #define PIN_WIRE_SDA1 (37)
+  #define PIN_WIRE_SCL1 (38)
+
+  static const uint8_t SS0   = PIN_SPI_SS0;
+  static const uint8_t MOSI0 = PIN_SPI_MOSI0;
+  static const uint8_t MISO0 = PIN_SPI_MISO0;
+  static const uint8_t SCK0  = PIN_SPI_SCK0;
+  static const uint8_t SDA0  = PIN_WIRE_SDA0;
+  static const uint8_t SCL0  = PIN_WIRE_SCL0;
+
+  static const uint8_t SS1   = PIN_SPI_SS1;
+  static const uint8_t MOSI1 = PIN_SPI_MOSI1;
+  static const uint8_t MISO1 = PIN_SPI_MISO1;
+  static const uint8_t SCK1  = PIN_SPI_SCK1;
+  static const uint8_t SDA1  = PIN_WIRE_SDA1;
+  static const uint8_t SCL1  = PIN_WIRE_SCL1;
 #endif
 
-static const uint8_t A0 = 31;
-static const uint8_t A1 = 30;
-static const uint8_t A2 = 29;
-static const uint8_t A3 = 28;
-static const uint8_t A4 = 27;
-static const uint8_t A5 = 26;
-static const uint8_t A6 = 25;
-static const uint8_t A7 = 24;
+#define PIN_A0 (31)
+#define PIN_A1 (30)
+#define PIN_A2 (29)
+#define PIN_A3 (28)
+#define PIN_A4 (27)
+#define PIN_A5 (26)
+#define PIN_A6 (25)
+#define PIN_A7 (24)
 
+static const uint8_t A0 = PIN_A0;
+static const uint8_t A1 = PIN_A1;
+static const uint8_t A2 = PIN_A2;
+static const uint8_t A3 = PIN_A3;
+static const uint8_t A4 = PIN_A4;
+static const uint8_t A5 = PIN_A5;
+static const uint8_t A6 = PIN_A6;
+static const uint8_t A7 = PIN_A7;
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324PB__) || \
@@ -93,7 +123,7 @@ defined(__AVR_ATmega1284P__)
   #define digitalPinToPCMSK(p)  ((p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : (p) <= 31 ? &PCMSK0 : &PCMSK4)
 #else
   #define digitalPinToPCMSK(p)  ((p) <= 7 ? &PCMSK1 : (p) <= 15 ? &PCMSK3 : (p) <= 23 ? &PCMSK2 : &PCMSK0)
-#endif  
+#endif
 #endif
 
 #ifdef ARDUINO_MAIN
@@ -232,7 +262,7 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
   _BV(4),
   _BV(5),
   _BV(6),
-#endif  
+#endif
 };
 
 
@@ -449,7 +479,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   #define TWAM4 TWAM04
   #define TWAM5 TWAM05
   #define TWAM6 TWAM06
-  
+
   // SPI
   #define SPI_STC_vect SPI0_STC_vect
   #define SPI_STC_vect_num SPI0_STC_vect_num
@@ -464,7 +494,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   #define SPDRB5 5
   #define SPDRB6 6
   #define SPDRB7 7
-  
+
 #endif
 
 #endif // Pins_Arduino_h
