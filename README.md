@@ -21,6 +21,7 @@ Read more in the hardware section below.
 * **[How to install](#how-to-install)**
   - [Boards Manager Installation](#boards-manager-installation)
   - [Manual Installation](#manual-installation)
+  - **[ATmega324PB](#atmega324pb)**
   - [PlatformIO](#platformio)
 * **[Getting started with MightyCore](#getting-started-with-mightycore)**
 * [Wiring reference](#wiring-reference) 
@@ -142,13 +143,18 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 * Scroll down until you see the **MightyCore** entry and click on it.
 * Click **Install**.
 * After installation is complete close the **Boards Manager** window.
-* **Note**: If you plan to use the *PB series, you need the latest version of the Arduino toolchain. This toolchain is available through IDE 1.8.6 or newer. Here's how you install/enable the toolchain:
+
+#### Manual Installation
+Click on the "Download ZIP" button. Extract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
+Open Arduino IDE, and a new category in the boards menu called "MightyCore" will show up.
+
+#### ATmega324PB
+If you plan to use the ATmega324PB you need the latest version of the Arduino toolchain. This toolchain is available through IDE 1.8.6 or newer. Here's how you install/enable the toolchain:
   - Open the **Tools > Board > Boards Manager...** menu item.
   - Wait for the platform indexes to finish downloading.
   - The top is named **Arduino AVR boards**. Click on this item.
   - Make sure the latest version is installed and selected
   - Close the **Boards Manager** window.
-
 
 #### PlatformIO
 [PlatformIO](http://platformio.org) is an open source ecosystem for IoT development. It has a built-in library manager and is Arduino compatible. It supports most operating systems; Windows, MacOS, Linux 32 and 64-bit; ARM and X86.
