@@ -213,32 +213,32 @@ I've designed a development board for this particular core. I've added all the f
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board has some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
-* All pins are located on the same side of the board, making it easy to hook it up to a breadboard
-* Possible to add both male and female headers for the IO pins (and solder a row of male headers under the board for breadboarding)
-* A JTAG header for programming and debugging
-* A high voltage parallel programming header for programming and fixing bad fuse settings (pin compatible with the AVR Dragon)
-* A potmeter for using as a voltage reference (e.g adjusting the LCD contrast)
-* LOTS of 5V, 3.3V and GND points broken out, both male and female
+* A breadboard friendly AVR with 32 IO pins, including 8 analog inputs
+* All pin located at the same side of the board, making it easy to hook it up to a breadboard
+* Male and female IO pin headers
+* Plenty of 5V, 3.3V and GND points broken out, both male and female
 * A large ground pad on the underside of the board for connecting alligator clips, such as the ground clip of your oscilloscope
-* Socketed crystal, perfect for experimenting with different clock frequencies
-* A Reset enable header to enable/disable auto-reset when uploading new code or opening the serial monitor
-* PWM pins are clearly marked, and a lookup table can be found on the under side of the board (three ~ - all microcontrollers, two ~ - 164; 324; 644; 1284, one ~ - 1284)
-* IO peripherals can be found on the underside of the board. No need to search in the datasheet anymore!
-* Mini USB instead of the large USB Type-B plug
-* The USB to serial chip is broken out on the underside of the board in a standard "FTDI pinout" for using the board as a USB to serial adapter, or for using an external programmer instead
-* The all hand shake pins (CTS, DTR, RI, DCD, DRT, RST) to the USB to serial adapter are broken out for other applications, such as bit banging
+* A potentiometer for using as a voltage reference (e.g adjusting the LCD contrast)
+* Onboard LED connected to digital pin 0 (PB0)
+* A socketed crystal, perfect for experimenting with different clock frequencies
+* An auto reset enable header if you don't want the microcontroller to be reset every time you open the serial monitor on your PC
+* PWM pins clearly marked and a lookup table that can be found on the under side of the board (three '~'s - all microcontrollers, two '~'s - 164; 324; 644; 1284, one '~' - 1284)
+* IO peripherals written on the underside of the board. No need to search in the datasheet anymore!
+* A Mini USB connector instead of the large USB Type-B plug
+* All serial hand shake pins broken out for applications such as bit banging (CTS, DTR, RI, DCD, DRT, RST)
+* JTAG header for programming and debugging (the JTAG enable fuse must be sat first)
 
-#### [The development board can be bought on my Tindie store.](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board/) This includes a pre programmed ATmega32. <br/>
+#### [The development board can be bought on my Tindie store.](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board/) This includes a pre programmed ATmega32 chip. <br/>
 <br/>
 Click the images for full resolution <br/>
 
-![Development board front](http://i.imgur.com/0ZqEKS8.jpg)
+![Development board front](https://i.imgur.com/CaHA4Qj.jpg)
 <br/>
 
-![Development board back](http://i.imgur.com/O4kskqP.jpg)
+![Development board back](https://i.imgur.com/TJVdZ4n.jpg)
 <br/>
 
-![Pinouts](http://i.imgur.com/ex733X6.jpg)
+![Bottom row](https://i.imgur.com/alK0gAA.jpg)
 
 ## Minimal setup
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
