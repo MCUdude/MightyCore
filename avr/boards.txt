@@ -89,9 +89,9 @@ menu.LTO=Compiler LTO
 1284.menu.LTO.Os.ltoarcmd=avr-ar
 
 1284.menu.LTO.Os_flto=Enabled
-1284.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-1284.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-1284.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+1284.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+1284.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+1284.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 1284.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
@@ -202,9 +202,9 @@ menu.LTO=Compiler LTO
 644.menu.LTO.Os.ltoarcmd=avr-ar
 
 644.menu.LTO.Os_flto=Enabled
-644.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-644.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-644.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+644.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+644.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+644.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 644.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
@@ -327,9 +327,9 @@ menu.LTO=Compiler LTO
 324.menu.LTO.Os.ltoarcmd=avr-ar
 
 324.menu.LTO.Os_flto=Enabled
-324.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-324.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-324.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+324.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+324.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+324.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 324.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
@@ -440,9 +440,9 @@ menu.LTO=Compiler LTO
 164.menu.LTO.Os.ltoarcmd=avr-ar
 
 164.menu.LTO.Os_flto=Enabled
-164.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-164.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-164.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+164.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+164.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+164.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 164.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
@@ -547,9 +547,9 @@ menu.LTO=Compiler LTO
 32.menu.LTO.Os.ltoarcmd=avr-ar
 
 32.menu.LTO.Os_flto=Enabled
-32.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-32.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-32.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+32.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+32.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+32.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 32.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
@@ -655,9 +655,9 @@ menu.LTO=Compiler LTO
 16.menu.LTO.Os.ltoarcmd=avr-ar
 
 16.menu.LTO.Os_flto=Enabled
-16.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-16.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-16.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+16.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+16.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+16.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 16.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 
@@ -763,9 +763,9 @@ menu.LTO=Compiler LTO
 8535.menu.LTO.Os.ltoarcmd=avr-ar
 
 8535.menu.LTO.Os_flto=Enabled
-8535.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto
-8535.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto
-8535.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto
+8535.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
+8535.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
+8535.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 8535.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
