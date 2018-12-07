@@ -18,6 +18,10 @@
 
 #include <avr/pgmspace.h>
 
+#if defined(__AVR_ATmega644A__)
+  #define __AVR_ATmega644__
+#endif
+
 #define BOBUINO_PINOUT
 #if defined(__AVR_ATmega324PB__)
 #define NUM_DIGITAL_PINS            39
@@ -35,7 +39,7 @@
 #define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 30 || (p) == 31)
 
 #elif defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644A__) || \
 defined(__AVR_ATmega644P__)
 #define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 30 || (p) == 31)
 
@@ -115,7 +119,7 @@ static const uint8_t A7 = PIN_A7;
 
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324PB__) || \
-defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || \
+defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || \
 defined(__AVR_ATmega1284P__)
 
 #if defined(__AVR_ATmega324PB__)
@@ -425,7 +429,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 };
 
 #elif defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644__) || \
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644A__) || \
 defined(__AVR_ATmega644P__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 {

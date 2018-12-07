@@ -41,15 +41,21 @@ typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
 
 
 // MightyCore
+#elif defined(__AVR_ATmega324PB__)
+#define _useTimer4
+#define _useTimer3
+#define _useTimer1
+typedef enum { _timer4, _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
+
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
 #define _useTimer3
 #define _useTimer1
 typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
 
-#elif defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644P__) \
-|| defined(__AVR_ATmega324P__)  || defined(__AVR_ATmega324PA__) \
-|| defined(__AVR_ATmega324A__) || defined(__AVR_ATmega164P__) \
-|| defined(__AVR_ATmega164A__)
+#elif defined(__AVR_ATmega644__)  || defined(__AVR_ATmega644A__) \
+|| defined(__AVR_ATmega644P__) || defined(__AVR_ATmega324P__) \
+|| defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324A__) \
+|| defined(__AVR_ATmega164P__) || defined(__AVR_ATmega164A__)
 #define _useTimer1 
 typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t ;
 

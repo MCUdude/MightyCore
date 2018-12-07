@@ -121,11 +121,12 @@ static const pin_map_t digitalPinMap[] = {
 
 //MightyCore standard pinout
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__) \
-|| defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__)\
-|| defined(__AVR_ATmega324__) || defined(__AVR_ATmega324P__)\
-|| defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega164P__)\
-|| defined(__AVR_ATmega164A__) || defined(__AVR_ATmega32__)\
-|| defined(__AVR_ATmega16__) || defined(__AVR_ATmega8535__) && defined(STANDARD_PINOUT)
+|| defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) \
+|| defined(__AVR_ATmega644P__) || defined(__AVR_ATmega324__) \
+|| defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) \
+|| defined(__AVR_ATmega164P__) || defined(__AVR_ATmega164A__) \
+|| defined(__AVR_ATmega32__) || defined(__AVR_ATmega16__)\
+|| defined(__AVR_ATmega8535__) && defined(STANDARD_PINOUT)
 
 
 // Two Wire (aka I2C) ports
@@ -392,7 +393,7 @@ static const pin_map_t digitalPinMap[] = {
   {&DDRF, &PINF, &PORTF, 0},  // D21 - A7 - PF0
 };               
 //------------------------------------------------------------------------------
-#elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644__)
+#elif defined(__AVR_ATmega644__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__)
 // Sanguino
 
 // Two Wire (aka I2C) ports
