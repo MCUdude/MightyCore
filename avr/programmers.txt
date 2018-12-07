@@ -54,6 +54,13 @@ usbasp.program.protocol=usbasp
 usbasp.program.tool=avrdude
 usbasp.program.extra_params=-Pusb
 
+usbasp.name=USBasp slow (MightyCore)
+usbasp.communication=usb
+usbasp.protocol=usbasp
+usbasp.program.protocol=usbasp
+usbasp.program.tool=avrdude
+usbasp.program.extra_params=-Pusb -B16
+
 parallel.name=Parallel Programmer (MightyCore)
 parallel.protocol=dapa
 parallel.force=true
