@@ -12,6 +12,10 @@ set -e
 ## the mcu_and_params array if you want to add, remove or edit any of the settings. You can     ##
 ## also modify the clock_and_baud array if you need other F_CPUs or baudrates.                  ##
 ##                                                                                              ##
+## Note that all microcontrollers with 64kB flash or more is built with bootloader EEPROM       ##
+## upload by default. Use SUPPORT_EEPROM=0 if you want to disable this feature. Note that you   ##
+## may add EEPROM upload functionality by adding SUPPORT_EEPROM=1 .                             ##
+##                                                                                              ##
 ## The table below shows the available precompiled bootloaders for the corresponding            ##
 ## clock frequencies and baud rates.                                                            ##
 ##                                                                                              ##
@@ -33,17 +37,20 @@ set -e
 ##                                                                                              ##
 ##################################################################################################
 
+# Set this variable to true if you want the script to abort if compilation fails
+abort_if_failed=false
+
 declare -a mcu_and_params=(
 "atmega8"     "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega16"    "LED=B0 LED_START_FLASHES=2 UART=0"
 "atmega32"    "LED=B0 LED_START_FLASHES=2 UART=0"
-"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=1 -BIGBOOT"
+"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
 "atmega88"    "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega88p"   "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega88pb"  "LED=B5 LED_START_FLASHES=2 UART=0"
-"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=1 -BIGBOOT"
+"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
 "atmega162"   "LED=B0 LED_START_FLASHES=0 UART=0"
 "atmega162"   "LED=B0 LED_START_FLASHES=0 UART=1"
 "atmega164a"  "LED=B0 LED_START_FLASHES=2 UART=0"
@@ -70,36 +77,36 @@ declare -a mcu_and_params=(
 "atmega328pb" "LED=B5 LED_START_FLASHES=2 UART=1"
 "atmega329"   "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega329p"  "LED=B5 LED_START_FLASHES=2 UART=0"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=2 -BIGBOOT"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=3 -BIGBOOT"
-"atmega644"   "LED=B0 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega644"   "LED=B0 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega649"   "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega649p"  "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=2 -BIGBOOT"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=3 -BIGBOOT"
-"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=1 -BIGBOOT"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=2 -BIGBOOT"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=3 -BIGBOOT"
-"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=1 -BIGBOOT"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1"
+"atmega644a"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega644a"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega649"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega649p"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1"
+"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1"
+"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
 "atmega3290"  "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega3290p" "LED=B5 LED_START_FLASHES=2 UART=0"
-"atmega6490"  "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
-"atmega6490p" "LED=B5 LED_START_FLASHES=2 UART=0 -BIGBOOT"
+"atmega6490"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega6490p" "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
 "atmega8515"  "LED=B0 LED_START_FLASHES=2 UART=0"
 "atmega8535"  "LED=B0 LED_START_FLASHES=2 UART=0"
 )
@@ -176,26 +183,78 @@ declare -a clock_and_baud=(
 )
 
 
-# Start out by deleting all previous generated files
-echo -e "\x1B[7m\n\nDeleting all previous generated files \x1B[0m"
+# Start out by deleting all previous generated files and folders
+echo -e "\x1B[7m\n\n Deleting all previous generated files and empty folders \x1B[0m"
 make clean_all
+find . -iname ".DS_Store" -type f -delete
+find . -iname "*_build_info*.txt" -type f -delete
+find . -iname "[1-9]*" -type d -empty -delete
+find . -iname "atmega*" -type d -empty -delete
 
 # Loop through all MCUs and parameters
 for((i=0; i < ${#mcu_and_params[@]}; i+=2));
 do
-  # Loop through all clock speeds and baud rated
+  # Create MCU folder if it doesn't exist already
+  mkdir -p bootloaders/${mcu_and_params[$i]}
+  
+  # Create header and build info file
+  echo -e "Optiboot_flash build output for ${mcu_and_params[$i]}"\
+  "\nhttps://github.com/MCUdude/optiboot_flash"\
+  "\nBuild date and time: $(date +%d.%m.%Y\ %H:%M)"\
+  "\nCompiler: $(make gcc_version)\n"\
+  "\nF_CPU:\t\tUART NUMBER:\tLED PIN:\tLED FLASHES:\tDESIRED BAUD:\tACTUAL BAUD:\tERROR:\tCOMPILED SIZE:\tOUTPUT FILE:"\
+  >> bootloaders/${mcu_and_params[$i]}/${mcu_and_params[$i]}_build_info.txt
+  
+  # Loop through all clock speeds and baud rates
   for((j=0; j < ${#clock_and_baud[@]}; j+=2));
   do
      # Count how many builds that have been ran
      COUNTER=$(($COUNTER + 1))
-     echo -e "\x1B[7m\n\n$COUNTER of $((${#mcu_and_params[@]} * ${#clock_and_baud[@]} / 4))"
-     # Print out current build info
-     echo -e " ${mcu_and_params[$i]} AVR_FREQ=${clock_and_baud[$j]} BAUD_RATE=${clock_and_baud[$j+1]} ${mcu_and_params[$i+1]} \x1B[0m"
-     # Build
-     make ${mcu_and_params[$i]} AVR_FREQ=${clock_and_baud[$j]} BAUD_RATE=${clock_and_baud[$j+1]} ${mcu_and_params[$i+1]}
+     echo -e "\x1B[7m\n\n $COUNTER of $((${#mcu_and_params[@]} * ${#clock_and_baud[@]} / 4)) "
+     
+     # Print out current build command
+     echo -e " make ${mcu_and_params[$i]} AVR_FREQ=${clock_and_baud[$j]} BAUD_RATE=${clock_and_baud[$j+1]} ${mcu_and_params[$i+1]} \x1B[0m"
+     
+     # Build hex and pipe output to stdout and temp.txt
+     make -s ${mcu_and_params[$i]} AVR_FREQ=${clock_and_baud[$j]} BAUD_RATE=${clock_and_baud[$j+1]} ${mcu_and_params[$i+1]} | tee /dev/tty | tee temp.txt | \
+          
+     # Fill build info file
+     awk -v F_CPU="${clock_and_baud[$j]}" '
+     BEGIN { printf(F_CPU "\t") }
+     {   
+       if ($1 ~ "UART") printf($3 "\t\t")
+       if ($4 ~ "LED_PIN") printf($6 "\t\t")
+       if ($7 ~ "LED_FLASHES") printf($9 "\t\t")
+       if ($4 ~ "Desired:") printf($5 "\t\t")
+       if ($6 ~ "Real:") printf($7 "\t\t")
+       if ($11 ~ "Difference:") printf($12 "%%\t")
+       if ($1 ~ /^[0-9]+$/) printf($1 " bytes\t")
+       if ($1 ~ "Output" && $2 ~ "file" && $3 "name:") 
+       {
+         sub(".*/", "", $4)
+         printf($4 "\n")
+       }
+     } ' >> bootloaders/${mcu_and_params[$i]}/${mcu_and_params[$i]}_build_info.txt
+          
+     # Check if hex file exist and print message
+     if [ -f $(awk '{if ($1 ~ "Output" && $2 ~ "file" && $3 "name:") {printf($4 "\n")} }' "temp.txt") ]
+     then
+       echo -e "\n\n\x1B[7m COMPILATION SUCCESSFUL! \x1B[0m\n\n\n"
+     else
+       echo -e "\n\n\x1B[41m COMPILATION FAILED! \x1B[0m\n\n\n"
+       if [ $abort_if_failed = true ]
+       then
+         break 
+       fi
+     fi  
   done
+  
+  # Add a few newlines at the end of the build info file
+  echo -e "\n" >> bootloaders/${mcu_and_params[$i]}/${mcu_and_params[$i]}_build_info.txt
 done
 
-# Finish up by removing all *.lst files
-echo -e "\x1B[7m\n\nDeleting all generated *.lst files \x1B[0m"
-make clean_asm
+# Delete temporary shell script files
+find . -name "*.tmp.sh" -exec rm {} \;
+find . -name "temp.txt" -exec rm {} \;
+
+echo -e "\x1B[7m\n\n Done! \n\x1B[0m"
