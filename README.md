@@ -1,8 +1,8 @@
 # MightyCore
 [![Build Status](https://travis-ci.org/MCUdude/MightyCore.svg?branch=master)](https://travis-ci.org/MCUdude/MightyCore) [![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
   
-An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running a [custom version of Optiboot](#write-to-own-flash). Major libraries such as SD, Servo, SPI and Wire are modified to work with this core. Still, a large amount of third-party libraries often work without any modifications.  
-This core requires at least Arduino IDE v1.6, but v1.6.11+ is recommended.  
+An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running a [Optiboot](#write-to-own-flash). Most Arduino UNO compatible libraries will work with this core. If not, it's fairly straight forward to [port a library](#library-porting).
+This core requires at least Arduino IDE v1.6, but v1.8.7+ is recommended.  
 If you're into "generic" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the [example files](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/AVR_examples/examples) (File > Examples > AVR C code examples).
 <br/> <br/>
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
@@ -13,6 +13,7 @@ Read more in the hardware section below.
 # Table of contents
 * [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
+* [Bootloader option](#bootloader-option)
 * [BOD option](#bod-option)
 * [Link time optimization / LTO](#link-time-optimization--lto)
 * **[Pinout](#pinout)**
@@ -76,6 +77,13 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 * Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/be8e1012161f65bfc34bad1daa22857b4644f877/avr/boards.txt#L131) file, and choose either 115200, 57600, 38400 or 19200 baud.
 * Upload the code using a programmer (USBasp, USBtinyISP etc.) and drop the bootloader
 * Use the 1 MHz option instead
+
+
+## Bootloader option
+If your application doesn't need or require a bootloader for uploading code, you can choose to disable this.
+This frees 512 bytes of the flash memory on ATmega8535/16/32/164/324 and frees 1024 bytes on ATmega644/1284.
+
+Note that you need to select **Bootloader: "No"** and actually hit **Burn bootloader** in order to set the correct fuse bits. Now you're no longer able to upload using serial, until you select *Bootloader: "Yes"* and burn the bootloader again.
 
 
 ## BOD option
@@ -209,7 +217,7 @@ Some users have reported issues when trying to use some 3rd party libraries with
 A simple guide on how to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ## Hardware
-I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. **And for just 35$ it's a really good deal!**
+I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board has some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
