@@ -509,10 +509,11 @@ menu.pinout=Pinout
 32.bootloader.tool=avrdude
 32.bootloader.unlock_bits=0x3f
 32.bootloader.lock_bits=0x0f
+32.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
+32.bootloader.high_fuses=0b110{bootloader.ckopt_bit}011{bootloader.bootrst_bit}
 32.build.core=MCUdude_corefiles
 32.build.board=AVR_ATmega32
 32.build.mcu=atmega32
-32.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
 
 # Bootloader select
 32.menu.bootloader.true=Yes
@@ -560,42 +561,49 @@ menu.pinout=Pinout
 32.menu.clock.16MHz_external.upload.port=UART0
 32.menu.clock.16MHz_external.upload.speed=115200
 32.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.16MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 32.menu.clock.20MHz_external=20 MHz external
 32.menu.clock.20MHz_external.upload.port=UART0
 32.menu.clock.20MHz_external.upload.speed=115200
 32.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.20MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 32.menu.clock.18_432MHz_external=18.432 MHz external
 32.menu.clock.18_432MHz_external.upload.port=UART0
 32.menu.clock.18_432MHz_external.upload.speed=115200
 32.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.18_432MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 32.menu.clock.12MHz_external=12 MHz external
 32.menu.clock.12MHz_external.upload.port=UART0
 32.menu.clock.12MHz_external.upload.speed=57600
 32.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.12MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 32.menu.clock.8MHz_external=8 MHz external
 32.menu.clock.8MHz_external.upload.port=UART0
 32.menu.clock.8MHz_external.upload.speed=57600
 32.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.8MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 32.menu.clock.8MHz_internal=8 MHz internal
 32.menu.clock.8MHz_internal.upload.port=UART0
 32.menu.clock.8MHz_internal.upload.speed=38400
 32.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
+32.menu.clock.8MHz_internal.bootloader.ckopt_bit=1
 32.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 32.menu.clock.1MHz_internal=1 MHz internal
 32.menu.clock.1MHz_internal.upload.port=UART0
 32.menu.clock.1MHz_internal.upload.speed=9600
 32.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
+32.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
 32.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -611,21 +619,22 @@ menu.pinout=Pinout
 16.bootloader.tool=avrdude
 16.bootloader.unlock_bits=0x3f
 16.bootloader.lock_bits=0x0f
+16.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
+16.bootloader.high_fuses=0b110{bootloader.ckopt_bit}010{bootloader.bootrst_bit}
 16.build.core=MCUdude_corefiles
 16.build.board=AVR_ATmega16
 16.build.mcu=atmega16
-16.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
 
 # Bootloader select
 16.menu.bootloader.true=Yes
 16.menu.bootloader.true.upload.maximum_size=15872
 16.menu.bootloader.true.upload.protocol=arduino
-16.menu.bootloader.true.bootloader.high_fuses=0xc4
+16.menu.bootloader.true.bootloader.bootrst_bit=0
 16.menu.bootloader.true.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
 16.menu.bootloader.false=No
 16.menu.bootloader.false.upload.maximum_size=16384
-16.menu.bootloader.false.bootloader.high_fuses=0xc5
+16.menu.bootloader.false.bootloader.bootrst_bit=1
 16.menu.bootloader.false.bootloader.file=empty/empty.hex
 
 # Pinouts
@@ -657,48 +666,54 @@ menu.pinout=Pinout
 16.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 16.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
-
 # Clock frequencies - This is the second part of the low fuse bit concatenation
 16.menu.clock.16MHz_external=16 MHz external
 16.menu.clock.16MHz_external.upload.port=UART0
 16.menu.clock.16MHz_external.upload.speed=115200
 16.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.16MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 16.menu.clock.20MHz_external=20 MHz external
 16.menu.clock.20MHz_external.upload.port=UART0
 16.menu.clock.20MHz_external.upload.speed=115200
 16.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.20MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 16.menu.clock.18_432MHz_external=18.432 MHz external
 16.menu.clock.18_432MHz_external.upload.port=UART0
 16.menu.clock.18_432MHz_external.upload.speed=115200
 16.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.18_432MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 16.menu.clock.12MHz_external=12 MHz external
 16.menu.clock.12MHz_external.upload.port=UART0
 16.menu.clock.12MHz_external.upload.speed=57600
 16.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.12MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 16.menu.clock.8MHz_external=8 MHz external
 16.menu.clock.8MHz_external.upload.port=UART0
 16.menu.clock.8MHz_external.upload.speed=115200
 16.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.8MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 16.menu.clock.8MHz_internal=8 MHz internal
 16.menu.clock.8MHz_internal.upload.port=UART0
 16.menu.clock.8MHz_internal.upload.speed=38400
 16.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
+16.menu.clock.8MHz_internal.bootloader.ckopt_bit=1
 16.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 16.menu.clock.1MHz_internal=1 MHz internal
 16.menu.clock.1MHz_internal.upload.port=UART0
 16.menu.clock.1MHz_internal.upload.speed=9600
 16.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
+16.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
 16.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
 
@@ -714,21 +729,22 @@ menu.pinout=Pinout
 8535.bootloader.tool=avrdude
 8535.bootloader.unlock_bits=0x3f
 8535.bootloader.lock_bits=0x0f
+8535.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
+8535.bootloader.high_fuses=0b110{bootloader.ckopt_bit}010{bootloader.bootrst_bit}
 8535.build.core=MCUdude_corefiles
 8535.build.board=AVR_ATmega8535
 8535.build.mcu=atmega8535
-8535.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
 
 # Bootloader select
 8535.menu.bootloader.true=Yes
 8535.menu.bootloader.true.upload.maximum_size=7680
 8535.menu.bootloader.true.upload.protocol=arduino
-8535.menu.bootloader.true.bootloader.high_fuses=0xc4
+8535.menu.bootloader.true.bootloader.bootrst_bit=0
 8535.menu.bootloader.true.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
 8535.menu.bootloader.false=No
 8535.menu.bootloader.false.upload.maximum_size=8192
-8535.menu.bootloader.false.bootloader.high_fuses=0xc5
+8535.menu.bootloader.false.bootloader.bootrst_bit=1
 8535.menu.bootloader.false.bootloader.file=empty/empty.hex
 
 # Pinouts
@@ -765,40 +781,47 @@ menu.pinout=Pinout
 8535.menu.clock.16MHz_external.upload.port=UART0
 8535.menu.clock.16MHz_external.upload.speed=115200
 8535.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.16MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 8535.menu.clock.20MHz_external=20 MHz external
 8535.menu.clock.20MHz_external.upload.port=UART0
 8535.menu.clock.20MHz_external.upload.speed=115200
 8535.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.20MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.20MHz_external.build.f_cpu=20000000L
 
 8535.menu.clock.18_432MHz_external=18.432 MHz external
 8535.menu.clock.18_432MHz_external.upload.port=UART0
 8535.menu.clock.18_432MHz_external.upload.speed=115200
 8535.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.18_432MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
 8535.menu.clock.12MHz_external=12 MHz external
 8535.menu.clock.12MHz_external.upload.port=UART0
 8535.menu.clock.12MHz_external.upload.speed=57600
 8535.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.12MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.12MHz_external.build.f_cpu=12000000L
 
 8535.menu.clock.8MHz_external=8 MHz external
 8535.menu.clock.8MHz_external.upload.port=UART0
 8535.menu.clock.8MHz_external.upload.speed=115200
 8535.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.8MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.8MHz_external.build.f_cpu=8000000L
 
 8535.menu.clock.8MHz_internal=8 MHz internal
 8535.menu.clock.8MHz_internal.upload.port=UART0
 8535.menu.clock.8MHz_internal.upload.speed=38400
 8535.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
+8535.menu.clock.8MHz_internal.bootloader.ckopt_bit=1
 8535.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
 8535.menu.clock.1MHz_internal=1 MHz internal
 8535.menu.clock.1MHz_internal.upload.port=UART0
 8535.menu.clock.1MHz_internal.upload.speed=9600
 8535.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
+8535.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
 8535.menu.clock.1MHz_internal.build.f_cpu=1000000L
