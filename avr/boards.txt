@@ -123,6 +123,12 @@ menu.pinout=Pinout
 1284.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
+1284.menu.clock.11_0592MHz_external=11.0592 MHz external (Xplained)
+1284.menu.clock.11_0592MHz_external.upload.port=UART1
+1284.menu.clock.11_0592MHz_external.upload.speed=115200
+1284.menu.clock.11_0592MHz_external.bootloader.low_fuses=0xf7
+1284.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
 1284.menu.clock.12MHz_external=12 MHz external
 1284.menu.clock.12MHz_external.upload.port=UART0
 1284.menu.clock.12MHz_external.upload.speed=57600
