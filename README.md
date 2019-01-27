@@ -78,7 +78,7 @@ for static delays use *_delay_ms()* and *_delay_us()* instead.
 * Use the 1 MHz option instead  
 
 
-## Bootloader option
+## Upload port / bootloader option
 MightyCore let's you select what serial port you want to use for uploading. UART0 is the default port for all targets, but the ATmega324/644/1284 have more than one serial port to select from.
 If your application doesn't need or require a bootloader for uploading code you can also choose to disable this by selecting *No bootloader*.
 This frees 512 bytes of the flash memory on ATmega8535/16/32/164/324 and 1024 bytes on ATmega644/1284.
