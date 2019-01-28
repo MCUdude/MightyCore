@@ -32,7 +32,7 @@ menu.BOD=BOD
 menu.LTO=Compiler LTO
 menu.variant=Variant
 menu.pinout=Pinout
-menu.port=Upload port
+menu.bootloader=Bootloader
 
 
 ######################
@@ -50,24 +50,24 @@ menu.port=Upload port
 1284.build.board=AVR_ATmega1284
 
 # Upload port select
-1284.menu.port.uart0=UART0
-1284.menu.port.uart0.upload.maximum_size=130048
-1284.menu.port.uart0.upload.protocol=arduino
-1284.menu.port.uart0.upload.port=UART0
-1284.menu.port.uart0.bootloader.high_fuses=0xd6
-1284.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+1284.menu.bootloader.uart0=Yes (UART0)
+1284.menu.bootloader.uart0.upload.maximum_size=130048
+1284.menu.bootloader.uart0.upload.protocol=arduino
+1284.menu.bootloader.uart0.upload.port=UART0
+1284.menu.bootloader.uart0.bootloader.high_fuses=0xd6
+1284.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
 
-1284.menu.port.uart1=UART1
-1284.menu.port.uart1.upload.maximum_size=130048
-1284.menu.port.uart1.upload.protocol=arduino
-1284.menu.port.uart1.upload.port=UART1
-1284.menu.port.uart1.bootloader.high_fuses=0xd6
-1284.menu.port.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+1284.menu.bootloader.uart1=Yes (UART1)
+1284.menu.bootloader.uart1.upload.maximum_size=130048
+1284.menu.bootloader.uart1.upload.protocol=arduino
+1284.menu.bootloader.uart1.upload.port=UART1
+1284.menu.bootloader.uart1.bootloader.high_fuses=0xd6
+1284.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
 
-1284.menu.port.no_bootloader=No bootloader
-1284.menu.port.no_bootloader.upload.maximum_size=131072
-1284.menu.port.no_bootloader.bootloader.high_fuses=0xd7
-1284.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+1284.menu.bootloader.no_bootloader=No bootloader
+1284.menu.bootloader.no_bootloader.upload.maximum_size=131072
+1284.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd7
+1284.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 1284.menu.pinout.standard=Standard pinout
@@ -159,24 +159,24 @@ menu.port=Upload port
 644.build.board=AVR_ATmega644
 
 # Upload port select
-644.menu.port.uart0=UART0
-644.menu.port.uart0.upload.maximum_size=64512
-644.menu.port.uart0.upload.protocol=arduino
-644.menu.port.uart0.upload.port=UART0
-644.menu.port.uart0.bootloader.high_fuses=0xd6
-644.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+644.menu.bootloader.uart0=Yes (UART0)
+644.menu.bootloader.uart0.upload.maximum_size=64512
+644.menu.bootloader.uart0.upload.protocol=arduino
+644.menu.bootloader.uart0.upload.port=UART0
+644.menu.bootloader.uart0.bootloader.high_fuses=0xd6
+644.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
 
-644.menu.port.uart1=UART1
-644.menu.port.uart1.upload.maximum_size=64512
-644.menu.port.uart1.upload.protocol=arduino
-644.menu.port.uart1.upload.port=UART1
-644.menu.port.uart1.bootloader.high_fuses=0xd6
-644.menu.port.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+644.menu.bootloader.uart1=Yes (UART1)
+644.menu.bootloader.uart1.upload.maximum_size=64512
+644.menu.bootloader.uart1.upload.protocol=arduino
+644.menu.bootloader.uart1.upload.port=UART1
+644.menu.bootloader.uart1.bootloader.high_fuses=0xd6
+644.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
 
-644.menu.port.no_bootloader=No bootloader
-644.menu.port.no_bootloader.upload.maximum_size=65536
-644.menu.port.no_bootloader.bootloader.high_fuses=0xd7
-644.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+644.menu.bootloader.no_bootloader=No bootloader
+644.menu.bootloader.no_bootloader.upload.maximum_size=65536
+644.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd7
+644.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 644.menu.pinout.standard=Standard pinout
@@ -268,31 +268,31 @@ menu.port=Upload port
 324.build.board=AVR_ATmega324
 
 # Upload port select
-324.menu.port.uart0=UART0
-324.menu.port.uart0.upload.maximum_size=32256
-324.menu.port.uart0.upload.protocol=arduino
-324.menu.port.uart0.upload.port=UART0
-324.menu.port.uart0.bootloader.high_fuses=0xd6
-324.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.bootloader.uart0=Yes (UART0)
+324.menu.bootloader.uart0.upload.maximum_size=32256
+324.menu.bootloader.uart0.upload.protocol=arduino
+324.menu.bootloader.uart0.upload.port=UART0
+324.menu.bootloader.uart0.bootloader.high_fuses=0xd6
+324.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-324.menu.port.uart1=UART1
-324.menu.port.uart1.upload.maximum_size=32256
-324.menu.port.uart1.upload.protocol=arduino
-324.menu.port.uart1.upload.port=UART1
-324.menu.port.uart1.bootloader.high_fuses=0xd6
-324.menu.port.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.bootloader.uart1=Yes (UART1)
+324.menu.bootloader.uart1.upload.maximum_size=32256
+324.menu.bootloader.uart1.upload.protocol=arduino
+324.menu.bootloader.uart1.upload.port=UART1
+324.menu.bootloader.uart1.bootloader.high_fuses=0xd6
+324.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-324.menu.port.uart2=UART2 (324PB only)
-324.menu.port.uart2.upload.maximum_size=32256
-324.menu.port.uart2.upload.protocol=arduino
-324.menu.port.uart2.upload.port=UART2
-324.menu.port.uart2.bootloader.high_fuses=0xd6
-324.menu.port.uart2.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+324.menu.bootloader.uart2=Yes (UART2 324PB only)
+324.menu.bootloader.uart2.upload.maximum_size=32256
+324.menu.bootloader.uart2.upload.protocol=arduino
+324.menu.bootloader.uart2.upload.port=UART2
+324.menu.bootloader.uart2.bootloader.high_fuses=0xd6
+324.menu.bootloader.uart2.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-324.menu.port.no_bootloader=No bootloader
-324.menu.port.no_bootloader.upload.maximum_size=32768
-324.menu.port.no_bootloader.bootloader.high_fuses=0xd7
-324.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+324.menu.bootloader.no_bootloader=No bootloader
+324.menu.bootloader.no_bootloader.upload.maximum_size=32768
+324.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd7
+324.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 324.menu.pinout.standard=Standard pinout
@@ -396,24 +396,24 @@ menu.port=Upload port
 164.build.board=AVR_ATmega164
 
 # Upload port select
-164.menu.port.uart0=UART0
-164.menu.port.uart0.upload.maximum_size=32256
-164.menu.port.uart0.upload.protocol=arduino
-164.menu.port.uart0.upload.port=UART0
-164.menu.port.uart0.bootloader.high_fuses=0xd4
-164.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.bootloader.uart0=Yes (UART0)
+164.menu.bootloader.uart0.upload.maximum_size=32256
+164.menu.bootloader.uart0.upload.protocol=arduino
+164.menu.bootloader.uart0.upload.port=UART0
+164.menu.bootloader.uart0.bootloader.high_fuses=0xd4
+164.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-164.menu.port.uart1=UART1
-164.menu.port.uart1.upload.maximum_size=32256
-164.menu.port.uart1.upload.protocol=arduino
-164.menu.port.uart1.upload.port=UART1
-164.menu.port.uart1.bootloader.high_fuses=0xd4
-164.menu.port.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+164.menu.bootloader.uart1=Yes (UART1)
+164.menu.bootloader.uart1.upload.maximum_size=32256
+164.menu.bootloader.uart1.upload.protocol=arduino
+164.menu.bootloader.uart1.upload.port=UART1
+164.menu.bootloader.uart1.bootloader.high_fuses=0xd4
+164.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-164.menu.port.no_bootloader=No bootloader
-164.menu.port.no_bootloader.upload.maximum_size=32768
-164.menu.port.no_bootloader.bootloader.high_fuses=0xd5
-164.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+164.menu.bootloader.no_bootloader=No bootloader
+164.menu.bootloader.no_bootloader.upload.maximum_size=32768
+164.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd5
+164.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 164.menu.pinout.standard=Standard pinout
@@ -508,17 +508,17 @@ menu.port=Upload port
 32.build.mcu=atmega32
 
 # Upload port select
-32.menu.port.uart0=UART0
-32.menu.port.uart0.upload.maximum_size=32256
-32.menu.port.uart0.upload.protocol=arduino
-32.menu.port.uart0.upload.port=UART0
-32.menu.port.uart0.bootloader.bootrst_bit=0
-32.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+32.menu.bootloader.uart0=Yes (UART0)
+32.menu.bootloader.uart0.upload.maximum_size=32256
+32.menu.bootloader.uart0.upload.protocol=arduino
+32.menu.bootloader.uart0.upload.port=UART0
+32.menu.bootloader.uart0.bootloader.bootrst_bit=0
+32.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-32.menu.port.no_bootloader=No bootloader
-32.menu.port.no_bootloader.upload.maximum_size=32768
-32.menu.port.no_bootloader.bootloader.bootrst_bit=1
-32.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+32.menu.bootloader.no_bootloader=No bootloader
+32.menu.bootloader.no_bootloader.upload.maximum_size=32768
+32.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
+32.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 32.menu.pinout.standard=Standard pinout
@@ -612,17 +612,17 @@ menu.port=Upload port
 16.build.mcu=atmega16
 
 # Upload port select
-16.menu.port.uart0=UART0
-16.menu.port.uart0.upload.maximum_size=15872
-16.menu.port.uart0.upload.protocol=arduino
-16.menu.port.uart0.upload.port=UART0
-16.menu.port.uart0.bootloader.bootrst_bit=0
-16.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+16.menu.bootloader.uart0=Yes (UART0)
+16.menu.bootloader.uart0.upload.maximum_size=15872
+16.menu.bootloader.uart0.upload.protocol=arduino
+16.menu.bootloader.uart0.upload.port=UART0
+16.menu.bootloader.uart0.bootloader.bootrst_bit=0
+16.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-16.menu.port.no_bootloader=No bootloader
-16.menu.port.no_bootloader.upload.maximum_size=16384
-16.menu.port.no_bootloader.bootloader.bootrst_bit=1
-16.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+16.menu.bootloader.no_bootloader=No bootloader
+16.menu.bootloader.no_bootloader.upload.maximum_size=16384
+16.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
+16.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 16.menu.pinout.standard=Standard pinout
@@ -716,17 +716,17 @@ menu.port=Upload port
 8535.build.mcu=atmega8535
 
 # Upload port select
-8535.menu.port.uart0=UART0
-8535.menu.port.uart0.upload.maximum_size=7680
-8535.menu.port.uart0.upload.protocol=arduino
-8535.menu.port.uart0.upload.port=UART0
-8535.menu.port.uart0.bootloader.bootrst_bit=0
-8535.menu.port.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
+8535.menu.bootloader.uart0=Yes (UART0)
+8535.menu.bootloader.uart0.upload.maximum_size=7680
+8535.menu.bootloader.uart0.upload.protocol=arduino
+8535.menu.bootloader.uart0.upload.port=UART0
+8535.menu.bootloader.uart0.bootloader.bootrst_bit=0
+8535.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}.hex
 
-8535.menu.port.no_bootloader=No bootloader
-8535.menu.port.no_bootloader.upload.maximum_size=8192
-8535.menu.port.no_bootloader.bootloader.bootrst_bit=1
-8535.menu.port.no_bootloader.bootloader.file=empty/empty.hex
+8535.menu.bootloader.no_bootloader=No bootloader
+8535.menu.bootloader.no_bootloader.upload.maximum_size=8192
+8535.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
+8535.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
 8535.menu.pinout.standard=Standard pinout

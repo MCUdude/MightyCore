@@ -13,7 +13,7 @@ Read more in the hardware section below.
 # Table of contents
 * [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
-* [Upload port / bootloader option](#upload-port--bootloader-option)
+* [Bootloader option](#bootloader-option)
 * [BOD option](#bod-option)
 * [Link time optimization / LTO](#link-time-optimization--lto)
 * **[Pinout](#pinout)**
@@ -78,12 +78,12 @@ for static delays use *_delay_ms()* and *_delay_us()* instead.
 * Use the 1 MHz option instead  
 
 
-## Upload port / bootloader option
-MightyCore let's you select what serial port you want to use for uploading. UART0 is the default port for all targets, but the ATmega324/644/1284 have more than one serial port to select from.
-If your application doesn't need or require a bootloader for uploading code you can also choose to disable this by selecting *No bootloader*.
-This frees 512 bytes of the flash memory on ATmega8535/16/32/164/324 and 1024 bytes on ATmega644/1284.
+## Bootloader option
+MightyCore lets you select which serial port you want to use for uploading. UART0 is the default port for all targets, but ATmega324/644/1284 can also use UART1 for upload.
+If your application doesn't need or require a bootloader for uploading you can also choose to disable it by selecting *No bootloader*.
+This frees 512 bytes of flash memory on ATmega8535/16/32/164/324 and 1024 bytes on ATmega644/1284.
 
-Note that you have need to connect a programmer and hit **Burn bootloader** if you want to change any of the *Upload port settings*.
+Note that you have need to connect a programmer and hit **Burn bootloader** if you want to change any of the *Bootloader settings*.
 
 
 ## BOD option
