@@ -194,11 +194,11 @@ menu.bootloader=Bootloader
 
 # Brown out detection
 644.menu.BOD.2v7=BOD 2.7V
-644.menu.BOD.2v7.bootloader.extended_fuses=0xfb
+644.menu.BOD.2v7.bootloader.extended_fuses=0xfd
 644.menu.BOD.4v3=BOD 4.3V
-644.menu.BOD.4v3.bootloader.extended_fuses=0xf9
+644.menu.BOD.4v3.bootloader.extended_fuses=0xfc
 644.menu.BOD.1v8=BOD 1.8V
-644.menu.BOD.1v8.bootloader.extended_fuses=0xfd
+644.menu.BOD.1v8.bootloader.extended_fuses=0xfe
 644.menu.BOD.disabled=BOD disabled
 644.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
