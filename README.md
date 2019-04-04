@@ -230,9 +230,9 @@ The development board has some additional unique features:
 * Onboard LED connected to digital pin 0 (PB0)
 * A socketed crystal, perfect for experimenting with different clock frequencies
 * An auto reset enable header if you don't want the microcontroller to be reset every time you open the serial monitor on your PC
-* PWM pins clearly marked and a lookup table that can be found on the under side of the board (three '~'s - all microcontrollers, two '~'s - 164; 324; 644; 1284, one '~' - 1284)
+* PWM pins clearly marked and a lookup table that can be found on the under side of the board (three `~` - all microcontrollers, two `~` - 164; 324; 644; 1284, one `~` - 1284)
 * IO peripherals written on the underside of the board. No need to search in the datasheet anymore!
-* A Mini USB connector instead of the large USB Type-B plug
+* A Mini USB connector instead of a large USB Type-B plug
 * All serial hand shake pins broken out for applications such as bit banging (CTS, DTR, RI, DCD, DRT, RST)
 * JTAG header for programming and debugging (the JTAG enable fuse must be sat first)
 
