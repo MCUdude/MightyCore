@@ -22,83 +22,35 @@
   #define __AVR_ATmega644__
 #endif
 
+
+// We're using the Bobuino pinout
 #define BOBUINO_PINOUT
+
+
+// Digital pins
 #if defined(__AVR_ATmega324PB__)
-#define NUM_DIGITAL_PINS            39
+  #define NUM_DIGITAL_PINS          (39)
 #else
-#define NUM_DIGITAL_PINS            32
+  #define NUM_DIGITAL_PINS          (32)
 #endif
-#define NUM_ANALOG_INPUTS           8
-#define EXTERNAL_NUM_INTERRUPTS     3
-#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
-#define analogPinToChannel(p)       ((p) < NUM_ANALOG_INPUTS) ? (7 - (p)) : ((p)  >=  14 && (p) <= 21) ? (21 - (p)) : -1
-#define digitalPinToInterrupt(p)    ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
-#define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 
+// PWM pins
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
-#define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 30 || (p) == 31)
-
+  #define digitalPinHasPWM(p)       ((p) == 7 || (p) == 8 || (p) == 30 || (p) == 31)
 #elif defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
-defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644A__) || \
-defined(__AVR_ATmega644P__)
-#define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 30 || (p) == 31)
-
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__)
+  #define digitalPinHasPWM(p)       ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 30 || (p) == 31)
 #elif defined(__AVR_ATmega324PB__)
-#define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13 || (p) == 26 || (p) == 30 || (p) == 31)
-
+  #define digitalPinHasPWM(p)       ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13 || (p) == 26 || (p) == 30 || (p) == 31)
 #elif defined(__AVR_ATmega1284__) || defined(__AVR_ATmega1284P__)
-#define digitalPinHasPWM(p)         ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13 || (p) == 30 || (p) == 31)
+  #define digitalPinHasPWM(p)       ((p) == 7 || (p) == 8 || (p) == 9 || (p) == 10 || (p) == 12 || (p) == 13 || (p) == 30 || (p) == 31)
 #endif
 
-#define PIN_SPI_SS    (10)
-#define PIN_SPI_MOSI  (11)
-#define PIN_SPI_MISO  (12)
-#define PIN_SPI_SCK   (13)
-
-static const uint8_t SS   = PIN_SPI_SS;
-static const uint8_t MOSI = PIN_SPI_MOSI;
-static const uint8_t MISO = PIN_SPI_MISO;
-static const uint8_t SCK  = PIN_SPI_SCK;
-
-#define PIN_WIRE_SDA  (23)
-#define PIN_WIRE_SCL  (22)
-
-static const uint8_t SDA = PIN_WIRE_SDA;
-static const uint8_t SCL = PIN_WIRE_SCL;
-
-#define LED_BUILTIN 13
+// Builtin LED
+#define LED_BUILTIN   (13)
 static const uint8_t LED = LED_BUILTIN;
 
-#if defined(__AVR_ATmega324PB__)
-  #define PIN_SPI_SS0   (10)
-  #define PIN_SPI_MOSI0 (11)
-  #define PIN_SPI_MISO0 (12)
-  #define PIN_SPI_SCK0  (13)
-  #define PIN_WIRE_SDA0 (23)
-  #define PIN_WIRE_SCL0 (22)
-
-  #define PIN_SPI_SS1   (9)
-  #define PIN_SPI_MOSI1 (35)
-  #define PIN_SPI_MISO1 (34)
-  #define PIN_SPI_SCK1  (31)
-  #define PIN_WIRE_SDA1 (37)
-  #define PIN_WIRE_SCL1 (38)
-
-  static const uint8_t SS0   = PIN_SPI_SS0;
-  static const uint8_t MOSI0 = PIN_SPI_MOSI0;
-  static const uint8_t MISO0 = PIN_SPI_MISO0;
-  static const uint8_t SCK0  = PIN_SPI_SCK0;
-  static const uint8_t SDA0  = PIN_WIRE_SDA0;
-  static const uint8_t SCL0  = PIN_WIRE_SCL0;
-
-  static const uint8_t SS1   = PIN_SPI_SS1;
-  static const uint8_t MOSI1 = PIN_SPI_MOSI1;
-  static const uint8_t MISO1 = PIN_SPI_MISO1;
-  static const uint8_t SCK1  = PIN_SPI_SCK1;
-  static const uint8_t SDA1  = PIN_WIRE_SDA1;
-  static const uint8_t SCL1  = PIN_WIRE_SCL1;
-#endif
-
+// Analog pins
 #define PIN_A0 (14)
 #define PIN_A1 (15)
 #define PIN_A2 (16)
@@ -107,7 +59,6 @@ static const uint8_t LED = LED_BUILTIN;
 #define PIN_A5 (19)
 #define PIN_A6 (20)
 #define PIN_A7 (21)
-
 static const uint8_t A0 = PIN_A0;
 static const uint8_t A1 = PIN_A1;
 static const uint8_t A2 = PIN_A2;
@@ -116,21 +67,73 @@ static const uint8_t A4 = PIN_A4;
 static const uint8_t A5 = PIN_A5;
 static const uint8_t A6 = PIN_A6;
 static const uint8_t A7 = PIN_A7;
+#define NUM_ANALOG_INPUTS           (8)
+#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
+#define analogPinToChannel(p)       ((p) < NUM_ANALOG_INPUTS) ? (7 - (p)) : ((p)  >=  14 && (p) <= 21) ? (21 - (p)) : -1
 
+// SPI
+#define PIN_SPI_SS    (10)
+#define PIN_SPI_MOSI  (11)
+#define PIN_SPI_MISO  (12)
+#define PIN_SPI_SCK   (13)
+static const uint8_t SS   = PIN_SPI_SS;
+static const uint8_t MOSI = PIN_SPI_MOSI;
+static const uint8_t MISO = PIN_SPI_MISO;
+static const uint8_t SCK  = PIN_SPI_SCK;
+#if defined(__AVR_ATmega324PB__)
+  #define PIN_SPI_SS0   PIN_SPI_SS
+  #define PIN_SPI_MOSI0 PIN_SPI_MOSI
+  #define PIN_SPI_MISO0 PIN_SPI_MISO
+  #define PIN_SPI_SS1   (9)
+  #define PIN_SPI_MOSI1 (35)
+  #define PIN_SPI_MISO1 (34)
+  #define PIN_SPI_SCK1  (31)
+  static const uint8_t SS0   = PIN_SPI_SS0;
+  static const uint8_t MOSI0 = PIN_SPI_MOSI0;
+  static const uint8_t MISO0 = PIN_SPI_MISO0;
+  static const uint8_t SCK0  = PIN_SPI_SCK0;
+  static const uint8_t SS1   = PIN_SPI_SS1;
+  static const uint8_t MOSI1 = PIN_SPI_MOSI1;
+  static const uint8_t MISO1 = PIN_SPI_MISO1;
+  static const uint8_t SCK1  = PIN_SPI_SCK1;
+#endif  
+
+// i2c
+#define PIN_WIRE_SDA  (23)
+#define PIN_WIRE_SCL  (22)
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
+#if defined(__AVR_ATmega324PB__)
+  #define PIN_WIRE_SDA0 PIN_WIRE_SDA
+  #define PIN_WIRE_SCL0 PIN_WIRE_SCL
+  #define PIN_WIRE_SDA1 (37)
+  #define PIN_WIRE_SCL1 (38)
+  static const uint8_t SDA0  = PIN_WIRE_SDA0;
+  static const uint8_t SCL0  = PIN_WIRE_SCL0;
+  static const uint8_t SDA1  = PIN_WIRE_SDA1;
+  static const uint8_t SCL1  = PIN_WIRE_SCL1;
+#endif
+
+// Interrupts
+#define EXTERNAL_NUM_INTERRUPTS     (3)
+#define digitalPinToInterrupt(p)    ((p) == 2 ? 0 : ((p) == 3 ? 1 : ((p) == 6 ? 2 : NOT_AN_INTERRUPT)))
+
+// PCINT
 #if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
 defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324PB__) || \
 defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) || \
 defined(__AVR_ATmega1284P__)
-
 #if defined(__AVR_ATmega324PB__)
 #define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : ((x) == 4 ? &PCMSK4 : (uint8_t )0)))))
 #else
 #define PORT_NDX_TO_PCMSK(x) ((x) == 0 ? &PCMSK0 : ((x) == 1 ? &PCMSK1 : ((x) == 2 ? &PCMSK2 : ((x) == 3 ? &PCMSK3 : (uint8_t )0))))
 #endif
+#define ifpin(p,what,ifnot)         (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
 #define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,0)
 #define digitalPinToPCMSK(p)    ifpin(p,(uint8_t *)PORT_NDX_TO_PCMSK(digital_pin_to_pcint[p] >> 3),(uint8_t *)0)
 #define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,0)
+
 
 #ifndef ARDUINO_MAIN
 extern const uint8_t digital_pin_to_pcint[];
@@ -191,7 +194,7 @@ const uint8_t digital_pin_to_pcint[NUM_DIGITAL_PINS] =
 #define PC 3
 #define PD 4
 #if defined(__AVR_ATmega324PB__)
-#define PE 5
+  #define PE 5
 #endif
 
 // these arrays map port names (e.g. port B) to the
@@ -322,7 +325,6 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
   _BV(6), // D38 - PE6
 #endif
 };
-
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
