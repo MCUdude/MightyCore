@@ -165,17 +165,10 @@ If you plan to use the ATmega324PB you need the latest version of the Arduino to
   - Close the **Boards Manager** window.
 
 #### PlatformIO
-[PlatformIO](http://platformio.org) is an open source ecosystem for IoT development. It has a built-in library manager and is Arduino compatible. It supports most operating systems; Windows, MacOS, Linux 32 and 64-bit; ARM and X86.
+[PlatformIO](http://platformio.org) is an open source ecosystem for IoT development and supports MightyCore.
 
-* [What is PlatformIO?](http://docs.platformio.org/en/latest/what-is-platformio.html)
-* [PlatformIO IDE](http://platformio.org/#!/platformio-ide)
-* Getting started with [PlatformIO IDE](http://docs.platformio.org/en/latest/ide/atom.html#quick-start) or [PlatformIO command line interface](http://docs.platformio.org/en/latest/quickstart.html)
-* [Advanced functionality](http://docs.platformio.org/en/latest/platforms/atmelavr.html) 
-* [MightyCore compatible microcontrollers](http://docs.platformio.org/en/latest/platforms/atmelavr.html#mcudude)
-* [Integration with other IDE](http://docs.platformio.org/en/latest/ide.html) -
-  Atom, CLion, Eclipse, Emacs, NetBeans, Qt Creator, Sublime Text, VIM and Visual Studio
-* [Project Examples](http://docs.platformio.org/en/latest/platforms/atmelavr.html#examples)
- 
+**See [PlatformIO.md](https://github.com/MCUdude/MightyCore/blob/master/PlatformIO.md) for more information.**
+
 
 ## Getting started with MightyCore
 Ok, so you've downloaded and installed MightyCore, but how do you get the wheels spinning? Here's a quick start guide:
