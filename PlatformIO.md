@@ -51,8 +51,8 @@ board_build.variant = mightycore_standard
 build_unflags = -flto
 
 ; UPLOAD SETTINGS
-; Serial port. Use COMx on Windows
-upload_port = /dev/cu.usbserial*
+; Upload serial port is automatically detected by default. Override by uncommenting the line below
+;upload_port = /dev/cu.usbserial*
 ; Upload baud rate
 board_upload.speed = 115200
 
@@ -114,7 +114,7 @@ This parameter is used to unflag. Since LTO is enabled by default in PlatformIO 
 
 
 ### `upload_port`
-Holds the serial port used for uploading. Use `/dev/[port]` on Unix compatible systems, and use `COMx` on Windows.
+Holds the serial port used for uploading. PlatformIO automatically detects the serial port. However, uf you want to ovverride this you can uncomment `upload_port`. Use `/dev/[port]` on Unix compatible systems, and use `COMx` on Windows.
 
 
 ### `board_upload.speed`
@@ -128,11 +128,11 @@ Supports all Avrdude compatible programmers such as `usbasp`, `usbtiny` and `stk
 
 ### `upload_flags`
 Used to pass extra flags to Avrdude when uploading using a programmer.  
-Typical parameters are `-PUSB`, `-B[clock divider]` and `-b[baudrate]
+Typical parameters are `-PUSB`, `-B[clock divider]` and `-b[baudrate]`
 
 
 ### `monitor_port`
-When uncommented this lets you use a different port the serial monitor than you use for uploading.
+PlatformIO detects serial ports automatically. However, if you want to override this you can uncomment `monitor_port`. Use `/dev/[port]` on Unix compatible systems, and use `COMx` on Windows.
 
 
 ### `monitor_speed`
