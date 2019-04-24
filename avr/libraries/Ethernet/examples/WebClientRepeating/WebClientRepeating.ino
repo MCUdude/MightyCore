@@ -34,8 +34,8 @@
  
  */
 
-#include <SPI.h>
 #include <Ethernet.h>
+#include <SPI.h>
 
 // assign a MAC address for the ethernet controller.
 // fill in your address here:

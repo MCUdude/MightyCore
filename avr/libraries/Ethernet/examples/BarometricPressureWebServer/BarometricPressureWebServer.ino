@@ -46,9 +46,7 @@
  */
 
 #include <Ethernet.h>
-// the sensor communicates using SPI, so include the library:
 #include <SPI.h>
-
 
 // assign a MAC address for the Ethernet controller.
 // fill in your address here:

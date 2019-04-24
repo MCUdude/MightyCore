@@ -36,8 +36,8 @@
  
  */
 
-#include <SPI.h>
 #include <Ethernet.h>
+#include <SPI.h>
 
 #define APIKEY         "YOUR API KEY GOES HERE" // replace your pachube api key here
 #define FEEDID         00000 // replace your feed ID

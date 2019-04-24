@@ -20,8 +20,8 @@
  by Tom Igoe
  */
 // include the SD library:
-#include <SPI.h>
 #include <SD.h>
+#include <SPI.h>
 
 // set up variables using the SD utility library functions:
 Sd2Card card;

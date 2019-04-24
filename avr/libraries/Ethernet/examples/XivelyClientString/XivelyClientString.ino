@@ -41,8 +41,8 @@
  
  */
 
-#include <SPI.h>
 #include <Ethernet.h>
+#include <SPI.h>
 
 
 #define APIKEY         "YOUR API KEY GOES HERE" // replace your Xively api key here

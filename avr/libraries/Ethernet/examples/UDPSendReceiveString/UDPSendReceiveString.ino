@@ -28,10 +28,9 @@
  
  */
 
-
-#include <SPI.h>          // needed for Arduino versions later than 0018
 #include <Ethernet.h>
 #include <EthernetUdp.h>  // UDP library from: bjoern@cs.stanford.edu 12/30/2008
+#include <SPI.h>
 
 
 // Enter a MAC address and IP address for your controller below.

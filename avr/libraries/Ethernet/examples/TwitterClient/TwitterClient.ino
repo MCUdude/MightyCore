@@ -36,8 +36,8 @@
  
  */
  
-#include <SPI.h>
 #include <Ethernet.h>
+#include <SPI.h>
 
 
 // Enter a MAC address and IP address for your controller below.
