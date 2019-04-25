@@ -84,6 +84,7 @@ static const uint8_t SCK  = PIN_SPI_SCK;
   #define PIN_SPI_SS0   PIN_SPI_SS
   #define PIN_SPI_MOSI0 PIN_SPI_MOSI
   #define PIN_SPI_MISO0 PIN_SPI_MISO
+  #define PIN_SPI_SCK0  PIN_SPI_SCK
   #define PIN_SPI_SS1   (9)
   #define PIN_SPI_MOSI1 (35)
   #define PIN_SPI_MISO1 (34)
