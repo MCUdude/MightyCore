@@ -28,8 +28,6 @@
 #include "Stream.h"
 
 
-#define BUFFER_LENGTH 32
-
 // WIRE_HAS_END means Wire has end()
 #define WIRE_HAS_END 1
 
