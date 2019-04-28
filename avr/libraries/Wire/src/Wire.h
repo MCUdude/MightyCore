@@ -26,11 +26,6 @@
 #include <inttypes.h>
 #include "Stream.h"
 
-// Only include Wire1 if two i2c channels are available
-#if defined(TWI1_vect)
-  #include <Wire1.h>
-#endif
-
 
 // WIRE_HAS_END means Wire has end()
 #define WIRE_HAS_END 1
