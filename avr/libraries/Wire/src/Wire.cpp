@@ -30,12 +30,12 @@ extern "C" {
 
 // Initialize Class Variables //////////////////////////////////////////////////
 
-uint8_t TwoWire::rxBuffer[TWI_BUFFER_LENGTH];
+uint8_t TwoWire::rxBuffer[TWI_BUFFER_SIZE];
 uint8_t TwoWire::rxBufferIndex = 0;
 uint8_t TwoWire::rxBufferLength = 0;
 
 uint8_t TwoWire::txAddress = 0;
-uint8_t TwoWire::txBuffer[TWI_BUFFER_LENGTH];
+uint8_t TwoWire::txBuffer[TWI_BUFFER_SIZE];
 uint8_t TwoWire::txBufferIndex = 0;
 uint8_t TwoWire::txBufferLength = 0;
 
@@ -106,8 +106,8 @@ uint8_t TwoWire::requestFrom(uint8_t address, uint8_t quantity, uint32_t iaddres
   }
 
   // clamp to buffer length
-  if(quantity > TWI_BUFFER_LENGTH){
-    quantity = TWI_BUFFER_LENGTH;
+  if(quantity > TWI_BUFFER_SIZE){
+    quantity = TWI_BUFFER_SIZE;
   }
   // perform blocking read into buffer
   uint8_t read = twi_readFrom(address, rxBuffer, quantity, sendStop);
@@ -194,7 +194,7 @@ size_t TwoWire::write(uint8_t data)
   if(transmitting){
   // in master transmitter mode
     // don't bother if buffer is full
-    if(txBufferLength >= TWI_BUFFER_LENGTH){
+    if(txBufferLength >= TWI_BUFFER_SIZE){
       setWriteError();
       return 0;
     }
