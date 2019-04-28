@@ -49,6 +49,8 @@ board_build.f_cpu = 16000000L
 board_build.variant = mightycore_standard
 ; Comment out to enable LTO (this line unflags it)
 build_unflags = -flto
+; Extra build flags
+build_flags = 
 
 ; UPLOAD SETTINGS
 ; Upload serial port is automatically detected by default. Override by uncommenting the line below
@@ -111,6 +113,19 @@ Holds the current pinout in use. Valid pinouts is `mightycore_standard`, `mighty
 
 ### `build_unflags`
 This parameter is used to unflag. Since LTO is enabled by default in PlatformIO we may disable it by unflagging `-flto`.
+
+### `build_flags`
+This parameter is used to set compiler flags. This is useful if you want to for instance want to chage the serial RX or TX buffer. Here's a list of the current available core files flags:
+
+| Flag                        | Default size | Description                                               |
+|-----------------------------|--------------|-----------------------------------------------------------|
+| -DSERIAL_RX_BUFFER_SIZE=128 | 64 bytes     | Sets the serial RX buffer to 128 bytes                    |
+| -DSERIAL_TX_BUFFER_SIZE=128 | 64 bytes     | Sets the serial TX buffer to 128 bytes                    |
+| -DTWI_BUFFER_SIZE=64        | 32 bytes     | Sets the TWI (i2c) buffer to 64 bytes                     |
+| -DTWI1_BUFFER_SIZE=64       | 32 bytes     | Sets the TWI1 (i2c) buffer to 64 bytes (ATmega324PB only) |
+
+**Example:**
+`build_flags = -DSERIAL_RX_BUFFER_SIZE=128 -DSERIAL_TX_BUFFER_SIZE=128`
 
 
 ### `upload_port`
