@@ -1,30 +1,30 @@
-##################################################################################################
-## This file is created by MCUdude for use with MightyCore                                      ##
-## https://github.com/MCUdude/MightyCore                                                        ##
-##                                                                                              ##
-## This is the file where fuse settings, clock frequencies, upload ports, bootloaders and       ##
-## compiler flags are located.                                                                  ##
-##                                                                                              ##
-## The table below shows the available precompiled bootloaders for the corresponding clock      ##
-## frequencies and baud rates. Modify the upload.speed field to change baud rate.               ##
-##                                                                                              ##
-## |             | 1000000 | 500000 | 250000 | 230400 | 115200 | 57600 | 38400 | 19200 | 9600 | ##
-## |-------------|---------|--------|--------|--------|--------|-------|-------|-------|------| ##
-## | 20 MHz      |         |  X     |  X     |        |  X     |       |       |  X    |      | ##
-## | 18.4320 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
-## | 16 MHz      |  X      |  X     |  X     |        |  X     |       |  X    |  X    |  X   | ##
-## | 14.7456 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
-## | 12 MHz      |         |  X     |  X     |        |        |  X    |       |  X    |  X   | ##
-## | 11.0592 MHz |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
-## | 8 MHz       |  X      |  X     |  X     |        |  X     |  X    |  X    |  X    |  X   | ##
-## | 7.3728 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
-## | 4 MHz       |         |  X     |  X     |        |        |       |       |  X    |  X   | ##
-## | 3.6864 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
-## | 2 MHz       |         |        |  X     |        |        |       |       |  X    |  X   | ##
-## | 1.8432 MHz  |         |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
-## | 1 MHz       |         |        |        |        |        |       |       |       |  X   | ## 
-##                                                                                              ##
-##################################################################################################
+###########################################################################################################
+## This file is created by MCUdude for use with MightyCore                                               ##
+## https://github.com/MCUdude/MightyCore                                                                 ##
+##                                                                                                       ##
+## This is the file where fuse settings, clock frequencies, upload ports, bootloaders and                ##
+## compiler flags are located.                                                                           ##
+##                                                                                                       ##
+## The table below shows the available precompiled bootloaders for the corresponding clock               ##
+## frequencies and baud rates. Modify the upload.speed field to change baud rate.                        ##
+##                                                                                                       ##
+## |             | 1000000 | 500000 | 460800 | 250000 | 230400 | 115200 | 57600 | 38400 | 19200 | 9600 | ##
+## |-------------|---------|--------|--------|--------|--------|--------|-------|-------|-------|------| ##
+## | 20 MHz      |         |  X     |        |  X     |        |  X     |       |       |  X    |      | ##
+## | 18.4320 MHz |         |        | X      |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
+## | 16 MHz      |  X      |  X     |        |  X     |        |  X     |       |  X    |  X    |  X   | ##
+## | 14.7456 MHz |         |        | X      |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 12 MHz      |         |  X     |        |  X     |        |        |  X    |       |  X    |  X   | ##
+## | 11.0592 MHz |         |        | X      |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 8 MHz       |  X      |  X     |        |  X     |        |  X     |  X    |  X    |  X    |  X   | ##
+## | 7.3728 MHz  |         |        | X      |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 4 MHz       |         |  X     |        |  X     |        |        |       |       |  X    |  X   | ##
+## | 3.6864 MHz  |         |        | X      |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 2 MHz       |         |        |        |  X     |        |        |       |       |  X    |  X   | ##
+## | 1.8432 MHz  |         |        |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 1 MHz       |         |        |        |        |        |        |       |       |       |  X   | ## 
+##                                           |                                                           ##
+###########################################################################################################
 
 # Menu options
 menu.clock=Clock
@@ -55,14 +55,14 @@ menu.bootloader=Bootloader
 1284.menu.bootloader.uart0.upload.protocol=arduino
 1284.menu.bootloader.uart0.upload.port=UART0
 1284.menu.bootloader.uart0.bootloader.high_fuses=0xd6
-1284.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+1284.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_BIGBOOT.hex
 
 1284.menu.bootloader.uart1=Yes (UART1)
 1284.menu.bootloader.uart1.upload.maximum_size=130048
 1284.menu.bootloader.uart1.upload.protocol=arduino
 1284.menu.bootloader.uart1.upload.port=UART1
 1284.menu.bootloader.uart1.bootloader.high_fuses=0xd6
-1284.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+1284.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_BIGBOOT.hex
 
 1284.menu.bootloader.no_bootloader=No bootloader
 1284.menu.bootloader.no_bootloader.upload.maximum_size=131072
@@ -164,14 +164,14 @@ menu.bootloader=Bootloader
 644.menu.bootloader.uart0.upload.protocol=arduino
 644.menu.bootloader.uart0.upload.port=UART0
 644.menu.bootloader.uart0.bootloader.high_fuses=0xd6
-644.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+644.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_BIGBOOT.hex
 
 644.menu.bootloader.uart1=Yes (UART1)
 644.menu.bootloader.uart1.upload.maximum_size=64512
 644.menu.bootloader.uart1.upload.protocol=arduino
 644.menu.bootloader.uart1.upload.port=UART1
 644.menu.bootloader.uart1.bootloader.high_fuses=0xd6
-644.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_eeprom_support.hex
+644.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_BIGBOOT.hex
 
 644.menu.bootloader.no_bootloader=No bootloader
 644.menu.bootloader.no_bootloader.upload.maximum_size=65536
