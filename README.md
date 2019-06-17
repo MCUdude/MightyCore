@@ -58,9 +58,15 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 ## Supported clock frequencies
 * 16 MHz external oscillator (default)
 * 20 MHz external oscillator
-* 18.432 MHz external oscillator
+* 18.4320 MHz external oscillator
+* 14.7456 MHz external oscillator
 * 12 MHz external oscillator
+* 11.0592 MHz external oscillator
 * 8 MHz external oscillator
+* 7.3728 MHz external oscillator
+* 3.6864 MHz external oscillator
+* 1.8432 MHz external oscillator
+
 * 8 MHz internal oscillator <b>*</b>
 * 1 MHz internal oscillator 
  
@@ -88,9 +94,9 @@ Brown out detection, or BOD for short lets the microcontroller sense the input v
 
 | ATmega1284 | Atmega644 | ATmega324 | ATmega164 | ATmega32 | ATmega16 | ATmega8535 |
 |------------|-----------|-----------|-----------|----------|----------|------------|
-| 4.3v       | 4.3v      | 4.3v      | 4.3v      | 4.0v     | 4.0v     | 4.0v       |
-| 2.7v       | 2.7v      | 2.7v      | 2.7v      | 2.7v     | 2.7v     | 2.7v       |
-| 1.8v       | 1.8v      | 1.8v      | 1.8v      | -        | -        | -          |
+| 4.3V       | 4.3V      | 4.3V      | 4.3V      | 4.0V     | 4.0V     | 4.0V       |
+| 2.7V       | 2.7V      | 2.7V      | 2.7V      | 2.7V     | 2.7V     | 2.7V       |
+| 1.8V       | 1.8V      | 1.8V      | 1.8V      | -        | -        | -          |
 | Disabled   | Disabled  | Disabled  | Disabled  | Disabled | Disabled | Disabled   |
 
 

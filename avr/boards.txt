@@ -107,37 +107,62 @@ menu.bootloader=Bootloader
 1284.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
-1284.menu.clock.16MHz_external=16 MHz external
+1284.menu.clock.16MHz_external=External 16 MHz
 1284.menu.clock.16MHz_external.upload.speed=115200
 1284.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-1284.menu.clock.20MHz_external=20 MHz external
+1284.menu.clock.20MHz_external=External 20 MHz
 1284.menu.clock.20MHz_external.upload.speed=115200
 1284.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-1284.menu.clock.18_432MHz_external=18.432 MHz external
+1284.menu.clock.18_432MHz_external=External 18.4320 MHz
 1284.menu.clock.18_432MHz_external.upload.speed=115200
 1284.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-1284.menu.clock.12MHz_external=12 MHz external
+1284.menu.clock.14_7456MHz_external=External 14.7456 MHz
+1284.menu.clock.14_7456MHz_external.upload.speed=115200
+1284.menu.clock.14_7456MHz_external.bootloader.low_fuses=0xf7
+1284.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+1284.menu.clock.12MHz_external=External 12 MHz
 1284.menu.clock.12MHz_external.upload.speed=57600
 1284.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-1284.menu.clock.8MHz_external=8 MHz external
+1284.menu.clock.11_0592MHz_external=External 11.0592 MHz
+1284.menu.clock.11_0592MHz_external.upload.speed=115200
+1284.menu.clock.11_0592MHz_external.bootloader.low_fuses=0xf7
+1284.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+1284.menu.clock.8MHz_external=External 8 MHz
 1284.menu.clock.8MHz_external.upload.speed=57600
 1284.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
 1284.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-1284.menu.clock.8MHz_internal=8 MHz internal
+1284.menu.clock.7_3728MHz_external=External 7.3728 MHz
+1284.menu.clock.7_3728MHz_external.upload.speed=115200
+1284.menu.clock.7_3728MHz_external.bootloader.low_fuses=0xf7
+1284.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+1284.menu.clock.3_6864MHz_external=External 3.6864 MHz
+1284.menu.clock.3_6864MHz_external.upload.speed=115200
+1284.menu.clock.3_6864MHz_external.bootloader.low_fuses=0xf7
+1284.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+1284.menu.clock.1_8432MHz_external=External 1.8432 MHz
+1284.menu.clock.1_8432MHz_external.upload.speed=115200
+1284.menu.clock.1_8432MHz_external.bootloader.low_fuses=0xf7
+1284.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+1284.menu.clock.8MHz_internal=Internal 8 MHz
 1284.menu.clock.8MHz_internal.upload.speed=38400
 1284.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 1284.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-1284.menu.clock.1MHz_internal=1 MHz internal
+1284.menu.clock.1MHz_internal=Internal 1 MHz
 1284.menu.clock.1MHz_internal.upload.speed=9600
 1284.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
@@ -216,40 +241,66 @@ menu.bootloader=Bootloader
 644.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
-644.menu.clock.16MHz_external=16 MHz external
+644.menu.clock.16MHz_external=External 16 MHz
 644.menu.clock.16MHz_external.upload.speed=115200
 644.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-644.menu.clock.20MHz_external=20 MHz external
+644.menu.clock.20MHz_external=External 20 MHz
 644.menu.clock.20MHz_external.upload.speed=115200
 644.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-644.menu.clock.18_432MHz_external=18.432 MHz external
+644.menu.clock.18_432MHz_external=External 18.4320 MHz
 644.menu.clock.18_432MHz_external.upload.speed=115200
 644.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-644.menu.clock.12MHz_external=12 MHz external
+644.menu.clock.14_7456MHz_external=External 14.7456 MHz
+644.menu.clock.14_7456MHz_external.upload.speed=115200
+644.menu.clock.14_7456MHz_external.bootloader.low_fuses=0xf7
+644.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+644.menu.clock.12MHz_external=External 12 MHz
 644.menu.clock.12MHz_external.upload.speed=57600
 644.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-644.menu.clock.8MHz_external=8 MHz external
+644.menu.clock.11_0592MHz_external=External 11.0592 MHz
+644.menu.clock.11_0592MHz_external.upload.speed=115200
+644.menu.clock.11_0592MHz_external.bootloader.low_fuses=0xf7
+644.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+644.menu.clock.8MHz_external=External 8 MHz
 644.menu.clock.8MHz_external.upload.speed=57600
 644.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
 644.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-644.menu.clock.8MHz_internal=8 MHz internal
+644.menu.clock.7_3728MHz_external=External 7.3728 MHz
+644.menu.clock.7_3728MHz_external.upload.speed=115200
+644.menu.clock.7_3728MHz_external.bootloader.low_fuses=0xf7
+644.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+644.menu.clock.3_6864MHz_external=External 3.6864 MHz
+644.menu.clock.3_6864MHz_external.upload.speed=115200
+644.menu.clock.3_6864MHz_external.bootloader.low_fuses=0xf7
+644.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+644.menu.clock.1_8432MHz_external=External 1.8432 MHz
+644.menu.clock.1_8432MHz_external.upload.speed=115200
+644.menu.clock.1_8432MHz_external.bootloader.low_fuses=0xf7
+644.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+644.menu.clock.8MHz_internal=Internal 8 MHz
 644.menu.clock.8MHz_internal.upload.speed=38400
 644.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 644.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-644.menu.clock.1MHz_internal=1 MHz internal
+644.menu.clock.1MHz_internal=Internal 1 MHz
 644.menu.clock.1MHz_internal.upload.speed=9600
 644.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 644.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
 
 
 
@@ -344,37 +395,62 @@ menu.bootloader=Bootloader
 324.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
-324.menu.clock.16MHz_external=16 MHz external
+324.menu.clock.16MHz_external=External 16 MHz
 324.menu.clock.16MHz_external.upload.speed=115200
 324.menu.clock.16MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-324.menu.clock.20MHz_external=20 MHz external
+324.menu.clock.20MHz_external=External 20 MHz
 324.menu.clock.20MHz_external.upload.speed=115200
 324.menu.clock.20MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-324.menu.clock.18_432MHz_external=18.432 MHz external
+324.menu.clock.18_432MHz_external=External 18.4320 MHz
 324.menu.clock.18_432MHz_external.upload.speed=115200
 324.menu.clock.18_432MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-324.menu.clock.12MHz_external=12 MHz external
+324.menu.clock.14_7456MHz_external=External 14.7456 MHz
+324.menu.clock.14_7456MHz_external.upload.speed=115200
+324.menu.clock.14_7456MHz_external.bootloader.low_fuses=low_fuses=0b1111{bootloader.cksel_bits}
+324.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+324.menu.clock.12MHz_external=External 12 MHz
 324.menu.clock.12MHz_external.upload.speed=57600
 324.menu.clock.12MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-324.menu.clock.8MHz_external=8 MHz external
+324.menu.clock.11_0592MHz_external=External 11.0592 MHz
+324.menu.clock.11_0592MHz_external.upload.speed=115200
+324.menu.clock.11_0592MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
+324.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+324.menu.clock.8MHz_external=External 8 MHz
 324.menu.clock.8MHz_external.upload.speed=57600
 324.menu.clock.8MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-324.menu.clock.8MHz_internal=8 MHz internal
+324.menu.clock.7_3728MHz_external=External 7.3728 MHz
+324.menu.clock.7_3728MHz_external.upload.speed=115200
+324.menu.clock.7_3728MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
+324.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+324.menu.clock.3_6864MHz_external=External 3.6864 MHz
+324.menu.clock.3_6864MHz_external.upload.speed=115200
+324.menu.clock.3_6864MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
+324.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+324.menu.clock.1_8432MHz_external=External 1.8432 MHz
+324.menu.clock.1_8432MHz_external.upload.speed=115200
+324.menu.clock.1_8432MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
+324.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+324.menu.clock.8MHz_internal=Internal 8 MHz
 324.menu.clock.8MHz_internal.upload.speed=38400
 324.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 324.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-324.menu.clock.1MHz_internal=1 MHz internal
+324.menu.clock.1MHz_internal=Internal 1 MHz
 324.menu.clock.1MHz_internal.upload.speed=9600
 324.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 324.menu.clock.1MHz_internal.build.f_cpu=1000000L
@@ -453,37 +529,62 @@ menu.bootloader=Bootloader
 164.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies
-164.menu.clock.16MHz_external=16 MHz external
+164.menu.clock.16MHz_external=External 16 MHz
 164.menu.clock.16MHz_external.upload.speed=115200
 164.menu.clock.16MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-164.menu.clock.20MHz_external=20 MHz external
+164.menu.clock.20MHz_external=External 20 MHz
 164.menu.clock.20MHz_external.upload.speed=115200
 164.menu.clock.20MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-164.menu.clock.18_432MHz_external=18.432 MHz external
+164.menu.clock.18_432MHz_external=External 18.4320 MHz
 164.menu.clock.18_432MHz_external.upload.speed=115200
 164.menu.clock.18_432MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-164.menu.clock.12MHz_external=12 MHz external
+164.menu.clock.14_7456MHz_external=External 14.7456 MHz
+164.menu.clock.14_7456MHz_external.upload.speed=115200
+164.menu.clock.14_7456MHz_external.bootloader.low_fuses=0xf7
+164.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+164.menu.clock.12MHz_external=External 12 MHz
 164.menu.clock.12MHz_external.upload.speed=57600
 164.menu.clock.12MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-164.menu.clock.8MHz_external=8 MHz external
+164.menu.clock.11_0592MHz_external=External 11.0592 MHz
+164.menu.clock.11_0592MHz_external.upload.speed=115200
+164.menu.clock.11_0592MHz_external.bootloader.low_fuses=0xf7
+164.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+164.menu.clock.8MHz_external=External 8 MHz
 164.menu.clock.8MHz_external.upload.speed=57600
 164.menu.clock.8MHz_external.bootloader.low_fuses=0xf7
 164.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-164.menu.clock.8MHz_internal=8 MHz internal
+164.menu.clock.7_3728MHz_external=External 7.3728 MHz
+164.menu.clock.7_3728MHz_external.upload.speed=115200
+164.menu.clock.7_3728MHz_external.bootloader.low_fuses=0xf7
+164.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+164.menu.clock.3_6864MHz_external=External 3.6864 MHz
+164.menu.clock.3_6864MHz_external.upload.speed=115200
+164.menu.clock.3_6864MHz_external.bootloader.low_fuses=0xf7
+164.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+164.menu.clock.1_8432MHz_external=External 1.8432 MHz
+164.menu.clock.1_8432MHz_external.upload.speed=115200
+164.menu.clock.1_8432MHz_external.bootloader.low_fuses=0xf7
+164.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+164.menu.clock.8MHz_internal=Internal 8 MHz
 164.menu.clock.8MHz_internal.upload.speed=38400
 164.menu.clock.8MHz_internal.bootloader.low_fuses=0xe2
 164.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-164.menu.clock.1MHz_internal=1 MHz internal
+164.menu.clock.1MHz_internal=Internal 1 MHz
 164.menu.clock.1MHz_internal.upload.speed=9600
 164.menu.clock.1MHz_internal.bootloader.low_fuses=0x62
 164.menu.clock.1MHz_internal.build.f_cpu=1000000L
@@ -550,43 +651,73 @@ menu.bootloader=Bootloader
 32.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
-32.menu.clock.16MHz_external=16 MHz external
+32.menu.clock.16MHz_external=External 16 MHz
 32.menu.clock.16MHz_external.upload.speed=115200
 32.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
 32.menu.clock.16MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-32.menu.clock.20MHz_external=20 MHz external
+32.menu.clock.20MHz_external=External 20 MHz
 32.menu.clock.20MHz_external.upload.speed=115200
 32.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
 32.menu.clock.20MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-32.menu.clock.18_432MHz_external=18.432 MHz external
+32.menu.clock.18_432MHz_external=External 18.4320 MHz
 32.menu.clock.18_432MHz_external.upload.speed=115200
 32.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
 32.menu.clock.18_432MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-32.menu.clock.12MHz_external=12 MHz external
+32.menu.clock.14_7456MHz_external=External 14.7456 MHz
+32.menu.clock.14_7456MHz_external.upload.speed=115200
+32.menu.clock.14_7456MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.14_7456MHz_external.bootloader.ckopt_bit=0
+32.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+32.menu.clock.12MHz_external=External 12 MHz
 32.menu.clock.12MHz_external.upload.speed=57600
 32.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
 32.menu.clock.12MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-32.menu.clock.8MHz_external=8 MHz external
+32.menu.clock.11_0592MHz_external=External 11.0592 MHz
+32.menu.clock.11_0592MHz_external.upload.speed=115200
+32.menu.clock.11_0592MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.11_0592MHz_external.bootloader.ckopt_bit=0
+32.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+32.menu.clock.8MHz_external=External 8 MHz
 32.menu.clock.8MHz_external.upload.speed=57600
 32.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
 32.menu.clock.8MHz_external.bootloader.ckopt_bit=0
 32.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-32.menu.clock.8MHz_internal=8 MHz internal
+32.menu.clock.7_3728MHz_external=External 7.3728 MHz
+32.menu.clock.7_3728MHz_external.upload.speed=115200
+32.menu.clock.7_3728MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.7_3728MHz_external.bootloader.ckopt_bit=0
+32.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+32.menu.clock.3_6864MHz_external=External 3.6864 MHz
+32.menu.clock.3_6864MHz_external.upload.speed=115200
+32.menu.clock.3_6864MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.3_6864MHz_external.bootloader.ckopt_bit=0
+32.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+32.menu.clock.1_8432MHz_external=External 1.8432 MHz
+32.menu.clock.1_8432MHz_external.upload.speed=115200
+32.menu.clock.1_8432MHz_external.bootloader.sut_cksel_bits=111111
+32.menu.clock.1_8432MHz_external.bootloader.ckopt_bit=0
+32.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+32.menu.clock.8MHz_internal=Internal 8 MHz
 32.menu.clock.8MHz_internal.upload.speed=38400
 32.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
 32.menu.clock.8MHz_internal.bootloader.ckopt_bit=1
 32.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-32.menu.clock.1MHz_internal=1 MHz internal
+32.menu.clock.1MHz_internal=Internal 1 MHz
 32.menu.clock.1MHz_internal.upload.speed=9600
 32.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 32.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
@@ -654,43 +785,73 @@ menu.bootloader=Bootloader
 16.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
-16.menu.clock.16MHz_external=16 MHz external
+16.menu.clock.16MHz_external=External 16 MHz
 16.menu.clock.16MHz_external.upload.speed=115200
 16.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
 16.menu.clock.16MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-16.menu.clock.20MHz_external=20 MHz external
+16.menu.clock.20MHz_external=External 20 MHz
 16.menu.clock.20MHz_external.upload.speed=115200
 16.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
 16.menu.clock.20MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-16.menu.clock.18_432MHz_external=18.432 MHz external
+16.menu.clock.18_432MHz_external=External 18.4320 MHz
 16.menu.clock.18_432MHz_external.upload.speed=115200
 16.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
 16.menu.clock.18_432MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-16.menu.clock.12MHz_external=12 MHz external
+16.menu.clock.14_7456MHz_external=External 14.7456 MHz
+16.menu.clock.14_7456MHz_external.upload.speed=115200
+16.menu.clock.14_7456MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.14_7456MHz_external.bootloader.ckopt_bit=0
+16.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+16.menu.clock.12MHz_external=External 12 MHz
 16.menu.clock.12MHz_external.upload.speed=57600
 16.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
 16.menu.clock.12MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-16.menu.clock.8MHz_external=8 MHz external
+16.menu.clock.11_0592MHz_external=External 11.0592 MHz
+16.menu.clock.11_0592MHz_external.upload.speed=115200
+16.menu.clock.11_0592MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.11_0592MHz_external.bootloader.ckopt_bit=0
+16.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+16.menu.clock.8MHz_external=External 8 MHz
 16.menu.clock.8MHz_external.upload.speed=57600
 16.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
 16.menu.clock.8MHz_external.bootloader.ckopt_bit=0
 16.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-16.menu.clock.8MHz_internal=8 MHz internal
+16.menu.clock.7_3728MHz_external=External 7.3728 MHz
+16.menu.clock.7_3728MHz_external.upload.speed=115200
+16.menu.clock.7_3728MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.7_3728MHz_external.bootloader.ckopt_bit=0
+16.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+16.menu.clock.3_6864MHz_external=External 3.6864 MHz
+16.menu.clock.3_6864MHz_external.upload.speed=115200
+16.menu.clock.3_6864MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.3_6864MHz_external.bootloader.ckopt_bit=0
+16.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+16.menu.clock.1_8432MHz_external=External 1.8432 MHz
+16.menu.clock.1_8432MHz_external.upload.speed=115200
+16.menu.clock.1_8432MHz_external.bootloader.sut_cksel_bits=111111
+16.menu.clock.1_8432MHz_external.bootloader.ckopt_bit=0
+16.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+16.menu.clock.8MHz_internal=Internal 8 MHz
 16.menu.clock.8MHz_internal.upload.speed=38400
 16.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
 16.menu.clock.8MHz_internal.bootloader.ckopt_bit=1
 16.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-16.menu.clock.1MHz_internal=1 MHz internal
+16.menu.clock.1MHz_internal=Internal 1 MHz
 16.menu.clock.1MHz_internal.upload.speed=9600
 16.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 16.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
@@ -758,43 +919,73 @@ menu.bootloader=Bootloader
 8535.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
-8535.menu.clock.16MHz_external=16 MHz external
+8535.menu.clock.16MHz_external=External 16 MHz
 8535.menu.clock.16MHz_external.upload.speed=115200
 8535.menu.clock.16MHz_external.bootloader.sut_cksel_bits=111111
 8535.menu.clock.16MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.16MHz_external.build.f_cpu=16000000L
 
-8535.menu.clock.20MHz_external=20 MHz external
+8535.menu.clock.20MHz_external=External 20 MHz
 8535.menu.clock.20MHz_external.upload.speed=115200
 8535.menu.clock.20MHz_external.bootloader.sut_cksel_bits=111111
 8535.menu.clock.20MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.20MHz_external.build.f_cpu=20000000L
 
-8535.menu.clock.18_432MHz_external=18.432 MHz external
+8535.menu.clock.18_432MHz_external=External 18.4320 MHz
 8535.menu.clock.18_432MHz_external.upload.speed=115200
 8535.menu.clock.18_432MHz_external.bootloader.sut_cksel_bits=111111
 8535.menu.clock.18_432MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.18_432MHz_external.build.f_cpu=18432000L
 
-8535.menu.clock.12MHz_external=12 MHz external
+8535.menu.clock.14_7456MHz_external=External 14.7456 MHz
+8535.menu.clock.14_7456MHz_external.upload.speed=115200
+8535.menu.clock.14_7456MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.14_7456MHz_external.bootloader.ckopt_bit=0
+8535.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
+
+8535.menu.clock.12MHz_external=External 12 MHz
 8535.menu.clock.12MHz_external.upload.speed=57600
 8535.menu.clock.12MHz_external.bootloader.sut_cksel_bits=111111
 8535.menu.clock.12MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.12MHz_external.build.f_cpu=12000000L
 
-8535.menu.clock.8MHz_external=8 MHz external
+8535.menu.clock.11_0592MHz_external=External 11.0592 MHz
+8535.menu.clock.11_0592MHz_external.upload.speed=115200
+8535.menu.clock.11_0592MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.11_0592MHz_external.bootloader.ckopt_bit=0
+8535.menu.clock.11_0592MHz_external.build.f_cpu=11059200L
+
+8535.menu.clock.8MHz_external=External 8 MHz
 8535.menu.clock.8MHz_external.upload.speed=57600
 8535.menu.clock.8MHz_external.bootloader.sut_cksel_bits=111111
 8535.menu.clock.8MHz_external.bootloader.ckopt_bit=0
 8535.menu.clock.8MHz_external.build.f_cpu=8000000L
 
-8535.menu.clock.8MHz_internal=8 MHz internal
+8535.menu.clock.7_3728MHz_external=External 7.3728 MHz
+8535.menu.clock.7_3728MHz_external.upload.speed=115200
+8535.menu.clock.7_3728MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.7_3728MHz_external.bootloader.ckopt_bit=0
+8535.menu.clock.7_3728MHz_external.build.f_cpu=7372800L
+
+8535.menu.clock.3_6864MHz_external=External 3.6864 MHz
+8535.menu.clock.3_6864MHz_external.upload.speed=115200
+8535.menu.clock.3_6864MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.3_6864MHz_external.bootloader.ckopt_bit=0
+8535.menu.clock.3_6864MHz_external.build.f_cpu=3686400L
+
+8535.menu.clock.1_8432MHz_external=External 1.8432 MHz
+8535.menu.clock.1_8432MHz_external.upload.speed=115200
+8535.menu.clock.1_8432MHz_external.bootloader.sut_cksel_bits=111111
+8535.menu.clock.1_8432MHz_external.bootloader.ckopt_bit=0
+8535.menu.clock.1_8432MHz_external.build.f_cpu=1843200L
+
+8535.menu.clock.8MHz_internal=Internal 8 MHz
 8535.menu.clock.8MHz_internal.upload.speed=38400
 8535.menu.clock.8MHz_internal.bootloader.sut_cksel_bits=100100
 8535.menu.clock.8MHz_internal.bootloader.ckopt_bit=1
 8535.menu.clock.8MHz_internal.build.f_cpu=8000000L
 
-8535.menu.clock.1MHz_internal=1 MHz internal
+8535.menu.clock.1MHz_internal=Internal 1 MHz
 8535.menu.clock.1MHz_internal.upload.speed=9600
 8535.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 8535.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
