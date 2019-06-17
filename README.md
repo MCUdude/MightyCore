@@ -56,27 +56,29 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 <b>*</b> ATmega324PB has 3 serial ports, 9 PWM pins and 39 IO pins if internal oscillator is used.
 
 ## Supported clock frequencies
-* 16 MHz external oscillator (default)
-* 20 MHz external oscillator
-* 18.4320 MHz external oscillator
-* 14.7456 MHz external oscillator
-* 12 MHz external oscillator
-* 11.0592 MHz external oscillator
-* 8 MHz external oscillator
-* 7.3728 MHz external oscillator
-* 3.6864 MHz external oscillator
-* 1.8432 MHz external oscillator
-* 8 MHz internal oscillator <b>*</b>
-* 1 MHz internal oscillator
 
-Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
-Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended. 
-<br/><br/>
+MightyCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader.  
+Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external crystal/oscillator is recommended.  
 
-<b>*</b> There might be some issues related to the internal oscillator. It's factory calibrated, but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have three options:
-* Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MiniCore/blob/3ba977a7c6f948beff5a928d7f11a627282779e2/avr/boards.txt#L83) file, and choose either 115200, 57600, 38400 or 19200 baud.
+You might experience upload issues when using the internal oscillator. It's factory calibrated but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have these options:
+* Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/d2a34e027e922631bbed8b4bd60824d5b1eb94cd/avr/boards.txt#L161) file, and choose either 115200, 57600, 38400 or 19200 baud.
 * Upload the code using a programmer (USBasp, USBtinyISP etc.) or skip the bootloader by holding down the shift key while clicking the "Upload" button
-* Use the 1 MHz option instead  
+* Use the 1 MHz option instead
+
+| Frequency   | Oscillator type             | Comment                                                       |
+|-------------|-----------------------------|---------------------------------------------------------------|
+| 16 MHz      | External crystal/oscillator | Default clock on most AVR based Arduino boards and MightyCore |
+| 20 MHz      | External crystal/oscillator | 
+| 18.4320 MHz | External crystal/oscillator | Great clock for UART communication with no error              |
+| 14.7456 MHz | External crystal/oscillator | Great clock for UART communication with no error              |
+| 12 MHz      | External crystal/oscillator | Useful when working with USB 1.1 (12 Mbit/s)                  |
+| 11.0592 MHz | External crystal/oscillator | Great clock for UART communication with no error              |
+| 8 MHz       | External crystal/oscillator | Common clock when working with 3.3V                           |
+| 7.3728 MHz  | External crystal/oscillator | Great clock for UART communication with no error              |
+| 3.6864 MHz  | External crystal/oscillator | Great clock for UART communication with no error              |
+| 1.8432 MHz  | External crystal/oscillator | Great clock for UART communication with no error              |
+| 8 MHz       | Internal oscillator         | Might cause UART upload issues. See comment above this table  |
+| 1 MHz       | Internal oscillator         | Derived from the 8 MHz internal oscillator                    |
 
 
 ## Bootloader option
