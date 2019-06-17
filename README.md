@@ -66,10 +66,9 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 * 7.3728 MHz external oscillator
 * 3.6864 MHz external oscillator
 * 1.8432 MHz external oscillator
-
 * 8 MHz internal oscillator <b>*</b>
-* 1 MHz internal oscillator 
- 
+* 1 MHz internal oscillator
+
 Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
 Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external oscillator is recommended. 
 <br/><br/>
