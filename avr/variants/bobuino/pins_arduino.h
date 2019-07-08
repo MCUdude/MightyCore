@@ -631,4 +631,26 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
 
 #endif // 324PB defs
 
+// These serial port names are intended to allow libraries and architecture-neutral
+// sketches to automatically default to the correct port name for a particular type
+// of use.  For example, a GPS module would normally connect to SERIAL_PORT_HARDWARE_OPEN,
+// the first hardware serial port whose RX/TX pins are not dedicated to another use.
+
+#define SERIAL_PORT_MONITOR         Serial
+#define SERIAL_PORT_HARDWARE        Serial
+#define SERIAL_PORT_HARDWARE_OPEN   Serial
+
+#if defined(__AVR_ATmega164A__) || defined(__AVR_ATmega164P__) || defined(__AVR_ATmega324A__) || \
+defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATmega324PB__) ||   \
+defined(__AVR_ATmega644A__) || defined(__AVR_ATmega644P__) || defined(__AVR_ATmega1284__) ||     \
+defined(__AVR_ATmega1284P__)
+#define SERIAL_PORT_HARDWARE1       Serial1
+#define SERIAL_PORT_HARDWARE_OPEN1  Serial1
+#endif
+
+#if defined(__AVR_ATmega324PB__)
+#define SERIAL_PORT_HARDWARE2       Serial2
+#define SERIAL_PORT_HARDWARE_OPEN2  Serial2
+#endif
+
 #endif // Pins_Arduino_h
