@@ -38,9 +38,7 @@ framework = arduino
 
 ; TARGET SETTINGS
 ; PlatformIO requires the board parameter. Must match your actual hardware
-board = mightycore32
-; Actual target 
-board_build.mcu = atmega32
+board = ATmega1284P
 ; Clock frequency in [Hz]
 board_build.f_cpu = 16000000L
 
@@ -75,20 +73,21 @@ monitor_speed = 9600
 PlatformIO requires the `board` parameter to be present.
 The table below shows what board name should be used for each target
 
-| Target                                                          | Board name     |
-|-----------------------------------------------------------------|----------------|
-| Atmega1284P <br/> ATmega1284                                    | mightycore1284 |
-| ATmega644P/PA <br/> ATmega644/A                                 | mightycore644  |
-| ATmega324PB <br/> ATmega324PA <br/> ATmega324P <br/> ATmega324A | mightycore324  |
-| ATmega164P/PA <br/> ATmega164A                                  | mightycore164  |
-| ATmega32                                                        | mightycore32   |
-| ATmega16                                                        | mightycore16   |
-| ATmega8535                                                      | mightycore8535 |
-
-
-### `board_build.mcu`
-Holds the actual build target.  
-If building for ATmega324PB for instance, use `board_build.mcu = atmega324pb`.
+| Target                                         | Board name  |
+|------------------------------------------------|-------------|
+| ATmega1284P                                    | ATmega1284P |
+| ATmega1284                                     | ATmega1284  |
+| ATmega644P/PA                                  | ATmega644P  |
+| ATmega644/A                                    | ATmega644A  |
+| ATmega324PB                                    | ATmega324PB |
+| ATmega324PA                                    | ATmega324PA |
+| ATmega324P                                     | ATmega324P  |
+| ATmega324A                                     | ATmega324A  |
+| ATmega164P/PA                                  | ATmega164P  |
+| ATmega164A                                     | ATmega164A  |
+| ATmega32                                       | ATmega32    |
+| ATmega16                                       | ATmega16    |
+| ATmega8535                                     | ATmega8535  |
 
 
 ### `board_build.f_cpu`
@@ -99,17 +98,22 @@ Below is a table with the default clocks and baud rates for MightyCore:
 | Clock speed | Oscillator | board_build.f_cpu | board_upload.speed |
 |-------------|------------|-------------------|--------------------|
 | 20 MHz      | External   | 20000000L         | 115200             |
-| 18.432 MHz  | External   | 18432000L         | 115200             |
+| 18.4320 MHz | External   | 18432000L         | 115200             |
 | 16 MHz      | External   | 16000000L         | 115200             |
+| 14.7456 MHz | External   | 14745600L         | 115200             |
 | 12 MHz      | External   | 12000000L         | 57600              |
+| 11.0592 MHz | External   | 11059200L         | 115200             |
 | 8 MHz       | External   | 8000000L          | 57600              |
+| 7.3728  MHz | External   | 7372800L          | 115200             |
+| 3.6864  MHz | External   | 3686400L          | 115200             |
+| 1.8432  MHz | External   | 1843200L          | 115200             |
 | 8 MHz       | Internal   | 8000000L          | 38400              |
 | 1 MHz       | Internal   | 1000000L          | 9600               |
 
 
 ### `board_build.variant`
-Holds the current pinout in use. Valid pinouts is `mightycore_standard`, `mightycore_bobuino` and `mightycore_sanguino`.
-
+Holds the current pinout in use. Valid pinouts is `mightycore_standard`, `mightycore_bobuino` and `mightycore_sanguino`. <br/>
+See [pinout pics](https://github.com/MCUdude/MightyCore#pinout) for more info.
 
 ### `build_unflags`
 This parameter is used to unflag. Since LTO is enabled by default in PlatformIO we may disable it by unflagging `-flto`.
