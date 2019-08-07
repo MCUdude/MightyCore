@@ -30,6 +30,7 @@
 
   #ifndef TWI1_BUFFER_SIZE
   #define TWI1_BUFFER_SIZE 32
+  #define BUFFER_LENGTH1 TWI1_BUFFER_SIZE // For backwards compatibility
   #endif
 
   #define TWI_READY 0
