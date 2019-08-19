@@ -1,0 +1,10 @@
+{
+	"name": "SPI",
+	"version": "1.0",
+	"description": "Enables the communication with devices that use the Serial Peripheral Interface (SPI) Bus.",
+	"frameworks": "arduino",
+	"platforms": "*",
+	"build": {
+		"libLDFMode": "chain+"
+	}
+}
