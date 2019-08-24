@@ -335,6 +335,10 @@ boolean callback_rmdir(SdFile& parentDir, const char *filePathComponent,
 
 
 boolean SDClass::begin(uint8_t csPin) {
+
+  if (root.isOpen()) {
+      root.close();
+  }
   /*
 
     Performs the initialisation required by the sdfatlib library.
