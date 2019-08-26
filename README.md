@@ -6,9 +6,11 @@ This core requires at least Arduino IDE v1.6, where v1.8.7 or newer is recommend
 If you're into "generic" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the [example files](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/AVR_examples/examples) (File > Examples > AVR C code examples).
 <br/> <br/>
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
-but felt like some functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
-Read more in the hardware section below.
-
+but felt like vital functionality was missing on the board. When designing this board I made sure all missing functionality was added. [The board can be bought on my Tindie store](https://www.tindie.com/products/MCUdude/dip-40-arduino-compatible-development-board).
+<br/>
+**Read more in the hardware section below.**
+<br/>
+<img src="https://i.imgur.com/MYKePw6.jpg" width="420"> <img src="https://i.imgur.com/LUwmwrR.jpg" width="407">
 
 # Table of contents
 * [Supported microcontrollers](#supported-microcontrollers)
