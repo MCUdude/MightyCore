@@ -386,3 +386,59 @@ F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRE
 3686400L	UART3		B7		2		Yes		No		460800		460800		0.0%	630 bytes	optiboot_flash_atmega640_UART3_460800_3686400L_BIGBOOT.hex
 
 
+Optiboot_flash build output for atmega640 
+https://github.com/MCUdude/optiboot_flash 
+Build date and time: 03.08.2019 01:06 
+Compiler: avr-gcc 5.4.0
+ 
+F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRED BAUD:	ACTUAL BAUD:	ERROR:	COMPILED SIZE:	OUTPUT FILE:
+22118400L	UART0		B7		2		Yes		No		460800		460800		0.0%	630 bytes	optiboot_flash_atmega640_UART0_460800_22118400L_BIGBOOT.hex
+22118400L	UART0		B7		2		Yes		No		230400		230400		0.0%	632 bytes	optiboot_flash_atmega640_UART0_230400_22118400L_BIGBOOT.hex
+22118400L	UART0		B7		2		Yes		No		115200		115200		0.0%	632 bytes	optiboot_flash_atmega640_UART0_115200_22118400L_BIGBOOT.hex
+22118400L	UART0		B7		2		Yes		No		57600		57600		0.0%	632 bytes	optiboot_flash_atmega640_UART0_57600_22118400L_BIGBOOT.hex
+22118400L	UART0		B7		2		Yes		No		38400		38400		0.0%	632 bytes	optiboot_flash_atmega640_UART0_38400_22118400L_BIGBOOT.hex
+22118400L	UART0		B7		2		Yes		No		19200		19200		0.0%	632 bytes	optiboot_flash_atmega640_UART0_19200_22118400L_BIGBOOT.hex
+
+
+Optiboot_flash build output for atmega640 
+https://github.com/MCUdude/optiboot_flash 
+Build date and time: 03.08.2019 01:06 
+Compiler: avr-gcc 5.4.0
+ 
+F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRED BAUD:	ACTUAL BAUD:	ERROR:	COMPILED SIZE:	OUTPUT FILE:
+22118400L	UART1		B7		2		Yes		No		460800		460800		0.0%	630 bytes	optiboot_flash_atmega640_UART1_460800_22118400L_BIGBOOT.hex
+22118400L	UART1		B7		2		Yes		No		230400		230400		0.0%	632 bytes	optiboot_flash_atmega640_UART1_230400_22118400L_BIGBOOT.hex
+22118400L	UART1		B7		2		Yes		No		115200		115200		0.0%	632 bytes	optiboot_flash_atmega640_UART1_115200_22118400L_BIGBOOT.hex
+22118400L	UART1		B7		2		Yes		No		57600		57600		0.0%	632 bytes	optiboot_flash_atmega640_UART1_57600_22118400L_BIGBOOT.hex
+22118400L	UART1		B7		2		Yes		No		38400		38400		0.0%	632 bytes	optiboot_flash_atmega640_UART1_38400_22118400L_BIGBOOT.hex
+22118400L	UART1		B7		2		Yes		No		19200		19200		0.0%	632 bytes	optiboot_flash_atmega640_UART1_19200_22118400L_BIGBOOT.hex
+
+
+Optiboot_flash build output for atmega640 
+https://github.com/MCUdude/optiboot_flash 
+Build date and time: 03.08.2019 01:06 
+Compiler: avr-gcc 5.4.0
+ 
+F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRED BAUD:	ACTUAL BAUD:	ERROR:	COMPILED SIZE:	OUTPUT FILE:
+22118400L	UART2		B7		2		Yes		No		460800		460800		0.0%	630 bytes	optiboot_flash_atmega640_UART2_460800_22118400L_BIGBOOT.hex
+22118400L	UART2		B7		2		Yes		No		230400		230400		0.0%	632 bytes	optiboot_flash_atmega640_UART2_230400_22118400L_BIGBOOT.hex
+22118400L	UART2		B7		2		Yes		No		115200		115200		0.0%	632 bytes	optiboot_flash_atmega640_UART2_115200_22118400L_BIGBOOT.hex
+22118400L	UART2		B7		2		Yes		No		57600		57600		0.0%	632 bytes	optiboot_flash_atmega640_UART2_57600_22118400L_BIGBOOT.hex
+22118400L	UART2		B7		2		Yes		No		38400		38400		0.0%	632 bytes	optiboot_flash_atmega640_UART2_38400_22118400L_BIGBOOT.hex
+22118400L	UART2		B7		2		Yes		No		19200		19200		0.0%	632 bytes	optiboot_flash_atmega640_UART2_19200_22118400L_BIGBOOT.hex
+
+
+Optiboot_flash build output for atmega640 
+https://github.com/MCUdude/optiboot_flash 
+Build date and time: 03.08.2019 01:06 
+Compiler: avr-gcc 5.4.0
+ 
+F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRED BAUD:	ACTUAL BAUD:	ERROR:	COMPILED SIZE:	OUTPUT FILE:
+22118400L	UART3		B7		2		Yes		No		460800		460800		0.0%	630 bytes	optiboot_flash_atmega640_UART3_460800_22118400L_BIGBOOT.hex
+22118400L	UART3		B7		2		Yes		No		230400		230400		0.0%	632 bytes	optiboot_flash_atmega640_UART3_230400_22118400L_BIGBOOT.hex
+22118400L	UART3		B7		2		Yes		No		115200		115200		0.0%	632 bytes	optiboot_flash_atmega640_UART3_115200_22118400L_BIGBOOT.hex
+22118400L	UART3		B7		2		Yes		No		57600		57600		0.0%	632 bytes	optiboot_flash_atmega640_UART3_57600_22118400L_BIGBOOT.hex
+22118400L	UART3		B7		2		Yes		No		38400		38400		0.0%	632 bytes	optiboot_flash_atmega640_UART3_38400_22118400L_BIGBOOT.hex
+22118400L	UART3		B7		2		Yes		No		19200		19200		0.0%	632 bytes	optiboot_flash_atmega640_UART3_19200_22118400L_BIGBOOT.hex
+
+
