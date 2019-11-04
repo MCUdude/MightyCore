@@ -1,6 +1,6 @@
 # Optiboot flash
 Optiboot flash is an easy to install bootloader for the Arduino environment. 
-This repository contains a total of 6796 precompiled hex files built for 49 different targets with 14 different clock frequencies and 9 different baud rates to choose from.
+This repository contains a total of 8874 precompiled hex files built for 49 different targets with 14 different clock frequencies and 9 different baud rates to choose from.
 
 
 ### Key features:
@@ -49,13 +49,22 @@ This repository contains a bunch of precompiled hex file with a variety of clock
 ## Using different UARTs
 The table below shows the available serial ports for the corresponding microcontroller. This repository contains precompiled hex files if you want to use other serial ports than UART0.
 
-|                                                                                                                                                    | UART0 | UART1 | UART2 | UART3 |
+| Target                                                                                                                                             | UART0 | UART1 | UART2 | UART3 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|-------|-------|-------|-------|
 | ATmega8/88/168/328 <br/> ATmega8515 <br/> ATmega8535/16/32 <br/> ATmega169/329/649 <br/> ATmega325/645 <br/> ATmega3250/6450 <br/> ATmega3290/6490 | X     |       |       |       |
 | ATmega162 <br/> ATmega328PB <br/> ATmega164/324/644/1284 <br/> ATmega64/128 <br/> AT90CAN32/64/128 <br/> ATmega1281/2561                           | X     | X     |       |       |
 | ATmega324PB                                                                                                                                        | X     | X     | X     |       |
 | ATmega640/1280/2560                                                                                                                                | X     | X     | X     | X     |
 
+## Bootloader LED pin
+All precompiled binaries have an active LED output pin. The LED flashes twice when a hardware reset occurs. The table below shows which pin used used to drive the LED for a particular target:
+
+| Target                                                                                                                                               | LED pin  |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| ATmega8515, ATmega162                                                                                                                                | PB0      |
+| ATmega8535/16/32 <br/> ATmega164/324/644/1284                                                                                                        | PB0, PB7 |
+| ATmega8/88/168/328 <br/> ATmega64/128/1281/2561 <br/> AT90CAN32/64/128 <br/> ATmega325/645, ATmega3250/6450 <br/> ATmega169/329/649, ATmega3290/6490 | PB5      |
+| ATmega640/1280/2560                                                                                                                                  | PB7      |
 
 ## Building from source
 You need to have `make` installed. You also need `avr-libc`, `avr-binutils` and `avr-gcc`. Alternatively you can install Arduino IDE, which comes with all these packages except `make`.
