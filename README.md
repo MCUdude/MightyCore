@@ -18,6 +18,7 @@ but felt like vital functionality was missing on the board. When designing this 
 * [Bootloader option](#bootloader-option)
 * [BOD option](#bod-option)
 * [Link time optimization / LTO](#link-time-optimization--lto)
+* [Printf support](#printf-support)
 * **[Pinout](#pinout)**
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
@@ -114,6 +115,12 @@ Here's some raw numbers. These sketches were compiled for an **ATmega1284** usin
 |------------------|------------|-----------------------|---------------------|--------------|
 | **LTO enabled**  | 1084 bytes | 1974 bytes            | 7190 bytes          | 9416 bytes   |
 | **LTO disabled** | 1216 bytes | 2414 bytes            | 7710 bytes          | 11518 bytes  |
+
+
+# Printf support
+Unlike the official Arduino cores, MightyCore has printf support out of the box. If you're not familiar with printf you should probably [read this first](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm). It's added to the Print class and will work with all libraries that inherit Print. Printf is a standard C function that lets you format text much easier than using Arduino's built-in print and println. Note that this implementation of printf will NOT print floats or doubles. This is a limitation of the avr-libc printf implementation on AVR microcontrollers, and nothing I can easily fix.
+
+If you're using a serial port, simply use `Serial.printf("Milliseconds since start: %ld\n", millis());`. Other libraries that inherit the Print class (and thus supports printf) are the LiquidCrystal LCD library and the U8G2 graphical LCD library.
 
 
 ## Pinout
