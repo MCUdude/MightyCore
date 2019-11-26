@@ -64,7 +64,7 @@ board_upload.speed = 115200
 
 ; BUILD OPTIONS
 ; Current pinout
-board_build.variant = mightycore_standard
+board_build.variant = standard
 ; Comment out to enable LTO (this line unflags it)
 build_unflags = -flto
 ; Extra build flags
@@ -189,11 +189,11 @@ Recommended baud rate for the particular clock speed is in *italic text*.
 Holds the current pinout in use.  
 See [pinout pics](https://github.com/MCUdude/MightyCore#pinout) for more info.
 
-| Pinouts                         |
-|---------------------------------|
-| `mightycore_standard` (default) |
-| `mightycore_bobuino`            |
-| `mightycore_sanguino`           |
+| Pinouts              |
+|----------------------|
+| `standard` (default) |
+| `bobuino`            |
+| `sanguino`           |
 
 
 ### `build_unflags`
