@@ -90,7 +90,7 @@ void twi_init1(void)
   TWCR1 = _BV(TWEN) | _BV(TWIE) | _BV(TWEA);
 }
 
-/* 
+/*
  * Function twi_disable
  * Desc     disables twi pins
  * Input    none
@@ -106,7 +106,7 @@ void twi_disable1(void)
   digitalWrite(SCL, 0);
 }
 
-/* 
+/*
  * Function twi_slaveInit
  * Desc     sets slave address and enables interrupt
  * Input    none
@@ -116,6 +116,22 @@ void twi_setAddress1(uint8_t address)
 {
   // set twi slave address (skip over TWGCE bit)
   TWAR1 = address << 1;
+}
+
+/*
+ * Function twi_setFrequency
+ * Desc     sets twi bit rate
+ * Input    Clock frequency
+ * Output   none
+ */
+void twi_setFrequency1(uint32_t frequency)
+{
+  TWBR = ((F_CPU / frequency) - 16) / 2;
+
+  /* twi bit rate formula from atmega128 manual pg 204
+  SCL Frequency = CPU Clock Frequency / (16 + (2 * TWBR1))
+  note: TWBR1 should be 10 or higher for master mode
+  It is 72 for a 16mhz Wiring board with 100kHz TWI */
 }
 
 /* 
@@ -288,7 +304,7 @@ uint8_t twi_transmit1(const uint8_t* data, uint8_t length)
   uint8_t i;
 
   // ensure data will fit into buffer
-  if(TWI1_BUFFER_SIZE < length){
+  if(TWI1_BUFFER_SIZE < (twi_txBufferLength+length)){
     return 1;
   }
   
@@ -300,8 +316,9 @@ uint8_t twi_transmit1(const uint8_t* data, uint8_t length)
   // set length and copy data into tx buffer
   twi_txBufferLength = length;
   for(i = 0; i < length; ++i){
-    twi_txBuffer[i] = data[i];
+    twi_txBuffer[twi_txBufferLength+i] = data[i];
   }
+  twi_txBufferLength += length;
   
   return 0;
 }
@@ -430,6 +447,7 @@ ISR(TWI1_vect)
     case TW_MR_DATA_ACK: // data received, ack sent
       // put byte into buffer
       twi_masterBuffer[twi_masterBufferIndex++] = TWDR1;
+      __attribute__ ((fallthrough));
     case TW_MR_SLA_ACK:  // address sent, ack received
       // ack if more bytes are expected, otherwise nack
       if(twi_masterBufferIndex < twi_masterBufferLength){
@@ -516,6 +534,7 @@ ISR(TWI1_vect)
         twi_txBuffer[0] = 0x00;
       }
       // transmit first byte from buffer, fall
+      __attribute__ ((fallthrough));
     case TW_ST_DATA_ACK: // byte sent, ack returned
       // copy data to output register
       TWDR1 = twi_txBuffer[twi_txBufferIndex++];
