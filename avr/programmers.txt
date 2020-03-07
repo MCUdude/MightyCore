@@ -37,15 +37,10 @@ usbtinyisp.protocol=usbtiny
 usbtinyisp.program.tool=avrdude
 usbtinyisp.program.extra_params=
 
-arduinoisp.name=ArduinoISP (MightyCore)
-arduinoisp.protocol=arduinoisp
-arduinoisp.program.tool=avrdude
-arduinoisp.program.extra_params=
-
-arduinoisporg.name=ArduinoISP.org (MightyCore)
-arduinoisporg.protocol=arduinoisporg
-arduinoisporg.program.tool=avrdude
-arduinoisporg.program.extra_params=
+usbtinyisp_slow.name=USBtinyISP slow (MightyCore)
+usbtinyisp_slow.protocol=usbtiny
+usbtinyisp_slow.program.tool=avrdude
+usbtinyisp_slow.program.extra_params=-B32
 
 usbasp.name=USBasp (MightyCore)
 usbasp.communication=usb
@@ -54,19 +49,12 @@ usbasp.program.protocol=usbasp
 usbasp.program.tool=avrdude
 usbasp.program.extra_params=-Pusb
 
-usbasp.name=USBasp slow (MightyCore)
-usbasp.communication=usb
-usbasp.protocol=usbasp
-usbasp.program.protocol=usbasp
-usbasp.program.tool=avrdude
-usbasp.program.extra_params=-Pusb -B16
-
-parallel.name=Parallel Programmer (MightyCore)
-parallel.protocol=dapa
-parallel.force=true
-# parallel.delay=200
-parallel.program.tool=avrdude
-parallel.program.extra_params=-F
+usbasp_slow.name=USBasp slow (MightyCore)
+usbasp_slow.communication=usb
+usbasp_slow.protocol=usbasp
+usbasp_slow.program.protocol=usbasp
+usbasp_slow.program.tool=avrdude
+usbasp_slow.program.extra_params=-Pusb -B32
 
 arduinoasisp.name=Arduino as ISP (MightyCore)
 arduinoasisp.communication=serial
@@ -76,19 +64,6 @@ arduinoasisp.program.protocol=stk500v1
 arduinoasisp.program.speed=19200
 arduinoasisp.program.tool=avrdude
 arduinoasisp.program.extra_params=-P{serial.port} -b{program.speed}
-
-## Notes about Dangerous Prototypes Bus Pirate as ISP
-## Bus Pirate V3 need Firmware v5.10 or later
-## Bus Pirate V4 need Firmware v6.3-r2151 or later
-## Could happen that BP does not have enough current to power an Arduino board
-## through the ICSP connector. In this case disconnect the +Vcc from ICSP connector
-## and power Arduino board in the normal way.
-buspirate.name=BusPirate as ISP (MightyCore)
-buspirate.communication=serial
-buspirate.protocol=buspirate
-buspirate.program.protocol=buspirate
-buspirate.program.tool=avrdude
-buspirate.program.extra_params=-P{serial.port}
 
 atmel_ice.name=Atmel-ICE (AVR) (MightyCore)
 atmel_ice.communication=usb
