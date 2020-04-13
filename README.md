@@ -19,6 +19,7 @@ but felt like vital functionality was missing on the board. When designing this 
 * [BOD option](#bod-option)
 * [Link time optimization / LTO](#link-time-optimization--lto)
 * [Printf support](#printf-support)
+* [Pin macros](#pin-macros)
 * **[Pinout](#pinout)**
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
@@ -121,6 +122,19 @@ Here's some raw numbers. These sketches were compiled for an **ATmega1284** usin
 Unlike the official Arduino cores, MightyCore has printf support out of the box. If you're not familiar with printf you should probably [read this first](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm). It's added to the Print class and will work with all libraries that inherit Print. Printf is a standard C function that lets you format text much easier than using Arduino's built-in print and println. Note that this implementation of printf will NOT print floats or doubles. This is a limitation of the avr-libc printf implementation on AVR microcontrollers, and nothing I can easily fix.
 
 If you're using a serial port, simply use `Serial.printf("Milliseconds since start: %ld\n", millis());`. Other libraries that inherit the Print class (and thus supports printf) are the LiquidCrystal LCD library and the U8G2 graphical LCD library.
+
+
+## Pin macros
+Note that you don't have to use the digital pin numbers to refer to the pins. You can also use some predefined macros that maps "Arduino pins" to the port and port number:
+
+```c++
+// Use PIN_PB0 macro to refer to pin PB0 (Arduino pin 0 with the standard and sanguino pinout)
+digitalWrite(PIN_PB0, HIGH);
+
+// Results in the exact same compiled code
+digitalWrite(0, HIGH);
+
+```
 
 
 ## Pinout
