@@ -135,6 +135,47 @@ defined(__AVR_ATmega1284P__)
 #define digitalPinToPCMSK(p)    ifpin(p,(uint8_t *)PORT_NDX_TO_PCMSK(digital_pin_to_pcint[p] >> 3),(uint8_t *)0)
 #define digitalPinToPCMSKbit(p) ifpin(p,digital_pin_to_pcint[p] & 0x7,0)
 
+#define PIN_PD0 0
+#define PIN_PD1 1
+#define PIN_PD2 2
+#define PIN_PD3 3
+#define PIN_PB0 4
+#define PIN_PB1 5
+#define PIN_PB2 6
+#define PIN_PB3 7
+#define PIN_PD5 8
+#define PIN_PD6 9
+#define PIN_PB4 10
+#define PIN_PB5 11
+#define PIN_PB6 12
+#define PIN_PB7 13
+#define PIN_PA7 14
+#define PIN_PA6 15
+#define PIN_PA5 16
+#define PIN_PA4 17
+#define PIN_PA3 18
+#define PIN_PA2 19
+#define PIN_PA1 20
+#define PIN_PA0 21
+#define PIN_PC0 22
+#define PIN_PC1 23
+#define PIN_PC2 24
+#define PIN_PC3 25
+#define PIN_PC4 26
+#define PIN_PC5 27
+#define PIN_PC6 28
+#define PIN_PC7 29
+#define PIN_PD4 30
+#define PIN_PD7 31
+#if defined(__AVR_ATmega324PB__)
+  #define PIN_PE0 32
+  #define PIN_PE1 33
+  #define PIN_PE2 34
+  #define PIN_PE3 35
+  #define PIN_PE4 36
+  #define PIN_PE5 37
+  #define PIN_PE6 38
+#endif
 
 #ifndef ARDUINO_MAIN
 extern const uint8_t digital_pin_to_pcint[];
@@ -326,49 +367,6 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
   _BV(6), // D38 - PE6
 #endif
 };
-
-
-#define PIN_PD0 0
-#define PIN_PD1 1
-#define PIN_PD2 2
-#define PIN_PD3 3
-#define PIN_PB0 4
-#define PIN_PB1 5
-#define PIN_PB2 6
-#define PIN_PB3 7
-#define PIN_PD5 8
-#define PIN_PD6 9
-#define PIN_PB4 10
-#define PIN_PB5 11
-#define PIN_PB6 12
-#define PIN_PB7 13
-#define PIN_PA7 14
-#define PIN_PA6 15
-#define PIN_PA5 16
-#define PIN_PA4 17
-#define PIN_PA3 18
-#define PIN_PA2 19
-#define PIN_PA1 20
-#define PIN_PA0 21
-#define PIN_PC0 22
-#define PIN_PC1 23
-#define PIN_PC2 24
-#define PIN_PC3 25
-#define PIN_PC4 26
-#define PIN_PC5 27
-#define PIN_PC6 28
-#define PIN_PC7 29
-#define PIN_PD4 30
-#define PIN_PD7 31
-#if defined(__AVR_ATmega324PB__)
-  #define PIN_PE0 32
-  #define PIN_PE1 33
-  #define PIN_PE2 34
-  #define PIN_PE3 35
-  #define PIN_PE4 36
-  #define PIN_PE5 37
-  #define PIN_PE6 38
-#endif
 
 #if defined(__AVR_ATmega8535__) || defined(__AVR_ATmega16__) || defined(__AVR_ATmega32__)
 const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
