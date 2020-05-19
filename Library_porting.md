@@ -5,7 +5,7 @@ The ATmega8535, ATmega16 and ATmega32 are particularly vulnerable, while the new
 According to the [AVR505 Application note](http://www.atmel.com/Images/doc8001.pdf) which was released in 2006, the ATmega164/324 (as well as 644/1284) are new and enhanced versions of the ATmega16/32.
 They feature lower power consumption, lower operating voltages and an extra USART port, but also different register names. These names are the ones that break compatibility.
 While the new generation (ATmega164/324/644/1284) share the same register names as the ATmega168/328, the "old" generation (ATmega8535/16/32) share the same register names as the ATmega8. </br>
-Just remember that the ATmega8535/16/32 doesn't have more than 4 PWM outputs and no pin change interrupt (PCINT), so some libraries (like SoftwareSerial) will never work.
+Just remember that the ATmega8535/16/32 doesn't have more than 4 PWM outputs and no pin change interrupt (PCINT), so some libraries will never work. Since PCINT is not present, the SoftwareSerial Rx pin can only be one of the pins that support interupts (INT0, INT1 or INT2). The Tx pin however can be any pin you like.
 
 <b>Here's how to port a library</b>
 * Download your library and open the header file (the one that ends with *.h)
