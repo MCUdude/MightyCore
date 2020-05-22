@@ -205,6 +205,7 @@ This parameter is used to set compiler flags. This is useful if you want to for 
 
 | Flag                        | Default size | Description                                               |
 |-----------------------------|--------------|-----------------------------------------------------------|
+| -lprintf_flt                |              | Lets you print floats with printf (occupies ~1.5 kB)      |
 | -DSERIAL_RX_BUFFER_SIZE=128 | 64 bytes     | Sets the serial RX buffer to 128 bytes                    |
 | -DSERIAL_TX_BUFFER_SIZE=128 | 64 bytes     | Sets the serial TX buffer to 128 bytes                    |
 | -DTWI_BUFFER_SIZE=64        | 32 bytes     | Sets the TWI (i2c) buffer to 64 bytes                     |
