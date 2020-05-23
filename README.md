@@ -20,6 +20,7 @@ but felt like vital functionality was missing on the board. When designing this 
 * [Link time optimization / LTO](#link-time-optimization--lto)
 * [Printf support](#printf-support)
 * [Pin macros](#pin-macros)
+* [PROGMEM with flash sizes greater than 64kB](#progmem-with-flash-sizes-greater-than-64kb)
 * **[Pinout](#pinout)**
 * [Programmers](#programmers)
 * [Write to own flash](#write-to-own-flash)
@@ -58,6 +59,7 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 | **IO pins**      | 32       | 32      | 32/39*  | 32      | 32     | 32     | 32       |
 
 <b>*</b> ATmega324PB has 3 serial ports, 9 PWM pins and 39 IO pins if internal oscillator is used.
+
 
 ## Supported clock frequencies
 
@@ -138,6 +140,27 @@ digitalWrite(PIN_PB0, HIGH);
 
 // Results in the exact same compiled code
 digitalWrite(0, HIGH);
+
+```
+
+
+## PROGMEM with flash sizes greater than 64kB
+The usual `PROGMEM` attribute stores constant data such as string arrays to flash and is great if you want to preserve the precious RAM. However, PROGMEM will only store content in the lower section, from 0 and up to 64kB. If you want to store data in the upper section, you can use `PROGMEM1` (64 - 128kB) if your target is an ATmega1284/P. Accessing this data is not as straight forward as with `PROGMEM`, but it's still doable:
+
+```c
+const char far_away[] PROGMEM1 = "Hello from far away!\n"; // (64  - 128kB)
+
+void print_progmem()
+{
+  char c;
+
+  // Print out far_away
+  for(uint8_t i = 0; i < sizeof(far_away); i++)
+  {
+    c = pgm_read_byte_far(pgm_get_far_address(far_away) + i);
+    Serial.write(c);
+  }
+}
 
 ```
 

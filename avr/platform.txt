@@ -21,7 +21,7 @@ compiler.warning_flags.all=-Wall -Wextra
 compiler.path={runtime.tools.avr-gcc.path}/bin/
 compiler.c.cmd=avr-gcc
 compiler.c.flags=-c -g -Os {compiler.warning_flags} -std=gnu11 -ffunction-sections -fdata-sections -MMD
-compiler.c.elf.flags={compiler.warning_flags} -Os -Wl,--gc-sections
+compiler.c.elf.flags={compiler.warning_flags} -Os -Wl,--gc-sections,--section-start=.FAR_MEM1=0x10000
 compiler.c.elf.cmd=avr-gcc
 compiler.S.flags=-c -g -x assembler-with-cpp
 compiler.cpp.cmd=avr-g++
