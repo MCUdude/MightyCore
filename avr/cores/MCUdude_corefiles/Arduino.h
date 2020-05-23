@@ -32,6 +32,17 @@
 //#include <avr/sleep.h>
 #include "binary.h"
 
+// Use PROGMEM1 to place data in the memory between 64kB and 128kB
+// Use PROGMEM2 to place data in the memory between 128kB and 192kB
+// Use PROGMEM3 to place data in the memory between 192kB and 256kB
+#if FLASHEND >= 0x1FFFF
+  #define PROGMEM1 __attribute__((section(".FAR_MEM1")))
+#endif
+#if FLASHEND == 0x3FFFF
+  #define PROGMEM2 __attribute__((section(".FAR_MEM2")))
+  #define PROGMEM3 __attribute__((section(".FAR_MEM3")))
+#endif
+
 #ifdef __cplusplus
 extern "C"{
 #endif
