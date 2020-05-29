@@ -56,6 +56,7 @@ menu.bootloader=Bootloader
 1284.menu.bootloader.uart0.upload.maximum_size=130048
 1284.menu.bootloader.uart0.upload.protocol=arduino
 1284.menu.bootloader.uart0.upload.port=UART0
+1284.menu.bootloader.uart0.build.export_merged_output=true
 1284.menu.bootloader.uart0.bootloader.high_fuses=0xd6
 1284.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
 
@@ -63,11 +64,13 @@ menu.bootloader=Bootloader
 1284.menu.bootloader.uart1.upload.maximum_size=130048
 1284.menu.bootloader.uart1.upload.protocol=arduino
 1284.menu.bootloader.uart1.upload.port=UART1
+1284.menu.bootloader.uart1.build.export_merged_output=true
 1284.menu.bootloader.uart1.bootloader.high_fuses=0xd6
 1284.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
 
 1284.menu.bootloader.no_bootloader=No bootloader
 1284.menu.bootloader.no_bootloader.upload.maximum_size=131072
+1284.menu.bootloader.no_bootloader.build.export_merged_output=false
 1284.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd7
 1284.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
@@ -253,6 +256,7 @@ menu.bootloader=Bootloader
 644.menu.bootloader.uart0.upload.maximum_size=64512
 644.menu.bootloader.uart0.upload.protocol=arduino
 644.menu.bootloader.uart0.upload.port=UART0
+644.menu.bootloader.uart0.build.export_merged_output=true
 644.menu.bootloader.uart0.bootloader.high_fuses=0xd6
 644.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
 
@@ -260,11 +264,13 @@ menu.bootloader=Bootloader
 644.menu.bootloader.uart1.upload.maximum_size=64512
 644.menu.bootloader.uart1.upload.protocol=arduino
 644.menu.bootloader.uart1.upload.port=UART1
+644.menu.bootloader.uart1.build.export_merged_output=true
 644.menu.bootloader.uart1.bootloader.high_fuses=0xd6
 644.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
 
 644.menu.bootloader.no_bootloader=No bootloader
 644.menu.bootloader.no_bootloader.upload.maximum_size=65536
+644.menu.bootloader.no_bootloader.build.export_merged_output=false
 644.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd7
 644.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
@@ -450,6 +456,7 @@ menu.bootloader=Bootloader
 324.menu.bootloader.uart0.upload.maximum_size=32256
 324.menu.bootloader.uart0.upload.protocol=arduino
 324.menu.bootloader.uart0.upload.port=UART0
+324.menu.bootloader.uart0.build.export_merged_output=true
 324.menu.bootloader.uart0.bootloader.high_fuses=0xd6
 324.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
 
@@ -457,6 +464,7 @@ menu.bootloader=Bootloader
 324.menu.bootloader.uart1.upload.maximum_size=32256
 324.menu.bootloader.uart1.upload.protocol=arduino
 324.menu.bootloader.uart1.upload.port=UART1
+324.menu.bootloader.uart1.build.export_merged_output=true
 324.menu.bootloader.uart1.bootloader.high_fuses=0xd6
 324.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
 
@@ -464,11 +472,13 @@ menu.bootloader=Bootloader
 324.menu.bootloader.uart2.upload.maximum_size=32256
 324.menu.bootloader.uart2.upload.protocol=arduino
 324.menu.bootloader.uart2.upload.port=UART2
+324.menu.bootloader.uart2.build.export_merged_output=true
 324.menu.bootloader.uart2.bootloader.high_fuses=0xd6
 324.menu.bootloader.uart2.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
 
 324.menu.bootloader.no_bootloader=No bootloader
 324.menu.bootloader.no_bootloader.upload.maximum_size=32768
+324.menu.bootloader.no_bootloader.build.export_merged_output=false
 324.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd7
 324.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
@@ -666,6 +676,7 @@ menu.bootloader=Bootloader
 164.menu.bootloader.uart0.upload.maximum_size=32256
 164.menu.bootloader.uart0.upload.protocol=arduino
 164.menu.bootloader.uart0.upload.port=UART0
+164.menu.bootloader.uart0.build.export_merged_output=true
 164.menu.bootloader.uart0.bootloader.high_fuses=0xd4
 164.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
 
@@ -673,11 +684,13 @@ menu.bootloader=Bootloader
 164.menu.bootloader.uart1.upload.maximum_size=32256
 164.menu.bootloader.uart1.upload.protocol=arduino
 164.menu.bootloader.uart1.upload.port=UART1
+164.menu.bootloader.uart1.build.export_merged_output=true
 164.menu.bootloader.uart1.bootloader.high_fuses=0xd4
 164.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
 
 164.menu.bootloader.no_bootloader=No bootloader
 164.menu.bootloader.no_bootloader.upload.maximum_size=32768
+164.menu.bootloader.no_bootloader.build.export_merged_output=false
 164.menu.bootloader.no_bootloader.bootloader.high_fuses=0xd5
 164.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
@@ -865,11 +878,13 @@ menu.bootloader=Bootloader
 32.menu.bootloader.uart0.upload.maximum_size=32256
 32.menu.bootloader.uart0.upload.protocol=arduino
 32.menu.bootloader.uart0.upload.port=UART0
+32.menu.bootloader.uart0.build.export_merged_output=true
 32.menu.bootloader.uart0.bootloader.bootrst_bit=0
 32.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
 
 32.menu.bootloader.no_bootloader=No bootloader
 32.menu.bootloader.no_bootloader.upload.maximum_size=32768
+32.menu.bootloader.no_bootloader.build.export_merged_output=false
 32.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
 32.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
@@ -1032,11 +1047,13 @@ menu.bootloader=Bootloader
 16.menu.bootloader.uart0.upload.maximum_size=15872
 16.menu.bootloader.uart0.upload.protocol=arduino
 16.menu.bootloader.uart0.upload.port=UART0
+16.menu.bootloader.uart0.build.export_merged_output=true
 16.menu.bootloader.uart0.bootloader.bootrst_bit=0
 16.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
 
 16.menu.bootloader.no_bootloader=No bootloader
 16.menu.bootloader.no_bootloader.upload.maximum_size=16384
+16.menu.bootloader.no_bootloader.build.export_merged_output=false
 16.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
 16.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
@@ -1199,11 +1216,13 @@ menu.bootloader=Bootloader
 8535.menu.bootloader.uart0.upload.maximum_size=7680
 8535.menu.bootloader.uart0.upload.protocol=arduino
 8535.menu.bootloader.uart0.upload.port=UART0
+8535.menu.bootloader.uart0.build.export_merged_output=true
 8535.menu.bootloader.uart0.bootloader.bootrst_bit=0
 8535.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
 
 8535.menu.bootloader.no_bootloader=No bootloader
 8535.menu.bootloader.no_bootloader.upload.maximum_size=8192
+8535.menu.bootloader.no_bootloader.build.export_merged_output=false
 8535.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
 8535.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
