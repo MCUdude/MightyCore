@@ -168,6 +168,10 @@ Specifies if the EEPROM memory should be retained when uploading using a program
 
 ### `board_upload.speed`
 Specifies the upload baud rate. Available baud rates is shown in the table below, had has to corrolate with `build_board.f_cpu`.  
+  
+**Note that if you're using a programmer that communicates with Avrdude with a serial port (Arduino as ISP, STK500, etc.) the `board_upload.speed` field will interfere with the programmer's baud rate.  
+In this case, use `board_bootloader.speed` to set the bootloader baud rate, and `board_upload.speed` to set the baud rate for the programmer.**  
+  
 Recommended baud rate for the particular clock speed is in *italic text*.
 
 |             | 1000000 | 500000 | 460800 | 250000 | 230400 | 115200 | 57600  | 38400  | 19200 | 9600   |
@@ -230,7 +234,13 @@ Supports all Avrdude compatible programmers such as `usbasp`, `usbtiny` and `stk
 
 ### `upload_flags`
 Used to pass extra flags to Avrdude when uploading using a programmer.  
-Typical parameters are `-PUSB`, `-B[clock divider]` and `-b[baudrate]`
+Typical parameters are `-PUSB`, `-B[clock divider]` and `-b[baudrate]`.  
+**Note that every flag has to be on its own line, and they have to be indented with two spaces:**
+```ini
+upload_flags = -PUSB
+  -B32
+  -v
+```
 
 
 ### `monitor_port`
