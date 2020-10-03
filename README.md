@@ -17,6 +17,7 @@ but felt like vital functionality was missing on the board. When designing this 
 * [Supported clock frequencies](#supported-clock-frequencies)
 * [Bootloader option](#bootloader-option)
 * [BOD option](#bod-option)
+* [EEPROM retain option](#eeprom-option)
 * [Link time optimization / LTO](#link-time-optimization--lto)
 * [Printf support](#printf-support)
 * [Pin macros](#pin-macros)
@@ -59,6 +60,10 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 | **IO pins**      | 32       | 32      | 32/39*  | 32      | 32     | 32     | 32       |
 
 <b>*</b> ATmega324PB has 3 serial ports, 9 PWM pins and 39 IO pins if internal oscillator is used.
+
+
+## EEPROM option
+If you want the EEPROM to be erased every time you burn the bootloader or upload using a programmer, you can turn off this option. You'll have to connect an ISP programmer and hit "Burn bootloader" to enable or disable EEPROM retain. Note that when uploading using a bootloader, the EEPROM will always be retained.
 
 
 ## Supported clock frequencies
