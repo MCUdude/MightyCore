@@ -199,7 +199,7 @@ env:
     # Ethernet/DhcpChatServer
     # Compiling with LTO=Os errors with "Sketch too big"
     # clock=1MHz_internal
-    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/DhcpChatServer/DhcpChatServer.ino" BOARD_ID="MightyCore:avr:16:pinout=standard,BOD=2v7,LTO=Os_flto,clock=1MHz_internal" ALLOW_FAILURE="false" START_IDE_VERSION="$$OLDEST_IDE_VERSION_TO_TEST_WITH_LTO" END_IDE_VERSION="newest"
+    - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/DhcpChatServer/DhcpChatServer.ino" BOARD_ID="MightyCore:avr:16:pinout=standard,BOD=2v7,LTO=Os_flto,clock=1MHz_internal" ALLOW_FAILURE="false" START_IDE_VERSION="$OLDEST_IDE_VERSION_TO_TEST_WITH_LTO" END_IDE_VERSION="newest"
 
     # Ethernet/TelnetClient
     - SKETCH_PATH="${SKETCHBOOK_FOLDER}/hardware/MightyCore/avr/libraries/Ethernet/examples/TelnetClient/TelnetClient.ino" BOARD_ID="MightyCore:avr:16:pinout=standard,BOD=2v7,LTO=Os,clock=16MHz_external" ALLOW_FAILURE="false" IDE_VERSIONS="$IDE_VERSION_LIST_FULL"
