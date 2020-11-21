@@ -79,7 +79,7 @@ build_flags =
 ; Serial monitor port defined in the Upload_UART environment
 monitor_port = ${env:Upload_UART.upload_port}
 ; Serial monitor baud rate
-monitor_speed = 250000
+monitor_speed = 9600
 
 
 ; Run the following command to upload with this environment
@@ -88,7 +88,7 @@ monitor_speed = 250000
 ;  Serial bootloader protocol
 upload_protocol = arduino
 ; Serial upload port
-upload_port = /dev/cu.usbserial-1420
+upload_port = /dev/cu.usbserial*
 ; Get upload baud rate defined in the fuses_bootloader environment
 board_upload.speed = ${env:fuses_bootloader.board_bootloader.speed}
 
@@ -162,8 +162,11 @@ Below is a table with supported clocks for MiniCore. Defaults to 16 MHz if not s
 | 11.0592 MHz | External   | `11059200L`               |
 | 8 MHz       | External   | `8000000L`                |
 | 7.3728  MHz | External   | `7372800L`                |
+| 4 MHz       | External   | `4000000L`                |
 | 3.6864  MHz | External   | `3686400L`                |
+| 2 MHz       | External   | `2000000L`                |
 | 1.8432  MHz | External   | `1843200L`                |
+| 1 MHz       | External   | `1000000L`                |
 | 8 MHz       | Internal   | `8000000L`                |
 | 1 MHz       | Internal   | `1000000L`                |
 
@@ -253,7 +256,9 @@ Recommended baud rate for the particular clock speed is in **bold text**.
 | `11059200L` |         |        |  X     |        |  X     |  X     |  **X** |  X     |  X    |  X     |
 | `8000000L`  |  X      |  X     |        |  X     |        |  X     |  X     |  **X** |  X    |  X     |
 | `7372800L`  |         |        |  X     |        |  X     |  **X** |  X     |  X     |  X    |  X     |
+| `4000000L`  |         |  X     |        |        |        |        |        |        |  X    |  **X** |
 | `3686400L`  |         |        |  X     |        |  X     |  **X** |  X     |  X     |  X    |  X     |
+| `2000000L`  |         |        |        |  X     |        |        |        |        |  X    |  **X** |
 | `1843200L`  |         |        |        |        |  X     |  **X** |  X     |  X     |  X    |  X     |
 | `1000000L`  |         |        |        |        |        |        |        |        |       |  **X** |
 
