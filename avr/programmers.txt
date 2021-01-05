@@ -88,3 +88,17 @@ jtag3.program.tool=avrdude
 # work regardless of the crystal used, since JTAG doesn't use the MCU
 # clock but dictates its own clock.
 jtag3.program.extra_params=-B0.1
+
+pickit4_isp.name=PICkit4 (ISP mode) (MightyCore)
+pickit4_isp.communication=usb
+pickit4_isp.protocol=pickit4_isp
+pickit4_isp.program.protocol=pickit4_isp
+pickit4_isp.program.tool=avrdude
+pickit4_isp.program.extra_params=-Pusb
+
+snap_isp.name=MPLAB SNAP (ISP mode) (MightyCore)
+snap_isp.communication=usb
+snap_isp.protocol=snap_isp
+snap_isp.program.protocol=snap_isp
+snap_isp.program.tool=avrdude
+snap_isp.program.extra_params=-Pusb
