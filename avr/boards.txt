@@ -34,6 +34,7 @@ menu.LTO=Compiler LTO
 menu.variant=Variant
 menu.pinout=Pinout
 menu.bootloader=Bootloader
+menu.LanguageStandard=Language Standard
 
 
 ######################
@@ -239,6 +240,20 @@ menu.bootloader=Bootloader
 1284.menu.clock.1MHz_internal.build.clkpr=
 1284.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+# C++ Language Standard
+1284.menu.LanguageStandard.Default=Default
+1284.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+1284.menu.LanguageStandard.Cpp11=C++11
+1284.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+1284.menu.LanguageStandard.Cpp14=C++14
+1284.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+1284.menu.LanguageStandard.Cpp17=C++17
+1284.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
+
 
 
 
