@@ -475,6 +475,19 @@ menu.LanguageStandard=Language Standard
 644.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 644.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
+# C++ Language Standard
+644.menu.LanguageStandard.Default=Default
+644.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+644.menu.LanguageStandard.Cpp11=C++11
+644.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+644.menu.LanguageStandard.Cpp14=C++14
+644.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+644.menu.LanguageStandard.Cpp17=C++17
+644.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
+
 
 
 ##########################
@@ -701,6 +714,19 @@ menu.LanguageStandard=Language Standard
 324.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 324.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
+# C++ Language Standard
+324.menu.LanguageStandard.Default=Default
+324.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+324.menu.LanguageStandard.Cpp11=C++11
+324.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+324.menu.LanguageStandard.Cpp14=C++14
+324.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+324.menu.LanguageStandard.Cpp17=C++17
+324.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
+
 
 
 ##########################
@@ -906,6 +932,19 @@ menu.LanguageStandard=Language Standard
 164.menu.clock.1MHz_internal.build.clkpr=
 164.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 164.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+# C++ Language Standard
+164.menu.LanguageStandard.Default=Default
+164.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+164.menu.LanguageStandard.Cpp11=C++11
+164.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+164.menu.LanguageStandard.Cpp14=C++14
+164.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+164.menu.LanguageStandard.Cpp17=C++17
+164.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
 
 
 
