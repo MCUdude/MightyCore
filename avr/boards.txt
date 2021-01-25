@@ -241,6 +241,20 @@ menu.LanguageStandard=Language Standard
 1284.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
+1284.menu.clock.20MHz_external=External 20 MHz with CLKO on B1
+1284.menu.clock.20MHz_external.upload.speed=115200
+1284.menu.clock.20MHz_external.bootloader.low_fuses=0xb7
+1284.menu.clock.20MHz_external.build.clkpr=
+1284.menu.clock.20MHz_external.build.clock_speed={build.f_cpu}
+1284.menu.clock.20MHz_external.build.f_cpu=20000000L
+
+1284.menu.clock.16MHz_external=External 16 MHz with CLKO on B1
+1284.menu.clock.16MHz_external.upload.speed=115200
+1284.menu.clock.16MHz_external.bootloader.low_fuses=0xb7
+1284.menu.clock.16MHz_external.build.clkpr=
+1284.menu.clock.16MHz_external.build.clock_speed={build.f_cpu}
+1284.menu.clock.16MHz_external.build.f_cpu=16000000L
+
 # C++ Language Standard
 1284.menu.LanguageStandard.Default=Default
 1284.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
