@@ -241,19 +241,6 @@ menu.LanguageStandard=Language Standard
 1284.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
-1284.menu.clock.20MHz_external=External 20 MHz with CLKO on B1
-1284.menu.clock.20MHz_external.upload.speed=115200
-1284.menu.clock.20MHz_external.bootloader.low_fuses=0xb7
-1284.menu.clock.20MHz_external.build.clkpr=
-1284.menu.clock.20MHz_external.build.clock_speed={build.f_cpu}
-1284.menu.clock.20MHz_external.build.f_cpu=20000000L
-
-1284.menu.clock.16MHz_external=External 16 MHz with CLKO on B1
-1284.menu.clock.16MHz_external.upload.speed=115200
-1284.menu.clock.16MHz_external.bootloader.low_fuses=0xb7
-1284.menu.clock.16MHz_external.build.clkpr=
-1284.menu.clock.16MHz_external.build.clock_speed={build.f_cpu}
-1284.menu.clock.16MHz_external.build.f_cpu=16000000L
 
 # C++ Language Standard
 1284.menu.LanguageStandard.Default=Default
@@ -1121,6 +1108,19 @@ menu.LanguageStandard=Language Standard
 32.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
 32.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
+# C++ Language Standard
+32.menu.LanguageStandard.Default=Default
+32.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+32.menu.LanguageStandard.Cpp11=C++11
+32.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+32.menu.LanguageStandard.Cpp14=C++14
+32.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+32.menu.LanguageStandard.Cpp17=C++17
+32.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
+
 
 
 #####################
@@ -1296,6 +1296,19 @@ menu.LanguageStandard=Language Standard
 16.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
 16.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
+# C++ Language Standard
+16.menu.LanguageStandard.Default=Default
+16.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+16.menu.LanguageStandard.Cpp11=C++11
+16.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+16.menu.LanguageStandard.Cpp14=C++14
+16.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+16.menu.LanguageStandard.Cpp17=C++17
+16.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
+
 
 
 #####################
@@ -1470,3 +1483,16 @@ menu.LanguageStandard=Language Standard
 8535.menu.clock.1MHz_internal.bootloader.sut_cksel_bits=100001
 8535.menu.clock.1MHz_internal.bootloader.ckopt_bit=1
 8535.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+# C++ Language Standard
+8535.menu.LanguageStandard.Default=Default
+8535.menu.LanguageStandard.Default.compiler.cpp.extra_flags=
+
+8535.menu.LanguageStandard.Cpp11=C++11
+8535.menu.LanguageStandard.Cpp11.compiler.cpp.extra_flags=-std=gnu++11
+
+8535.menu.LanguageStandard.Cpp14=C++14
+8535.menu.LanguageStandard.Cpp14.compiler.cpp.extra_flags=-std=gnu++14
+
+8535.menu.LanguageStandard.Cpp17=C++17
+8535.menu.LanguageStandard.Cpp17.compiler.cpp.extra_flags=-std=gnu++17
