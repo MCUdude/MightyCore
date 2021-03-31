@@ -115,7 +115,6 @@ void optiboot_page_write(optiboot_addr_t address)
 
 
 // Function to read a flash page and store it in an array (storage_array[])
-#ifdef RAMPZ
 void optiboot_readPage(const uint8_t allocated_flash_space[], uint8_t storage_array[], uint16_t page_number)
 {
   for(uint16_t j = 0; j < SPM_PAGESIZE; j++)
@@ -124,7 +123,6 @@ void optiboot_readPage(const uint8_t allocated_flash_space[], uint8_t storage_ar
     storage_array[j] = read_character;
   }
 }
-#endif
 
 
 // Function to read a flash page from the far memory (64kiB+) and store it in an array (storage_array[])
@@ -166,6 +164,7 @@ void optiboot_writePage(const uint8_t allocated_flash_space[], uint8_t data_to_s
 
 
 // Function to write data to a flash page to low memory (<64kiB)
+#ifdef RAMPZ
 void optiboot_writePage(uint32_t flash_space_address, uint8_t data_to_store[], uint16_t page_number)
 {
   uint16_t word_buffer = 0;
@@ -187,5 +186,6 @@ void optiboot_writePage(uint32_t flash_space_address, uint8_t data_to_store[], u
   // Write temporary buffer to flash
   optiboot_page_write(flash_space_address + SPM_PAGESIZE * page_number);
 }
+#endif
 
 #endif
