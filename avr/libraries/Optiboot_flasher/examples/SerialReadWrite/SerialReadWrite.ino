@@ -30,7 +30,7 @@
 
 // optiboot.h contains the functions that lets you read to
 // and write from the flash memory
-#include "optiboot.h"
+#include <optiboot.h>
 
 // Define the number of pages you want to write to here (limited by flash size)
 #define NUMBER_OF_PAGES 8
