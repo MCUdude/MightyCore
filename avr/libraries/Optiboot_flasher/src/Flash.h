@@ -7,10 +7,10 @@
 class Flash
 {
   public:
-    Flash(const uint8_t* flash_array, const uint16_t flash_array_size, uint8_t *ram_array, const uint16_t ram_array_size = SPM_PAGESIZE);
+    Flash(const uint8_t *flash_array, const uint16_t flash_array_size, uint8_t *ram_array, const uint16_t ram_array_size = SPM_PAGESIZE);
     #ifdef RAMPZ
-    void set_far_address(uint32_t address);
-    bool check_writable();
+      void set_far_address(uint32_t address);
+      bool check_writable();
     #endif
     void clear_buffer(uint8_t fill = 0x00);
     uint8_t read_buffer(uint8_t index);
@@ -23,8 +23,8 @@ class Flash
     // Operator overload to be able to read and write directly to the RAM array from a byte level
     uint8_t& operator[] (int16_t index);
 
-    //Functionality to 'put' and 'get' objects to and from the RAM array.
-    template< typename T > const T &put(int idx, const T &t )
+    // Template function to 'put' objects in RAM array
+    template <typename T> const T &put(uint16_t idx, const T &t)
     {
       const uint8_t *ptr = (const uint8_t*) &t;
       for(uint16_t count = 0; count < sizeof(T); count++)
@@ -32,7 +32,8 @@ class Flash
       return t;
     }
 
-    template< typename T > T &get( int idx, T &t )
+    // Template function to 'get' objects from the RAM array
+    template <typename T> T &get(uint16_t idx, T &t)
     {
       uint8_t *ptr = (uint8_t*) &t;
       for(uint16_t count = 0; count < sizeof(T); count++)
@@ -41,11 +42,11 @@ class Flash
     }
 
   private:
-    const uint8_t *_flash_array;
-    uint32_t _far_flash_array_addr;
-    const uint16_t _flash_array_size;
-    uint8_t *_ram_array;
-    const uint16_t _ram_array_size;
+    const uint8_t *_flash_array;      // Pointer to allocated flash space
+    uint32_t _far_flash_array_addr;   // Address to far memory location if allocated space is above 64kiB
+    const uint16_t _flash_array_size; // Size of a flash page in bytes (64, 128 or 256 bytes)
+    uint8_t *_ram_array;              // Pointer to allocated RAM array
+    const uint16_t _ram_array_size;   // Size of allocated RAM array
 };
 
 #endif

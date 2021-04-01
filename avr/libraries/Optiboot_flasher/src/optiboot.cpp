@@ -1,9 +1,16 @@
 #include "optiboot.h"
 
 
-// The same as do_smp but with disable/restore interrupts state required
-// successful SPM execution. On devices with more than 64kB flash,
-// 16-bit address is not enough, so there is also RAMPZ used in this case
+/**
+ * @brief This function is very similar to do_spm, but with disable/restore
+ * interrupts state required for successful SPM execution. On devices with more
+ * than 64kiB flash, 16-bit addressing is not enough, so the RAMPZ register is
+ * used in this case
+ *
+ * @param address address where we will start manipulating data
+ * @param command command to execute (erase, fill, write)
+ * @param data 16-bit value to be written
+ */
 void do_spm_cli(optiboot_addr_t address, uint8_t command, uint16_t data)
 {
   uint8_t sreg_save;
@@ -16,25 +23,43 @@ void do_spm_cli(optiboot_addr_t address, uint8_t command, uint16_t data)
   #else
     do_spm(address, command, data);  // 16-bit address - no problems to pass directly
   #endif
-  SREG = sreg_save; // Restore last interrupts state
+  SREG = sreg_save; // Restore SREG
 }
 
 
-// Erase page in FLASH
+/**
+ * @brief Erase flash page
+ *
+ * @param address flash page start address
+ */
 void optiboot_page_erase(optiboot_addr_t address)
 {
   do_spm_cli(address, __BOOT_PAGE_ERASE, 0);
 }
 
 
-// Write word into temporary buffer
+/**
+ * @brief Writes a word/16-bit value to a temporary, internal buffer. Note that
+ * this temporary buffer gets destroyed if you read or write to EEPROM. It's
+ * therefore important that the buffer gets written to flash before doing
+ * anything EEPROM related. Also note that you can write only once to one
+ * location in the temporary buffer without erasing it first, which happens
+ * after a flash page erase or write.
+ *
+ * @param address address where to write the 16-bit data
+ * @param data data to write
+ */
 void optiboot_page_fill(optiboot_addr_t address, uint16_t data)
 {
   do_spm_cli(address, __BOOT_PAGE_FILL, data);
 }
 
 
-//Write temporary buffer into FLASH
+/**
+ * @brief Write the temporary, internal buffer to flash
+ *
+ * @param address flash page start address
+ */
 void optiboot_page_write(optiboot_addr_t address)
 {
   do_spm_cli(address, __BOOT_PAGE_WRITE, 0);
@@ -43,7 +68,18 @@ void optiboot_page_write(optiboot_addr_t address)
 
 // Higher level functions for reading and writing from flash
 
-// Function to read bytes from a given page and further out in the memory
+/**
+ * @brief Read bytes from a given page and futher out in memory. It will
+ * continue to fill the storage_array until the stop_address is reached. Note
+ * that this function will only work for data stored in near progmem, below
+ * 64kiB.
+ *
+ * @param allocated_flash_space the allocated flash space to read from
+ * @param storage_array the array to store the flash content to
+ * @param page_number the flash page number to start reading from
+ * @param start_address the address to start reading from, relative to the flash page number
+ * @param stop_address the address where we stop reading, relative to the flash page number
+ */
 void optiboot_read(const uint8_t allocated_flash_space[], uint8_t storage_array[], uint16_t page_number, uint16_t start_address, uint16_t stop_address)
 {
   for(uint16_t j = start_address; j < stop_address; j++)
@@ -54,16 +90,30 @@ void optiboot_read(const uint8_t allocated_flash_space[], uint8_t storage_array[
 }
 
 
-
-
-// Function to read a flash page and store it in an array (storage_array[])
+/**
+ * @brief Reads an entire flash page and stores the content in storage_array.
+ * Note that this function will only work for data stored in near progmem,
+ * below 64kiB.
+ *
+ * @param allocated_flash_space the allocated flash space to read from
+ * @param storage_array the array to store the flash content to
+ * @param page_number the flash page number to read from
+ */
 void optiboot_readPage(const uint8_t allocated_flash_space[], uint8_t storage_array[], uint16_t page_number)
 {
   optiboot_read(allocated_flash_space, storage_array, page_number, 0, SPM_PAGESIZE);
 }
 
 
-// Function to write data to a flash page to low memory (<64kiB)
+/**
+ * @brief Writes the content of data_to_store to a flash page.
+ * Note that this function will only work for data stored in near progmem,
+ * below 64kiB.
+ *
+ * @param allocated_flash_space the allocated flash space to read from
+ * @param data_to_store an array that holds the data to store
+ * @param page_number the flash page number to write to
+ */
 void optiboot_writePage(const uint8_t allocated_flash_space[], uint8_t data_to_store[], uint16_t page_number)
 {
   uint16_t word_buffer = 0;
@@ -88,11 +138,22 @@ void optiboot_writePage(const uint8_t allocated_flash_space[], uint8_t data_to_s
 }
 
 
-
-// Functions to read and write to the "far" part of the flash memory (>64kiB)
+// Overloaded functions to read and write to the "far" part of the flash memory (>64kiB)
 #ifdef RAMPZ
 
-// Function to read an arbitrary number of bytes from the far memory (64kiB+) and store it in an array (storage_array[])
+/**
+ * @brief Read bytes from a given page and futher out in memory. It will
+ * continue to fill the storage_array until the stop_address is reached. Note
+ * that this function is intended to be used to read data stored in far progmem,
+ * above 64kiB.
+ *
+ * @param flash_space_address the allocated flash address to read from. Use
+ * pgm_get_far_address(flash_space) to get the address of the allocated flash space
+ * @param storage_array the array to store the flash content to
+ * @param page_number the flash page number to start reading from
+ * @param start_address the address to start reading from, relative to the flash page number
+ * @param stop_address the address where we stop reading, relative to the flash page number
+ */
 void optiboot_read(uint32_t flash_space_address, uint8_t storage_array[], uint16_t page_number, uint16_t start_address, uint16_t stop_address)
 {
   for(uint16_t j = start_address; j < stop_address; j++)
@@ -103,14 +164,32 @@ void optiboot_read(uint32_t flash_space_address, uint8_t storage_array[], uint16
 }
 
 
-// Function to read a flash page from the far memory (>64kiB) and store it in an array (storage_array[])
+/**
+ * @brief Reads an entire flash page and stores the content to storage_array.
+ * Note that this function is intended to be used to read data stored in far
+ * progmem, above 64kiB.
+ *
+ * @param flash_space_address the allocated flash address to read from. Use
+ * pgm_get_far_address(flash_space) to get the address of the allocated flash space
+ * @param storage_array the array to store the flash content to
+ * @param page_number the flash page number to read from
+ */
 void optiboot_readPage(uint32_t flash_space_address, uint8_t storage_array[], uint16_t page_number)
 {
   optiboot_read(flash_space_address, storage_array, page_number, 0, SPM_PAGESIZE);
 }
 
 
-// Function to write data to a flash page to far memory (>64kiB)
+/**
+ * @brief Writes the content of data_to_store to a flash page.
+ * Note that this function will only work for data stored in near progmem,
+ * below 64kiB.
+ *
+ * @param flash_space_address the allocated flash address to read from. Use
+ * pgm_get_far_address(flash_space) to get the address of the allocated flash space
+ * @param data_to_store an array that holds the data to store
+ * @param page_number the flash page number to write to
+ */
 void optiboot_writePage(uint32_t flash_space_address, uint8_t data_to_store[], uint16_t page_number)
 {
   uint16_t word_buffer = 0;
