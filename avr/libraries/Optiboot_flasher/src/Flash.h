@@ -2,6 +2,7 @@
 #define FLASH_H
 
 #include <Arduino.h>
+#include <optiboot.h>
 
 class Flash
 {

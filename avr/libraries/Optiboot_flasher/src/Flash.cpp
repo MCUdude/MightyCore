@@ -1,5 +1,4 @@
 #include "Flash.h"
-#include "optiboot.h"
 
 Flash::Flash(const uint8_t* flash_array, const uint16_t flash_array_size, uint8_t *ram_array, const uint16_t ram_array_size)
   : _flash_array(flash_array),
