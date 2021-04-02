@@ -274,6 +274,51 @@
 #endif
 #endif
 
+/*------------------------------------------------------------------------ */
+#if defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB647__) \
+|| defined(__AVR_AT90USB1286__) || defined(__AVR_AT90USB1287__)
+/*------------------------------------------------------------------------ */
+#if !defined(LED)
+#define LED         B5
+#endif
+
+#define SPMCR SPMCSR
+
+#define RXC0    RXC1
+#define TXC0    TXC1
+#define UDRE0   UDRE1
+#define FE0     FE1
+#define DOR0    DOR1
+#define UPE0    UPE1
+#define U2X0    U2X1
+#define MPCM0   MPCM1
+#define RXCIE0  RXCIE1
+#define TXCIE0  TXCIE1
+#define UDRIE0  UDRIE1
+#define RXEN0   RXEN1
+#define TXEN0   TXEN1
+#define UCSZ02  UCSZ12
+#define RXB80   RXB81
+#define TXB80   TXB81
+#define UMSEL01 UMSEL11
+#define UMSEL00 UMSEL10
+#define UPM01   UPM11
+#define UPM00   UPM10
+#define USBS0   USBS1
+#define UCSZ01  UCSZ11
+#define UCSZ00  UCSZ10
+#define UCPOL0  UCPOL1
+
+/* Ports for soft UART */
+#ifdef SOFT_UART
+#define UART_PORT   PORTE
+#define UART_PIN    PINE
+#define UART_DDR    DDRE
+#define UART_TX_BIT 1
+#define UART_RX_BIT 0
+#endif
+#endif
+
 
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATmega325__) || defined(__AVR_ATmega645__) \

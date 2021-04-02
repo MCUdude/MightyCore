@@ -308,3 +308,12 @@ F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRE
 12000000L	UART0		B0		2		No		No		115200		115384		0.1%	452 bytes	optiboot_flash_atmega8535_UART0_115200_12000000L_B0.hex
 
 
+Optiboot_flash build output for atmega8535 
+https://github.com/MCUdude/optiboot_flash 
+Build date and time: 04.10.2020 21:33 
+Compiler: avr-gcc 7.3.0
+ 
+F_CPU:		UART NUMBER:	LED PIN:	LED FLASHES:	EEPROM SUPPORT:	FLASH PG COPY:	DESIRED BAUD:	ACTUAL BAUD:	ERROR:	COMPILED SIZE:	OUTPUT FILE:
+12000000L	UART0		B7		2		No		No		115200		115384		0.1%	450 bytes	optiboot_flash_atmega8535_UART0_115200_12000000L_B7.hex
+
+

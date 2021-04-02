@@ -113,10 +113,10 @@ SIZE           = $(GCCROOT)avr-size
 # appropriate parameters ("-DLED_START_FLASHES=10") to gcc
 #
 
-# Check if current build target is atmega* or at90can*
+# Check if current build target is atmega* or at90*
 ifneq (,$(findstring atmega,$(MAKECMDGOALS)))
 check_baud_and_freq=TRUE
-else ifneq (,$(findstring at90can,$(MAKECMDGOALS)))
+else ifneq (,$(findstring at90,$(MAKECMDGOALS)))
 check_baud_and_freq=TRUE
 endif
 
@@ -888,6 +888,42 @@ atmega645: bootloaders/atmega640/$(AVR_FREQ)/$(PROGRAM)_atmega645_UART$(UART)_$(
 endif
 endif
 
+#AT90USB646
+at90usb646: TARGET = at90usb646
+at90usb646: CFLAGS += $(COMMON_OPTIONS) $(UART_CMD)
+at90usb646: maketargetdir
+at90usb646: LDSECTIONS = -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe
+# Change name if eeprom support is preset
+ifneq (,$(filter 1, $(COPY_FLASH_PAGES) $(SUPPORT_EEPROM)))
+at90usb646: bootloaders/at90usb646/$(AVR_FREQ)/$(PROGRAM)_at90usb646_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb646: bootloaders/at90usb646/$(AVR_FREQ)/$(PROGRAM)_at90usb646_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.lst
+endif
+else
+at90usb646: bootloaders/at90usb646/$(AVR_FREQ)/$(PROGRAM)_at90usb646_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb646: bootloaders/at90usb646/$(AVR_FREQ)/$(PROGRAM)_at90usb646_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).lst
+endif
+endif
+
+#AT90USB647
+at90usb647: TARGET = at90usb647
+at90usb647: CFLAGS += $(COMMON_OPTIONS) $(UART_CMD)
+at90usb647: maketargetdir
+at90usb647: LDSECTIONS = -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe
+# Change name if eeprom support is preset
+ifneq (,$(filter 1, $(COPY_FLASH_PAGES) $(SUPPORT_EEPROM)))
+at90usb647: bootloaders/at90usb647/$(AVR_FREQ)/$(PROGRAM)_at90usb647_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb647: bootloaders/at90usb647/$(AVR_FREQ)/$(PROGRAM)_at90usb647_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.lst
+endif
+else
+at90usb647: bootloaders/at90usb647/$(AVR_FREQ)/$(PROGRAM)_at90usb647_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb647: bootloaders/at90usb647/$(AVR_FREQ)/$(PROGRAM)_at90usb647_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).lst
+endif
+endif
+
 #ATmega649
 atmega649: TARGET = atmega649
 atmega649: CFLAGS += $(COMMON_OPTIONS) $(UART_CMD)
@@ -993,6 +1029,42 @@ else
 atmega1284p: bootloaders/atmega1284p/$(AVR_FREQ)/$(PROGRAM)_atmega1284p_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).hex
 ifeq ($(ASM_OUTPUT), 1)
 atmega1284p: bootloaders/atmega1284p/$(AVR_FREQ)/$(PROGRAM)_atmega1284p_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).lst
+endif
+endif
+
+#AT90USB1286
+at90usb1286: TARGET = at90usb1286
+at90usb1286: CFLAGS += $(COMMON_OPTIONS) $(UART_CMD)
+at90usb1286: maketargetdir
+at90usb1286: LDSECTIONS = -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe
+# Change name if eeprom support is preset
+ifneq (,$(filter 1, $(COPY_FLASH_PAGES) $(SUPPORT_EEPROM)))
+at90usb1286: bootloaders/at90usb1286/$(AVR_FREQ)/$(PROGRAM)_at90usb1286_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb1286: bootloaders/at90usb1286/$(AVR_FREQ)/$(PROGRAM)_at90usb1286_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.lst
+endif
+else
+at90usb1286: bootloaders/at90usb1286/$(AVR_FREQ)/$(PROGRAM)_at90usb1286_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb1286: bootloaders/at90usb1286/$(AVR_FREQ)/$(PROGRAM)_at90usb1286_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).lst
+endif
+endif
+
+#AT90USB1287
+at90usb1287: TARGET = at90usb1287
+at90usb1287: CFLAGS += $(COMMON_OPTIONS) $(UART_CMD)
+at90usb1287: maketargetdir
+at90usb1287: LDSECTIONS = -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe
+# Change name if eeprom support is preset
+ifneq (,$(filter 1, $(COPY_FLASH_PAGES) $(SUPPORT_EEPROM)))
+at90usb1287: bootloaders/at90usb1287/$(AVR_FREQ)/$(PROGRAM)_at90usb1287_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb1287: bootloaders/at90usb1287/$(AVR_FREQ)/$(PROGRAM)_at90usb1287_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED)_BIGBOOT.lst
+endif
+else
+at90usb1287: bootloaders/at90usb1287/$(AVR_FREQ)/$(PROGRAM)_at90usb1287_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).hex
+ifeq ($(ASM_OUTPUT), 1)
+at90usb1287: bootloaders/at90usb1287/$(AVR_FREQ)/$(PROGRAM)_at90usb1287_UART$(UART)_$(BAUD_RATE)_$(AVR_FREQ)_$(LED).lst
 endif
 endif
 
