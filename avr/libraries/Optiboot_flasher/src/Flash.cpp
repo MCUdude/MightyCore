@@ -51,38 +51,14 @@ void Flash::set_far_address(uint32_t address)
 /**
  * @brief Checks if the microcontroller contains a bootloader that has flash
  * writing capabilities. It does so by checking if a spesific number is placed
- * at the very end of the flash memory.
+ * at the very end of the flash memory
  *
  * @return true if compatible bootloader is present
  * @return false if incompatible or no bootloader is present
  */
 bool Flash::check_writable()
 {
-  uint8_t content = 0;
-  // 256kiB flash
-  #if FLASHEND == 0x3FFFF
-    content = pgm_read_byte_far(0x3FFFF);
-  // 128kiB flash
-  #elif FLASHEND == 0x1FFFF
-    content = pgm_read_byte_far(0x1FFFF);
-  //64kiB flash
-  #elif FLASHEND == 0xFFFF
-    content = pgm_read_byte(0xFFFF);
-  // 32kiB flash
-  #elif FLASHEND == 0x7FFF
-    content = pgm_read_byte(0x7FFF);
-  // 16kiB flash
-  #elif FLASHEND == 0x3FFF
-    content = pgm_read_byte(0x3FFF);
-  // 8kiB flash
-  #elif FLASHEND == 0x1FFF
-    content = pgm_read_byte(0x1FFF);
-  #endif
-
-  if(content >= 8)
-    return true;
-  else
-    return false;
+  return optiboot_check_writable();
 }
 
 /**

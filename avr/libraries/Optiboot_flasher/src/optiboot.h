@@ -64,6 +64,7 @@ typedef void (*do_spm_t)(uint16_t address, uint8_t command, uint16_t data);
 
 
 void do_spm_cli(optiboot_addr_t address, uint8_t command, uint16_t data);
+bool optiboot_check_writable();
 void optiboot_page_erase(optiboot_addr_t address);
 void optiboot_page_fill(optiboot_addr_t address, uint16_t data);
 void optiboot_page_write(optiboot_addr_t address);
