@@ -28,16 +28,16 @@ set -e
 ## | 20 MHz      |         |  X     |        |  X     |        |  X     |       |       |  X    |      | ##
 ## | 18.4320 MHz |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
 ## | 16 MHz      |  X      |  X     |        |  X     |        |  X     |       |  X    |  X    |  X   | ##
-## | 14.7456 MHz |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 14.7456 MHz |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
 ## | 12 MHz      |         |  X     |        |  X     |        |        |  X    |       |  X    |  X   | ##
-## | 11.0592 MHz |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 11.0592 MHz |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
 ## | 8 MHz       |  X      |  X     |        |  X     |        |  X     |  X    |  X    |  X    |  X   | ##
-## | 7.3728 MHz  |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 7.3728 MHz  |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
 ## | 4 MHz       |         |  X     |        |  X     |        |        |       |       |  X    |  X   | ##
-## | 3.6864 MHz  |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
+## | 3.6864 MHz  |         |        |  X     |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
 ## | 2 MHz       |         |        |        |  X     |        |        |       |       |  X    |  X   | ##
-## | 1.8432 MHz  |         |        |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ## 
-## | 1 MHz       |         |        |        |        |        |        |       |       |       |  X   | ## 
+## | 1.8432 MHz  |         |        |        |        |  X     |  X     |  X    |  X    |  X    |  X   | ##
+## | 1 MHz       |         |        |        |        |        |        |       |       |       |  X   | ##
 ##                                                                                                       ##
 ###########################################################################################################
 
@@ -50,24 +50,24 @@ declare -a mcu_and_params=(
 "atmega32"    "LED=B0 LED_START_FLASHES=2 UART=0"
 "atmega32"    "LED=B7 LED_START_FLASHES=2 UART=0"
 
-"at90can32"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"at90can32"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"at90can32"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"at90can32"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega64"    "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"at90can64"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"at90can64"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"at90can64"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"at90can64"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
 "atmega88"    "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega88p"   "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega88pb"  "LED=B5 LED_START_FLASHES=2 UART=0"
 
-"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega128"   "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"at90can128"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"at90can128"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"at90can128"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"at90can128"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
 "atmega162"   "LED=B0 LED_START_FLASHES=0 UART=0"
 "atmega162"   "LED=B0 LED_START_FLASHES=0 UART=1"
@@ -117,60 +117,68 @@ declare -a mcu_and_params=(
 "atmega329"   "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega329p"  "LED=B5 LED_START_FLASHES=2 UART=0"
 
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1"
-"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega640"   "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega644a"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega644a"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega644a"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega644a"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega644p"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega644p"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega644a"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644a"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644a"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644a"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644p"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644p"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega644p"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega645"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega645"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega649"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega649p"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"at90usb646"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1"
-"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1"
+"at90usb647"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega649"   "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega649p"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega1284"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega1284"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1280"  "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega1284p" "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega1284p" "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1281"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1"
-"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1"
+"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1284"  "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1284"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1284"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1"
+"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1284p" "LED=B0 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1284p" "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega1284p" "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+
+"at90usb1286" "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+
+"at90usb1287" "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=2 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega2560"  "LED=B7 LED_START_FLASHES=2 UART=3 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+
+"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega2561"  "LED=B5 LED_START_FLASHES=2 UART=1 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
 "atmega3250"  "LED=B5 LED_START_FLASHES=2 UART=0"
 
 "atmega3290"  "LED=B5 LED_START_FLASHES=2 UART=0"
 "atmega3290p" "LED=B5 LED_START_FLASHES=2 UART=0"
 
-"atmega6450"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega6450"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
-"atmega6490"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
-"atmega6490p" "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1"
+"atmega6490"  "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
+"atmega6490p" "LED=B5 LED_START_FLASHES=2 UART=0 SUPPORT_EEPROM=1 COPY_FLASH_PAGES=1"
 
 "atmega8515"  "LED=B0 LED_START_FLASHES=2 UART=0"
 
@@ -232,10 +240,10 @@ declare -a clock_and_baud=(
 "11059200L" "38400"
 "11059200L" "19200"
 "11059200L" "9600"
-"8000000L" "1000000" 
-"8000000L" "500000" 
-"8000000L" "250000" 
-"8000000L" "115200" 
+"8000000L" "1000000"
+"8000000L" "500000"
+"8000000L" "250000"
+"8000000L" "115200"
 "8000000L" "57600"
 "8000000L" "38400"
 "8000000L" "19200"
@@ -285,7 +293,7 @@ while true; do
   case "$answer" in
     [Yy]* ) delete_all_files=true; break;;
     [Nn]* ) delete_all_files=false; break;;
-    * ) ;;   
+    * ) ;;
   esac;
 done
 
@@ -297,7 +305,7 @@ then
     case "$answer" in
       [Yy]* ) overwrite_files=true; break;;
       [Nn]* ) overwrite_files=false; break;;
-      * ) ;;   
+      * ) ;;
     esac;
   done
 fi
@@ -330,22 +338,22 @@ for((i=0; i < ${#mcu_and_params[@]}; i+=2));
 do
   # Count how many targets we've built for
   TARGET_COUNTER=$(($TARGET_COUNTER + 1))
-  
+
   # Create MCU folder if it doesn't exist already
   mkdir -p bootloaders/${mcu_and_params[$i]}
-  
+
   # Print build header if one or more builds is ran
   build_info_header_is_printed="false"
-  
+
   # Loop through all clock speeds and baud rates
   for((j=0; j < ${#clock_and_baud[@]}; j+=2));
   do
     # Count how many builds that have been ran
     BUILD_COUNTER=$(($BUILD_COUNTER + 1))
     echo -e "\x1B[7m\n\n Build $BUILD_COUNTER of $((${#mcu_and_params[@]} * ${#clock_and_baud[@]} / 4)) "
-    echo -e "\x1B[0mTarget $TARGET_COUNTER of $((${#mcu_and_params[@]} / 2)) " 
+    echo -e "\x1B[0mTarget $TARGET_COUNTER of $((${#mcu_and_params[@]} / 2)) "
     echo -e "\x1B[0mSub build $(((j+2) / 2)) of $((${#clock_and_baud[@]} / 2)) \x1B[7m"
-    
+
      # Check if hex file already exists
      if [[ $overwrite_files = false && $delete_all_files = false ]]
      then
@@ -362,10 +370,10 @@ do
          if [ $build_info_header_is_printed == "N/A" ]
          then
            build_info_header_is_printed="false"
-         fi  
+         fi
        fi
      fi
-     
+
     # Make sure the build info header is printed only once
     if [ $build_info_header_is_printed = "false" ]
     then
@@ -378,21 +386,21 @@ do
       >> bootloaders/${mcu_and_params[$i]}/${mcu_and_params[$i]}_build_info.txt
       build_info_header_is_printed="true"
     fi
-     
-     
+
+
     # Skip, build or overwrite build
     if [[ $file_exists = false || $delete_all_files = true || $overwrite_files = true ]]
-    then    
+    then
       # Print out current build command
       echo -e " make ${mcu_and_params[$i]} AVR_FREQ=${clock_and_baud[$j]} BAUD_RATE=${clock_and_baud[$j+1]} ${mcu_and_params[$i+1]} \x1B[0m"
-    
+
       # Build hex and pipe output to stdout and temp.txt
       make -s ${mcu_and_params[$i]} AVR_FREQ=${clock_and_baud[$j]} BAUD_RATE=${clock_and_baud[$j+1]} ${mcu_and_params[$i+1]} | tee /dev/tty | tee temp.txt | \
-         
+
       # Fill build info file
       awk -v F_CPU="${clock_and_baud[$j]}" '
       BEGIN { printf(F_CPU "\t") }
-      {   
+      {
         if ($1 ~ "UART") printf($3 "\t\t")
         if ($4 ~ "LED_PIN") printf($6 "\t\t")
         if ($7 ~ "LED_FLASHES") printf($9 "\t\t")
@@ -404,13 +412,13 @@ do
         if ($6 ~ "Real:") printf($7 "\t\t")
         if ($11 ~ "Difference:") printf($12 "%%\t")
         if ($1 ~ /^[0-9]+$/) printf($1 " bytes\t")
-        if ($1 ~ "Output" && $2 ~ "file" && $3 "name:") 
+        if ($1 ~ "Output" && $2 ~ "file" && $3 "name:")
         {
           sub(".*/", "", $4)
           printf($4 "\n")
         }
       } ' >> bootloaders/${mcu_and_params[$i]}/${mcu_and_params[$i]}_build_info.txt
-      
+
       # Check if hex file exist and status message
       bootloader_file=(bootloaders/${mcu_and_params[$i]}/${clock_and_baud[$j]}/optiboot_flash_${mcu_and_params[$i]}_$(echo ${mcu_and_params[$i+1]} | awk -F'=| ' '{printf("UART" $6)}')_${clock_and_baud[$j+1]}_${clock_and_baud[$j]}*)
       if [ -e "${bootloader_file}" ];
@@ -420,17 +428,17 @@ do
         echo -e "\n\n\x1B[41m COMPILATION FAILED! \x1B[0m\n\n\n"
         if [ $abort_on_fail = true ]
         then
-          exit 
+          exit
         fi
       fi
-     
-    # Hex file already exist and we're not overwriting     
+
+    # Hex file already exist and we're not overwriting
     else
       echo $bootloader_file
       echo -e "Hex file already exists. Skipping build.."
-    fi      
+    fi
   done
-  
+
   # Add a few newlines at the end of the build info file if something was added
   if [ $build_info_header_is_printed != "N/A" ]
   then
