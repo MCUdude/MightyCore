@@ -10,8 +10,8 @@ class Flash
     Flash(const uint8_t *flash_array, const uint16_t flash_array_size, uint8_t *ram_array, const uint16_t ram_array_size = SPM_PAGESIZE);
     #ifdef RAMPZ
       void set_far_address(uint32_t address);
-      bool check_writable();
     #endif
+    bool check_writable();
     void clear_buffer(uint8_t fill = 0x00);
     uint8_t read_buffer(uint8_t index);
     void write_buffer(uint8_t index, uint8_t value);
