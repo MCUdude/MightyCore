@@ -44,15 +44,15 @@ const uint8_t flashSpace[SPM_PAGESIZE * NUMBER_OF_PAGES] __attribute__((aligned(
 void flash_write_int(uint32_t base_addr, uint16_t offset_addr, int16_t data)
 {
   // Start by erasing the flash page before we start writing to the buffer
-  if ((offset_addr & 0xFF) == 0)
-    optiboot_page_erase(base_addr + (offset_addr & 0xFF00));
+  if ((offset_addr & (SPM_PAGESIZE - 1)) == 0)
+    optiboot_page_erase(base_addr + (offset_addr & (0xFFFF - SPM_PAGESIZE + 1)));
 
   // Write the 16-bit value to the buffer
   optiboot_page_fill(base_addr + offset_addr, data);
 
   // Write the buffer to flash when the buffer is full
-  if ((offset_addr & 0xFF) == 0xFE)
-    optiboot_page_write(base_addr + (offset_addr & 0xFF00));
+  if ((offset_addr & 0xFF) == (SPM_PAGESIZE - 2))
+    optiboot_page_write(base_addr + (offset_addr & (0xFFFF - SPM_PAGESIZE + 1)));
 }
 
 
@@ -61,16 +61,16 @@ void flash_write_byte(uint32_t base_addr, uint16_t offset_addr, uint8_t data)
 {
   static uint8_t low_byte = 0;
 
-  if ((offset_addr & 0xFF) == 0)
-    optiboot_page_erase(base_addr + (offset_addr & 0xFF00));
+  if ((offset_addr & (SPM_PAGESIZE - 1)) == 0)
+    optiboot_page_erase(base_addr + (offset_addr & (0xFFFF - SPM_PAGESIZE + 1)));
 
   if (!(offset_addr & 0x01)) // Address is 2, 4, 6 etc.
     low_byte = data;
   else                       // Address is 1, 3, 5 etc.
     optiboot_page_fill(base_addr + offset_addr, (data << 8) | low_byte);
 
-  if ((offset_addr & 0xFF) == 0xFE)
-    optiboot_page_write(base_addr + (offset_addr & 0xFF00));
+  if ((offset_addr & 0xFF) == (SPM_PAGESIZE - 2))
+    optiboot_page_write(base_addr + (offset_addr & (0xFFFF - SPM_PAGESIZE + 1)));
 }
 
 
@@ -79,7 +79,7 @@ void flash_end_write(uint32_t base_addr, uint16_t offset_addr)
 {
   // Write the buffer to flash if there are any contents in the buffer
   if ((offset_addr & 0xFF) != 0x00)
-    optiboot_page_write(base_addr + (offset_addr & 0xFF00));
+    optiboot_page_write(base_addr + (offset_addr & (0xFFFF - SPM_PAGESIZE + 1)));
 }
 
 
