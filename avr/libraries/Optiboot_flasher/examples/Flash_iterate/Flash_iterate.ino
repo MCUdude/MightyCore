@@ -23,7 +23,7 @@
 // RAM buffer needed by the Flash library. Use flash[] to access the buffer. This
 uint8_t ram_buffer[SPM_PAGESIZE];
 
-// Allocate two flash pages for storing data
+// Allocate two flash pages for storing data. Use PROGMEM1 to allocate space above 64kiB
 #define NUMBER_OF_PAGES 2
 const uint8_t flashSpace[SPM_PAGESIZE * NUMBER_OF_PAGES] __attribute__((aligned(SPM_PAGESIZE))) PROGMEM = {};
 
@@ -71,6 +71,12 @@ void setup()
 {
   delay(2000);
   Serial.begin(9600);
+
+  // If the allocated flash space is above 64kiB, a 16-bit pointer won't be enough anymore.
+  // As a workaround, you can set the address to the allocated space like this, and the
+  // library will handle the rest. You'll also have to allocate your flash space in
+  // PROGMEM1 rather than PROGMEM.
+  //flash.set_far_address(pgm_get_far_address(flashSpace));
 
   // Fetch flash page 1, where we may have a flag
   flash.fetch_page(1);
