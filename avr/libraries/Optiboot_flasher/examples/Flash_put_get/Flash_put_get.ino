@@ -106,6 +106,12 @@ void setup()
   delay(2000);
   Serial.begin(9600);
 
+  if(!flash.check_writable())
+  {
+    Serial.println(F("Incompatible or no bootloader present! Please burn correct bootloader"));
+    while(1);
+  }
+
   // If the allocated flash space is above 64kiB, a 16-bit pointer won't be enough anymore.
   // As a workaround, you can set the address to the allocated space like this, and the
   // library will handle the rest. You'll also have to allocate your flash space in
