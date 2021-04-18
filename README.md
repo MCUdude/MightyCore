@@ -1,8 +1,8 @@
 # MightyCore
 [![Build Status](https://travis-ci.org/MCUdude/MightyCore.svg?branch=master)](https://travis-ci.org/MCUdude/MightyCore) [![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
-  
+
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running a [Optiboot](#write-to-own-flash). Most Arduino UNO compatible libraries will work with this core. If not, it's fairly straight forward to [port a library](#library-porting).
-This core requires at least Arduino IDE v1.6, where v1.8.7 or newer is recommended.  
+This core requires at least Arduino IDE v1.6, where v1.8.7 or newer is recommended.
 If you're into "generic" AVR programming, I'm happy to tell you that all relevant keywords are being highlighted by the IDE through a separate keywords file. Make sure to test the [example files](https://github.com/MCUdude/MightyCore/tree/master/avr/libraries/AVR_examples/examples) (File > Examples > AVR C code examples).
 <br/> <br/>
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
@@ -21,19 +21,19 @@ but felt like vital functionality was missing on the board. When designing this 
 * [Link time optimization / LTO](#link-time-optimization--lto)
 * [Printf support](#printf-support)
 * [Pin macros](#pin-macros)
-* [PROGMEM with flash sizes greater than 64kB](#progmem-with-flash-sizes-greater-than-64kb)
+* [Write to own flash](#write-to-own-flash)
+* [PROGMEM with flash sizes greater than 64kiB](#progmem-with-flash-sizes-greater-than-64kib)
 * **[Pinout](#pinout)**
 * [Programmers](#programmers)
-* [Write to own flash](#write-to-own-flash)
 * **[How to install](#how-to-install)**
   - [Boards Manager Installation](#boards-manager-installation)
   - [Manual Installation](#manual-installation)
   - **[ATmega324PB](#atmega324pb)**
   - [PlatformIO](#platformio)
 * **[Getting started with MightyCore](#getting-started-with-mightycore)**
-* [Wiring reference](#wiring-reference) 
-* [Library porting](#library-porting) 
-* [Hardware](#hardware) 
+* [Wiring reference](#wiring-reference)
+* [Library porting](#library-porting)
+* [Hardware](#hardware)
 * **[Minimal setup](#minimal-setup)**
 
 
@@ -52,9 +52,9 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 
 |                  | mega1284 | mega644 | mega324 | mega164 | mega32 | mega16 | mega8535 |
 |------------------|----------|---------|---------|---------|--------|--------|----------|
-| **Flash**        | 128kB    | 64kB    | 32kB    | 16kB    | 32kB   | 16kB   | 8kB      |
-| **RAM**          | 16kB     | 4kB     | 2kB     | 1kB     | 2kB    | 1kB    | 512B     |
-| **EEPROM**       | 4kB      | 2kB     | 1kB     | 512B    | 512B   | 512B   | 512B     |
+| **Flash**        | 128kiB   | 64kiB   | 32kiB   | 16kiB   | 32kiB  | 16kiB  | 8kiB     |
+| **RAM**          | 16kiB    | 4kiB    | 2kiB    | 1kiB    | 2kiB   | 1kiB   | 0.5kiB   |
+| **EEPROM**       | 4kiB     | 2kiB    | 1kiB    | 0.5kiB  | 0.5kiB | 0.5kiB | 0.5kiB   |
 | **Serial ports** | 2        | 2       | 2/3*    | 2       | 1      | 1      | 1        |
 | **PWM pins**     | 8        | 6       | 6/9*    | 6       | 4      | 4      | 4        |
 | **IO pins**      | 32       | 32      | 32/39*  | 32      | 32     | 32     | 32       |
@@ -68,8 +68,8 @@ If you want the EEPROM to be erased every time you burn the bootloader or upload
 
 ## Supported clock frequencies
 
-MightyCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader.  
-Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external crystal/oscillator is recommended.  
+MightyCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader.
+Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time critical operations an external crystal/oscillator is recommended.
 
 You might experience upload issues when using the internal oscillator. It's factory calibrated but may be a little "off" depending on the calibration, ambient temperature and operating voltage. If uploading failes while using the 8 MHz internal oscillator you have these options:
 * Edit the baudrate line in the [boards.txt](https://github.com/MCUdude/MightyCore/blob/d2a34e027e922631bbed8b4bd60824d5b1eb94cd/avr/boards.txt#L161) file, and choose either 115200, 57600, 38400 or 19200 baud.
@@ -118,22 +118,14 @@ Brown out detection, or BOD for short lets the microcontroller sense the input v
 
 
 ## Link time optimization / LTO
-Link time optimization (LTO for short) has been supported by the IDE since v1.6.11. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep backward compatibility. Enabling LTO in IDE 1.6.10 and older will return an error. 
+Link time optimization (LTO for short) has been supported by the IDE since v1.6.11. The LTO optimizes the code at link time, making the code (often) significantly smaller without making it "slower". In Arduino IDE 1.6.11 and newer LTO is enabled by default. I've chosen to disable this by default to make sure the core keep backward compatibility. Enabling LTO in IDE 1.6.10 and older will return an error.
 I encourage you to try the new LTO option and see how much smaller your code gets! Note that you don't need to hit "Burn Bootloader" in order to enable LTO. Simply enable it in the "Tools" menu, and your code is ready for compilation. If you want to read more about LTO and GCC flags in general, head over to the [GNU GCC website](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)!
-<br/> <br/>
-Here's some raw numbers. These sketches were compiled for an **ATmega1284** using **Arduino IDE 1.6.12 (avr-gcc 4.9.2)**.
-<br/>
-
-|                  | Blink.ino  | AnalogReadSerial.ino  | SerialReadWrite.ino | CardInfo.ino |
-|------------------|------------|-----------------------|---------------------|--------------|
-| **LTO enabled**  | 1084 bytes | 1974 bytes            | 7190 bytes          | 9416 bytes   |
-| **LTO disabled** | 1216 bytes | 2414 bytes            | 7710 bytes          | 11518 bytes  |
 
 
 ## Printf support
-Unlike the official Arduino cores, MightyCore has printf support out of the box. If you're not familiar with printf you should probably [read this first](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm). It's added to the Print class and will work with all libraries that inherit Print. Printf is a standard C function that lets you format text much easier than using Arduino's built-in print and println. Note that this implementation of printf will NOT print floats or doubles. This is a limitation of the avr-libc printf implementation on AVR microcontrollers, and nothing I can easily fix.
+Unlike the official Arduino cores, MightyCore has printf support out of the box. If you're not familiar with printf you should probably [read this first](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm). It's added to the Print class and will work with all libraries that inherit Print. Printf is a standard C function that lets you format text much easier than using Arduino's built-in print and println. Note that this implementation of printf will NOT print floats or doubles. If you need printf to print floats, you'll have to use PlatformIO.
 
-If you're using a serial port, simply use `Serial.printf("Milliseconds since start: %ld\n", millis());`. Other libraries that inherit the Print class (and thus supports printf) are the LiquidCrystal LCD library and the U8G2 graphical LCD library.
+If you're using a serial port, simply use `Serial.printf(F("Milliseconds since start: %ld\n"), millis());`. As you can see, printf supports the `F()` macro, but you don't _have_ to use it. Other libraries that inherit the Print class (and thus supports printf) are the LiquidCrystal LCD library and the U8G2 graphical LCD library.
 
 
 ## Pin macros
@@ -149,11 +141,19 @@ digitalWrite(0, HIGH);
 ```
 
 
-## PROGMEM with flash sizes greater than 64kB
-The usual `PROGMEM` attribute stores constant data such as string arrays to flash and is great if you want to preserve the precious RAM. However, PROGMEM will only store content in the lower section, from 0 and up to 64kB. If you want to store data in the upper section, you can use `PROGMEM1` (64 - 128kB) if your target is an ATmega1284/P. Accessing this data is not as straight forward as with `PROGMEM`, but it's still doable:
+## Write to own flash
+MightyCore uses Optiboot Flash, a bootloader that supports flash writing within the running application, thanks to the work of [@majekw](https://github.com/majekw).
+This means that content from e.g. a sensor can be stored in the flash memory directly without the need of external memory. Flash memory is much faster than EEPROM, and can handle at least 10 000 write cycles before wear becomes an issue.
+For more information on how it works and how you can use this in you own application, check out the [Serial_read_write](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/Serial_read_write/Serial_read_write.ino) for a simple proof-of-concept demo, and
+[Flash_put_get](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/Flash_put_get/Flash_put_get.ino) + [Flash_iterate](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/Flash_iterate/Flash_iterate.ino) for useful examples on how you can store strings, structs and variables to flash and retrieve then afterwards.
+The [Read_write_without_buffer](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/Read_write_without_buffer/Read_write_without_buffer.ino) example demonstrate how you can read and write to the flash memory on a lower level without using a RAM buffer.
 
-```c
-const char far_away[] PROGMEM1 = "Hello from far away!\n"; // (64  - 128kB)
+
+## PROGMEM with flash sizes greater than 64kiB
+The usual `PROGMEM` attribute stores constant data such as string arrays to flash and is great if you want to preserve the precious RAM. However, PROGMEM will only store content in the lower section, from 0 and up to 64kiB. If you want to store data in the upper section, you can use `PROGMEM1` (64 - 128kiB) if your target is an ATmega1284/P. Accessing this data is not as straight forward as with `PROGMEM`, but it's still doable:
+
+```cpp
+const char far_away[] PROGMEM1 = "Hello from far away!\n"; // (64  - 128kiB)
 
 void print_progmem()
 {
@@ -177,7 +177,7 @@ This core has three different pinout options:
 - **Sanguino**: This pinout is common on older 3D printer controllers such as the Sanguino, RepRap Sanguinololu, and RepRap Gen7. This pinout is also known as "avr_developers".
 
 Please have a look at the (`pins_arduino.h`) files for detailed info. Pick your favorite!</br> </br>
-<b>Click to enlarge:</b> 
+<b>Click to enlarge:</b>
 
 
 
@@ -188,11 +188,6 @@ Please have a look at the (`pins_arduino.h`) files for detailed info. Pick your 
 
 ## Programmers
 MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, ATmega324PB, or ATmega164A.
-
-
-## Write to own flash
-MightyCore implements [@majekw](https://github.com/majekw)'s fork of Optiboot, which enables flash writing functionality within the running application. This means that content from e.g. a sensor can be stored in the flash memory directly, without the need of external memory. Flash memory is much faster than EEPROM, and can handle about 10 000 write cycles.  
-Please check out the [Optiboot flasher example](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Optiboot_flasher/examples/SerialReadWrite/SerialReadWrite.ino) for more info about how this feature works, and how you can try it on your MightyCore compatible microcontroller.
 
 
 ## How to install
@@ -232,7 +227,7 @@ If you plan to use the ATmega324PB you need the latest version of the Arduino to
 ## Getting started with MightyCore
 Ok, so you've downloaded and installed MightyCore, but how do you get the wheels spinning? Here's a quick start guide:
 * Hook up your microcontroller as shown in the [pinout diagram](#pinout).
-  - If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted. 
+  - If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted.
 * Open the **Tools > Board** menu item, and select a MighyCore compatible microcontroller.
 * If the *BOD option* is presented, you can select at what voltage the microcontroller will shut down at. Read more about BOD [here](#bod-option).
 * Select your prefered pinout. Personally I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compatibility. Read more about the different pinouts [here](#pinouts).
@@ -258,7 +253,7 @@ I hope you find this useful, because they really are!
 * sleepMode()
 * sleep()
 * noSleep()
-* enablePower() 
+* enablePower()
 * disablePower()
 
 ### For more information please view the [Wiring reference page](https://github.com/MCUdude/MightyCore/blob/master/Wiring_reference.md)!
@@ -269,7 +264,7 @@ Some users have reported issues when trying to use some 3rd party libraries with
 A simple guide on how to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ## Hardware
-I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout. 
+I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout.
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board has some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
@@ -302,7 +297,7 @@ Click the images for full resolution <br/>
 
 ## Minimal setup
 Here is a simple schematic showing a minimal setup using an external crystal. Skip the crystal and the two capacitors if you're using the internal oscillator. <br/>
-<b>Click to enlarge:</b> 
+<b>Click to enlarge:</b>
 
 | DIP-40 package                                        | TQFP-44 SMD package                                   | ATmega324PB SMD package                               |
 |-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
