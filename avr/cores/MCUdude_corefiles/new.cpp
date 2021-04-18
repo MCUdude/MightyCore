@@ -37,12 +37,12 @@ void operator delete[](void * ptr) {
 /// C++14 introduces additional delete operators
 #if __cplusplus >= 201402L
 
-void operator delete(void * ptr, std::size_t)
+void operator delete(void * ptr, size_t)
 {
     ::operator delete(ptr);
 }
 
-void operator delete[](void * ptr, std::size_t)
+void operator delete[](void * ptr, size_t)
 {
     ::operator delete(ptr);
 }
