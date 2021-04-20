@@ -240,6 +240,19 @@ menu.bootloader=Bootloader
 1284.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 1284.menu.clock.1MHz_internal.build.f_cpu=1000000L
 
+1284.menu.clock.16MHz_external_with_clko=External 16 MHz (D1 acting as CLKO)
+1284.menu.clock.16MHz_external_with_clko.upload.speed=115200
+1284.menu.clock.16MHz_external_with_clko.bootloader.low_fuses=0xb7
+1284.menu.clock.16MHz_external_with_clko.build.clkpr=
+1284.menu.clock.16MHz_external_with_clko.build.clock_speed={build.f_cpu}
+1284.menu.clock.16MHz_external_with_clko.build.f_cpu=16000000L
+
+1284.menu.clock.20MHz_external_with_clko=External 20 MHz (D1 acting as CLKO)
+1284.menu.clock.20MHz_external_with_clko.upload.speed=115200
+1284.menu.clock.20MHz_external_with_clko.bootloader.low_fuses=0xb7
+1284.menu.clock.20MHz_external_with_clko.build.clkpr=
+1284.menu.clock.20MHz_external_with_clko.build.clock_speed={build.f_cpu}
+1284.menu.clock.20MHz_external_with_clko.build.f_cpu=20000000L
 
 
 ###########################
@@ -445,6 +458,20 @@ menu.bootloader=Bootloader
 644.menu.clock.1MHz_internal.build.clkpr=
 644.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 644.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+644.menu.clock.16MHz_external_with_clko=External 16 MHz (D1 acting as CLKO)
+644.menu.clock.16MHz_external_with_clko.upload.speed=115200
+644.menu.clock.16MHz_external_with_clko.bootloader.low_fuses=0xb7
+644.menu.clock.16MHz_external_with_clko.build.clkpr=
+644.menu.clock.16MHz_external_with_clko.build.clock_speed={build.f_cpu}
+644.menu.clock.16MHz_external_with_clko.build.f_cpu=16000000L
+
+644.menu.clock.20MHz_external_with_clko=External 20 MHz (D1 acting as CLKO)
+644.menu.clock.20MHz_external_with_clko.upload.speed=115200
+644.menu.clock.20MHz_external_with_clko.bootloader.low_fuses=0xb7
+644.menu.clock.20MHz_external_with_clko.build.clkpr=
+644.menu.clock.20MHz_external_with_clko.build.clock_speed={build.f_cpu}
+644.menu.clock.20MHz_external_with_clko.build.f_cpu=20000000L
 
 
 
@@ -877,6 +904,20 @@ menu.bootloader=Bootloader
 164.menu.clock.1MHz_internal.build.clkpr=
 164.menu.clock.1MHz_internal.build.clock_speed={build.f_cpu}
 164.menu.clock.1MHz_internal.build.f_cpu=1000000L
+
+164.menu.clock.16MHz_external_with_clko=External 16 MHz (D1 acting as CLKO)
+164.menu.clock.16MHz_external_with_clko.upload.speed=115200
+164.menu.clock.16MHz_external_with_clko.bootloader.low_fuses=0xb7
+164.menu.clock.16MHz_external_with_clko.build.clkpr=
+164.menu.clock.16MHz_external_with_clko.build.clock_speed={build.f_cpu}
+164.menu.clock.16MHz_external_with_clko.build.f_cpu=16000000L
+
+164.menu.clock.20MHz_external_with_clko=External 20 MHz (D1 acting as CLKO)
+164.menu.clock.20MHz_external_with_clko.upload.speed=115200
+164.menu.clock.20MHz_external_with_clko.bootloader.low_fuses=0xb7
+164.menu.clock.20MHz_external_with_clko.build.clkpr=
+164.menu.clock.20MHz_external_with_clko.build.clock_speed={build.f_cpu}
+164.menu.clock.20MHz_external_with_clko.build.f_cpu=20000000L
 
 
 
