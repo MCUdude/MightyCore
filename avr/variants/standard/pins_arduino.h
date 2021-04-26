@@ -22,10 +22,11 @@
   #define __AVR_ATmega644__
 #endif
 
+#define MIGHTYCORE
+#define MCUDUDE_MIGHTYCORE
 
 // We're using the Standard pinout
 #define STANDARD_PINOUT
-
 
 // Digital pins
 #if defined(__AVR_ATmega324PB__)

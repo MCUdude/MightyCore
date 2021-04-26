@@ -22,10 +22,11 @@
   #define __AVR_ATmega644__
 #endif
 
+#define MIGHTYCORE
+#define MCUDUDE_MIGHTYCORE
 
 // We're using the Bobuino pinout
 #define BOBUINO_PINOUT
-
 
 // Digital pins
 #if defined(__AVR_ATmega324PB__)
