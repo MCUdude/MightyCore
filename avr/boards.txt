@@ -576,7 +576,7 @@ menu.bootloader=Bootloader
 
 324.menu.clock.14_7456MHz_external=External 14.7456 MHz
 324.menu.clock.14_7456MHz_external.upload.speed=115200
-324.menu.clock.14_7456MHz_external.bootloader.low_fuses=low_fuses=0b1111{bootloader.cksel_bits}
+324.menu.clock.14_7456MHz_external.bootloader.low_fuses=0b1111{bootloader.cksel_bits}
 324.menu.clock.14_7456MHz_external.build.clkpr=
 324.menu.clock.14_7456MHz_external.build.clock_speed={build.f_cpu}
 324.menu.clock.14_7456MHz_external.build.f_cpu=14745600L
