@@ -26,7 +26,7 @@
 #include <Arduino.h>
 #include <inttypes.h>
 #include "Stream.h"
-
+#include "Wire_timeout.h"
 
 // WIRE_HAS_END means Wire has end()
 #define WIRE_HAS_END 1
@@ -57,6 +57,11 @@ class TwoWire : public Stream
     void begin(int);
     void end();
     void setClock(uint32_t);
+    #if defined(WIRE_TIMEOUT)
+      void setWireTimeout(uint32_t timeout = 25000, bool reset_with_timeout = false);
+      bool getWireTimeoutFlag(void);
+      void clearWireTimeoutFlag(void);
+    #endif
     void beginTransmission(uint8_t);
     void beginTransmission(int);
     uint8_t endTransmission(void);
