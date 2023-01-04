@@ -30,6 +30,9 @@
  * --------------------
  */
 
+#ifndef SERVOTIMERS_H
+#define SERVOTIMERS_H
+
 // Say which 16 bit timers can be used and in what order
 
 // MegaCore
@@ -87,3 +90,4 @@ typedef enum { _timer3, _timer1, _Nbr_16timers } timer16_Sequence_t;
 typedef enum { _timer1, _Nbr_16timers } timer16_Sequence_t;
 #endif
 
+#endif
