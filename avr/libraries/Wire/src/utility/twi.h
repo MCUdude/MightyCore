@@ -53,4 +53,3 @@
   bool twi_manageTimeoutFlag(bool);
 
 #endif
-
