@@ -1,62 +1,28 @@
-
-
-stk500.name=STK500 as ISP (MightyCore)
-stk500.communication=serial
-stk500.protocol=stk500
-stk500.program.protocol=stk500
-stk500.program.tool=avrdude
-stk500.program.extra_params= -P {serial.port}
-
-# STK500 HVPP doen’t work because of a bug in Avrdude (lock bit error)
-#stk500hvpp.name=STK500 as HVPP
-#stk500hvpp.communication=serial
-#stk500hvpp.protocol=stk500pp
-#stk500hvpp.program.protocol=stk500pp
-#stk500hvpp.program.tool=avrdude
-#stk500hvpp.program.extra_params= -P {serial.port}
-
-# The following are the standard programmers from Arduino AVR Boards 1.6.9 with the name values modified to identify them as specific to MightyCore.
-# These are required for Upload Using Programmer to work with the MCUs added to the MightyCore avrdude.conf.
-
-avrisp.name=AVR ISP (MightyCore)
-avrisp.communication=serial
-avrisp.protocol=stk500v1
-avrisp.program.protocol=stk500v1
-avrisp.program.tool=avrdude
-avrisp.program.extra_params=-P{serial.port}
-
-avrispmkii.name=AVRISP mkII (MightyCore)
-avrispmkii.communication=usb
-avrispmkii.protocol=stk500v2
-avrispmkii.program.protocol=stk500v2
-avrispmkii.program.tool=avrdude
-avrispmkii.program.extra_params=-Pusb
-
-usbtinyisp.name=USBtinyISP (MightyCore)
-usbtinyisp.protocol=usbtiny
-usbtinyisp.program.tool=avrdude
-usbtinyisp.program.extra_params=
-
-usbtinyisp_slow.name=USBtinyISP slow (MightyCore)
-usbtinyisp_slow.protocol=usbtiny
-usbtinyisp_slow.program.tool=avrdude
-usbtinyisp_slow.program.extra_params=-B32
-
-usbasp.name=USBasp (MightyCore)
+usbasp.name=USBasp
 usbasp.communication=usb
 usbasp.protocol=usbasp
 usbasp.program.protocol=usbasp
 usbasp.program.tool=avrdude
-usbasp.program.extra_params=-Pusb
+usbasp.program.extra_params=
 
-usbasp_slow.name=USBasp slow (MightyCore)
+usbasp_slow.name=USBasp slow
 usbasp_slow.communication=usb
 usbasp_slow.protocol=usbasp
 usbasp_slow.program.protocol=usbasp
 usbasp_slow.program.tool=avrdude
-usbasp_slow.program.extra_params=-Pusb -B32
+usbasp_slow.program.extra_params= -B32
 
-arduinoasisp.name=Arduino as ISP (MightyCore)
+usbtinyisp.name=USBtinyISP
+usbtinyisp.protocol=usbtiny
+usbtinyisp.program.tool=avrdude
+usbtinyisp.program.extra_params=
+
+usbtinyisp_slow.name=USBtinyISP slow
+usbtinyisp_slow.protocol=usbtiny
+usbtinyisp_slow.program.tool=avrdude
+usbtinyisp_slow.program.extra_params=-B32
+
+arduinoasisp.name=Arduino as ISP
 arduinoasisp.communication=serial
 arduinoasisp.protocol=stk500v1
 arduinoasisp.speed=19200
@@ -65,7 +31,7 @@ arduinoasisp.program.speed=19200
 arduinoasisp.program.tool=avrdude
 arduinoasisp.program.extra_params=-P{serial.port} -b{program.speed}
 
-arduinoasispatmega32u4.name=Arduino as ISP (ATmega32U4) (MightyCore)
+arduinoasispatmega32u4.name=Arduino Leonardo/Pro Micro as ISP
 arduinoasispatmega32u4.communication=serial
 arduinoasispatmega32u4.protocol=arduino
 arduinoasispatmega32u4.speed=19200
@@ -74,40 +40,37 @@ arduinoasispatmega32u4.program.speed=19200
 arduinoasispatmega32u4.program.tool=avrdude
 arduinoasispatmega32u4.program.extra_params=-P{serial.port} -b{program.speed}
 
-atmel_ice.name=Atmel-ICE (AVR) (MightyCore)
+atmel_ice.name=Atmel-ICE ISP
 atmel_ice.communication=usb
 atmel_ice.protocol=atmelice_isp
 atmel_ice.program.protocol=atmelice_isp
 atmel_ice.program.tool=avrdude
-atmel_ice.program.extra_params=-Pusb
+atmel_ice.program.extra_params=
 
-jtag3isp.name=Atmel JTAGICE3 (ISP mode) (MightyCore)
-jtag3isp.communication=usb
-jtag3isp.protocol=jtag3isp
-jtag3isp.program.protocol=jtag3isp
-jtag3isp.program.tool=avrdude
-jtag3isp.program.extra_params=
-
-jtag3.name=Atmel JTAGICE3 (JTAG mode) (MightyCore)
-jtag3.communication=usb
-jtag3.protocol=jtag3
-jtag3.program.protocol=jtag3
-jtag3.program.tool=avrdude
-# Set a bitclock of 0.1us (the fastest supported value). This should
-# work regardless of the crystal used, since JTAG doesn't use the MCU
-# clock but dictates its own clock.
-jtag3.program.extra_params=-B0.1
-
-pickit4_isp.name=PICkit4 (ISP mode) (MightyCore)
+pickit4_isp.name=PICkit4 ISP
 pickit4_isp.communication=usb
 pickit4_isp.protocol=pickit4_isp
 pickit4_isp.program.protocol=pickit4_isp
 pickit4_isp.program.tool=avrdude
-pickit4_isp.program.extra_params=-Pusb
+pickit4_isp.program.extra_params=
 
-snap_isp.name=MPLAB SNAP (ISP mode) (MightyCore)
+snap_isp.name=MPLAB SNAP ISP
 snap_isp.communication=usb
 snap_isp.protocol=snap_isp
 snap_isp.program.protocol=snap_isp
 snap_isp.program.tool=avrdude
-snap_isp.program.extra_params=-Pusb
+snap_isp.program.extra_params=
+
+avrispmkii.name=AVRISP mkII
+avrispmkii.communication=usb
+avrispmkii.protocol=stk500v2
+avrispmkii.program.protocol=stk500v2
+avrispmkii.program.tool=avrdude
+avrispmkii.program.extra_params=
+
+stk500.name=STK500 as ISP
+stk500.communication=serial
+stk500.protocol=stk500
+stk500.program.protocol=stk500
+stk500.program.tool=avrdude
+stk500.program.extra_params= -P {serial.port}
