@@ -85,7 +85,7 @@ jq -r                                   \
       "version": "7.3.0-atmel3.6.1-arduino7"
     },
     {
-      "packager": "MiniCore",
+      "packager": "MightyCore",
       "name": "avrdude",
       "version": "7.1-arduino.1"
     },
