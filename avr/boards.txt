@@ -46,32 +46,30 @@ menu.bootloader=Bootloader
 1284.upload.maximum_data_size=16384
 1284.bootloader.tool=avrdude
 1284.bootloader.unlock_bits=0xff
-1284.bootloader.lock_bits=0xcf
+1284.bootloader.lock_bits=0xff
+1284.bootloader.high_fuses=0b1101{bootloader.eesave_bit}111
 1284.build.core=MCUdude_corefiles
 1284.build.board=AVR_ATmega1284
 1284.build.extra_flags={build.clkpr}
 
 # Upload port select
 1284.menu.bootloader.uart0=Yes (UART0)
-1284.menu.bootloader.uart0.upload.maximum_size=130048
-1284.menu.bootloader.uart0.upload.protocol=arduino
+1284.menu.bootloader.uart0.upload.maximum_size=130560
+1284.menu.bootloader.uart0.upload.protocol=urclock
 1284.menu.bootloader.uart0.upload.port=UART0
 1284.menu.bootloader.uart0.build.export_merged_output=true
-1284.menu.bootloader.uart0.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-1284.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
+1284.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 1284.menu.bootloader.uart1=Yes (UART1)
-1284.menu.bootloader.uart1.upload.maximum_size=130048
-1284.menu.bootloader.uart1.upload.protocol=arduino
+1284.menu.bootloader.uart1.upload.maximum_size=130560
+1284.menu.bootloader.uart1.upload.protocol=urclock
 1284.menu.bootloader.uart1.upload.port=UART1
 1284.menu.bootloader.uart1.build.export_merged_output=true
-1284.menu.bootloader.uart1.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-1284.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
+1284.menu.bootloader.uart1.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_led+b7_fr_ce_ur_vbl.hex
 
 1284.menu.bootloader.no_bootloader=No bootloader
 1284.menu.bootloader.no_bootloader.upload.maximum_size=131072
 1284.menu.bootloader.no_bootloader.build.export_merged_output=false
-1284.menu.bootloader.no_bootloader.bootloader.high_fuses=0b1101{bootloader.eesave_bit}111
 1284.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # Pinouts
@@ -252,32 +250,30 @@ menu.bootloader=Bootloader
 644.upload.maximum_data_size=4096
 644.bootloader.tool=avrdude
 644.bootloader.unlock_bits=0xff
-644.bootloader.lock_bits=0xcf
+644.bootloader.lock_bits=0xff
+644.bootloader.high_fuses=0b1101{bootloader.eesave_bit}111
 644.build.core=MCUdude_corefiles
 644.build.board=AVR_ATmega644
 644.build.extra_flags={build.clkpr}
 
 # Upload port select
 644.menu.bootloader.uart0=Yes (UART0)
-644.menu.bootloader.uart0.upload.maximum_size=64512
-644.menu.bootloader.uart0.upload.protocol=arduino
+644.menu.bootloader.uart0.upload.maximum_size=65024
+644.menu.bootloader.uart0.upload.protocol=urclock
 644.menu.bootloader.uart0.upload.port=UART0
 644.menu.bootloader.uart0.build.export_merged_output=true
-644.menu.bootloader.uart0.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-644.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
+644.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 644.menu.bootloader.uart1=Yes (UART1)
-644.menu.bootloader.uart1.upload.maximum_size=64512
-644.menu.bootloader.uart1.upload.protocol=arduino
+644.menu.bootloader.uart1.upload.maximum_size=65024
+644.menu.bootloader.uart1.upload.protocol=urclock
 644.menu.bootloader.uart1.upload.port=UART1
 644.menu.bootloader.uart1.build.export_merged_output=true
-644.menu.bootloader.uart1.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-644.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}_BIGBOOT.hex
+644.menu.bootloader.uart1.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 644.menu.bootloader.no_bootloader=No bootloader
 644.menu.bootloader.no_bootloader.upload.maximum_size=65536
 644.menu.bootloader.no_bootloader.build.export_merged_output=false
-644.menu.bootloader.no_bootloader.bootloader.high_fuses=0b1101{bootloader.eesave_bit}111
 644.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # EEPROM
@@ -458,40 +454,37 @@ menu.bootloader=Bootloader
 324.upload.maximum_data_size=2048
 324.bootloader.tool=avrdude
 324.bootloader.unlock_bits=0xff
-324.bootloader.lock_bits=0xcf
+324.bootloader.lock_bits=0xff
+324.bootloader.high_fuses=0b1101{bootloader.eesave_bit}111
 324.build.core=MCUdude_corefiles
 324.build.board=AVR_ATmega324
 324.build.extra_flags={build.clkpr}
 
 # Upload port select
 324.menu.bootloader.uart0=Yes (UART0)
-324.menu.bootloader.uart0.upload.maximum_size=32256
-324.menu.bootloader.uart0.upload.protocol=arduino
+324.menu.bootloader.uart0.upload.maximum_size=32384
+324.menu.bootloader.uart0.upload.protocol=urclock
 324.menu.bootloader.uart0.upload.port=UART0
 324.menu.bootloader.uart0.build.export_merged_output=true
-324.menu.bootloader.uart0.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-324.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
+324.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 324.menu.bootloader.uart1=Yes (UART1)
-324.menu.bootloader.uart1.upload.maximum_size=32256
-324.menu.bootloader.uart1.upload.protocol=arduino
+324.menu.bootloader.uart1.upload.maximum_size=32384
+324.menu.bootloader.uart1.upload.protocol=urclock
 324.menu.bootloader.uart1.upload.port=UART1
 324.menu.bootloader.uart1.build.export_merged_output=true
-324.menu.bootloader.uart1.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-324.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
+324.menu.bootloader.uart1.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 324.menu.bootloader.uart2=Yes (UART2 324PB only)
-324.menu.bootloader.uart2.upload.maximum_size=32256
-324.menu.bootloader.uart2.upload.protocol=arduino
+324.menu.bootloader.uart2.upload.maximum_size=32384
+324.menu.bootloader.uart2.upload.protocol=urclock
 324.menu.bootloader.uart2.upload.port=UART2
 324.menu.bootloader.uart2.build.export_merged_output=true
-324.menu.bootloader.uart2.bootloader.high_fuses=0b1101{bootloader.eesave_bit}110
-324.menu.bootloader.uart2.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
+324.menu.bootloader.uart2.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 324.menu.bootloader.no_bootloader=No bootloader
 324.menu.bootloader.no_bootloader.upload.maximum_size=32768
 324.menu.bootloader.no_bootloader.build.export_merged_output=false
-324.menu.bootloader.no_bootloader.bootloader.high_fuses=0b1101{bootloader.eesave_bit}111
 324.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # EEPROM
@@ -684,32 +677,30 @@ menu.bootloader=Bootloader
 164.upload.maximum_data_size=1024
 164.bootloader.tool=avrdude
 164.bootloader.unlock_bits=0xff
-164.bootloader.lock_bits=0xcf
+164.bootloader.lock_bits=0xff
+164.bootloader.high_fuses=0b1101{bootloader.eesave_bit}101
 164.build.core=MCUdude_corefiles
 164.build.board=AVR_ATmega164
 164.build.extra_flags={build.clkpr}
 
 # Upload port select
 164.menu.bootloader.uart0=Yes (UART0)
-164.menu.bootloader.uart0.upload.maximum_size=32256
-164.menu.bootloader.uart0.upload.protocol=arduino
+164.menu.bootloader.uart0.upload.maximum_size=16000
+164.menu.bootloader.uart0.upload.protocol=urclock
 164.menu.bootloader.uart0.upload.port=UART0
 164.menu.bootloader.uart0.build.export_merged_output=true
-164.menu.bootloader.uart0.bootloader.high_fuses=0b1101{bootloader.eesave_bit}100
-164.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
+164.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 164.menu.bootloader.uart1=Yes (UART1)
-164.menu.bootloader.uart1.upload.maximum_size=32256
-164.menu.bootloader.uart1.upload.protocol=arduino
+164.menu.bootloader.uart1.upload.maximum_size=16000
+164.menu.bootloader.uart1.upload.protocol=urclock
 164.menu.bootloader.uart1.upload.port=UART1
 164.menu.bootloader.uart1.build.export_merged_output=true
-164.menu.bootloader.uart1.bootloader.high_fuses=0b1101{bootloader.eesave_bit}100
-164.menu.bootloader.uart1.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.clock_speed}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.clock_speed}_{build.bootloader_led}.hex
+164.menu.bootloader.uart1.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 164.menu.bootloader.no_bootloader=No bootloader
-164.menu.bootloader.no_bootloader.upload.maximum_size=32768
+164.menu.bootloader.no_bootloader.upload.maximum_size=16384
 164.menu.bootloader.no_bootloader.build.export_merged_output=false
-164.menu.bootloader.no_bootloader.bootloader.high_fuses=0b1101{bootloader.eesave_bit}101
 164.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # EEPROM
@@ -890,26 +881,24 @@ menu.bootloader=Bootloader
 32.upload.maximum_data_size=2048
 32.bootloader.tool=avrdude
 32.bootloader.unlock_bits=0xff
-32.bootloader.lock_bits=0xcf
+32.bootloader.lock_bits=0xff
 32.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
-32.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}11{bootloader.bootrst_bit}
+32.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}111
 32.build.core=MCUdude_corefiles
 32.build.board=AVR_ATmega32
 32.build.mcu=atmega32
 
 # Upload port select
 32.menu.bootloader.uart0=Yes (UART0)
-32.menu.bootloader.uart0.upload.maximum_size=32256
-32.menu.bootloader.uart0.upload.protocol=arduino
+32.menu.bootloader.uart0.upload.maximum_size=32384
+32.menu.bootloader.uart0.upload.protocol=urclock
 32.menu.bootloader.uart0.upload.port=UART0
 32.menu.bootloader.uart0.build.export_merged_output=true
-32.menu.bootloader.uart0.bootloader.bootrst_bit=0
-32.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
+32.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 32.menu.bootloader.no_bootloader=No bootloader
 32.menu.bootloader.no_bootloader.upload.maximum_size=32768
 32.menu.bootloader.no_bootloader.build.export_merged_output=false
-32.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
 32.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # EEPROM
@@ -1065,26 +1054,24 @@ menu.bootloader=Bootloader
 16.upload.maximum_data_size=1024
 16.bootloader.tool=avrdude
 16.bootloader.unlock_bits=0xff
-16.bootloader.lock_bits=0xcf
+16.bootloader.lock_bits=0xff
 16.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
-16.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}10{bootloader.bootrst_bit}
+16.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}101
 16.build.core=MCUdude_corefiles
 16.build.board=AVR_ATmega16
 16.build.mcu=atmega16
 
 # Upload port select
 16.menu.bootloader.uart0=Yes (UART0)
-16.menu.bootloader.uart0.upload.maximum_size=15872
-16.menu.bootloader.uart0.upload.protocol=arduino
+16.menu.bootloader.uart0.upload.maximum_size=16000
+16.menu.bootloader.uart0.upload.protocol=urclock
 16.menu.bootloader.uart0.upload.port=UART0
 16.menu.bootloader.uart0.build.export_merged_output=true
-16.menu.bootloader.uart0.bootloader.bootrst_bit=0
-16.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
+16.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 16.menu.bootloader.no_bootloader=No bootloader
 16.menu.bootloader.no_bootloader.upload.maximum_size=16384
 16.menu.bootloader.no_bootloader.build.export_merged_output=false
-16.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
 16.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # EEPROM
@@ -1240,26 +1227,24 @@ menu.bootloader=Bootloader
 8535.upload.maximum_data_size=512
 8535.bootloader.tool=avrdude
 8535.bootloader.unlock_bits=0xff
-8535.bootloader.lock_bits=0xcf
+8535.bootloader.lock_bits=0xff
 8535.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
-8535.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}10{bootloader.bootrst_bit}
+8535.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}101
 8535.build.core=MCUdude_corefiles
 8535.build.board=AVR_ATmega8535
 8535.build.mcu=atmega8535
 
 # Upload port select
 8535.menu.bootloader.uart0=Yes (UART0)
-8535.menu.bootloader.uart0.upload.maximum_size=7680
-8535.menu.bootloader.uart0.upload.protocol=arduino
+8535.menu.bootloader.uart0.upload.maximum_size=7808
+8535.menu.bootloader.uart0.upload.protocol=urclock
 8535.menu.bootloader.uart0.upload.port=UART0
 8535.menu.bootloader.uart0.build.export_merged_output=true
-8535.menu.bootloader.uart0.bootloader.bootrst_bit=0
-8535.menu.bootloader.uart0.bootloader.file=optiboot_flash/bootloaders/{build.mcu}/{build.f_cpu}/optiboot_flash_{build.mcu}_{upload.port}_{upload.speed}_{build.f_cpu}_{build.bootloader_led}.hex
+8535.menu.bootloader.uart0.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_lednop_fr_ce_ur_vbl.hex
 
 8535.menu.bootloader.no_bootloader=No bootloader
 8535.menu.bootloader.no_bootloader.upload.maximum_size=8192
 8535.menu.bootloader.no_bootloader.build.export_merged_output=false
-8535.menu.bootloader.no_bootloader.bootloader.bootrst_bit=1
 8535.menu.bootloader.no_bootloader.bootloader.file=empty/empty.hex
 
 # EEPROM
