@@ -47,7 +47,7 @@ menu.bootloader=Bootloader
 1284.menu.bootloader.uart1.upload.protocol=urclock
 1284.menu.bootloader.uart1.upload.uartpins=uart1_rxd2_txd3
 1284.menu.bootloader.uart1.build.export_merged_output=true
-1284.menu.bootloader.uart1.bootloader.file=urboot/urboot_{build.mcu}_autobaud_ee_led+b7_fr_ce_ur_vbl.hex
+1284.menu.bootloader.uart1.bootloader.file=urboot/{build.mcu}/watchdog_1_s/autobaud/{upload.uartpins}/{build.bootloader_led}/urboot_{build.mcu}_pr_ee_ce.hex
 
 1284.menu.bootloader.no_bootloader=No bootloader
 1284.menu.bootloader.no_bootloader.upload.maximum_size=131072
@@ -225,7 +225,7 @@ menu.bootloader=Bootloader
 644.menu.bootloader.uart0=Yes (UART0)
 644.menu.bootloader.uart0.upload.maximum_size=65024
 644.menu.bootloader.uart0.upload.protocol=urclock
-644.menu.bootloader.uart0.upload.uartpins=uart1_rxd2_txd3
+644.menu.bootloader.uart0.upload.uartpins=uart0_rxd0_txd1
 644.menu.bootloader.uart0.build.export_merged_output=true
 644.menu.bootloader.uart0.bootloader.file=urboot/{build.mcu}/watchdog_1_s/autobaud/{upload.uartpins}/{build.bootloader_led}/urboot_{build.mcu}_pr_ee_ce.hex
 
