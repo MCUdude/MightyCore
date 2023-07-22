@@ -88,17 +88,17 @@ menu.bootloader=Bootloader
 1284.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
 # Compiler link time optimization
-1284.menu.LTO.Os=LTO disabled
-1284.menu.LTO.Os.compiler.c.extra_flags=
-1284.menu.LTO.Os.compiler.c.elf.extra_flags=
-1284.menu.LTO.Os.compiler.cpp.extra_flags=
-1284.menu.LTO.Os.ltoarcmd=avr-ar
-
 1284.menu.LTO.Os_flto=LTO enabled
 1284.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 1284.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 1284.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 1284.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+1284.menu.LTO.Os=LTO disabled
+1284.menu.LTO.Os.compiler.c.extra_flags=
+1284.menu.LTO.Os.compiler.c.elf.extra_flags=
+1284.menu.LTO.Os.compiler.cpp.extra_flags=
+1284.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies
 1284.menu.clock.16MHz_external=External 16 MHz
@@ -275,17 +275,17 @@ menu.bootloader=Bootloader
 644.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
 # Compiler link time optimization
-644.menu.LTO.Os=Disabled
-644.menu.LTO.Os.compiler.c.extra_flags=
-644.menu.LTO.Os.compiler.c.elf.extra_flags=
-644.menu.LTO.Os.compiler.cpp.extra_flags=
-644.menu.LTO.Os.ltoarcmd=avr-ar
-
-644.menu.LTO.Os_flto=Enabled
+644.menu.LTO.Os_flto=LTO enabled
 644.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 644.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 644.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 644.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+644.menu.LTO.Os=LTO disabled
+644.menu.LTO.Os.compiler.c.extra_flags=
+644.menu.LTO.Os.compiler.c.elf.extra_flags=
+644.menu.LTO.Os.compiler.cpp.extra_flags=
+644.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies
 644.menu.clock.16MHz_external=External 16 MHz
@@ -481,17 +481,17 @@ menu.bootloader=Bootloader
 324.menu.BOD.disabled.bootloader.extended_fuses=0b1111{bootloader.cfd_bit}111
 
 # Compiler link time optimization
-324.menu.LTO.Os=LTO disabled
-324.menu.LTO.Os.compiler.c.extra_flags=
-324.menu.LTO.Os.compiler.c.elf.extra_flags=
-324.menu.LTO.Os.compiler.cpp.extra_flags=
-324.menu.LTO.Os.ltoarcmd=avr-ar
-
 324.menu.LTO.Os_flto=LTO enabled
 324.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 324.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 324.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 324.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+324.menu.LTO.Os=LTO disabled
+324.menu.LTO.Os.compiler.c.extra_flags=
+324.menu.LTO.Os.compiler.c.elf.extra_flags=
+324.menu.LTO.Os.compiler.cpp.extra_flags=
+324.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies
 324.menu.clock.16MHz_external=External 16 MHz
@@ -668,17 +668,17 @@ menu.bootloader=Bootloader
 164.menu.BOD.disabled.bootloader.extended_fuses=0xff
 
 # Compiler link time optimization
-164.menu.LTO.Os=LTO disabled
-164.menu.LTO.Os.compiler.c.extra_flags=
-164.menu.LTO.Os.compiler.c.elf.extra_flags=
-164.menu.LTO.Os.compiler.cpp.extra_flags=
-164.menu.LTO.Os.ltoarcmd=avr-ar
-
 164.menu.LTO.Os_flto=LTO enabled
 164.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 164.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 164.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 164.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+164.menu.LTO.Os=LTO disabled
+164.menu.LTO.Os.compiler.c.extra_flags=
+164.menu.LTO.Os.compiler.c.elf.extra_flags=
+164.menu.LTO.Os.compiler.cpp.extra_flags=
+164.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies
 164.menu.clock.16MHz_external=External 16 MHz
@@ -841,17 +841,17 @@ menu.bootloader=Bootloader
 32.menu.BOD.disabled.bootloader.bod_bits=11
 
 # Compiler link time optimization
-32.menu.LTO.Os=LTO disabled
-32.menu.LTO.Os.compiler.c.extra_flags=
-32.menu.LTO.Os.compiler.c.elf.extra_flags=
-32.menu.LTO.Os.compiler.cpp.extra_flags=
-32.menu.LTO.Os.ltoarcmd=avr-ar
-
 32.menu.LTO.Os_flto=LTO enabled
 32.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 32.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 32.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 32.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+32.menu.LTO.Os=LTO disabled
+32.menu.LTO.Os.compiler.c.extra_flags=
+32.menu.LTO.Os.compiler.c.elf.extra_flags=
+32.menu.LTO.Os.compiler.cpp.extra_flags=
+32.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
 32.menu.clock.16MHz_external=External 16 MHz
@@ -1014,17 +1014,17 @@ menu.bootloader=Bootloader
 16.menu.BOD.disabled.bootloader.bod_bits=11
 
 # Compiler link time optimization
-16.menu.LTO.Os=LTO disabled
-16.menu.LTO.Os.compiler.c.extra_flags=
-16.menu.LTO.Os.compiler.c.elf.extra_flags=
-16.menu.LTO.Os.compiler.cpp.extra_flags=
-16.menu.LTO.Os.ltoarcmd=avr-ar
-
 16.menu.LTO.Os_flto=LTO enabled
 16.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 16.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 16.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 16.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+16.menu.LTO.Os=LTO disabled
+16.menu.LTO.Os.compiler.c.extra_flags=
+16.menu.LTO.Os.compiler.c.elf.extra_flags=
+16.menu.LTO.Os.compiler.cpp.extra_flags=
+16.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
 16.menu.clock.16MHz_external=External 16 MHz
@@ -1187,17 +1187,17 @@ menu.bootloader=Bootloader
 8535.menu.BOD.disabled.bootloader.bod_bits=11
 
 # Compiler link time optimization
-8535.menu.LTO.Os=LTO disabled
-8535.menu.LTO.Os.compiler.c.extra_flags=
-8535.menu.LTO.Os.compiler.c.elf.extra_flags=
-8535.menu.LTO.Os.compiler.cpp.extra_flags=
-8535.menu.LTO.Os.ltoarcmd=avr-ar
-
 8535.menu.LTO.Os_flto=LTO enabled
 8535.menu.LTO.Os_flto.compiler.c.extra_flags=-Wextra -flto -g
 8535.menu.LTO.Os_flto.compiler.c.elf.extra_flags=-w -flto -g
 8535.menu.LTO.Os_flto.compiler.cpp.extra_flags=-Wextra -flto -g
 8535.menu.LTO.Os_flto.ltoarcmd=avr-gcc-ar
+
+8535.menu.LTO.Os=LTO disabled
+8535.menu.LTO.Os.compiler.c.extra_flags=
+8535.menu.LTO.Os.compiler.c.elf.extra_flags=
+8535.menu.LTO.Os.compiler.cpp.extra_flags=
+8535.menu.LTO.Os.ltoarcmd=avr-ar
 
 # Clock frequencies - This is the second part of the low fuse bit concatenation
 8535.menu.clock.16MHz_external=External 16 MHz
