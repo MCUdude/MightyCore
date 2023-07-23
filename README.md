@@ -139,13 +139,13 @@ digitalWrite(0, HIGH);
 
 
 ## Write to own flash
-MightyCore uses the excellent Urboot bootloader, written by [Stefan Rueger](https://github.com/stefanrueger). Urboot supports flash writing within the running application, which means that content from e.g. a sensor can be stored in the flash memory directly without the need of external memory. Flash memory is much faster than EEPROM, and can handle at least 10 000 write cycles before wear becomes an issue.
-For more information on how it works and how you can use this in you own application, check out the [Serial_read_write](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Serial_read_write/Serial_read_write.ino) for a simple proof-of-concept demo, and
-[Flash_put_get](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Flash_put_get/Flash_put_get.ino) + [Flash_iterate](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Flash_iterate/Flash_iterate.ino) for useful examples on how you can store strings, structs and variables to flash and retrieve then afterwards.
+MightyCore uses the excellent Urboot bootloader, written by [Stefan Rueger](https://github.com/stefanrueger). Urboot supports flash writing within the running application, meaning that content from e.g. a sensor can be stored in the flash memory directly without needing external memory. Flash memory is much faster than EEPROM, and can handle at least 10 000 write cycles before wear becomes an issue.
+For more information on how it works and how you can use this in your own application, check out the [Serial_read_write](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Serial_read_write/Serial_read_write.ino) for a simple proof-of-concept demo, and
+[Flash_put_get](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Flash_put_get/Flash_put_get.ino) + [Flash_iterate](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Flash_iterate/Flash_iterate.ino) for useful examples on how you can store strings, structs, and variables to flash and retrieve then afterward.
 
 
 ## PROGMEM with flash sizes greater than 64kiB
-The usual `PROGMEM` attribute stores constant data such as string arrays to flash and is great if you want to preserve the precious RAM. However, PROGMEM will only store content in the lower section, from 0 and up to 64kiB. If you want to store data in the upper section, you can use `PROGMEM1` (64 - 128kiB) if your target is an ATmega1284/P. Accessing this data is not as straightforward as with `PROGMEM`, but it's still doable:
+The usual `PROGMEM` attribute stores constant data such as string arrays to flash and is great if you want to preserve the precious RAM. However, PROGMEM will only store content in the lower section, from 0 and up to 64kiB. If you want to store data in the upper section, use `PROGMEM1` (64 - 128kiB) if your target is an ATmega1284/P. Accessing this data is not as straightforward as with `PROGMEM`, but it's still doable:
 
 ```cpp
 const char far_away[] PROGMEM1 = "Hello from far away!\n"; // (64  - 128kiB)
