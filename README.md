@@ -4,7 +4,7 @@
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running the [Urboot](#write-to-own-flash) bootloader. Most Arduino UNO-compatible libraries will work with this core. If not, it's fairly straightforward to [port a library](#library-porting).
 This core requires at least Arduino IDE v1.6, where v1.8.9 or newer is recommended. IDE 2.x should also work.
 
-*From MightyCore version 3 and onwards, the Optiboot bootloader has been replaced by the [Urboot bootloader](https://github.com/stefanrueger/urboot/), which is superior to Optiboot. It's smaller, faster, and has automatic baud rate detection. Other cool features the bootloader provides but are not utilized by MightyCore are EEPROM r/w support, user program metadata stored in flash that (can easily be viewed by Avrdude -xshowall), chip erase functionality
+*From MightyCore version 3 and onwards, the Optiboot bootloader has been replaced by the [Urboot bootloader](https://github.com/stefanrueger/urboot/), which is superior to Optiboot. It's smaller, faster, and has automatic baud rate detection. Other cool features the bootloader provides but are not utilized by MightyCore are user program metadata stored in flash that (can easily be viewed by Avrdude -xshowall) and chip erase functionality.
 If you already have Optiboot installed and don't want to replace it with Urboot, you can still upload programs without any compatibility issues. However, if you're burning a bootloader to a new chip, Urboot is the way to go.*
 
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
@@ -68,6 +68,20 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 
 ## EEPROM option
 If you want the EEPROM to be erased every time you burn the bootloader or upload using a programmer, you can turn off this option. You'll have to connect an ISP programmer and hit "Burn bootloader" to enable or disable EEPROM retain. Note that when uploading using a bootloader, the EEPROM will always be retained.
+
+Note that if you're using an ISP programmer or have the Urboot bootloader installed, data specified in the user program using the `EEMEM` attribute will be uploaded to EEPROM when you upload your program in Arduino IDE. This feature is not available when using the older Optiboot bootloader.
+
+```cpp
+#include <avr/eeprom.h>
+
+volatile const char ee_data EEMEM = {"Data that's loaded straight into EEPROM\n"};
+
+void setup() {
+}
+
+void loop() {
+}
+```
 
 
 ## Supported clock frequencies
