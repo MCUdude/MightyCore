@@ -48,7 +48,9 @@ defined(__AVR_ATmega324P__) || defined(__AVR_ATmega324PA__) || defined(__AVR_ATm
 #endif
 
 // Builtin LED
-#define LED_BUILTIN   (0)
+#if !defined(LED_BUILTIN)
+  #define LED_BUILTIN   (0)
+#endif
 static const uint8_t LED = LED_BUILTIN;
 
 // Analog pins
@@ -85,7 +87,7 @@ static const uint8_t SCK  = PIN_SPI_SCK;
   #define PIN_SPI_SS0   PIN_SPI_SS
   #define PIN_SPI_MOSI0 PIN_SPI_MOSI
   #define PIN_SPI_MISO0 PIN_SPI_MISO
-  #define PIN_SPI_SCK0  PIN_SPI_SCK  
+  #define PIN_SPI_SCK0  PIN_SPI_SCK
   #define PIN_SPI_SS1   (14)
   #define PIN_SPI_MOSI1 (35)
   #define PIN_SPI_MISO1 (34)
@@ -524,7 +526,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   #define UPM00   UPM0
   #define UPM01   UPM1
   #define UMSEL00 UMSEL0
-  #define UMSEL01 UMSEL1  
+  #define UMSEL01 UMSEL1
   #define MPCM1   MPCM
   #define U2X1    U2X
   #define UPE1    UPE
@@ -548,7 +550,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   #define UPM10   UPM0
   #define UPM11   UPM1
   #define UMSEL10 UMSEL0
-  #define UMSEL11 UMSEL1 
+  #define UMSEL11 UMSEL1
   #define MPCM2   MPCM
   #define U2X2    U2X
   #define UPE2    UPE
@@ -573,7 +575,7 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   #define UPM21   UPM1
   #define UMSEL20 UMSEL0
   #define UMSEL21 UMSEL1
-  
+
   // i2c
   #define TWI_vect TWI0_vect
   #define TWI_vect_num TWI0_vect_num
