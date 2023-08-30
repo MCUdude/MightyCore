@@ -32,7 +32,6 @@ but felt like vital functionality was missing on the board. When designing this 
 * **[How to install](#how-to-install)**
   - [Boards Manager Installation](#boards-manager-installation)
   - [Manual Installation](#manual-installation)
-  - **[ATmega324PB](#atmega324pb)**
   - [PlatformIO](#platformio)
 * **[Getting started with MightyCore](#getting-started-with-mightycore)**
 * [Wiring reference](#wiring-reference)
@@ -66,27 +65,9 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 <b>*</b> ATmega324PB has 3 serial ports, 9 PWM pins, and 39 IO pins if the internal oscillator is used.
 
 
-## EEPROM option
-If you want the EEPROM to be erased every time you burn the bootloader or upload using a programmer, you can turn off this option. You'll have to connect an ISP programmer and hit "Burn bootloader" to enable or disable EEPROM retain. Note that when uploading using a bootloader, the EEPROM will always be retained.
-
-Note that if you're using an ISP programmer or have the Urboot bootloader installed, data specified in the user program using the `EEMEM` attribute will be uploaded to EEPROM when you upload your program in Arduino IDE. This feature is not available when using the older Optiboot bootloader.
-
-```cpp
-#include <avr/eeprom.h>
-
-volatile const char ee_data EEMEM = {"Data that's loaded straight into EEPROM\n"};
-
-void setup() {
-}
-
-void loop() {
-}
-```
-
-
 ## Supported clock frequencies
-MightyCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader.
-Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time-critical operations an external crystal/oscillator is recommended. The Urboot bootloader has automatic baud rate detection, so UART uploads should work fine even though the oscillator is a bit too fast or too slow.
+MegaCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. *You will have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. This also has to be done if you want to change any of the fuse settings (BOD and EEPROM settings) regardless if a bootloader is installed or not*.
+Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time-critical operations, an external crystal/oscillator is recommended. The Urboot bootloader has automatic baud rate detection, so UART uploads should work fine even though the oscillator is a little too fast or too slow.
 
 | Frequency   | Oscillator type             | Avrdude upload speed <br/>(bootloader has auto-baud)  | Comment                                           |
 |-------------|-----------------------------|-------------------------------------------------------|---------------------------------------------------|
@@ -129,6 +110,24 @@ Brown-out detection, or BOD for short lets the microcontroller sense the input v
 | Disabled   | Disabled  | Disabled  | Disabled  | Disabled | Disabled | Disabled   |
 
 
+## EEPROM option
+If you want the EEPROM to be erased every time you burn the bootloader or upload using a programmer, you can turn off this option. You'll have to connect an ISP programmer and hit "Burn bootloader" to enable or disable EEPROM retain. Note that when uploading using a bootloader, the EEPROM will always be retained.
+
+Note that if you're using an ISP programmer or have the Urboot bootloader installed, data specified in the user program using the `EEMEM` attribute will be uploaded to EEPROM when you upload your program in Arduino IDE. This feature is not available when using the older Optiboot bootloader.
+
+```cpp
+#include <avr/eeprom.h>
+
+volatile const char ee_data EEMEM = {"Data that's loaded straight into EEPROM\n"};
+
+void setup() {
+}
+
+void loop() {
+}
+```
+
+
 ## Link time optimization / LTO
 Link time optimization (LTO for short) optimizes the code at link time, usually making the code significantly smaller without affecting performance. You don't need to hit "Burn Bootloader" in order to enable or disable LTO. Simply choose your preferred option in the "Tools" menu, and your code is ready for compilation. If you want to read more about LTO and GCC flags in general, head over to the [GNU GCC website](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)!
 
@@ -143,7 +142,7 @@ If you're using a serial port, simply use `Serial.printf(F("Milliseconds since s
 Note that you don't have to use the digital pin numbers to refer to the pins. You can also use some predefined macros that map "Arduino pins" to the port and port number:
 
 ```c++
-// Use PIN_PB0 macro to refer to pin PB0 (Arduino pin 0 with the standard and sanguino pinout)
+// Use PIN_PB0 macro to refer to pin PB0 (Arduino pin 0 with the standard and Sanguino pinout)
 digitalWrite(PIN_PB0, HIGH);
 
 // Results in the exact same compiled code
@@ -153,7 +152,7 @@ digitalWrite(0, HIGH);
 
 
 ## Write to own flash
-MightyCore uses the excellent Urboot bootloader, written by [Stefan Rueger](https://github.com/stefanrueger). Urboot supports flash writing within the running application, meaning that content from e.g. a sensor can be stored in the flash memory directly without needing external memory. Flash memory is much faster than EEPROM, and can handle at least 10 000 write cycles before wear becomes an issue.
+MightyCore uses the excellent Urboot bootloader, written by [Stefan Rueger](https://github.com/stefanrueger). Urboot supports flash writing within the running application, meaning that content from e.g. a sensor can be stored in the flash memory directly without needing external memory. Flash memory is much faster than EEPROM, and can handle at least 10,000 write cycles before wear becomes an issue.
 For more information on how it works and how you can use this in your own application, check out the [Serial_read_write](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Serial_read_write/Serial_read_write.ino) for a simple proof-of-concept demo, and
 [Flash_put_get](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Flash_put_get/Flash_put_get.ino) + [Flash_iterate](https://github.com/MCUdude/MightyCore/blob/master/avr/libraries/Flash/examples/Flash_iterate/Flash_iterate.ino) for useful examples on how you can store strings, structs, and variables to flash and retrieve then afterward.
 
@@ -196,19 +195,19 @@ Please have a look at the (`pins_arduino.h`) files for detailed info. Pick your 
 
 
 ## Programmers
-MightyCore adds its own copies of all the standard programmers to the "Programmer" menu. You must select the MightyCore copy of the programmer you are using for "Upload Using Programmer" to work with ATmega1284, ATmega324A, ATmega324PB, or ATmega164A.
+Select your microcontroller in the boards menu, then select the clock frequency. You'll have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. <br/>
+Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time-critical operations, an external oscillator is recommended.
 
 
 ## How to install
 #### Boards Manager Installation
-This installation method requires Arduino IDE version 1.6.4 or greater.
+This installation method requires Arduino IDE version 1.8.0 or greater.
 * Open the Arduino IDE.
 * Open the **File > Preferences** menu item.
 * Enter the following URL in **Additional Boards Manager URLs**:
     ```
     https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json
     ```
-* Separate the URLs using a comma ( **,** ) if you have more than one URL
 * Open the **Tools > Board > Boards Manager...** menu item.
 * Wait for the platform indexes to finish downloading.
 * Scroll down until you see the **MightyCore** entry and click on it.
@@ -219,36 +218,25 @@ This installation method requires Arduino IDE version 1.6.4 or greater.
 Click on the "Download ZIP" button. Extract the ZIP file, and move the extracted folder to the location "**~/Documents/Arduino/hardware**". Create the "hardware" folder if it doesn't exist.
 Open Arduino IDE and a new category in the boards menu called "MightyCore" will show up.
 
-#### ATmega324PB
-If you plan to use the ATmega324PB you need the latest version of the Arduino toolchain. This toolchain is available through IDE 1.8.6 or newer. Here's how you install/enable the toolchain:
-  - Open the **Tools > Board > Boards Manager...** menu item.
-  - Wait for the platform indexes to finish downloading.
-  - The top is named **Arduino AVR boards**. Click on this item.
-  - Make sure the latest version is installed and selected
-  - Close the **Boards Manager** window.
-
 #### PlatformIO
-[PlatformIO](http://platformio.org) is an open-source ecosystem for IoT development and supports MightyCore.
+[PlatformIO](http://platformio.org) is an open-source ecosystem for IoT and embedded systems, and supports MightyCore.
 
 **See [PlatformIO.md](https://github.com/MCUdude/MightyCore/blob/master/PlatformIO.md) for more information.**
 
 
 ## Getting started with MightyCore
-Ok, so you've downloaded and installed MightyCore, but how do you get the wheels spinning? Here's a quick start guide:
 * Hook up your microcontroller as shown in the [pinout diagram](#pinout).
   - If you're not planning to use the bootloader (uploading code using a USB to serial adapter), the FTDI header and the 100 nF capacitor on the reset pin can be omitted.
-* Open the **Tools > Board** menu item, and select a MighyCore compatible microcontroller.
+* Open the **Tools > Board** menu item, select **MightyCore** and select your preferred target.
 * If the *BOD option* is presented, you can select at what voltage the microcontroller will shut down at. Read more about BOD [here](#bod-option).
-* Select your preferred pinout. Personally, I prefer the standard pinout because it's "cleaner", but the Bobuino pinout is better at Arduino UNO pin compatibility. Read more about the different pinouts [here](#pinouts).
+* Select your preferred pinout. Personally, Standard is the most logical one; Bobuino is better for Arduino UNO pin compatibility. Read more about the different pinouts [here](#pinouts).
 * Select your preferred clock frequency. **16 MHz** is standard on most Arduino boards.
 * Select what kind of programmer you're using under the **Programmers** menu.
 * If the *Variants* option is presented, you'll have to specify what version of the microcontroller you're using. E.g the ATmega1284 and the ATmega1284P have different device signatures, so selecting the wrong one will result in an error.
-* Hit **Burn Bootloader**. If an LED is connected to pin PB0, it should flash twice every second.
-* Now that the correct fuse settings are set and the bootloader burnt, you can upload your code in two ways:
-  - Disconnect your programmer tool, and connect a USB to serial adapter to the microcontroller, as shown in the [minimal setup circuit](#minimal-setup). Then select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting some kind of timeout error, it means your RX and TX pins are swapped, or your auto reset circuity isn't working properly (the 100 nF capacitor on the reset line).
-  - Keep your programmer connected, and hold down the `shift` button while clicking **Upload**. This will erase the bootloader and upload your code using the programmer tool.
+* Hit **Burn Bootloader**. The LED pin will not toggle after the bootloader has been loaded.
+* Disconnect the ISP programmer, and connect a USB to serial adapter to the target microcontroller shown in the [pinout diagram](#pinout). Select the correct serial port under the **Tools** menu, and click the **Upload** button. If you're getting a timeout error, it may be because the RX and TX pins are swapped, or the auto-reset circuit isn't working properly (the 100 nF capacitor and a 10k resistor on the reset line).
 
-Your code should now be running on your microcontroller! If you experience any issues related to bootloader burning or serial uploading, please use *[this forum post](https://forum.arduino.cc/index.php?topic=379427.0)* or create an issue on Github.
+Your code should now be running on the microcontroller!
 
 
 ## Wiring reference
@@ -265,24 +253,24 @@ I hope you find this useful because they really are!
 * enablePower()
 * disablePower()
 
-### For more information please view the [Wiring reference page](https://github.com/MCUdude/MightyCore/blob/master/Wiring_reference.md)!
+### For more information please view the [Wiring reference page](https://github.com/MCUdude/MightyCore/blob/master/Wiring_reference.md)
 
 
 ## Library porting
-Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16 or ATmega32.
+Some users have reported issues when trying to use some 3rd party libraries with the ATmega8535, ATmega16, or ATmega32.
 A simple guide on how to port a library can be found <b>[here](https://github.com/MCUdude/MightyCore/blob/master/Library_porting.md)</b>.
 
 ## Hardware
-I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards, and added the original AVR pinout.
+I've designed a development board for this particular core. I've added all the functionality I missed with the original Arduino boards and added the original AVR pinout.
 Not all supported microcontrollers have the same pin functions, and differences are highlighted. The boards measures 8.0 * 10.0 cm (3.15 * 3.94 in)<br/>
 The development board has some additional unique features:
 * A voltage select jumper to run the microcontroller at 5V or 3.3V
 * A breadboard-friendly AVR with 32 IO pins, including 8 analog inputs
-* All pins located at the same side of the board, making it easy to hook it up to a breadboard
+* All pins located on the same side of the board, making it easy to hook it up to a breadboard
 * Male and female IO pin headers
 * Plenty of 5V, 3.3V, and GND points broken out, both male and female
 * A large ground pad on the underside of the board for connecting alligator clips, such as the ground clip of your oscilloscope
-* A potentiometer for using as a voltage reference (e.g adjusting the LCD contrast)
+* A potentiometer for use as a voltage reference (e.g. adjusting the LCD contrast)
 * Onboard LED connected to digital pin 0 (PB0)
 * A socketed crystal, perfect for experimenting with different clock frequencies
 * An auto reset enable header if you don't want the microcontroller to be reset every time you open the serial monitor on your PC
