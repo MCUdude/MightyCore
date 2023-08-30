@@ -4,7 +4,7 @@
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running the [Urboot](#write-to-own-flash) bootloader. Most Arduino UNO-compatible libraries will work with this core. If not, it's fairly straightforward to [port a library](#library-porting).
 This core requires at least Arduino IDE v1.6, where v1.8.9 or newer is recommended. IDE 2.x should also work.
 
-*From MightyCore version 3 and onwards, the Optiboot bootloader has been replaced by the [Urboot bootloader](https://github.com/stefanrueger/urboot/), which is superior to Optiboot. It's smaller, faster, and has automatic baud rate detection. Other cool features the bootloader provides but are not utilized by MightyCore are user program metadata stored in flash that (can easily be viewed by Avrdude -xshowall) and chip erase functionality.
+*From MightyCore version 3 and onwards, the Optiboot bootloader has been replaced by the superior [Urboot bootloader](https://github.com/stefanrueger/urboot/). It's smaller, faster, and has automatic baud rate detection. Other cool features the bootloader provides but are not utilized by MightyCore are user program metadata stored in flash that (can easily be viewed by Avrdude -xshowall) and chip erase functionality.
 If you already have Optiboot installed and don't want to replace it with Urboot, you can still upload programs without any compatibility issues. However, if you're burning a bootloader to a new chip, Urboot is the way to go.*
 
 If you're looking for a great development board for these DIP-40 microcontrollers, I got you covered! I've used the Arduino UNO for years,
@@ -133,7 +133,7 @@ Link time optimization (LTO for short) optimizes the code at link time, usually 
 
 
 ## Printf support
-Unlike the official Arduino cores, MightyCore has printf support out of the box. If you're not familiar with printf you should probably [read this first](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm). It's added to the Print class and will work with all libraries that inherit Print. Printf is a standard C function that lets you format text much easier than using Arduino's built-in print and println. Note that this implementation of printf will NOT print floats or doubles. If you need printf to print floats, you'll have to use PlatformIO.
+Unlike the official Arduino cores, MightyCore has printf support out of the box. If you're not familiar with printf you should probably [read this first](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm). It's added to the Print class and will work with all libraries that inherit Print. Printf is a standard C function that lets you format text much easier than using Arduino's built-in print and println. Note that this implementation of printf will NOT print floats or doubles. This is disabled by default to save space but can be enabled using a build flag if using PlatformIO.
 
 If you're using a serial port, simply use `Serial.printf(F("Milliseconds since start: %ld\n"), millis());`. As you can see, printf supports the `F()` macro, but you don't _have_ to use it. Other libraries that inherit the Print class (and thus support printf) are the LiquidCrystal LCD library and the U8G2 graphical LCD library.
 
