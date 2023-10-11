@@ -32,7 +32,7 @@ but felt like vital functionality was missing on the board. When designing this 
 * **[How to install](#how-to-install)**
   - [Boards Manager Installation](#boards-manager-installation)
   - [Manual Installation](#manual-installation)
-	- [Arduino CLI Installation](#arduino-cli-installation)
+  - [Arduino CLI Installation](#arduino-cli-installation)
   - [PlatformIO](#platformio)
 * **[Getting started with MightyCore](#getting-started-with-mightycore)**
 * [Wiring reference](#wiring-reference)
@@ -221,7 +221,7 @@ Click on the "Download ZIP" button. Extract the ZIP file, and move the extracted
 Open Arduino IDE and a new category in the boards menu called "MightyCore" will show up.
 
 #### Arduino CLI Installation
-Run the following command in a terminal: 
+Run the following command in a terminal:
 
 ```
 arduino-cli core install MightyCore:avr --additional-urls https://mcudude.github.io/MightyCore/package_MCUdude_MightyCore_index.json
