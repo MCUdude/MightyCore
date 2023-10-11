@@ -75,10 +75,11 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 | 20 MHz      | External crystal/oscillator | 115200                                                |                                                   |
 | 18.4320 MHz | External crystal/oscillator | 115200                                                | Great clock for UART communication with no error  |
 | 14.7456 MHz | External crystal/oscillator | 115200                                                | Great clock for UART communication with no error  |
-| 12 MHz      | External crystal/oscillator | 57600                                                 | Useful when working with USB 1.1 (12 Mbit/s)      |
+| 12 MHz      | External crystal/oscillator | 57600                                                 |                                                   |
 | 11.0592 MHz | External crystal/oscillator | 115200                                                | Great clock for UART communication with no error  |
 | 8 MHz       | External crystal/oscillator | 57600                                                 | Common clock when working with 3.3V               |
 | 7.3728 MHz  | External crystal/oscillator | 115200                                                | Great clock for UART communication with no error  |
+| 6 MHz       | External crystal/oscillator | 57600                                                 |                                                   |
 | 4 MHz       | External crystal/oscillator | 9600                                                  |                                                   |
 | 3.6864 MHz  | External crystal/oscillator | 115200                                                | Great clock for UART communication with no error  |
 | 2 MHz       | External crystal/oscillator | 9600                                                  |                                                   |
