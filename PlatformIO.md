@@ -162,6 +162,7 @@ Below is a table with supported clocks for MiniCore. Defaults to 16 MHz if not s
 | 11.0592 MHz | External   | `11059200L`               |
 | 8 MHz       | External   | `8000000L`                |
 | 7.3728  MHz | External   | `7372800L`                |
+| 6 MHz       | External   | `6000000L`                |
 | 4 MHz       | External   | `4000000L`                |
 | 3.6864  MHz | External   | `3686400L`                |
 | 2 MHz       | External   | `2000000L`                |
