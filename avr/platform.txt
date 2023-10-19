@@ -77,10 +77,8 @@ recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf
 ## Save disassembler listing
 # Dummy initial `echo.` command prevents unwanted stripping of quotes by `cmd /C` which would cause the command to fail for paths with spaces
 recipe.hooks.objcopy.postobjcopy.1.pattern.windows=cmd /C echo. && "{compiler.path}{compiler.objdump.cmd}" {compiler.objdump.flags} "{build.path}/{build.project_name}.elf" > "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst"
-recipe.hooks.objcopy.postobjcopy.1.pattern.linux=chmod +x "{runtime.platform.path}/scripts/create_disassembler_listing.sh"
-recipe.hooks.objcopy.postobjcopy.1.pattern.macosx=chmod +x "{runtime.platform.path}/scripts/create_disassembler_listing.sh"
-recipe.hooks.objcopy.postobjcopy.2.pattern.linux="{runtime.platform.path}/scripts/create_disassembler_listing.sh" "{compiler.path}{compiler.objdump.cmd}" "{compiler.objdump.flags}" "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst"
-recipe.hooks.objcopy.postobjcopy.2.pattern.macosx="{runtime.platform.path}/scripts/create_disassembler_listing.sh" "{compiler.path}{compiler.objdump.cmd}" "{compiler.objdump.flags}" "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst"
+recipe.hooks.objcopy.postobjcopy.1.pattern.linux="/bin/bash" "-c" "{compiler.path}{compiler.objdump.cmd} {compiler.objdump.flags} {build.path}/{build.project_name}.elf" > "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst"
+recipe.hooks.objcopy.postobjcopy.1.pattern.macosx="/bin/bash" "-c" "{compiler.path}{compiler.objdump.cmd} {compiler.objdump.flags} {build.path}/{build.project_name}.elf" > "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst"
 
 ## Save compiled hex
 recipe.output.tmp_file={build.project_name}.hex
@@ -89,12 +87,10 @@ recipe.output.save_file={build.project_name}_{build.mcu}_{build.f_cpu}.hex
 ## Save hex
 recipe.hooks.savehex.presavehex.1.pattern.windows="{runtime.platform.path}/scripts/delete_merged_output.bat" {build.export_merged_output} "{build.path}\{build.project_name}.with_bootloader.hex"
 recipe.hooks.savehex.presavehex.2.pattern.windows=cmd /C copy "{build.path}\{build.project_name}_{build.mcu}_{build.f_cpu}.lst" "{sketch_path}"
-recipe.hooks.savehex.presavehex.1.pattern.linux=chmod +x "{runtime.platform.path}/scripts/delete_merged_output.sh"
-recipe.hooks.savehex.presavehex.2.pattern.linux="{runtime.platform.path}/scripts/delete_merged_output.sh" {build.export_merged_output} "{build.path}/{build.project_name}.with_bootloader.hex"
-recipe.hooks.savehex.presavehex.3.pattern.linux=cp "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst" "{sketch_path}"
-recipe.hooks.savehex.presavehex.1.pattern.macosx=chmod +x "{runtime.platform.path}/scripts/delete_merged_output.sh"
-recipe.hooks.savehex.presavehex.2.pattern.macosx="{runtime.platform.path}/scripts/delete_merged_output.sh" {build.export_merged_output} "{build.path}/{build.project_name}.with_bootloader.hex"
-recipe.hooks.savehex.presavehex.3.pattern.macosx=cp "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst" "{sketch_path}"
+recipe.hooks.savehex.presavehex.1.pattern.linux="/bin/bash" "-c" 'if [ "{build.export_merged_output}" == "false" ]; then rm "{build.path}/{build.project_name}.with_bootloader.hex"; fi'
+recipe.hooks.savehex.presavehex.2.pattern.linux=cp "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst" "{sketch_path}"
+recipe.hooks.savehex.presavehex.1.pattern.macosx="/bin/bash" "-c" 'if [ "{build.export_merged_output}" == "false" ]; then rm "{build.path}/{build.project_name}.with_bootloader.hex"; fi'
+recipe.hooks.savehex.presavehex.2.pattern.macosx=cp "{build.path}/{build.project_name}_{build.mcu}_{build.f_cpu}.lst" "{sketch_path}"
 
 
 ## Compute size
