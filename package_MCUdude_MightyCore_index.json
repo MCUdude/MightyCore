@@ -978,8 +978,8 @@
           "category": "Contributed",
           "url": "https://MCUdude.github.io/MightyCore/MightyCore-3.0.0.tar.bz2",
           "archiveFileName": "MightyCore-3.0.0.tar.bz2",
-          "checksum": "SHA-256:d90e0982e9f01a2791fd67b0619052a766c2db7326daf82d16a9ca29ae361aaf",
-          "size": "818562",
+          "checksum": "SHA-256:50dd68d2abed8f7ad8bb7940f6a10e13b30b4f33c06eccb9ac20ec3776129341",
+          "size": "842356",
           "boards": [
             {
               "name": "ATmega1284/P"
