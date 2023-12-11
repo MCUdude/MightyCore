@@ -20,6 +20,7 @@ but felt like vital functionality was missing on the board. When designing this 
 * [Supported microcontrollers](#supported-microcontrollers)
 * [Supported clock frequencies](#supported-clock-frequencies)
 * [Bootloader option](#bootloader-option)
+* [Baud rate option](#baud-rate-option)
 * [BOD option](#bod-option)
 * [EEPROM retain option](#eeprom-option)
 * [Link time optimization / LTO](#link-time-optimization--lto)
