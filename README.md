@@ -67,10 +67,10 @@ Can't decide what microcontroller to choose? Have a look at the specification ta
 
 
 ## Supported clock frequencies
-MegaCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. *You will have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. This also has to be done if you want to change any of the fuse settings (BOD and EEPROM settings) regardless if a bootloader is installed or not*.
+MightyCore supports a variety of different clock frequencies. Select the microcontroller in the boards menu, then select the clock frequency. *You will have to hit "Burn bootloader" in order to set the correct fuses and upload the correct bootloader. This also has to be done if you want to change any of the fuse settings (BOD and EEPROM settings) regardless if a bootloader is installed or not*.
 Make sure you connect an ISP programmer, and select the correct one in the "Programmers" menu. For time-critical operations, an external crystal/oscillator is recommended. The Urboot bootloader has automatic baud rate detection, so UART uploads should work fine even though the oscillator is a little too fast or too slow.
 
-| Frequency   | Oscillator type             | Avrdude upload speed <br/>(bootloader has auto-baud)  | Comment                                           |
+| Frequency   | Oscillator type             | Default upload speed <br/>(bootloader has auto-baud)  | Comment                                           |
 |-------------|-----------------------------|-------------------------------------------------------|---------------------------------------------------|
 | 16 MHz      | External crystal/oscillator | 115200                                                | Default clock on most AVR based Arduino boards    |
 | 20 MHz      | External crystal/oscillator | 115200                                                |                                                   |
@@ -98,6 +98,12 @@ If your application doesn't need or require a bootloader for uploading you can a
 This frees 384 bytes of flash memory on ATmega8535/16/32/164/324 and 512 bytes on ATmega644/1284.
 
 Note that you need to connect a programmer and hit **Burn bootloader** if you want to change any of the *Bootloader settings*.
+
+
+# Baud rate option
+Since Urboot has automatic baud rate detection, the upload baud rate can be changed without having to re-flash the bootloader. The default baud rate setting will pick a suited baud rate that also works with the legacy Optiboot bootloader used in earlier MightyCore versions.
+The other baud rate options may or may not work, depending on the clock frequency and accuracy of the clock source. A rule of thumb is that "non-round" baud rates like 230400 works best with "non-round" clock speeds like 18.4320 MHz,
+while "round" ones like 16 MHz work best with "round" baud rates like 250000.
 
 
 ## BOD option
