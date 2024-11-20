@@ -1,5 +1,5 @@
 # MightyCore
-[![Build Status](https://travis-ci.com/MCUdude/MightyCore.svg?branch=master)](https://travis-ci.com/MCUdude/MightyCore) [![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
+[![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
 
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running the [Urboot](#write-to-own-flash) bootloader. Most Arduino UNO-compatible libraries will work with this core. If not, it's fairly straightforward to [port a library](#library-porting).
 This core requires at least Arduino IDE v1.6, where v1.8.9 or newer is recommended. IDE 2.x should also work.
