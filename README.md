@@ -168,10 +168,14 @@ For more information on how it works and how you can use this in your own applic
 
 
 ## PROGMEM with flash sizes greater than 64kiB
-The usual `PROGMEM` attribute stores constant data such as string arrays to flash and is great if you want to preserve the precious RAM. However, PROGMEM will only store content in the lower section, from 0 and up to 64kiB. If you want to store data in the upper section, use `PROGMEM1` (64 - 128kiB) if your target is an ATmega1284/P. Accessing this data is not as straightforward as with `PROGMEM`, but it's still doable:
+The  `PROGMEM` attribute stores constant data, such as string arrays, in flash and is great if you want to preserve the precious RAM. However, the usual PROGMEM library macros can access data only in the lower part of flash memory up to 64kiB.  If you store more data in the PROGMEM section, you will get a warning during the compilation process because some of the PROGMEM data will not be accessible in the usual way.
+
+If you want to store and access data independently from the 64kiB limit, use `PROGMEM_FAR`  from the library `program_far.h` (installable using the Arduino library manager). Data with that attribute is stored at the far end of flash memory. Accessing this data is not as straightforward as with `PROGMEM`, but it's still doable:
 
 ```cpp
-const char far_away[] PROGMEM1 = "Hello from far away!\n"; // (64  - 128kiB)
+#include <progmem_far.h>
+
+const char far_away[] PROGMEM_FAR = "Hello from far away!\n"; 
 
 void print_progmem()
 {
