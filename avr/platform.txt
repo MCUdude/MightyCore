@@ -36,6 +36,7 @@ compiler.elf2hex.bin.flags=-O binary -R .eeprom
 compiler.elf2hex.cmd=avr-objcopy
 compiler.ldflags=
 compiler.size.cmd=avr-size
+compiler.symbol.cmd=avr-nm
 
 # This can be overridden in boards.txt
 build.extra_flags=
@@ -71,6 +72,10 @@ recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.f
 ## Create output files (.eep and .hex)
 recipe.objcopy.eep.pattern="{compiler.path}{compiler.objcopy.cmd}" {compiler.objcopy.eep.flags} {compiler.objcopy.eep.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.eep"
 recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
+
+## Check for progmem overflow
+recipe.objcopy.progmem.pattern="/bin/bash" "{runtime.platform.path}/scripts/progmemcheck.sh" "{compiler.path}/{compiler.symbol.cmd}" "{build.path}/{build.project_name}.elf"
+recipe.objcopy.progmem.pattern.windows="{runtime.platform.path}/scripts/progmemcheck.bat" "{runtime.tools.avr-gcc.path}\\bin\\{compiler.symbol.cmd}" "{build.path}/{build.project_name}.elf"
 
 ## Save disassembler listing
 # Dummy initial `echo.` command prevents unwanted stripping of quotes by `cmd /C` which would cause the command to fail for paths with spaces
