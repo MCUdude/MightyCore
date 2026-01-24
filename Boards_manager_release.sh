@@ -123,7 +123,7 @@ jq -r                                    \
       "version": "1.3.0"
     },
     {
-      "packager": "MicroCore",
+      "packager": "MightyCore",
       "name": "avrocd-tools",
       "version": $avrocdversion
     }   
