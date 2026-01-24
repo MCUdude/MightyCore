@@ -5,7 +5,7 @@
 # https://arduino.github.io/arduino-cli/latest/platform-specification/
 
 name=MightyCore
-version=3.0.4-pre1
+version=3.0.4-pre2
 
 # AVR compile variables
 # ---------------------
@@ -178,7 +178,7 @@ debug.cortex-debug.custom.serverArgs.4=--manage
 debug.cortex-debug.custom.serverArgs.5=all
 debug.cortex-debug.custom.serverArgs.6=--F_CPU
 debug.cortex-debug.custom.serverArgs.7={build.f_cpu}
-debug.cortex-debug.custom.serverArgs.8=--progclk
+debug.cortex-debug.custom.serverArgs.8=--prog-clock
 debug.cortex-debug.custom.serverArgs.9=2000
 debug.cortex-debug.custom.runToEntryPoint=main
 debug.svd_file={debug.toolchain.path}/pyavrocd-util/svd/{build.mcu}.svd
