@@ -5,7 +5,7 @@
 # https://arduino.github.io/arduino-cli/latest/platform-specification/
 
 name=MightyCore
-version=3.0.4-pre2
+version=3.0.4-pre3
 
 # AVR compile variables
 # ---------------------
