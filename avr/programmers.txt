@@ -74,3 +74,72 @@ stk500.protocol=stk500
 stk500.program.protocol=stk500
 stk500.program.tool=avrdude
 stk500.program.extra_params= -P {serial.port}
+
+atmel_powerdebugger.name=Power Debugger (AVR) ISP
+atmel_powerdebugger.communication=usb
+atmel_powerdebugger.protocol=powerdebugger_isp
+atmel_powerdebugger.program.protocol=powerdebugger_isp
+atmel_powerdebugger.program.tool=avrdude
+atmel_powerdebugger.program.extra_params=
+
+atmel_jtagice3.name=JTAGICE3 ISP
+atmel_jtagice3.communication=usb
+atmel_jtagice3.protocol=jtag3isp
+atmel_jtagice3.program.protocol=jtag3isp
+atmel_jtagice3.program.tool=avrdude
+atmel_jtagice3.program.extra_params=
+
+### JTAG programmer / debugger
+
+atmel_ice_jtag.name=Atmel-ICE (AVR) JTAG
+atmel_ice_jtag.communication=usb
+atmel_ice_jtag.protocol=atmelice_jtag
+atmel_ice_jtag.program.protocol=atmelice_jtag
+atmel_ice_jtag.program.tool=avrdude
+atmel_ice_jtag.program.extra_params=
+
+atmel_jtagice3_jtag.name=JTAGICE3 JTAG
+atmel_jtagice3_jtag.communication=usb
+atmel_jtagice3_jtag.protocol=jtag3
+atmel_jtagice3_jtag.program.protocol=jtag3
+atmel_jtagice3_jtag.program.tool=avrdude
+atmel_jtagice3_jtag.program.extra_params=
+atmel_jtagice3_jtag.program.extra_params=-B0.1
+
+atmel_powerdebugger_jtag.name=Power Debugger (AVR) JTAG
+atmel_powerdebugger_jtag.communication=usb
+atmel_powerdebugger_jtag.protocol=powerdebugger_jtag
+atmel_powerdebugger_jtag.program.protocol=powerdebugger_jtag
+atmel_powerdebugger_jtag.program.tool=avrdude
+atmel_powerdebugger_jtag.program.extra_params=
+
+pickit4_jtag.name=PICkit4 JTAG
+pickit4_jtag.communication=usb
+pickit4_jtag.protocol=pickit4_jtag
+pickit4_jtag.program.protocol=pickit4_jtag
+pickit4_jtag.program.tool=avrdude
+pickit4_jtag.program.extra_params=
+
+snap_jtag.name=MPLAB SNAP JTAG
+snap_jtag.communication=usb
+snap_jtag.protocol=snap_jtag
+snap_jtag.program.protocol=snap_jtag
+snap_jtag.program.tool=avrdude
+snap_jtag.program.extra_params=
+
+xplainedpro.name=Xplained Pro (EDBG) JTAG
+xplainedpro.communication=usb
+xplainedpro.protocol=xplainedpro_jtag
+xplainedpro.program.protocol=xplainedpro_jtag
+xplainedpro.program.tool=avrdude
+xplainedpro.program.extra_params=
+
+#### A 'virtual' programmer signalling that simavr should be used
+
+simavr.name=Simulator (simavr)
+simavr.debug.cortex-debug.custom.serverArgs.1={debug.toolchain.path}/bin/simavr
+simavr.protocol=This_is_not_a_programmer_but_only_a_signal_to_use_the_simulator_when_debugging
+simavr.upload.protocol=This_is_not_a_programmer_but_only_a_flag_to_use_the_simulator_when_debugging
+simavr.program.protocol=This_is_not_a_programmer_but_only_a_flag_to_use_the_simulator_when_debugging
+simavr.program.tool=avrdude
+simavr.program.extra_params=

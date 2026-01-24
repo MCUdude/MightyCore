@@ -16,6 +16,7 @@ menu.variant=Variant
 menu.pinout=Pinout
 menu.bootloader=Bootloader
 menu.baudrate=Baud rate
+menu.JTAG=JTAG pins
 
 ######################
 #### ATmega1284/P ####
@@ -31,6 +32,12 @@ menu.baudrate=Baud rate
 1284.build.core=MCUdude_corefiles
 1284.build.board=AVR_ATmega1284
 1284.build.extra_flags={build.clkpr}
+
+# JTAG pins
+1284.menu.JTAG.disabled=JTAG disabled
+1284.menu.JTAG.disabled.bootloader.jtag_bit=1
+1284.menu.JTAG.enabled=JTAG enabled
+1284.menu.JTAG.enabled.bootloader.jtag_bit=0
 
 # Upload port select
 1284.menu.bootloader.uart0=Yes (UART0)
@@ -258,6 +265,12 @@ menu.baudrate=Baud rate
 644.build.board=AVR_ATmega644
 644.build.extra_flags={build.clkpr}
 
+# JTAG pins
+644.menu.JTAG.disabled=JTAG disabled
+644.menu.JTAG.disabled.bootloader.jtag_bit=1
+644.menu.JTAG.enabled=JTAG enabled
+644.menu.JTAG.enabled.bootloader.jtag_bit=0
+
 # Upload port select
 644.menu.bootloader.uart0=Yes (UART0)
 644.menu.bootloader.uart0.upload.maximum_size=65024
@@ -483,6 +496,12 @@ menu.baudrate=Baud rate
 324.build.core=MCUdude_corefiles
 324.build.board=AVR_ATmega324
 324.build.extra_flags={build.clkpr}
+
+# JTAG pins
+324.menu.JTAG.disabled=JTAG disabled
+324.menu.JTAG.disabled.bootloader.jtag_bit=1
+324.menu.JTAG.enabled=JTAG enabled
+324.menu.JTAG.enabled.bootloader.jtag_bit=0
 
 # Upload port select
 324.menu.bootloader.uart0=Yes (UART0)
@@ -729,6 +748,12 @@ menu.baudrate=Baud rate
 164.build.board=AVR_ATmega164
 164.build.extra_flags={build.clkpr}
 
+# JTAG pins
+164.menu.JTAG.disabled=JTAG disabled
+164.menu.JTAG.disabled.bootloader.jtag_bit=1
+164.menu.JTAG.enabled=JTAG enabled
+164.menu.JTAG.enabled.bootloader.jtag_bit=0
+
 # Upload port select
 164.menu.bootloader.uart0=Yes (UART0)
 164.menu.bootloader.uart0.upload.maximum_size=16000
@@ -957,6 +982,12 @@ menu.baudrate=Baud rate
 32.build.board=AVR_ATmega32
 32.build.mcu=atmega32
 
+# JTAG pins
+32.menu.JTAG.disabled=JTAG disabled
+32.menu.JTAG.disabled.bootloader.jtag_bit=1
+32.menu.JTAG.enabled=JTAG enabled
+32.menu.JTAG.enabled.bootloader.jtag_bit=0
+
 # Upload port select
 32.menu.bootloader.uart0=Yes (UART0)
 32.menu.bootloader.uart0.upload.maximum_size=32384
@@ -1169,6 +1200,12 @@ menu.baudrate=Baud rate
 16.build.core=MCUdude_corefiles
 16.build.board=AVR_ATmega16
 16.build.mcu=atmega16
+
+# JTAG pins
+16.menu.JTAG.disabled=JTAG disabled
+16.menu.JTAG.disabled.bootloader.jtag_bit=1
+16.menu.JTAG.enabled=JTAG enabled
+16.menu.JTAG.enabled.bootloader.jtag_bit=0
 
 # Upload port select
 16.menu.bootloader.uart0=Yes (UART0)
