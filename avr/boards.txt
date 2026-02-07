@@ -35,9 +35,9 @@ menu.JTAG=JTAG pins
 
 # JTAG pins
 1284.menu.JTAG.disabled=JTAG disabled
-1284.menu.JTAG.disabled.bootloader.jtag_bit=1
+1284.menu.JTAG.disabled.bootloader.jtag_nibble=d
 1284.menu.JTAG.enabled=JTAG enabled
-1284.menu.JTAG.enabled.bootloader.jtag_bit=0
+1284.menu.JTAG.enabled.bootloader.jtag_nibble=9
 
 # Upload port select
 1284.menu.bootloader.uart0=Yes (UART0)
@@ -72,9 +72,9 @@ menu.JTAG=JTAG pins
 
 # EEPROM
 1284.menu.eeprom.keep=EEPROM retained
-1284.menu.eeprom.keep.bootloader.high_fuses=0xd7
+1284.menu.eeprom.keep.bootloader.high_fuses=0x{bootloader.jtag_nibble}7
 1284.menu.eeprom.erase=EEPROM not retained
-1284.menu.eeprom.erase.bootloader.high_fuses=0xdf
+1284.menu.eeprom.erase.bootloader.high_fuses=0x{bootloader.jtag_nibble}f
 
 # Baud rate
 1284.menu.baudrate.default=Default
@@ -267,9 +267,9 @@ menu.JTAG=JTAG pins
 
 # JTAG pins
 644.menu.JTAG.disabled=JTAG disabled
-644.menu.JTAG.disabled.bootloader.jtag_bit=1
+644.menu.JTAG.disabled.bootloader.jtag_nibble=d
 644.menu.JTAG.enabled=JTAG enabled
-644.menu.JTAG.enabled.bootloader.jtag_bit=0
+644.menu.JTAG.enabled.bootloader.jtag_nibble=9
 
 # Upload port select
 644.menu.bootloader.uart0=Yes (UART0)
@@ -293,9 +293,9 @@ menu.JTAG=JTAG pins
 
 # EEPROM
 644.menu.eeprom.keep=EEPROM retained
-644.menu.eeprom.keep.bootloader.high_fuses=0xd7
+644.menu.eeprom.keep.bootloader.high_fuses=0x{bootloader.jtag_nibble}7
 644.menu.eeprom.erase=EEPROM not retained
-644.menu.eeprom.erase.bootloader.high_fuses=0xdf
+644.menu.eeprom.erase.bootloader.high_fuses=0x{bootloader.jtag_nibble}f
 
 # Baud rate
 644.menu.baudrate.default=Default
@@ -499,9 +499,9 @@ menu.JTAG=JTAG pins
 
 # JTAG pins
 324.menu.JTAG.disabled=JTAG disabled
-324.menu.JTAG.disabled.bootloader.jtag_bit=1
+324.menu.JTAG.disabled.bootloader.jtag_nibble=d
 324.menu.JTAG.enabled=JTAG enabled
-324.menu.JTAG.enabled.bootloader.jtag_bit=0
+324.menu.JTAG.enabled.bootloader.jtag_nibble=9
 
 # Upload port select
 324.menu.bootloader.uart0=Yes (UART0)
@@ -532,9 +532,9 @@ menu.JTAG=JTAG pins
 
 # EEPROM
 324.menu.eeprom.keep=EEPROM retained
-324.menu.eeprom.keep.bootloader.high_fuses=0xd7
+324.menu.eeprom.keep.bootloader.high_fuses=0x{bootloader.jtag_nibble}7
 324.menu.eeprom.erase=EEPROM not retained
-324.menu.eeprom.erase.bootloader.high_fuses=0xdf
+324.menu.eeprom.erase.bootloader.high_fuses=0x{bootloader.jtag_nibble}f
 
 # Baud rate
 324.menu.baudrate.default=Default
@@ -750,9 +750,9 @@ menu.JTAG=JTAG pins
 
 # JTAG pins
 164.menu.JTAG.disabled=JTAG disabled
-164.menu.JTAG.disabled.bootloader.jtag_bit=1
+164.menu.JTAG.disabled.bootloader.jtag_nibble=d
 164.menu.JTAG.enabled=JTAG enabled
-164.menu.JTAG.enabled.bootloader.jtag_bit=0
+164.menu.JTAG.enabled.bootloader.jtag_nibble=09
 
 # Upload port select
 164.menu.bootloader.uart0=Yes (UART0)
@@ -776,9 +776,9 @@ menu.JTAG=JTAG pins
 
 # EEPROM
 164.menu.eeprom.keep=EEPROM retained
-164.menu.eeprom.keep.bootloader.high_fuses=0xd7
+164.menu.eeprom.keep.bootloader.high_fuses=0x{bootloader.jtag_nibble}7
 164.menu.eeprom.erase=EEPROM not retained
-164.menu.eeprom.erase.bootloader.high_fuses=0xdf
+164.menu.eeprom.erase.bootloader.high_fuses=0x{bootloader.jtag_nibble}f
 
 # Baud rate
 164.menu.baudrate.default=Default
@@ -977,7 +977,7 @@ menu.JTAG=JTAG pins
 32.bootloader.unlock_bits=0xff
 32.bootloader.lock_bits=0xff
 32.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
-32.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}111
+32.bootloader.high_fuses=0b1{bootloader.jtag_bit}0{bootloader.ckopt_bit}{bootloader.eesave_bit}111
 32.build.core=MCUdude_corefiles
 32.build.board=AVR_ATmega32
 32.build.mcu=atmega32
@@ -1196,7 +1196,7 @@ menu.JTAG=JTAG pins
 16.bootloader.unlock_bits=0xff
 16.bootloader.lock_bits=0xff
 16.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
-16.bootloader.high_fuses=0b110{bootloader.ckopt_bit}{bootloader.eesave_bit}111
+16.bootloader.high_fuses=0b1{bootloader.jtag_bit0{bootloader.ckopt_bit}{bootloader.eesave_bit}111
 16.build.core=MCUdude_corefiles
 16.build.board=AVR_ATmega16
 16.build.mcu=atmega16
@@ -1419,6 +1419,7 @@ menu.JTAG=JTAG pins
 8535.build.core=MCUdude_corefiles
 8535.build.board=AVR_ATmega8535
 8535.build.mcu=atmega8535
+8535.debug.executable=
 
 # Upload port select
 8535.menu.bootloader.uart0=Yes (UART0)
