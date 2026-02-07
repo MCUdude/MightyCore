@@ -752,7 +752,7 @@ menu.JTAG=JTAG pins
 164.menu.JTAG.disabled=JTAG disabled
 164.menu.JTAG.disabled.bootloader.jtag_nibble=d
 164.menu.JTAG.enabled=JTAG enabled
-164.menu.JTAG.enabled.bootloader.jtag_nibble=09
+164.menu.JTAG.enabled.bootloader.jtag_nibble=9
 
 # Upload port select
 164.menu.bootloader.uart0=Yes (UART0)
@@ -1196,7 +1196,7 @@ menu.JTAG=JTAG pins
 16.bootloader.unlock_bits=0xff
 16.bootloader.lock_bits=0xff
 16.bootloader.low_fuses=0b{bootloader.bod_bits}{bootloader.sut_cksel_bits}
-16.bootloader.high_fuses=0b1{bootloader.jtag_bit0{bootloader.ckopt_bit}{bootloader.eesave_bit}111
+16.bootloader.high_fuses=0b1{bootloader.jtag_bit}0{bootloader.ckopt_bit}{bootloader.eesave_bit}111
 16.build.core=MCUdude_corefiles
 16.build.board=AVR_ATmega16
 16.build.mcu=atmega16

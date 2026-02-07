@@ -75,7 +75,7 @@ stk500.program.protocol=stk500
 stk500.program.tool=avrdude
 stk500.program.extra_params= -P {serial.port}
 
-atmel_powerdebugger.name=Power Debugger (AVR) ISP
+atmel_powerdebugger.name=Power Debugger ISP
 atmel_powerdebugger.communication=usb
 atmel_powerdebugger.protocol=powerdebugger_isp
 atmel_powerdebugger.program.protocol=powerdebugger_isp
@@ -91,7 +91,7 @@ atmel_jtagice3.program.extra_params=
 
 ### JTAG programmer / debugger
 
-atmel_ice_jtag.name=Atmel-ICE (AVR) JTAG
+atmel_ice_jtag.name=Atmel-ICE JTAG
 atmel_ice_jtag.communication=usb
 atmel_ice_jtag.protocol=atmelice_jtag
 atmel_ice_jtag.program.protocol=atmelice_jtag
@@ -106,7 +106,7 @@ atmel_jtagice3_jtag.program.tool=avrdude
 atmel_jtagice3_jtag.program.extra_params=
 atmel_jtagice3_jtag.program.extra_params=-B0.1
 
-atmel_powerdebugger_jtag.name=Power Debugger (AVR) JTAG
+atmel_powerdebugger_jtag.name=Power Debugger JTAG
 atmel_powerdebugger_jtag.communication=usb
 atmel_powerdebugger_jtag.protocol=powerdebugger_jtag
 atmel_powerdebugger_jtag.program.protocol=powerdebugger_jtag
