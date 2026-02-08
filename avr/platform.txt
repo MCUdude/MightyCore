@@ -11,8 +11,8 @@ version=3.1.0
 # ---------------------
 
 # Optimization flags for debugging
-compiler.optimization_flags=-Os -ggdb3 -DNDBEUG
-compiler.optimization_flags.release=-Os -ggdb3 -DNDBEUG
+compiler.optimization_flags=-Os -ggdb3 -DNDEBUG
+compiler.optimization_flags.release=-Os -ggdb3 -DNDEBUG
 compiler.optimization_flags.debug=-Og -ggdb3 -DDEBUG
 
 compiler.warning_flags=

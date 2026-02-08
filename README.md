@@ -4,7 +4,7 @@
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running the [Urboot](#write-to-own-flash) bootloader. Most Arduino UNO-compatible libraries will work with this core. If not, it's fairly straightforward to [port a library](#library-porting).
 This core requires at least Arduino IDE v1.6, where v1.8.9 or newer is recommended. IDE 2.x should also work.
 
-*From version 3.1.0 onwards, debugging in the Arduino IDE 2 is supported. You can use any of Microchip's EDBG-based hardware debuggers or the DIY debugger [dw-link](https://github.com/felias-fogg/dw-link). For documentation, see [https://pyavrocd.io](https://pyavrocd.io).*
+*From version 3.1.0 onwards, debugging in the Arduino IDE 2 is supported. You can use any of Microchip's EDBG-based hardware debuggers. For documentation, see [https://pyavrocd.io](https://pyavrocd.io).*
 
 *From MightyCore version 3 and onwards, the Optiboot bootloader has been replaced by the superior [Urboot bootloader](https://github.com/stefanrueger/urboot/). It's smaller, faster, and has automatic baud rate detection. Other cool features the bootloader provides but are not utilized by MightyCore are user program metadata stored in flash that (can easily be viewed by Avrdude -xshowall) and chip erase functionality.
 If you already have Optiboot installed and don't want to replace it with Urboot, you can still upload programs without any compatibility issues. However, if you're burning a bootloader to a new chip, Urboot is the way to go.*
