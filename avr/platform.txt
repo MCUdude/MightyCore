@@ -5,10 +5,15 @@
 # https://arduino.github.io/arduino-cli/latest/platform-specification/
 
 name=MightyCore
-version=3.0.3
+version=3.1.0
 
 # AVR compile variables
 # ---------------------
+
+# Optimization flags for debugging
+compiler.optimization_flags=-Os -ggdb3 -DNDEBUG
+compiler.optimization_flags.release=-Os -ggdb3 -DNDEBUG
+compiler.optimization_flags.debug=-Og -ggdb3 -DDEBUG
 
 compiler.warning_flags=
 compiler.warning_flags.none=-w
@@ -19,12 +24,12 @@ compiler.warning_flags.all=-Wall -Wextra
 # Default "compiler.path" is correct, change only if you want to override the initial value
 compiler.path={runtime.tools.avr-gcc.path}/bin/
 compiler.c.cmd=avr-gcc
-compiler.c.flags=-c -g -Os {compiler.warning_flags} -std=gnu11 -ffunction-sections -fdata-sections -MMD
-compiler.c.elf.flags={compiler.warning_flags} -Os -Wl,--gc-sections,--section-start=.FAR_MEM1=0x10000
+compiler.c.flags=-c -g {compiler.optimization_flags} {compiler.warning_flags} -std=gnu11 -ffunction-sections -fdata-sections -MMD
+compiler.c.elf.flags={compiler.warning_flags} {compiler.optimization_flags} -Wl,--gc-sections,--section-start=.FAR_MEM1=0x10000
 compiler.c.elf.cmd=avr-gcc
 compiler.S.flags=-c -g -x assembler-with-cpp
 compiler.cpp.cmd=avr-g++
-compiler.cpp.flags=-c -g -Os {compiler.warning_flags} -std=gnu++17 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD
+compiler.cpp.flags=-c -g {compiler.optimization_flags} {compiler.warning_flags} -std=gnu++17 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD
 compiler.ar.cmd={ltoarcmd}
 compiler.ar.flags=rcs
 compiler.objcopy.cmd=avr-objcopy
@@ -73,8 +78,8 @@ recipe.objcopy.eep.pattern="{compiler.path}{compiler.objcopy.cmd}" {compiler.obj
 recipe.objcopy.hex.pattern="{compiler.path}{compiler.elf2hex.cmd}" {compiler.elf2hex.flags} {compiler.elf2hex.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.hex"
 
 ## Check for progmem overflow
-recipe.objcopy.progmem.pattern="/bin/bash" "{runtime.platform.path}/scripts/progmemcheck.sh" "{compiler.path}/{compiler.symbol.cmd}" "{build.path}/{build.project_name}.elf"
-recipe.objcopy.progmem.pattern.windows="{runtime.platform.path}/scripts/progmemcheck.bat" "{runtime.tools.avr-gcc.path}\\bin\\{compiler.symbol.cmd}" "{build.path}/{build.project_name}.elf"
+recipe.objcopy.progmem.pattern="/bin/bash" "{runtime.platform.path}/scripts/progmemcheck.sh" "{compiler.path}/avr-nm" "{build.path}/{build.project_name}.elf"
+recipe.objcopy.progmem.pattern.windows="{runtime.platform.path}/scripts/progmemcheck.bat" "{runtime.tools.avr-gcc.path}\\bin\\avr-nm.exe" "{build.path}/{build.project_name}.elf"
 
 ## Save disassembler listing
 # Dummy initial `echo.` command prevents unwanted stripping of quotes by `cmd /C` which would cause the command to fail for paths with spaces
@@ -150,3 +155,30 @@ tools.avrdude_remote.upload.pattern=/usr/bin/run-avrdude /tmp/sketch.hex {upload
 # - from numeric vendor ID, set to Unknown otherwise
 build.usb_manufacturer="Unknown"
 build.usb_flags=-DUSB_VID={build.vid} -DUSB_PID={build.pid} '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'
+
+# Debugger configuration (general options)
+# ----------------------------------------
+debug.executable={build.path}/{build.project_name}.elf
+debug.toolchain=gcc
+debug.toolchain.path={runtime.tools.avrocd-tools.path}
+
+debug.server=openocd
+debug.server.openocd.path={debug.toolchain.path}/pyavrocd
+#next doesn't matter, but should be specified so that cortex-debug is happy
+debug.server.openocd.script=nix
+debug.cortex-debug.custom.gdbPath={debug.toolchain.path}/avr-gdb
+debug.cortex-debug.custom.overrideGDBServerStartedRegex=Listening on port \d+ for gdb connection
+debug.cortex-debug.custom.objdumpPath={runtime.tools.avr-gcc.path}/bin/avr-objdump
+debug.cortex-debug.custom.serverArgs.0=-s
+# The nop should be the serverArgs.1 because the programmer simavr may change that!
+debug.cortex-debug.custom.serverArgs.1=nop
+debug.cortex-debug.custom.serverArgs.2=-d
+debug.cortex-debug.custom.serverArgs.3={build.mcu}
+debug.cortex-debug.custom.serverArgs.4=--manage
+debug.cortex-debug.custom.serverArgs.5=all
+debug.cortex-debug.custom.serverArgs.6=--F_CPU
+debug.cortex-debug.custom.serverArgs.7={build.f_cpu}
+debug.cortex-debug.custom.serverArgs.8=--prog-clock
+debug.cortex-debug.custom.serverArgs.9=2000
+debug.cortex-debug.custom.runToEntryPoint=main
+debug.svd_file={debug.toolchain.path}/pyavrocd-util/svd/{build.mcu}.svd
