@@ -206,7 +206,7 @@ Please have a look at the (`pins_arduino.h`) files for detailed info. Pick your 
 
 | **MightyCore Standard pinout**                                                                                                                                           | **MightyCore Bobuino pinout**                                                                                                                                            | **MightyCore Sanguino pinout**                                                                                                                                           |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|<img src="https://i.imgur.com/zBNPc5b.png" width="260"><img src="https://i.imgur.com/K34xZb4.jpg" width="260"><br/><img src="https://i.imgur.com/TTfOkyF.jpg" width="260">|<img src="https://i.imgur.com/QA66Rfq.png" width="260"><img src="https://i.imgur.com/fYLCeb0.jpg" width="260"><br/><img src="https://i.imgur.com/rNjIzfF.jpg" width="260">|<img src="https://i.imgur.com/xcxjLKE.png" width="260"><img src="https://i.imgur.com/6CNohI4.jpg" width="260"><br/><img src="https://i.imgur.com/e1TzsVN.jpg" width="260">|
+|<img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_DIP40_standard_pinout.png" width="260"><img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_TQFP44_standard_pinout.jpg" width="260"><br/><img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_ATmega324PB_standard_pinout.jpg" width="260">|<img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_DIP40_bobuino_pinout.png" width="260"><img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_TQFP44_bobuino_pinout.jpg" width="260"><br/><img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_ATmega324PB_bobuino_pinout.jpg" width="260">|<img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_DIP40_sanguino_pinout.png" width="260"><img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_TQFP44_sanguino_pinout.jpg" width="260"><br/><img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/MightyCore_ATmega324PB_sanguino_pinout.jpg" width="260">|
 
 
 ## Programmers
@@ -216,7 +216,6 @@ Make sure you connect an ISP programmer, and select the correct one in the "Prog
 
 ## How to install
 #### Boards Manager Installation
-This installation method requires Arduino IDE version 1.8.0 or greater.
 * Open the Arduino IDE.
 * Open the **File > Preferences** menu item.
 * Enter the following URL in **Additional Boards Manager URLs**:
@@ -320,4 +319,4 @@ Here is a simple schematic showing a minimal setup using an external crystal. Sk
 
 | DIP-40 package                                        | TQFP-44 SMD package                                   | ATmega324PB SMD package                               |
 |-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
-|<img src="https://i.imgur.com/pCiKton.png" width="280">|<img src="https://i.imgur.com/5aKLRp0.png" width="280">|<img src="https://i.imgur.com/679DBWF.png" width="280">|
+|<img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/Minimal_setup_MightyCore_DIP40.png" width="280">|<img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/Minimal_setup_MightyCore_TQFP44.png" width="280">|<img src="https://raw.githubusercontent.com/MCUdude/MightyCore/refs/heads/master/avr/images/Minimal_setup_MightyCore_ATMEGA324PB_TQFP44.png" width="280">|
