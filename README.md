@@ -2,7 +2,7 @@
 [![MegaCore forum thread](https://img.shields.io/badge/support-forum-blue.svg)](http://forum.arduino.cc/index.php?topic=379427.0)
 
 An Arduino core for ATmega8535, ATmega16, ATmega32, ATmega164, ATmega324, ATmega644 and ATmega1284, all running the [Urboot](#write-to-own-flash) bootloader. Most Arduino UNO-compatible libraries will work with this core. If not, it's fairly straightforward to [port a library](#library-porting).
-This core requires at least Arduino IDE v1.6, where v1.8.9 or newer is recommended. IDE 2.x should also work.
+MightyCore works with flawless with Arduino IDE 1.8.x, but if you want to debug using a hardware debugger, you'll need Arduino IDE 2.x.
 
 *From version 3.1.0 onwards, debugging in the Arduino IDE 2 is supported. You can use any of Microchip's EDBG-based hardware debuggers. For documentation, see [https://pyavrocd.io](https://pyavrocd.io).*
 
